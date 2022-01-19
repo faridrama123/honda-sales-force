@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dp20"
+        tools:context=".view.activity.MainActivity">
+
+    <ScrollView android:scrollbars="none" android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:id="@+id/lldesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                        android:textColor="@color/black"
+                        android:id="@+id/ttitle"
+                        android:textSize="@dimen/dp25"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                <TextView
+                        android:layout_marginTop="@dimen/dp10"
+                        android:textColor="@color/gray"
+                        android:id="@+id/tdesc"
+                        android:textSize="@dimen/dp16"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                <TextView
+                        android:text="@string/color"
+                        android:layout_marginTop="@dimen/dp30"
+                        android:textColor="@color/reds"
+                        android:textSize="@dimen/dp25"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+            <com.glide.slider.library.SliderLayout
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/lldesc"
+                    android:id="@+id/slider"
+                    android:layout_width="400dp"
+                    android:layout_height="300dp"
+                    android:background="@color/white"/>
+
+            <com.glide.slider.library.Indicators.PagerIndicator
+                    android:id="@+id/custom_indicator"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/slider"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"/>
+
+
+
+
+
+        </RelativeLayout>
+
+
+
+    </ScrollView>
+</RelativeLayout>

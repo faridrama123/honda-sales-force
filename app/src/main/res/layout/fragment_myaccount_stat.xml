@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="wrap_content" xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".view.activity.MainActivity">
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/lluserdetail"
+            android:padding="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp20"
+            android:layout_marginRight="@dimen/dp20"
+            android:layout_marginTop="@dimen/dp20"
+            android:layout_marginBottom="@dimen/dp10"
+            android:orientation="vertical"
+            android:background="@color/transbb"
+            android:layout_below="@+id/rluser"
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+                android:layout_marginLeft="@dimen/dp20"
+                android:layout_marginRight="@dimen/dp30"
+                android:layout_marginTop="@dimen/dp10"
+                android:padding="@dimen/dp15"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:gravity="center_horizontal">
+            <TextView
+                    android:gravity="center_horizontal"
+                    android:layout_alignLeft="@+id/tredeem"
+                    android:layout_alignRight="@+id/tredeem"
+                    android:id="@+id/tmypoint"
+                    android:textSize="@dimen/dp10"
+                    android:textColor="@color/black"
+                    android:text="@string/mypoint"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <ImageView
+                    android:layout_marginRight="@dimen/dp10"
+                    android:layout_toLeftOf="@+id/tpoint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:src="@drawable/icon_medal"/>
+            <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/tpoint"
+                    android:layout_alignParentRight="true"
+                    android:textSize="@dimen/dp20"
+                    android:textColor="@color/reds"
+                    android:text="2345"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:layout_marginTop="@dimen/dp5"
+                    android:id="@+id/tredeem"
+                    android:layout_below="@id/tmypoint"
+                    android:paddingLeft="@dimen/dp20"
+                    android:paddingRight="@dimen/dp20"
+                    android:paddingTop="@dimen/dp5"
+                    android:paddingBottom="@dimen/dp5"
+                    android:textColor="@color/white"
+                    android:background="@drawable/round_orange"
+                    android:text="@string/redeem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+        </RelativeLayout>
+        <LinearLayout
+                android:background="@color/gray"
+                android:layout_width="match_parent" android:layout_height="1dp"></LinearLayout>
+        <LinearLayout
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/dp10" android:orientation="horizontal"
+                android:layout_width="match_parent" android:layout_height="wrap_content">
+
+            <LinearLayout
+                    android:visibility="gone"
+                    android:gravity="center" android:orientation="vertical" android:layout_weight="1"
+                    android:layout_width="0dp" android:layout_height="wrap_content">
+
+                <TextView
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textColor="@color/darkblue"
+                        android:text="231"
+                        android:textSize="@dimen/dp18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                <TextView
+                        android:gravity="center"
+                        android:text="@string/openapps"
+                        android:textSize="@dimen/dp10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_weight="1"
+                          android:layout_width="0dp" android:layout_height="wrap_content">
+
+                <TextView
+                        android:id="@+id/treadsalestalk"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textColor="@color/green"
+                        android:text="231"
+                        android:textSize="@dimen/dp18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                <TextView
+                        android:gravity="center"
+                        android:text="@string/readsalestalk"
+                        android:textSize="@dimen/dp10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_weight="1"
+                          android:layout_width="0dp" android:layout_height="wrap_content">
+
+                <TextView
+                        android:id="@+id/twatchvideo1"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textColor="@color/purple"
+                        android:text="231"
+                        android:textSize="@dimen/dp18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                <TextView
+                        android:gravity="center"
+                        android:text="@string/watchvideo"
+                        android:textSize="@dimen/dp10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_weight="1"
+                          android:layout_width="0dp" android:layout_height="wrap_content">
+
+                <TextView
+                        android:id="@+id/tinputdata"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textColor="@color/orange"
+                        android:text="231"
+                        android:textSize="@dimen/dp18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                <TextView
+                        android:gravity="center"
+                        android:text="@string/entrydata"
+                        android:textSize="@dimen/dp10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/rlprofilevaccine"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp230"
+            android:padding="@dimen/dp10"
+            >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/rlimageprofilewithvaccine"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:id="@+id/imgprofile"
+                    android:layout_width="@dimen/dp150"
+                    android:layout_height="@dimen/dp150"
+                    />
+
+                <TextView
+                    android:id="@+id/tveditprofileimage"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:textSize="@dimen/dp10"
+                    android:paddingLeft="@dimen/dp10"
+                    android:paddingRight="@dimen/dp10"
+                    android:textColor="@color/white"
+                    android:background="#88000000"
+                    android:text="@string/change"
+                    app:layout_constraintTop_toTopOf="@id/imgprofile"
+                    app:layout_constraintEnd_toEndOf="@id/imgprofile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+                <LinearLayout
+                    android:layout_marginStart="@dimen/dp20"
+                    app:layout_constraintBottom_toBottomOf="@id/imgprofile"
+                    app:layout_constraintTop_toTopOf="@id/imgprofile"
+                    app:layout_constraintStart_toEndOf="@id/imgprofile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <TextView
+                        android:text="@string/status_vaksin_pertama"
+                        android:textSize="12sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:id="@+id/tvstatusvaccine1"
+                        android:text="@string/sudah_vaksin"
+                        android:textSize="16sp"
+                        tools:textColor="@color/green"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_marginTop="@dimen/dp10"
+                        android:text="@string/status_vaksin_kedua"
+                        android:textSize="12sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:id="@+id/tvstatusvaccine2"
+                        android:text="@string/belum_vaksin"
+                        android:textSize="16sp"
+                        tools:textColor="@color/red"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tvupdatevaccine"
+                android:layout_marginTop="@dimen/dp16"
+                android:layout_marginStart="@dimen/dp16"
+                android:layout_marginEnd="@dimen/dp16"
+                android:gravity="center"
+                android:padding="@dimen/dp5"
+                android:background="@drawable/border_red_rds_10"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/reds"
+                android:text="@string/update_data_vaksin"
+                app:layout_constraintTop_toBottomOf="@id/rlimageprofilewithvaccine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <LinearLayout
+            android:layout_below="@id/rlprofilevaccine"
+            android:id="@+id/llgridmenu"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                    android:layout_below="@+id/lluserdetail"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                <LinearLayout android:visibility="gone" android:id="@+id/llkuis" android:layout_marginLeft="@dimen/dp20"
+                              android:layout_marginRight="@dimen/dp20"
+                              android:orientation="horizontal" android:layout_width="match_parent"
+                              android:layout_height="wrap_content">
+
+                    <LinearLayout
+                            android:layout_margin="@dimen/dp5"
+                            android:padding="@dimen/dp10"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:background="@color/greencalm"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+
+                        <TextView
+                                android:id="@+id/ttotalassignment"
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:layout_alignParentRight="true"
+                                android:textSize="@dimen/dp25"
+                                android:textColor="@color/white"
+                                android:text="27"
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView
+                                android:minLines="3"
+                                android:gravity="center"
+                                android:text="@string/takeassesment"
+                                android:textSize="@dimen/dp10"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                            android:layout_margin="@dimen/dp5"
+                            android:padding="@dimen/dp10"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:background="@color/purplecalm"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+
+                        <TextView
+                                android:id="@+id/tpass"
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:layout_alignParentRight="true"
+                                android:textSize="@dimen/dp25"
+                                android:textColor="@color/white"
+                                android:text="25"
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView
+                                android:minLines="3"
+                                android:gravity="center"
+                                android:text="@string/pass"
+                                android:textSize="@dimen/dp10"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                            android:layout_margin="@dimen/dp5"
+                            android:padding="@dimen/dp10"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:background="@color/redcalm"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+
+                        <TextView
+                                android:id="@+id/tremed"
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:layout_alignParentRight="true"
+                                android:textSize="@dimen/dp25"
+                                android:textColor="@color/white"
+                                android:text="2"
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView
+                                android:minLines="3"
+                                android:gravity="center"
+                                android:text="@string/her"
+                                android:textSize="@dimen/dp10"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout android:layout_marginLeft="@dimen/dp20"
+                              android:layout_marginRight="@dimen/dp20"
+                              android:orientation="horizontal" android:layout_width="match_parent"
+                              android:layout_height="wrap_content">
+
+                    <LinearLayout
+                            android:layout_margin="@dimen/dp5"
+                            android:padding="@dimen/dp10"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:background="@color/redcalm"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+
+                        <TextView
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:layout_alignParentRight="true"
+                                android:textSize="@dimen/dp25"
+                                android:textColor="@color/white"
+                                android:text="27"
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:id="@+id/treadproduct"/>
+                        <TextView
+                                android:textColor="@color/white"
+                                android:minLines="3"
+                                android:gravity="center"
+                                android:text="@string/readproduct"
+                                android:textSize="@dimen/dp8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                            android:layout_margin="@dimen/dp5"
+                            android:padding="@dimen/dp10"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:background="@color/yellowcalm"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+
+                        <TextView
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:layout_alignParentRight="true"
+                                android:textSize="@dimen/dp25"
+                                android:textColor="@color/white"
+                                android:text="25"
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:id="@+id/treadknowledge"/>
+                        <TextView
+                                android:textColor="@color/white"
+                                android:minLines="3"
+                                android:gravity="center"
+                                android:text="@string/readknowledge"
+                                android:textSize="@dimen/dp8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                            android:layout_margin="@dimen/dp5"
+                            android:padding="@dimen/dp10"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:background="@color/peachcalm"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+
+                        <TextView
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:layout_alignParentRight="true"
+                                android:textSize="@dimen/dp25"
+                                android:textColor="@color/white"
+                                android:text="2"
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:id="@+id/twatchvideo"/>
+                        <TextView
+                                android:textColor="@color/white"
+                                android:minLines="3"
+                                android:gravity="center"
+                                android:text="@string/watchvideo"
+                                android:textSize="@dimen/dp8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                            android:layout_margin="@dimen/dp5"
+                            android:padding="@dimen/dp10"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:background="@color/greencalm"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+
+                        <TextView
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:layout_alignParentRight="true"
+                                android:textSize="@dimen/dp25"
+                                android:textColor="@color/white"
+                                android:text="27"
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:id="@+id/treadartc"/>
+                        <TextView
+                                android:textColor="@color/white"
+                                android:minLines="3"
+                                android:gravity="center"
+                                android:text="@string/readarticle"
+                                android:textSize="@dimen/dp8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                        android:weightSum="4"
+                        android:layout_marginLeft="@dimen/dp20"
+                              android:layout_marginRight="@dimen/dp20"
+                              android:orientation="horizontal" android:layout_width="match_parent"
+                              android:layout_height="wrap_content">
+
+
+                    <LinearLayout
+                            android:layout_margin="@dimen/dp5"
+                            android:padding="@dimen/dp10"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:background="@color/bluecalm"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+
+                        <TextView
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:layout_alignParentRight="true"
+                                android:textSize="@dimen/dp25"
+                                android:textColor="@color/white"
+                                android:text="25"
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:id="@+id/tadddata"/>
+                        <TextView
+                                android:textColor="@color/white"
+                                android:minLines="3"
+                                android:gravity="center"
+                                android:text="@string/collectcdb"
+                                android:textSize="@dimen/dp8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                            android:layout_margin="@dimen/dp5"
+                            android:padding="@dimen/dp10"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:background="@color/purplecalm"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+
+                        <TextView
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:layout_alignParentRight="true"
+                                android:textSize="@dimen/dp25"
+                                android:textColor="@color/white"
+                                android:text="2"
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:id="@+id/ttakequis"/>
+                        <TextView
+                                android:textColor="@color/white"
+                                android:minLines="3"
+                                android:gravity="center"
+                                android:text="@string/takequis"
+                                android:textSize="@dimen/dp8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                            android:layout_margin="@dimen/dp5"
+                            android:padding="@dimen/dp10"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:background="@color/purple"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+
+                        <TextView
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:layout_alignParentRight="true"
+                                android:textSize="@dimen/dp25"
+                                android:textColor="@color/white"
+                                android:text="27"
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:id="@+id/ttakesurvey"/>
+                        <TextView
+                                android:textColor="@color/white"
+                                android:minLines="3"
+                                android:gravity="center"
+                                android:text="@string/takesurvey"
+                                android:textSize="@dimen/dp8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                            android:visibility="invisible"
+                            android:layout_margin="@dimen/dp5"
+                            android:padding="@dimen/dp10"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:background="@color/purple"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+
+                        <TextView
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:layout_alignParentRight="true"
+                                android:textSize="@dimen/dp25"
+                                android:textColor="@color/white"
+                                android:text="27"
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView
+                                android:textColor="@color/white"
+                                android:minLines="3"
+                                android:gravity="center"
+                                android:text="@string/takesurvey"
+                                android:textSize="@dimen/dp8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+        </LinearLayout>
+
+
+</RelativeLayout>

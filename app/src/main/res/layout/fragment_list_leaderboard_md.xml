@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".view.activity.MainActivity">
+    <!--<android.support.v7.widget.RecyclerView-->
+    <!--android:id="@+id/rv"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:fitsSystemWindows="true" />-->
+    <LinearLayout
+            android:id="@+id/llheader"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:id="@+id/tposition"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@color/bluecalm"
+                android:padding="@dimen/dp10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <TextView
+                android:id="@+id/theader"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@color/reds"
+                android:padding="@dimen/dp10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <LinearLayout
+                android:padding="@dimen/dp10"
+                android:orientation="vertical"
+                android:id="@+id/llsearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                        android:layout_weight="1"
+                        android:text="Nama Dealer:"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+
+                <EditText
+                        android:layout_weight="2"
+                        android:id="@+id/etname"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <TextView
+                        android:layout_weight="1"
+                        android:text="Kota/Kabupaten:"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+
+                <EditText
+                        android:layout_weight="2"
+                        android:id="@+id/etkab"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent" android:layout_height="@dimen/dp50">
+
+
+                <TextView
+                        android:background="@drawable/round_gray"
+                        android:gravity="center"
+                        android:layout_margin="@dimen/dp10"
+                        android:padding="@dimen/dp5"
+
+                        android:textSize="@dimen/dp16"
+                        android:textColor="@color/white"
+                        android:text="@string/clear"
+                        android:id="@+id/tclear"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+
+                <TextView
+                        android:background="@drawable/round_red"
+                        android:gravity="center"
+                        android:layout_margin="@dimen/dp10"
+                        android:padding="@dimen/dp5"
+
+                        android:textSize="@dimen/dp16"
+                        android:textColor="@color/white"
+                        android:text="Cari"
+                        android:id="@+id/tsearch"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    <LinearLayout
+            android:padding="@dimen/dp10"
+            android:background="@color/orange"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:layout_marginLeft="@dimen/dp10"
+                android:text="NO"
+                android:id="@+id/tno"
+                android:textSize="@dimen/dp12"
+                android:textColor="@color/white"
+                android:layout_weight="3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+
+
+        <TextView
+                android:layout_weight="8"
+                android:text="NAMA"
+                android:id="@+id/tname"
+                android:textSize="@dimen/dp12"
+                android:textColor="@color/white"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+
+        <TextView
+                android:text="KOTA/KABUPATEN"
+                android:id="@+id/tkab"
+                android:textSize="@dimen/dp12"
+                android:textColor="@color/white"
+                android:layout_weight="5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:text="POIN"
+                android:gravity="end"
+                android:id="@+id/tpoint"
+                android:textSize="@dimen/dp12"
+                android:textColor="@color/white"
+                android:layout_weight="3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+    </LinearLayout>
+
+
+<LinearLayout
+        android:layout_below="@+id/llheader"
+        android:id="@+id/llcontainer"
+        android:orientation="vertical"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+
+
+</LinearLayout>
+
+</RelativeLayout>

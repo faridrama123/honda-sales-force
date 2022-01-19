@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@drawable/menu_background"
+        tools:context=".view.activity.MainActivity">
+
+
+
+    <RelativeLayout
+            android:layout_marginTop="@dimen/dp30"
+            android:id="@+id/rluser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        <ImageView
+                android:layout_margin="@dimen/dp5"
+                android:id="@+id/imgback"
+                android:padding="@dimen/dp10"
+
+                android:src="@drawable/arrow_back_red"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_marginRight="@dimen/dp10"
+                android:layout_toRightOf="@+id/imgback"
+                android:id="@+id/tname"
+                android:textSize="@dimen/dp24"
+                android:textColor="@color/black"
+                android:text="@string/bento"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+        <LinearLayout
+                android:id="@+id/llstatus"
+                android:orientation="horizontal"
+                android:layout_below="@id/tname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                        android:id="@+id/tlevel"
+                        android:text="Diamond"
+                        android:textSize="@dimen/dp14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                <TextView
+                        android:textStyle="bold"
+                        android:textColor="@color/redcalm"
+                        android:id="@+id/tpoint"
+                        android:text="605675"
+                        android:textSize="@dimen/dp18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+            <ImageView 
+                    android:id="@+id/imglevel"
+                    android:layout_width="@dimen/dp80" 
+                    android:layout_height="@dimen/dp80"/>
+            
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                        android:layout_marginLeft="@dimen/dp10"
+                        android:layout_marginRight="@dimen/dp10"
+                        android:gravity="center"
+                        android:id="@+id/tlrank"
+                        android:text="@string/position"
+                        android:textSize="@dimen/dp14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                <TextView
+                        android:textColor="@color/redcalm"
+                        android:id="@+id/trank"
+                        android:text="5"
+                        android:textSize="@dimen/dp18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+                android:layout_marginBottom="@dimen/dp20"
+                android:layout_marginLeft="@dimen/dp20"
+                android:layout_below="@+id/llstatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:id="@+id/tposition"
+                    android:text="@string/position"
+                    android:textSize="@dimen/dp14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+    <ScrollView
+            android:background="@color/graylight"
+            android:layout_above="@+id/tcontact"
+            android:layout_below="@id/rluser"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+                android:layout_below="@id/rluser"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+
+
+            <com.langit7.hondasalesforce.Util.CustomTabLayout
+                    android:id="@+id/subtabs"
+                    android:layout_below="@+id/bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp50"
+                    android:layout_gravity="top"
+                    android:background="@drawable/submenu_gradasi"
+                    app:tabMode="scrollable"
+                    app:tabGravity="center"
+                    app:tabTextAppearance="@style/SubTabText"
+                    app:tabIndicatorHeight="0dp"
+                    app:tabMaxWidth="0dp" />
+            <xyz.santeri.wvp.WrappingViewPager
+                    android:background="@color/graylight"
+                    android:id="@+id/view_pager"
+                    android:layout_below="@+id/tabs"
+                    android:minHeight="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+            />
+
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>

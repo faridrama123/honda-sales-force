@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:id="@+id/frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="false"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentRight="false"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+
+            android:layout_marginTop="80dp"
+            android:background="@drawable/round_white"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                    android:layout_marginTop="@dimen/dp20"
+                    android:src="@drawable/logo_appname"
+                    android:layout_width="match_parent" android:layout_height="match_parent"/>
+
+
+            <TextView
+                android:layout_marginLeft="@dimen/dp20"
+                android:layout_marginRight="@dimen/dp20"
+                android:id="@+id/tdesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Bagaimana Pengalaman Anda menggunakan aplikasi ini?"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <RatingBar
+                    android:layout_gravity="center_horizontal"
+                    android:rating="3"
+                    android:stepSize="0.1"
+                    android:numStars="5"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ratingBar"/>
+            <Button
+                android:id="@+id/bnext"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/round_red"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:text="Selesai"
+                android:textColor="#fff"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

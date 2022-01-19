@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.activity.ArticleActivity">
+
+
+<RelativeLayout android:id="@+id/topbar" android:layout_width="match_parent" android:layout_height="wrap_content">
+
+    <ImageView android:id="@+id/imgtopbar" android:scaleType="centerCrop" android:src="@drawable/menu_header" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+
+    <include layout="@layout/action_bar" android:id="@+id/bar"/>
+
+    <TextView
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_below="@+id/bar"
+            android:textSize="@dimen/dp25"
+            android:id="@+id/ttitle"
+            android:layout_alignBottom="@+id/imgtopbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+</RelativeLayout>
+
+
+    <ScrollView
+            android:layout_below="@+id/topbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+                android:paddingBottom="@dimen/dp30"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent" android:layout_height="wrap_content">
+
+            <com.langit7.hondasalesforce.Util.fitxImageView
+                    android:id="@+id/img"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+            <TextView
+                    android:textSize="@dimen/dp16"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:text="@string/harga"
+                    android:textColor="@color/reds"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:id="@+id/tharga"
+                    android:textSize="@dimen/dp16"
+                    android:textColor="@color/gray"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:textSize="@dimen/dp16"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:text="@string/ukuran"
+                    android:textColor="@color/reds"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:id="@+id/tukuran"
+                    android:textSize="@dimen/dp16"
+                    android:text="@string/harga"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:textSize="@dimen/dp16"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:text="@string/material"
+                    android:textColor="@color/reds"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:id="@+id/tmaterial"
+                    android:textSize="@dimen/dp16"
+                    android:text="@string/harga"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:textSize="@dimen/dp16"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:text="@string/warna"
+                    android:textColor="@color/reds"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:layout_marginBottom="@dimen/dp30"
+                    android:id="@+id/twarna"
+                    android:textSize="@dimen/dp16"
+                    android:text="@string/harga"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+
+    <ImageView
+            android:id="@+id/imgscan"
+            android:layout_marginBottom="@dimen/dp15"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/button_scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+</RelativeLayout>

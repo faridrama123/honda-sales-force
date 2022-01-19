@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+            android:background="@color/white"
+            android:layout_margin="@dimen/dp30"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+                                         >
+        <TextView
+                android:text="@string/redeempoint"
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ttitle"
+                android:textSize="@dimen/dp18"
+                android:textColor="@color/black"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"/>
+
+        <TextView
+                android:layout_below="@id/ttitle"
+                android:text="@string/inputspvcode"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tdesc"
+                android:textSize="@dimen/dp14"
+                android:textColor="@color/gray"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"/>
+
+        <RelativeLayout
+                android:id="@+id/rlcode"
+                android:layout_below="@id/tdesc"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginLeft="@dimen/dp30"
+                android:layout_marginRight="@dimen/dp30"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <ImageView
+                    android:layout_alignTop="@id/etcode"
+                    android:layout_alignBottom="@id/etcode"
+                    android:id="@+id/imgpassword"
+                    android:src="@drawable/icon_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <EditText
+                    android:inputType="textPassword"
+                    android:gravity="center_horizontal"
+                    android:textSize="@dimen/dp20"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:background="@color/transparat"
+                    android:layout_toRightOf="@id/imgpassword"
+                    android:layout_toEndOf="@id/imgpassword"
+                    android:id="@+id/etcode"
+                    android:layout_width="match_parent"
+                    android:layout_toLeftOf="@id/imgeye"
+                    android:layout_height="wrap_content"/>
+            <!--<ImageView-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:layout_alignTop="@id/etcode"-->
+                    <!--android:layout_alignBottom="@id/etcode"-->
+                    <!--android:id="@+id/imgeye"-->
+                    <!--android:src="@drawable/icon_visible"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"/>-->
+
+            <LinearLayout
+                    android:layout_marginTop="@dimen/dp5"
+                    android:layout_below="@+id/etcode"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/reds"/>
+        </RelativeLayout>
+
+
+
+        <LinearLayout
+                android:layout_marginBottom="@dimen/dp20"
+                android:layout_below="@id/rlcode"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp20">
+
+            <TextView
+
+                    android:gravity="center"
+                    android:layout_width="@dimen/dp100"
+                    android:layout_height="wrap_content"
+                    android:text="@string/submit"
+                    android:background="@drawable/round_red"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp16"
+                    android:id="@+id/tyes"
+                    android:padding="@dimen/dp10"
+                    android:layout_gravity="center_horizontal"/>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

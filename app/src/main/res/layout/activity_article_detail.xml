@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                tools:context=".view.activity.ArticleDetailActivity">
+
+        <include layout="@layout/action_bar" android:id="@+id/bar"/>
+
+        <ScrollView
+                android:paddingLeft="@dimen/dp10"
+                android:paddingRight="@dimen/dp10"
+                android:layout_below="@+id/bar"
+                android:scrollbars="none"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+
+
+
+
+
+
+
+                <ImageView
+                        android:layout_marginTop="@dimen/dp10"
+                        android:id="@+id/imgart"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/imgarticleheigh" />
+                <TextView
+
+                        android:id="@+id/ttitle"
+                        android:textSize="@dimen/dp20"
+                        android:text="@string/bento"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_toRightOf="@id/img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                <TextView
+                        android:layout_marginTop="@dimen/dp10"
+                        android:id="@+id/tdate"
+                        android:text="@string/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+
+                <WebView
+                        android:layout_marginTop="@dimen/dp10"
+                        android:id="@+id/webview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+            </LinearLayout>
+
+
+
+        </ScrollView>
+
+
+
+
+</RelativeLayout>

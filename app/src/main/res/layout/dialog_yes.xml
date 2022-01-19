@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+            android:layout_margin="@dimen/dp30"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+                                         >
+
+        <TextView
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tdesc"
+                android:textSize="@dimen/dp16"
+                android:textColor="@color/black"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"/>
+
+        <LinearLayout
+                android:layout_marginBottom="@dimen/dp20"
+                android:layout_below="@id/tdesc"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp20">
+
+            <TextView
+
+                    android:gravity="center"
+                    android:layout_width="@dimen/dp100"
+                    android:layout_height="wrap_content"
+                    android:text="Iya"
+                    android:background="@drawable/round_red"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp16"
+                    android:id="@+id/tyes"
+                    android:padding="@dimen/dp10"
+                    android:layout_gravity="center_horizontal"/>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

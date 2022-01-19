@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.langit7.hondasalesforce">
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:name=".HSFApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_myhero"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".view.activity.teamreport.ListQualifiedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.teamreport.PartisipantQuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.teamreport.PartisipantDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.teamreport.ListFrequentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.teamreport.KuisPesertaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.teamreport.PartisipantPesertaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.teamreport.PartisipantDeptActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.teamreport.FrequentActivity"
+            android:exported="false"
+            android:label="@string/title_activity_frequent"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".view.activity.teamreport.QualifiedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.teamreport.KuisActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.teamreport.PartisipantActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.SurveyNewActivity"
+            android:exported="false"
+            android:label="@string/title_activity_survey_new"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".view.activity.QuizNewActivity"
+            android:exported="false"
+            android:label="@string/title_activity_quiz_new"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".view.activity.VaccineActivity" />
+        <activity android:name=".view.activity.QuizHistoryDetailActivity" />
+        <activity android:name=".view.activity.CustomerRecNotKnowActivity" />
+        <activity android:name=".view.activity.CustomerRecKnowActivity" />
+        <activity android:name=".view.activity.ChangeAvatarActivity" />
+        <activity android:name=".view.activity.LeaderboardActivity" />
+        <activity android:name=".view.activity.CDBListActivity" />
+        <activity android:name=".view.activity.CDBResultActivity" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.shareprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <service
+            android:name=".FCM.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".view.activity.CDBActivity" />
+        <activity android:name=".view.activity.RedeemActivity" />
+        <activity android:name=".view.activity.UnduhVideoActivity" />
+        <activity android:name=".view.activity.ApparelbyCatActivity" />
+        <activity android:name=".view.activity.ProductAccessoriesActivity" />
+        <activity
+            android:name=".view.activity.SurveyResultActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".view.activity.QuizResultActivity" />
+        <activity android:name=".view.activity.ProspectCollectionActivity" />
+        <activity android:name=".view.activity.SurveyActivity" />
+        <activity android:name=".view.activity.QuizActivity" />
+        <activity android:name=".view.activity.VideoActivity" />
+        <activity android:name=".view.activity.GeneralKnowledgeActivity" />
+        <activity android:name=".view.activity.CustomizingPartsActivity" />
+        <activity android:name=".view.activity.ProductDetailActivity" />
+        <activity android:name=".view.activity.ProductActivity" />
+        <activity android:name=".view.activity.ApparelDetailActivity" />
+        <activity android:name=".view.activity.ApparelActivity" />
+        <activity android:name=".view.activity.ArticleDetailActivity" />
+        <activity android:name=".view.activity.ArticleActivity" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="279d79739ffbd269a269984ca0d5e340665596f9" />
+
+        <activity android:name=".view.activity.ForgetPasswordResultActivity" />
+        <activity android:name=".view.activity.ForgetPasswordChangeActivity" />
+        <activity android:name=".view.activity.ForgetPasswordOTPActivity" />
+        <activity android:name=".view.activity.ForgetPasswordActivity" />
+        <activity android:name=".view.activity.RegisterResultActivity" />
+        <activity
+            android:name=".view.activity.RegisterActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".view.activity.LoginActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".view.activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.activity.MainActivity" />
+        <activity android:name=".view.activity.ScanActivity" />
+    </application>
+
+</manifest>

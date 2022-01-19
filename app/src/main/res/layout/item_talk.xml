@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+            android:layout_marginTop="@dimen/dp10"
+            android:id="@+id/rlheader1"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:background="@color/graylight"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:id="@+id/ttitle1"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                android:layout_marginLeft="10dp"
+                android:text="title"
+                android:textColor="@color/black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/dp10"/>
+
+        <ImageView
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp15"
+                android:layout_alignParentRight="true"
+                android:id="@+id/imgheader1"
+                android:src="@drawable/icon_menu_minus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"/>
+
+    </LinearLayout>
+
+    <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+            android:layout_below="@+id/rlheader1"
+            android:id="@+id/exlayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp10"
+            app:ael_expanded="true"
+            app:ael_duration="100"
+            app:ael_interpolator="linear"
+            app:ael_orientation="vertical">
+
+        <TextView
+                android:id="@+id/tbody1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+    </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+
+
+
+</RelativeLayout>

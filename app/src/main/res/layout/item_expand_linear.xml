@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+    <LinearLayout
+            android:layout_marginTop="@dimen/dp10"
+            android:id="@+id/rlheader"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:background="@color/graylight"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:id="@+id/ttitle"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                android:layout_marginLeft="10dp"
+                android:text="title"
+                android:textColor="@color/black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/dp10"/>
+
+        <ImageView
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp15"
+                android:layout_alignParentRight="true"
+                android:id="@+id/imgheader"
+                android:src="@drawable/icon_menu_plus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"/>
+
+    </LinearLayout>
+    <com.github.aakira.expandablelayout.ExpandableLinearLayout
+            android:layout_below="@+id/rlheader"
+            android:orientation="vertical"
+            android:id="@+id/exlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:ael_expanded="false"
+            app:ael_duration="0"
+            app:ael_interpolator="linear"
+            app:ael_orientation="vertical">
+        <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/llspeccontainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginLeft="@dimen/dp10"
+        />
+        <TextView
+                android:visibility="gone"
+                android:layout_marginLeft="@dimen/dp10"
+                android:id="@+id/tbody"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+
+
+
+    </com.github.aakira.expandablelayout.ExpandableLinearLayout>
+
+</RelativeLayout>

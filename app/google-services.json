@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "389827021348",
+    "firebase_url": "https://honda-sales-force.firebaseio.com",
+    "project_id": "honda-sales-force",
+    "storage_bucket": "honda-sales-force.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:389827021348:android:70fd1998e7bcb6b7",
+        "android_client_info": {
+          "package_name": "com.langit7.hondasalesforce"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3Nbpy3Q4DXf-T_C3_tmP8aorqw8H_ixc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "389827021348-d26k1v4fvhsn9u8k0d4aldhcqn5uc7l0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

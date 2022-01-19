@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+            android:layout_margin="@dimen/dp30"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/dp10"
+            android:background="@drawable/round_white">
+
+        <TextView
+                android:gravity="center"
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tdesc"
+                android:textSize="@dimen/dp16"
+                android:textColor="@color/black"
+                android:layout_centerHorizontal="true"/>
+
+        <LinearLayout
+                android:layout_marginBottom="@dimen/dp20"
+                android:layout_below="@id/tdesc"
+                android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+
+
+
+            <TextView
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tdesc"
+                    android:layout_toLeftOf="@id/rlcenter"
+                    android:text="Tidak"
+                    android:background="@drawable/round_red"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp16"
+                    android:layout_marginLeft="@dimen/dp20"
+                    android:id="@+id/tno"
+                    android:padding="@dimen/dp10"/>
+            <TextView
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tdesc"
+                    android:layout_toRightOf="@id/rlcenter"
+                    android:text="Iya"
+                    android:background="@drawable/round_red"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp16"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:id="@+id/tyes"
+                    android:layout_marginRight="@dimen/dp20"
+                    android:padding="@dimen/dp10"/>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

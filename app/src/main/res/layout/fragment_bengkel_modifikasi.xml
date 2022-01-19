@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.activity.MainActivity">
+
+<!--<include layout="@layout/filter1" android:id="@+id/filter"/>-->
+
+
+    <RelativeLayout
+            android:id="@+id/exlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        <LinearLayout
+                android:background="@color/graylight"
+                android:id="@+id/llfiltercontainer"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <RelativeLayout
+                    android:layout_marginLeft="@dimen/dp30"
+                    android:layout_marginRight="@dimen/dp30"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:background="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                <Spinner
+                        android:id="@+id/spprovince"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp30"/>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                    android:layout_marginLeft="@dimen/dp30"
+                    android:layout_marginRight="@dimen/dp30"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:background="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+            <Spinner
+                    android:id="@+id/spcity"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp30"/>
+            </RelativeLayout>
+
+
+            <!--<RelativeLayout-->
+                    <!--android:layout_marginLeft="@dimen/dp30"-->
+                    <!--android:layout_marginRight="@dimen/dp30"-->
+                    <!--android:layout_marginTop="@dimen/dp10"-->
+                    <!--android:background="@color/white"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content">-->
+            <!--<Spinner-->
+                    <!--android:id="@+id/spservice"-->
+
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="@dimen/dp30"/>-->
+            <!--</RelativeLayout>-->
+
+
+            <!--<RelativeLayout-->
+                    <!--android:layout_marginLeft="@dimen/dp30"-->
+                    <!--android:layout_marginRight="@dimen/dp30"-->
+                    <!--android:layout_marginTop="@dimen/dp10"-->
+                    <!--android:background="@color/white"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content">-->
+            <!--<Spinner-->
+                    <!--android:id="@+id/sptype"-->
+
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="@dimen/dp30"/>-->
+            <!--</RelativeLayout>-->
+
+
+
+            <LinearLayout
+                    android:layout_marginTop="@dimen/dp15"
+                     android:orientation="horizontal"
+                     android:layout_width="match_parent" android:layout_height="@dimen/dp50">
+
+
+                <TextView
+                        android:background="@drawable/round_gray"
+                        android:gravity="center"
+                        android:layout_margin="@dimen/dp10"
+                        android:padding="@dimen/dp5"
+
+                        android:textSize="@dimen/dp16"
+                        android:textColor="@color/white"
+                        android:text="@string/clear"
+                        android:id="@+id/tclear"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+
+                <TextView
+                        android:background="@drawable/round_red"
+                        android:gravity="center"
+                        android:layout_margin="@dimen/dp10"
+                        android:padding="@dimen/dp5"
+
+                        android:textSize="@dimen/dp16"
+                        android:textColor="@color/white"
+                        android:text="Cari"
+                        android:id="@+id/tsave"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <TextView
+            android:layout_marginTop="@dimen/dp15"
+            android:layout_marginLeft="@dimen/dp15"
+            android:layout_marginRight="@dimen/dp15"
+            android:layout_below="@+id/exlayout"
+            android:paddingTop="@dimen/dp5"
+            android:paddingBottom="@dimen/dp5"
+            android:paddingLeft="@dimen/dp15"
+            android:text="@string/daftarbengkelmodifikasi"
+            android:textColor="@color/white"
+            android:background="@color/black"
+            android:id="@+id/theader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    <ScrollView
+            android:scrollbars="none"
+            android:layout_marginLeft="@dimen/dp30"
+            android:layout_marginRight="@dimen/dp30"
+            android:layout_below="@+id/theader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/llcontainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+    </ScrollView>
+
+
+
+
+</RelativeLayout>

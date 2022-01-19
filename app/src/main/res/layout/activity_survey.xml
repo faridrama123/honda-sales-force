@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/graylight"
+        tools:context=".view.activity.QuizActivity">
+
+    <RelativeLayout
+            android:id="@+id/topbar"
+            android:background="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+        <include layout="@layout/action_bar"/>
+
+    </RelativeLayout>
+
+<ScrollView
+        android:fitsSystemWindows="true"
+        android:background="@color/graylight"
+        android:layout_below="@id/topbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <RelativeLayout
+
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <RelativeLayout
+                android:id="@+id/rlstat"
+                android:gravity="center_horizontal"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/rlcenter"
+                android:padding="@dimen/dp10"
+                android:background="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:gravity="center"
+                    android:layout_alignLeft="@id/tdone"
+                    android:layout_alignRight="@id/ttotal"
+                    android:id="@+id/tjumlahsoal"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:text="@string/numsurv"
+                    android:textSize="@dimen/dp12"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:layout_below="@id/tjumlahsoal"
+                    android:id="@+id/tdone"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:text="10"
+                    android:textSize="35dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                    android:layout_below="@id/tjumlahsoal"
+                    android:layout_toRightOf="@+id/tdone"
+                    android:id="@+id/tslesh"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:text="/"
+                    android:textSize="35dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                    android:layout_below="@id/tjumlahsoal"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_toRightOf="@+id/tslesh"
+                    android:id="@+id/ttotal"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:text="10"
+                    android:textSize="35dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+            <TextView
+                    android:layout_below="@id/tdone"
+                    android:layout_alignLeft="@id/tdone"
+                    android:layout_alignRight="@id/tdone"
+                    android:gravity="center"
+                    android:textColor="@color/graylight"
+                    android:text="@string/surveyno"
+                    android:textSize="@dimen/dp8"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+            <TextView
+                    android:layout_below="@id/ttotal"
+                    android:layout_alignLeft="@id/ttotal"
+                    android:layout_alignRight="@id/ttotal"
+                    android:gravity="center"
+                    android:textColor="@color/graylight"
+                    android:text="@string/total"
+                    android:textSize="@dimen/dp8"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+
+                android:orientation="vertical"
+                android:id="@+id/llquestioncontainer"
+                android:layout_below="@id/rlstat" android:layout_width="match_parent" android:layout_height="wrap_content">
+
+
+
+        </LinearLayout>
+
+
+
+        <TextView
+
+                android:layout_below="@id/llquestioncontainer"
+                android:paddingLeft="@dimen/dp30"
+                android:paddingRight="@dimen/dp30"
+                android:paddingTop="@dimen/dp10"
+                android:paddingBottom="@dimen/dp10"
+                android:textSize="@dimen/dp18"
+                android:textColor="@color/white"
+                android:background="@drawable/round_red"
+                android:text="@string/next"
+                android:id="@+id/tnext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dp30"/>
+
+        <TextView
+
+                android:layout_below="@id/llquestioncontainer"
+                android:paddingLeft="@dimen/dp30"
+                android:paddingRight="@dimen/dp30"
+                android:paddingTop="@dimen/dp10"
+                android:paddingBottom="@dimen/dp10"
+                android:textSize="@dimen/dp18"
+                android:textColor="@color/white"
+                android:background="@drawable/round_red"
+                android:text="Kembali"
+                android:id="@+id/tback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp30"/>
+
+
+    </RelativeLayout>
+</ScrollView>
+
+
+</RelativeLayout>

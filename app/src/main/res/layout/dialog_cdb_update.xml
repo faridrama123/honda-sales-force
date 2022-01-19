@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/dp10"
+            android:background="@drawable/round_white">
+
+
+        <TextView
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:text="Update Status Prospect:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/dp18"
+                android:textColor="@color/black"
+                android:layout_centerHorizontal="true"/>
+
+        <TextView
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_gravity="center_horizontal"
+                android:text="Bento Surento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tname"
+                android:textSize="@dimen/dp16"
+                android:textColor="@color/black"
+                android:layout_centerHorizontal="true"/>
+
+
+
+        <TextView
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_gravity="center_horizontal"
+                android:text="Silahkan masukan tanggal dan status terbaru"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/dp16"
+                android:textColor="@color/black"
+                android:layout_centerHorizontal="true"/>
+
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/ettype"
+                android:id="@+id/llsts"
+                android:layout_marginTop="@dimen/dp10">
+
+            <TextView
+                    android:gravity="top"
+                    android:layout_alignParentTop="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Status"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:textSize="@dimen/dp16"
+                    android:id="@+id/status"
+                    android:layout_marginLeft="@dimen/dp10"/>
+
+
+            <RadioGroup
+                    android:layout_marginRight="@dimen/dp20"
+                    android:gravity="right"
+                    android:layout_alignParentRight="true"
+                    android:layout_toRightOf="@+id/status"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:id="@+id/rgstatus"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                <RadioButton
+                        android:textSize="@dimen/dp12"
+                        android:id="@+id/rbhot"
+                        android:text="Hot"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                <RadioButton
+                        android:textSize="@dimen/dp12"
+                        android:id="@+id/rbwarm"
+                        android:text="Warm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                <RadioButton
+                        android:textSize="@dimen/dp12"
+                        android:id="@+id/rbcold"
+                        android:text="Cold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+            </RadioGroup>
+
+
+        </RelativeLayout>
+        <LinearLayout
+                android:layout_below="@id/ket"
+                android:id="@+id/lldate" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+
+            <RelativeLayout
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginRight="@dimen/dp10">
+                <ImageView
+                        android:layout_marginRight="@dimen/dp10"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/imgcalendar"
+                        android:src="@drawable/icon_calendar"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+                <EditText
+                        android:textSize="@dimen/dp12"
+                        android:minEms="6"
+                        android:inputType="none"
+                        android:editable="false"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:background="@color/transparat"
+                        android:hint="Tanggal"
+                        android:id="@+id/etdate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+
+
+
+                <LinearLayout
+                        android:layout_marginTop="@dimen/dp5"
+                        android:layout_below="@+id/etdate"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/reds"/>
+            </RelativeLayout>
+            <RelativeLayout
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginRight="@dimen/dp10">
+                <ImageView
+                        android:layout_marginRight="@dimen/dp10"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/imgtime"
+                        android:src="@drawable/icon_calendar"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+                <EditText
+                        android:textSize="@dimen/dp12"
+                        android:minEms="6"
+                        android:inputType="none"
+                        android:editable="false"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:background="@color/transparat"
+                        android:hint="Jam"
+                        android:id="@+id/ettime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                        android:layout_marginTop="@dimen/dp5"
+                        android:layout_below="@+id/ettime"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/reds"/>
+            </RelativeLayout>
+
+
+
+        </LinearLayout>
+
+
+        <TextView
+                android:layout_marginTop="@dimen/dp15"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tdesct"
+                android:text="@string/update"
+                android:background="@drawable/round_red"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dp16"
+                android:layout_marginLeft="@dimen/dp20"
+                android:layout_marginRight="@dimen/dp20"
+                android:id="@+id/tyes"
+                android:layout_alignParentRight="true"
+
+                android:padding="@dimen/dp10"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+          android:textSize="@dimen/dp16"
+          android:id="@android:id/text1"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+              android:layout_marginTop="@dimen/dp10"
+          >
+
+
+        <LinearLayout
+                android:layout_marginTop="@dimen/dp15"
+                android:paddingLeft="@dimen/dp10"
+                android:paddingRight="@dimen/dp10"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/dp12"
+                    android:textStyle="bold"
+                    android:id="@+id/ttitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/dp12"
+                    android:id="@+id/taddr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/dp12"
+                    android:id="@+id/tcity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/dp12"
+                    android:id="@+id/tprovince"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/dp12"
+                    android:id="@+id/tphone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@color/gray"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+
+</LinearLayout>

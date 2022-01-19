@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        tools:context=".view.activity.MainActivity">
+
+    <!--<include layout="@layout/filter1" android:id="@+id/filter"/>-->
+
+
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/exlayout"-->
+    <!--android:layout_below="@+id/filter"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+
+
+    <!--<LinearLayout-->
+    <!--android:background="@color/graylight"-->
+    <!--android:id="@+id/llfiltercontainer"-->
+    <!--android:orientation="vertical"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+
+    <!--<RelativeLayout-->
+    <!--android:layout_marginLeft="@dimen/dp30"-->
+    <!--android:layout_marginRight="@dimen/dp30"-->
+    <!--android:layout_marginTop="@dimen/dp10"-->
+    <!--android:background="@color/white"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content">-->
+    <!--<Spinner-->
+    <!--android:id="@+id/spprovince"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/dp30"/>-->
+    <!--</RelativeLayout>-->
+
+
+    <!--<RelativeLayout-->
+    <!--android:layout_marginLeft="@dimen/dp30"-->
+    <!--android:layout_marginRight="@dimen/dp30"-->
+    <!--android:layout_marginTop="@dimen/dp10"-->
+    <!--android:background="@color/white"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content">-->
+    <!--<Spinner-->
+    <!--android:id="@+id/spcity"-->
+
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/dp30"/>-->
+    <!--</RelativeLayout>-->
+
+
+    <!--&lt;!&ndash;<RelativeLayout&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_marginLeft="@dimen/dp30"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_marginRight="@dimen/dp30"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_marginTop="@dimen/dp10"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:background="@color/white"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="wrap_content">&ndash;&gt;-->
+    <!--&lt;!&ndash;<Spinner&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/spservice"&ndash;&gt;-->
+
+    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="@dimen/dp30"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;</RelativeLayout>&ndash;&gt;-->
+
+
+    <!--&lt;!&ndash;<RelativeLayout&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_marginLeft="@dimen/dp30"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_marginRight="@dimen/dp30"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_marginTop="@dimen/dp10"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:background="@color/white"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="wrap_content">&ndash;&gt;-->
+    <!--&lt;!&ndash;<Spinner&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/sptype"&ndash;&gt;-->
+
+    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="@dimen/dp30"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;</RelativeLayout>&ndash;&gt;-->
+
+
+    <!--<LinearLayout-->
+    <!--android:layout_marginTop="@dimen/dp15"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:layout_width="match_parent" android:layout_height="@dimen/dp50">-->
+
+
+    <!--<TextView-->
+    <!--android:background="@drawable/round_gray"-->
+    <!--android:gravity="center"-->
+    <!--android:layout_margin="@dimen/dp10"-->
+    <!--android:padding="@dimen/dp5"-->
+
+    <!--android:textSize="@dimen/dp16"-->
+    <!--android:textColor="@color/white"-->
+    <!--android:text="@string/clear"-->
+    <!--android:id="@+id/tclear"-->
+    <!--android:layout_weight="1"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"/>-->
+
+    <!--<TextView-->
+    <!--android:background="@drawable/round_red"-->
+    <!--android:gravity="center"-->
+    <!--android:layout_margin="@dimen/dp10"-->
+    <!--android:padding="@dimen/dp5"-->
+
+    <!--android:textSize="@dimen/dp16"-->
+    <!--android:textColor="@color/white"-->
+    <!--android:text="@string/save"-->
+    <!--android:id="@+id/tsave"-->
+    <!--android:layout_weight="1"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"/>-->
+    <!--</LinearLayout>-->
+
+    <!--</LinearLayout>-->
+
+    <!--</RelativeLayout>-->
+
+
+    <TextView
+            android:layout_marginTop="@dimen/dp15"
+            android:layout_marginLeft="@dimen/dp15"
+            android:layout_marginRight="@dimen/dp15"
+            android:layout_below="@+id/exlayout"
+            android:paddingLeft="@dimen/dp15"
+            android:text="untuk informasi yang lebih lengkap mengenai kegiatan"
+            android:textColor="@color/black"
+            android:id="@+id/theader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"/>
+    <TextView
+            android:layout_marginLeft="@dimen/dp15"
+            android:layout_marginRight="@dimen/dp15"
+            android:layout_below="@+id/theader"
+            android:paddingLeft="@dimen/dp15"
+            android:text="community diarea anda silahkan klik link berikut"
+            android:textColor="@color/black"
+            android:id="@+id/theader1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"/>
+
+
+    <TextView
+            android:layout_marginLeft="@dimen/dp15"
+            android:layout_marginRight="@dimen/dp15"
+            android:layout_below="@+id/theader1"
+            android:paddingLeft="@dimen/dp15"
+            android:text="www.hondacommunity.net"
+            android:textColor="@color/bluecalm"
+            android:id="@+id/link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"/>
+    <ScrollView
+            android:scrollbars="none"
+            android:layout_marginLeft="@dimen/dp15"
+            android:layout_marginRight="@dimen/dp15"
+            android:layout_below="@+id/link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/llcontainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+    </ScrollView>
+
+
+</RelativeLayout>

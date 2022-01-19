@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.activity.MainActivity">
+
+    <RelativeLayout android:id="@+id/topbar" android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <ImageView android:id="@+id/imgtopbar" android:scaleType="centerCrop" android:src="@drawable/menu_header" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+
+        <include layout="@layout/action_bar" android:id="@+id/bar"/>
+
+        <TextView
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_below="@+id/bar"
+                android:textSize="@dimen/dp25"
+                android:id="@+id/ttitle_"
+                android:layout_alignBottom="@+id/imgtopbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+    </RelativeLayout>
+
+    <GridView
+            android:id="@+id/gridview"
+            android:numColumns="2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+    android:layout_below="@id/topbar"
+    android:layout_marginTop="@dimen/dp10"/>
+
+</RelativeLayout>

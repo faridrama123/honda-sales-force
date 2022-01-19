@@ -1,0 +1,224 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        android:id="@+id/main_layout"
+        android:background="@color/white"
+        android:paddingTop="@dimen/dp20"
+        android:gravity="center_horizontal">
+
+    <LinearLayout
+            android:layout_alignParentTop="true"
+            android:layout_above="@id/tsubmit"
+            android:id="@+id/lllmain"
+            android:orientation="vertical"
+            android:padding="@dimen/dp10"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:text="@string/customer_category"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:id="@+id/tclose"
+                    android:layout_marginRight="@dimen/dp5"
+                    android:layout_alignParentRight="true"
+                    android:text="X"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+
+
+        <TextView
+                android:layout_marginRight="@dimen/dp5"
+                android:layout_centerInParent="true"
+                android:text="@string/jenis_kelamin"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+            <TextView
+                    android:id="@+id/tpria"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/dp5"
+                    android:textColor="@color/black"
+                    android:text="Pria"
+                    android:padding="@dimen/dp10"
+                    android:background="@drawable/border_red"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                    android:id="@+id/twanita"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/dp5"
+                    android:textColor="@color/black"
+                    android:text="Wanita"
+                    android:padding="@dimen/dp10"
+                    android:background="@drawable/border_red"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+
+        <TextView
+                android:layout_marginRight="@dimen/dp5"
+                android:layout_centerInParent="true"
+                android:text="@string/usia"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+
+            <TextView
+                    android:id="@+id/tremaja"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/dp5"
+                    android:textColor="@color/black"
+                    android:text="@string/remaja"
+                    android:padding="@dimen/dp10"
+                    android:background="@drawable/border_red"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+
+            <TextView
+                    android:id="@+id/tremajamuda"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/dp5"
+                    android:textColor="@color/black"
+                    android:text="@string/dewasa_muda"
+                    android:padding="@dimen/dp10"
+                    android:background="@drawable/border_red"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+
+            <TextView
+                    android:id="@+id/tdewasa"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/dp5"
+                    android:textColor="@color/black"
+                    android:text="@string/dewasa"
+                    android:padding="@dimen/dp10"
+                    android:background="@drawable/border_red"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <TextView
+                android:layout_marginRight="@dimen/dp5"
+                android:layout_centerInParent="true"
+                android:text="@string/mengetahui_pilihan_produk"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+            <TextView
+                    android:id="@+id/tya"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/dp5"
+                    android:textColor="@color/black"
+                    android:text="Ya"
+                    android:padding="@dimen/dp10"
+                    android:background="@drawable/border_red"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+
+            <TextView
+                    android:id="@+id/ttidak"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/dp5"
+                    android:textColor="@color/black"
+                    android:text="Tidak"
+                    android:padding="@dimen/dp10"
+                    android:background="@drawable/border_red"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+
+        <TextView
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:text="@string/ketik_nama_produk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:background="@drawable/border_red"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                        android:id="@+id/etsearch"
+                        android:layout_margin="@dimen/dp1"
+                        android:padding="@dimen/dp10"
+                        android:drawableRight="@drawable/icon_search_red"
+                        android:background="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                <RelativeLayout
+                        android:background="@color/reds"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"/>
+            <GridView
+                    android:layout_marginBottom="@dimen/dp10"
+                    android:id="@+id/gridview"
+                    android:numColumns="2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

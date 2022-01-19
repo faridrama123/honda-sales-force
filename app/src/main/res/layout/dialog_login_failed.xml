@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:weightSum="1"
+              android:id="@+id/main_layout"
+              android:background="#00ffffff"
+              android:gravity="center_horizontal">
+
+   <RelativeLayout
+           android:layout_centerVertical="true"
+           android:background="@color/white"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
+
+
+
+       <ImageView
+               android:layout_marginTop="@dimen/dp20"
+               android:layout_marginLeft="@dimen/dp20"
+               android:layout_marginRight="@dimen/dp30"
+               android:layout_centerHorizontal="true"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/imageView"
+               android:layout_gravity="center"
+               android:src="@drawable/img_login_mismatch"
+               android:scaleType="fitCenter"/>
+       <TextView
+               android:layout_marginLeft="@dimen/dp20"
+               android:layout_marginRight="@dimen/dp20"
+               android:maxWidth="@dimen/dp200"
+               android:layout_marginTop="@dimen/dp20"
+               android:gravity="center"
+               android:layout_centerHorizontal="true"
+               android:layout_below="@id/imageView"
+               android:id="@+id/tmsg"
+               android:textColor="@color/gray"
+               android:textStyle="bold"
+               android:textSize="@dimen/dp18"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
+
+       <TextView
+               android:id="@+id/tclose"
+               android:layout_marginBottom="@dimen/dp20"
+               android:layout_marginTop="@dimen/dp10"
+               android:layout_centerHorizontal="true"
+               android:paddingTop="5dp"
+               android:paddingBottom="5dp"
+               android:paddingLeft="@dimen/dp40"
+               android:paddingRight="@dimen/dp40"
+               android:background="@drawable/round_red"
+               android:textColor="@color/white"
+               android:gravity="center"
+               android:layout_below="@id/tmsg"
+               android:text="@string/close"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
+
+
+   </RelativeLayout>
+
+
+
+
+</RelativeLayout>

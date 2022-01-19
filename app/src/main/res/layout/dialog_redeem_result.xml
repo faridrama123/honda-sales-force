@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+            android:background="@color/white"
+            android:layout_margin="@dimen/dp30"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+                                         >
+        <TextView
+                android:text="@string/redeempoint"
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ttitle"
+                android:textSize="@dimen/dp18"
+                android:textColor="@color/black"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"/>
+
+        <TextView
+                android:layout_below="@id/ttitle"
+                android:text="@string/inputspvcode"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tdesc"
+                android:textSize="@dimen/dp14"
+                android:textColor="@color/gray"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"/>
+
+        <ImageView
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/tdesc"
+                android:id="@+id/img"
+                android:layout_width="@dimen/dp100"
+                android:layout_height="@dimen/dp100"/>
+
+
+
+        <LinearLayout
+                android:layout_marginBottom="@dimen/dp20"
+                android:layout_below="@id/img"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp20">
+
+            <TextView
+
+                    android:gravity="center"
+                    android:layout_width="@dimen/dp100"
+                    android:layout_height="wrap_content"
+                    android:text="@string/close"
+                    android:background="@drawable/round_red"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp16"
+                    android:id="@+id/tyes"
+                    android:padding="@dimen/dp10"
+                    android:layout_gravity="center_horizontal"/>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

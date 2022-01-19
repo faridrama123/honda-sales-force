@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+
+
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="bgIconTimReport">#ff7938</color>
+    <color name="abu">#ebf0f3</color>
+
+
+    <color name="reds">#C02223</color>
+    <color name="gray">#999999</color>
+    <color name="grayb">#bbbbbb</color>
+    <color name="transparat">#00000000</color>
+    <color name="green">#50C1D7</color>
+    <color name="trans88">#AAffffff</color>
+    <color name="transbb">#bbffffff</color>
+    <color name="darkblue">#656AB1</color>
+    <color name="purple">#DC6FA4</color>
+    <color name="orange">#F38D5A</color>
+
+    <color name="bluecalm">#82CDC3</color>
+    <color name="purplecalm">#7E6CB1</color>
+    <color name="redcalm">#F17E67</color>
+    <color name="yellowcalm">#F8CF33</color>
+    <color name="peachcalm">#F6B591</color>
+    <color name="greencalm">#CCCF4B</color>
+
+    <color name="graylight">#eeeeee</color>
+    <color name="graydark">#555555</color>
+    <color name="blue">#0000FF</color>
+    <color name="white80">#AAffffff</color>
+
+
+</resources>

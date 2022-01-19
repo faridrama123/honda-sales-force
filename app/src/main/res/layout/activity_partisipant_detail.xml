@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.teamreport.FrequentActivity">
+
+    <include layout="@layout/action_bar" android:id="@+id/bar"/>
+
+    <LinearLayout
+        android:id="@+id/llTanggal"
+        android:layout_margin="@dimen/dp8"
+        android:orientation="horizontal"
+        android:layout_below="@+id/bar"
+        android:background="@color/white"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_width="0dp">
+            <TextView
+                android:id="@+id/startdate"
+                android:textSize="@dimen/dp14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="00-December-0000"
+                android:textColor="@color/black"
+                tools:ignore="Suspicious0dp" />
+        </LinearLayout>
+        <LinearLayout
+
+            android:layout_weight="0.2"
+            android:layout_height="fill_parent"
+            android:layout_width="0dp">
+            <TextView
+                android:textSize="@dimen/dp14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="-"
+                android:textColor="@color/black"
+                tools:ignore="Suspicious0dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_width="0dp">
+            <TextView
+                android:id="@+id/enddate"
+                android:textSize="@dimen/dp14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="00-December-0000"
+                android:textColor="@color/black"
+                tools:ignore="Suspicious0dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llLoginTextss"
+        android:layout_below="@+id/llTanggal"
+        android:background="@color/black"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <TextView
+            android:layout_margin="@dimen/dp8"
+            android:textSize="@dimen/dp20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="Regular Sales People"
+            android:textColor="@color/white"
+            tools:ignore="Suspicious0dp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/rsp"
+        android:layout_below="@+id/llLoginTextss"
+        android:background="@color/black"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <TextView
+            android:layout_margin="@dimen/dp8"
+            android:textSize="@dimen/dp14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="Salesman + Sales Counter + SWAT"
+            android:textColor="@color/white"
+            tools:ignore="Suspicious0dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llLoginBehasilData"
+        android:layout_margin="@dimen/dp8"
+        android:orientation="horizontal"
+        android:layout_below="@+id/rsp"
+        android:background="@color/white"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_width="0dp">
+            <TextView
+                android:textSize="@dimen/dp16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="Mengikuti Kuis"
+                android:textColor="@color/black"
+                tools:ignore="Suspicious0dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/regularIktClick"
+            android:background="@color/colorPrimary"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_width="0dp">
+            <TextView
+                android:id="@+id/regularIktCount"
+                android:textSize="@dimen/dp20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/white"
+                tools:ignore="Suspicious0dp"
+                app:drawableRightCompat="@drawable/cv_right" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/llLoginGagalData"
+        android:layout_margin="@dimen/dp8"
+        android:orientation="horizontal"
+        android:layout_below="@+id/llLoginBehasilData"
+        android:background="@color/white"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_width="0dp">
+            <TextView
+                android:textSize="@dimen/dp16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="Tidak Mengikuti Kuis"
+                android:textColor="@color/black"
+                tools:ignore="Suspicious0dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/regularNoIktClick"
+
+            android:background="@color/reds"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_width="0dp">
+            <TextView
+                android:id="@+id/regularNoIktCount"
+                android:textSize="@dimen/dp20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/white"
+                tools:ignore="Suspicious0dp"
+                app:drawableRightCompat="@drawable/cv_right" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/category_wsp"
+        android:layout_below="@+id/llLoginGagalData"
+        android:background="@color/black"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <TextView
+                android:layout_marginTop="@dimen/dp3"
+                android:layout_marginLeft="@dimen/dp8"
+                android:textSize="@dimen/dp20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="Wing Sales People"
+                android:textColor="@color/white"
+                tools:ignore="Suspicious0dp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_wsp_ikt"
+        android:layout_margin="@dimen/dp8"
+        android:orientation="horizontal"
+        android:layout_below="@+id/category_wsp"
+        android:background="@color/white"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_width="0dp">
+            <TextView
+                android:textSize="@dimen/dp16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="Mengikut Kuis"
+                android:textColor="@color/black"
+                tools:ignore="Suspicious0dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/wsp_ikt_click"
+
+            android:background="@color/colorPrimary"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_width="0dp">
+            <TextView
+                android:id="@+id/wsp_ikt_count"
+                android:textSize="@dimen/dp20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/white"
+                tools:ignore="Suspicious0dp"
+                app:drawableRightCompat="@drawable/cv_right"  />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linear_wsp_noikt"
+
+        android:layout_margin="@dimen/dp8"
+        android:orientation="horizontal"
+        android:layout_below="@+id/linear_wsp_ikt"
+        android:background="@color/white"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_width="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="Tidak Mengikuti Kuis"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dp16"
+                tools:ignore="Suspicious0dp" />
+        </LinearLayout>
+        <LinearLayout
+
+            android:id="@+id/wsp_noikt_click"
+
+            android:background="@color/reds"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_width="0dp">
+            <TextView
+                android:id="@+id/wsp_noikt_count"
+
+                android:textSize="@dimen/dp20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/white"
+                tools:ignore="Suspicious0dp"
+                app:drawableRightCompat="@drawable/cv_right"  />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/category_bwsp"
+        android:layout_below="@+id/linear_wsp_noikt"
+        android:background="@color/black"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <TextView
+                android:layout_marginTop="@dimen/dp3"
+                android:layout_marginLeft="@dimen/dp8"
+                android:textSize="@dimen/dp20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="Big Wing Sales People"
+                android:textColor="@color/white"
+                tools:ignore="Suspicious0dp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_bwsp_ikt"
+        android:layout_margin="@dimen/dp8"
+        android:orientation="horizontal"
+        android:layout_below="@+id/category_bwsp"
+        android:background="@color/white"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_width="0dp">
+            <TextView
+                android:textSize="@dimen/dp16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="Mengikut Kuis"
+                android:textColor="@color/black"
+                tools:ignore="Suspicious0dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/bwsp_ikt_click"
+
+            android:background="@color/colorPrimary"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_width="0dp">
+            <TextView
+                android:id="@+id/bwsp_ikt_count"
+                android:textSize="@dimen/dp20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/white"
+                tools:ignore="Suspicious0dp"
+                app:drawableRightCompat="@drawable/cv_right"  />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linear_bwsp_noikt"
+
+        android:layout_margin="@dimen/dp8"
+        android:orientation="horizontal"
+        android:layout_below="@+id/linear_bwsp_ikt"
+        android:background="@color/white"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_width="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="Tidak Mengikuti Kuis"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dp16"
+                tools:ignore="Suspicious0dp" />
+        </LinearLayout>
+        <LinearLayout
+
+            android:id="@+id/bwsp_noikt_click"
+
+            android:background="@color/reds"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_width="0dp">
+            <TextView
+                android:id="@+id/bwsp_noikt_count"
+
+                android:textSize="@dimen/dp20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/white"
+                tools:ignore="Suspicious0dp"
+                app:drawableRightCompat="@drawable/cv_right"  />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/category_sobat"
+        android:layout_below="@+id/linear_bwsp_noikt"
+        android:background="@color/black"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <TextView
+                android:layout_marginTop="@dimen/dp3"
+                android:layout_marginLeft="@dimen/dp8"
+                android:textSize="@dimen/dp20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="Sobat"
+                android:textColor="@color/white"
+                tools:ignore="Suspicious0dp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_sobat_ikt"
+        android:layout_margin="@dimen/dp8"
+        android:orientation="horizontal"
+        android:layout_below="@+id/category_sobat"
+        android:background="@color/white"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_width="0dp">
+            <TextView
+                android:textSize="@dimen/dp16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="Mengikut Kuis"
+                android:textColor="@color/black"
+                tools:ignore="Suspicious0dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/sobat_ikt_click"
+
+            android:background="@color/colorPrimary"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_width="0dp">
+            <TextView
+                android:id="@+id/sobat_ikt_count"
+                android:textSize="@dimen/dp20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/white"
+                tools:ignore="Suspicious0dp"
+                app:drawableRightCompat="@drawable/cv_right"  />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linear_sobat_noikt"
+
+        android:layout_margin="@dimen/dp8"
+        android:orientation="horizontal"
+        android:layout_below="@+id/linear_sobat_ikt"
+        android:background="@color/white"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_width="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="Tidak Mengikuti Kuis"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dp16"
+                tools:ignore="Suspicious0dp" />
+        </LinearLayout>
+        <LinearLayout
+
+            android:id="@+id/sobat_noikt_click"
+
+            android:background="@color/reds"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_width="0dp">
+            <TextView
+                android:id="@+id/sobat_noikt_count"
+
+                android:textSize="@dimen/dp20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/white"
+                tools:ignore="Suspicious0dp"
+                app:drawableRightCompat="@drawable/cv_right"  />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
