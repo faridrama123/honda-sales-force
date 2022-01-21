@@ -257,7 +257,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Tidak Berhasil Login"
+                android:text="Bukan Frequent User"
                 android:textColor="@color/black"
                 tools:ignore="Suspicious0dp" />
         </LinearLayout>

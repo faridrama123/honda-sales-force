@@ -112,7 +112,7 @@ class PartisipantActivity : BaseActivity() {
                             listPKNOS(quizs, 3)
                         }
                         3 -> {
-                            tvSemesterVerifikasi.text = semester
+                            tvSemesterVerifikasi.text = "Semester " + semester
                         }
 
                     }

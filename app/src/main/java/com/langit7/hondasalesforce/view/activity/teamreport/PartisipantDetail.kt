@@ -130,6 +130,14 @@ class PartisipantDetailActivity : BaseActivity() {
         val usr= function.getUser(this)
         val mainDealer = usr!!.profileUser.dealer.mainDealer
 
+        Log.d("mainDealer", mainDealer);
+        Log.d("category", category);
+        Log.d("month", month);
+        Log.d("year", year);
+
+
+
+
         presenter.getPartisipantDetail("1", mainDealer, category, month, year,
             object : ObjectResponseInterface<baseresponse<PartisipantDetail>> {
                 @SuppressLint("NotifyDataSetChanged")

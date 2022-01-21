@@ -464,7 +464,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Tidak Mengikuti Kuis"
+                android:text="Non Qualified"
                 android:textColor="@color/black"
                 android:textSize="@dimen/dp16"
                 tools:ignore="Suspicious0dp" />
