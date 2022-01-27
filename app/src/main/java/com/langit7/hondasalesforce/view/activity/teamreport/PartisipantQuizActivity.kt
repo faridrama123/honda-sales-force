@@ -38,7 +38,6 @@ class PartisipantQuizActivity : BaseActivity() {
     var mainDealer = ""
     var dataTemp = ArrayList<PartisipantQuiz>()
 
-    lateinit var adp: AdapterParticipantKuis
 
 
 
@@ -60,6 +59,9 @@ class PartisipantQuizActivity : BaseActivity() {
         mainDealer = intent.getStringExtra("mainDealer").toString()
         presenter= MainPresenter(this,APIServices)
 
+        imgback.setOnClickListener {
+            onBackPressed()
+        }
 
         if(is_participant == "1"){
             tactionbartitle.text = "Mengikuti Kuis"
@@ -78,7 +80,7 @@ class PartisipantQuizActivity : BaseActivity() {
         val mainDealer = usr!!.profileUser.dealer.mainDealer
 
 
-        presenter.getPartisipantQuizAndMonitor("1", 10, 1, mainDealer,category, month, year, category_position,
+        presenter.getPartisipantQuizAndMonitor("1", 1000, 1, mainDealer,category, month, year, category_position,
             is_participant,
             object : ObjectResponseInterface<baseresponse<List<PartisipantQuiz>>> {
                 @SuppressLint("NotifyDataSetChanged")

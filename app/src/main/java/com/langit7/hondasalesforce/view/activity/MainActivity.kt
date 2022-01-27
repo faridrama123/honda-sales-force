@@ -282,7 +282,9 @@ class MainActivity : BaseActivity() {
         lsFragment.clear()
         lsFragment.add(HomeFragment.Instantiate(lsQuiz, lsSurvey))
         lsFragment.add(TeamReportFragment.Instantiate(lsTeamReportFragment))
-        lsFragment.add(SelfAuditFragment.Instantiate(lsSelfAudit))
+//        lsFragment.add(SelfAuditFragment.Instantiate(lsSelfAudit))
+        lsFragment.add(SelfAuditFragment.Instantiate())
+
         lsFragment.add(NotificationFragment.Instantiate(lsNotif))
 
         if(

@@ -424,7 +424,7 @@ class MainPresenter {
                                      semester:String,
                                      year:String,
                                      category_position:String,
-                                     cb: ObjectResponseInterface<baseresponse<List<PartisipantQuiz>>>) {
+                                     cb: ObjectResponseInterface<baseresponse<List<ListParticipantQualified>>>) {
         disposable = api.getPartisipantQualified(xs, nitems, page, main_dealer, category, semester, year,category_position)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

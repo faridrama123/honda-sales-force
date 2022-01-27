@@ -19,6 +19,9 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".view.activity.nos.ListNosAuditActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.activity.teamreport.ListQualifiedActivity"
             android:exported="false" />
         <activity

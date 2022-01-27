@@ -19,6 +19,30 @@ import com.langit7.hondasalesforce.presenter.viewInterface.ObjectResponseInterfa
 import com.langit7.hondasalesforce.view.activity.BaseActivity
 import kotlinx.android.synthetic.main.action_bar.*
 import kotlinx.android.synthetic.main.teamreport_kuis_activity.*
+import kotlinx.android.synthetic.main.teamreport_kuis_activity.llNOSBulan1
+import kotlinx.android.synthetic.main.teamreport_kuis_activity.llNOSBulan2
+import kotlinx.android.synthetic.main.teamreport_kuis_activity.llNOSBulan3
+import kotlinx.android.synthetic.main.teamreport_kuis_activity.llPKBulan1
+import kotlinx.android.synthetic.main.teamreport_kuis_activity.llPKBulan2
+import kotlinx.android.synthetic.main.teamreport_kuis_activity.llPKBulan3
+import kotlinx.android.synthetic.main.teamreport_kuis_activity.llPKVerifikasi
+import kotlinx.android.synthetic.main.teamreport_kuis_activity.tvBulan1
+import kotlinx.android.synthetic.main.teamreport_kuis_activity.tvBulan2
+import kotlinx.android.synthetic.main.teamreport_kuis_activity.tvBulan3
+import kotlinx.android.synthetic.main.teamreport_kuis_activity.tvNOSTanggalBulan1
+import kotlinx.android.synthetic.main.teamreport_kuis_activity.tvNOSTanggalBulan2
+import kotlinx.android.synthetic.main.teamreport_kuis_activity.tvNOSTanggalBulan3
+import kotlinx.android.synthetic.main.teamreport_kuis_activity.tvPKTanggalBulan1
+import kotlinx.android.synthetic.main.teamreport_kuis_activity.tvPKTanggalBulan2
+import kotlinx.android.synthetic.main.teamreport_kuis_activity.tvPKTanggalBulan3
+import kotlinx.android.synthetic.main.teamreport_kuis_activity.tvSemesterVerifikasi
+import kotlinx.android.synthetic.main.teamreport_kuis_activity.tv_titleNOS1
+import kotlinx.android.synthetic.main.teamreport_kuis_activity.tv_titleNOS2
+import kotlinx.android.synthetic.main.teamreport_kuis_activity.tv_titleNOS3
+import kotlinx.android.synthetic.main.teamreport_kuis_activity.tv_titlePK1
+import kotlinx.android.synthetic.main.teamreport_kuis_activity.tv_titlePK2
+import kotlinx.android.synthetic.main.teamreport_kuis_activity.tv_titlePK3
+import kotlinx.android.synthetic.main.teamreport_partisipant_activity.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -76,6 +100,13 @@ class KuisActivity : BaseActivity() {
             val year = monthyear[1]
             goToPeserta("2","", month, year, "1")
         }
+
+        llPKVerifikasi.setOnClickListener {
+            val monthyear = txtBulan1.split(" ").toTypedArray()
+            val month = monthyear[0].substring(0,3)
+            val year = monthyear[1]
+            goToPeserta("3","", month, year, "1")
+        }
         presenter = MainPresenter(this, APIServices)
 
     }
@@ -111,7 +142,7 @@ class KuisActivity : BaseActivity() {
                             listPKNOS(quizs, 3)
                         }
                         3 -> {
-                            tvSemesterVerifikasi.text = semester
+                            tvSemesterVerifikasi.text = "Semester " + semester
                         }
 
                     }

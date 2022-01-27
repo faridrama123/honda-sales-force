@@ -9,21 +9,21 @@ import com.bumptech.glide.Glide
 import com.langit7.hondasalesforce.R
 
 import com.langit7.hondasalesforce.databinding.ItemQualifiedBinding
-import com.langit7.hondasalesforce.model.teamreport.PartisipantQuiz
+import com.langit7.hondasalesforce.model.teamreport.ListParticipantQualified
 
 //class AdapterFrequentUsr {
 //}
 
 class AdapterQualifiedUsr : RecyclerView.Adapter<AdapterQualifiedUsr.ViewHolder>() {
 
-    private val mData = ArrayList<PartisipantQuiz>()
+    private val mData = ArrayList<ListParticipantQualified>()
 
     fun clearData() {
         mData.clear()
         notifyDataSetChanged()
     }
 
-    fun setData(items: ArrayList<PartisipantQuiz>) {
+    fun setData(items: ArrayList<ListParticipantQualified>) {
         mData.clear()
         mData.addAll(items)
         notifyDataSetChanged()
@@ -33,13 +33,42 @@ class AdapterQualifiedUsr : RecyclerView.Adapter<AdapterQualifiedUsr.ViewHolder>
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private val binding = ItemQualifiedBinding.bind(itemView)
-        fun bind(items: PartisipantQuiz, position: Int) {
+        fun bind(items: ListParticipantQualified, position: Int) {
             with(itemView){
 
 
                 binding.tvNo.text = ( 1 + position).toString()
-                binding.tvNama.text = items.userId?.firstName + " " +items.userId?.lastName;
-                binding.tvJabatan.text = items.userId?.profileUser?.position
+                binding.tvNama.text = items.fullname
+                binding.tvJabatan.text = items.position
+                binding.pkstatusNilai.text = items.avgScoreProductKnowledge.toString()
+                binding.nosstatusNilai.text = items.avgScoreNos.toString()
+
+
+
+                var pkStatus = ""
+                if (items.avgScoreProductKnowledge!! >= 70){
+                    pkStatus = "Lulus"
+
+                }else{
+                    pkStatus = "Tidak Lulus"
+
+                }
+
+                var nosStatus = ""
+                if (items.avgScoreNos!! >= 70){
+                    nosStatus = "Lulus"
+
+                }
+                else{
+                    nosStatus = "Tidak Lulus"
+
+                }
+                binding.pkstatus.text = pkStatus;
+
+                binding.nosstatus.text = nosStatus;
+
+
+
 
 
 

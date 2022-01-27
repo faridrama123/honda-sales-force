@@ -77,6 +77,15 @@ class PartisipantActivity : BaseActivity() {
             val year = monthyear[1]
             goToPeserta("2","1", month, year, "1")
         }
+
+
+        llPKVerifikasi.setOnClickListener {
+            val monthyear = txtBulan1.split(" ").toTypedArray()
+            val month = monthyear[0].substring(0,3)
+            val year = monthyear[1]
+            goToPeserta("3","1", month, year, "1")
+        }
+
         presenter = MainPresenter(this, APIServices)
 
     }
@@ -113,6 +122,10 @@ class PartisipantActivity : BaseActivity() {
                         }
                         3 -> {
                             tvSemesterVerifikasi.text = "Semester " + semester
+                            val quizs = listData[i].quiz;
+
+                            listPKNOS(quizs, 4)
+
                         }
 
                     }

@@ -12,6 +12,7 @@ import com.langit7.hondasalesforce.databinding.ActivityListFrequentBinding
 import com.langit7.hondasalesforce.databinding.ActivityListQualifiedBinding
 import com.langit7.hondasalesforce.model.baseresponse
 import com.langit7.hondasalesforce.model.teamreport.FrequentUser
+import com.langit7.hondasalesforce.model.teamreport.ListParticipantQualified
 import com.langit7.hondasalesforce.model.teamreport.PartisipantQuiz
 import com.langit7.hondasalesforce.presenter.adapter.teamreport.AdapterFrequentUsr
 import com.langit7.hondasalesforce.presenter.adapter.teamreport.AdapterQualifiedUsr
@@ -34,7 +35,7 @@ class ListQualifiedActivity : BaseActivity() {
     var category_position = ""
 
     var date = ""
-    var dataTemp = ArrayList<PartisipantQuiz>()
+    var dataTemp = ArrayList<ListParticipantQualified>()
 
 
 
@@ -56,6 +57,10 @@ class ListQualifiedActivity : BaseActivity() {
 
         presenter= MainPresenter(this,APIServices)
 
+        imgback.setOnClickListener {
+            onBackPressed()
+        }
+
         if(category == "1"){
             tactionbartitle.text = "Qualified"
         }else{
@@ -70,15 +75,15 @@ class ListQualifiedActivity : BaseActivity() {
        showLoadingDialog()
         val usr= function.getUser(this)
         val mainDealer = usr!!.profileUser.dealer.mainDealer
-        presenter.getPartisipantQualified("1", 10, 1, mainDealer, category, semester, year,category_position,
-            object : ObjectResponseInterface<baseresponse<List<PartisipantQuiz>>> {
+        presenter.getPartisipantQualified("1", 1000, 1, mainDealer, category, semester, year,category_position,
+            object : ObjectResponseInterface<baseresponse<List<ListParticipantQualified>>> {
                 @SuppressLint("NotifyDataSetChanged")
-                override fun onSuccess(res: baseresponse<List<PartisipantQuiz>>) {
+                override fun onSuccess(res: baseresponse<List<ListParticipantQualified>>) {
                     dismisLoadingDialog()
-                    dataTemp = res.data as ArrayList<PartisipantQuiz>
+                    dataTemp = res.data as ArrayList<ListParticipantQualified>
                     Log.d(" dataTemp adalah : ", dataTemp.toString())
 
-                    AdapterQualifiedUsr.setData(res.data as ArrayList<PartisipantQuiz>)
+                    AdapterQualifiedUsr.setData(res.data as ArrayList<ListParticipantQualified>)
                     AdapterQualifiedUsr.notifyDataSetChanged()
 
                     if ( dataTemp.isEmpty())  tnodate.visibility = View.VISIBLE;

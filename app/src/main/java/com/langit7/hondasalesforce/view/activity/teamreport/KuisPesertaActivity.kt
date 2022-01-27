@@ -31,7 +31,7 @@ class KuisPesertaActivity : BaseActivity() {
     var year = ""
     var is_participant = ""
     var title = ""
-    var totalPerPage = 100;
+    var totalPerPage = 1000;
     var page = 1;
     var isScore = 1;
     var isDesc = 1;

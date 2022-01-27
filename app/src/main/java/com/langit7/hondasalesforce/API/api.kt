@@ -67,7 +67,7 @@ interface api {
         @Query("semester") semester: String,
         @Query("year") year: String,
         @Query("category_position") category_position: String,
-    ): Observable<baseresponse<List<PartisipantQuiz>>>
+    ): Observable<baseresponse<List<ListParticipantQualified>>>
 
     @GET("list-monitoring-quiz-det/")
     fun getPartisipantDetail(

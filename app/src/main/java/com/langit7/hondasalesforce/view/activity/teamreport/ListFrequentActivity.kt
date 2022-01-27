@@ -48,6 +48,10 @@ class ListFrequentActivity : BaseActivity() {
         date = intent.getStringExtra("date").toString()
         presenter= MainPresenter(this,APIServices)
 
+        imgback.setOnClickListener {
+            onBackPressed()
+        }
+
 
 
 
@@ -62,7 +66,7 @@ class ListFrequentActivity : BaseActivity() {
 
 
 
-        presenter.getFrequentUser("1", 10, 1, mainDealer, date, category,
+        presenter.getFrequentUser("1", 1000, 1, mainDealer, date, category,
             object : ObjectResponseInterface<baseresponse<List<FrequentUser>>> {
                 @SuppressLint("NotifyDataSetChanged")
                 override fun onSuccess(res: baseresponse<List<FrequentUser>>) {

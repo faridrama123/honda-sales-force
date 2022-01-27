@@ -9,13 +9,167 @@
     tools:context=".view.activity.MainActivity">
 
     <RelativeLayout android:paddingBottom="@dimen/dp10" android:id="@+id/topbar" android:background="@color/white" android:layout_width="match_parent" android:layout_height="wrap_content">
-        <include layout="@layout/action_bar" android:id="@+id/bar"/>
+
+        <include
+            android:id="@+id/bar"
+            layout="@layout/action_bar" />
     </RelativeLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@+id/topbar"
-        android:id="@+id/rv"
+
+
+    <RelativeLayout
+        android:id="@+id/panduan"
+
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true" />
+        android:layout_height="@dimen/dp50"
+        android:layout_below="@id/topbar"
+        android:background="@color/green">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp14"
+            android:text="Silahkan memilih item NOS yang ingin diaudit :"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp16"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+     <ScrollView
+         android:layout_below="@id/panduan"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         >
+
+         <RelativeLayout
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+
+             >
+
+             <RelativeLayout
+                 android:id="@+id/h1premises"
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/dp40"
+                 android:layout_marginBottom="@dimen/dp10"
+                 android:background="@color/orange">
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentLeft="true"
+                     android:layout_centerVertical="true"
+                     android:layout_marginLeft="@dimen/dp14"
+                     android:text="H1 Premises"
+                     android:textColor="@color/white"
+                     android:textSize="@dimen/dp16"
+                     android:textStyle="bold"
+
+                     />
+
+                 <CheckBox
+                     android:id="@+id/ck1"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentRight="true"
+                     android:layout_marginRight="@dimen/dp14"
+                     android:textColorHighlight="@color/white">
+
+                 </CheckBox>
+
+             </RelativeLayout>
+
+             <RelativeLayout
+
+                 android:layout_below="@+id/h1premises"
+
+                 android:id="@+id/h1people"
+                 android:layout_marginBottom="@dimen/dp10"
+                 android:background="@color/orange"
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/dp40"
+                 >
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentLeft="true"
+                     android:layout_centerVertical="true"
+                     android:layout_marginLeft="@dimen/dp14"
+                     android:text="H1 People"
+                     android:textColor="@color/white"
+                     android:textSize="@dimen/dp16"
+                     android:textStyle="bold"
+
+                     />
+
+                 <CheckBox
+                     android:id="@+id/ck2"
+
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentRight="true"
+                     android:layout_centerVertical="true"
+                     android:layout_marginRight="@dimen/dp14"
+                     android:textColorHighlight="@color/white">
+
+                 </CheckBox>
+
+             </RelativeLayout>
+
+
+             <RelativeLayout
+
+                 android:layout_below="@+id/h1people"
+
+                 android:id="@+id/h1process"
+                 android:layout_marginBottom="@dimen/dp10"
+                 android:background="@color/orange"
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/dp40"
+                 >
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentLeft="true"
+                     android:layout_centerVertical="true"
+                     android:layout_marginLeft="@dimen/dp14"
+                     android:text="H1 Process"
+                     android:textColor="@color/white"
+                     android:textSize="@dimen/dp16"
+                     android:textStyle="bold"
+
+                     />
+
+                 <CheckBox
+                     android:id="@+id/ck3"
+
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentRight="true"
+                     android:layout_centerVertical="true"
+                     android:layout_marginRight="@dimen/dp14"
+                     android:textColorHighlight="@color/white">
+
+                 </CheckBox>
+
+             </RelativeLayout>
+
+
+         </RelativeLayout>
+
+
+
+     </ScrollView>
+
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/rv"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_below="@+id/topbar"-->
+<!--        android:fitsSystemWindows="true" />-->
 
 </RelativeLayout>
