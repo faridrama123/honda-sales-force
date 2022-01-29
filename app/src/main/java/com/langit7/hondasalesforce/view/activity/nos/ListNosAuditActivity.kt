@@ -16,14 +16,21 @@ import com.langit7.hondasalesforce.model.teamreport.PartisipantDetail
 import com.langit7.hondasalesforce.model.teamreport.PartisipantQuiz
 import com.langit7.hondasalesforce.presenter.adapter.teamreport.AdapterParticipantKuis
 import com.langit7.hondasalesforce.presenter.viewInterface.ObjectResponseInterface
+import com.langit7.hondasalesforce.view.activity.BaseActivity
 import kotlinx.android.synthetic.main.action_bar.*
 import kotlinx.android.synthetic.main.teamreport_kuis_peserta_activity.*
 
-class ListNosAuditActivity : AppCompatActivity() {
+class ListNosAuditActivity : BaseActivity() {
 
     private lateinit var binding: ActivityListNosAuditBinding
     private lateinit var AdapterListNosAudit : AdapterListNosAudit
     var dataTemp = ArrayList<NosAudit>()
+    var existGood = 0
+    var existNotGood = 0
+    var notExits = 0
+
+
+
 
 
 
@@ -48,6 +55,41 @@ class ListNosAuditActivity : AppCompatActivity() {
         }
 
 
+        // submit data, and get results
+        binding.submit   .setOnClickListener {
+
+            // reset answer
+             existGood = 0
+             existNotGood = 0
+             notExits = 0
+
+
+          var data : ArrayList<NosAudit> =  AdapterListNosAudit.getData()
+            data.forEachIndexed {
+                    index, e ->
+
+                if(e.answer == 1){
+                    existGood++
+                }
+                if(e.answer == 2){
+                    existNotGood++
+                }
+                if(e.answer == 3){
+                    notExits++
+                }
+            }
+
+            Log.d("existGood",existGood.toString())
+            Log.d("existNotGood",existNotGood.toString())
+            Log.d("notExits",notExits.toString())
+
+        }
+
+
+    }
+
+    override fun onResume() {
+        super.onResume()
         getData()
     }
 
@@ -84,7 +126,7 @@ class ListNosAuditActivity : AppCompatActivity() {
                     "*Bila ditemukan kondisi kotor yang bukan akibat dari proses waktu (kebocoran , sarang binatang, lumpur, jejak sepatu maka harus segera dibersihkan tanpa menunggu jadwal rutin pembersihan)\n" +
                     "*Bukti pembersihan: \n" +
                     " - Bila menggunakan Vendor maka  Bukti Pembersihan berupa Kwitansi dan Dokumentasi dengan tanggal\n" +
-                    " - Bila dilakukan oleh Dealer sendiri maka Bukti Pembersihan berupa Dokumentasi dengan tanggal"))
+                    " - Bila dilakukan oleh Dealer sendiri maka Bukti Pembersihan berupa Dokumentasi dengan tanggal", 0))
         nosAudit.add(NosAudit("Kebersihan Dealer",
             "Interior", "Kebersihan Interior :\n" +
                     "- Dinding Interior\n" +
@@ -111,14 +153,14 @@ class ListNosAuditActivity : AppCompatActivity() {
                     "      - Dalam keadaan rapih dan tidak rusak \n" +
                     "*Bila ditemukan kondisi kotor (perubahan warna) maka harus segera dibersihkan tanpa menunggu jadwal rutin pembersihan atau diganti bila sudah tidak bisa dibersihkan\n" +
                     "\n" +
-                    "- Display Motor (Dibersihkan minimal sehari 2 kali - bukti ditunjukan dengan Checklist Harian)"))
+                    "- Display Motor (Dibersihkan minimal sehari 2 kali - bukti ditunjukan dengan Checklist Harian)",0))
 
 
         nosAudit.add(NosAudit("Kebersihan Dealer", "Checklist Kebersihan Interior", "1. Terdapat checklist kebersihan untuk area showroom \n" +
-                "2. Terdapat kolom checklist kebersihan minimal pada jam 07.30, 12.00, 15.00" ))
+                "2. Terdapat kolom checklist kebersihan minimal pada jam 07.30, 12.00, 15.00",0 ))
 
         nosAudit.add(NosAudit("Kebersihan Dealer", "Checklist Kebersihan Atribut", "1. Sesuai dengan gambar tampak depan yang sudah diapprove bersama\n" +
-                "2. Gambar eksterior yang sudah diapproved, dicetak, ditempel di ruang Kacab" ))
+                "2. Gambar eksterior yang sudah diapproved, dicetak, ditempel di ruang Kacab" ,0))
             return nosAudit
     }
 }

@@ -18,11 +18,15 @@ class AdapterListNosAudit : RecyclerView.Adapter<AdapterListNosAudit.ViewHolder>
         notifyDataSetChanged()
     }
 
+    fun getData() :ArrayList<NosAudit> {
+        return mData
+    }
+
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private val binding = ItemNosBinding.bind(itemView)
-        fun bind(items: NosAudit) {
+        fun bind(items: NosAudit, position: Int) {
             with(itemView){
                 binding.title    .text = items.title
                 binding.subtitle    .text = items.subTitle
@@ -31,8 +35,12 @@ class AdapterListNosAudit : RecyclerView.Adapter<AdapterListNosAudit.ViewHolder>
                 binding.question.setOnClickListener {
 
 
-                     if ( binding.indicator.visibility == View.VISIBLE   ){
-                         binding.indicator.visibility = View.GONE
+
+
+                    if ( binding.indicator.visibility == View.VISIBLE   ){
+
+
+                        binding.indicator.visibility = View.GONE
                          binding.sub1.visibility  = View.VISIBLE
                          binding.sub2.visibility  = View.VISIBLE
 
@@ -51,6 +59,41 @@ class AdapterListNosAudit : RecyclerView.Adapter<AdapterListNosAudit.ViewHolder>
                      }
                 }
 
+                binding.check1.setOnClickListener {
+
+                    //mengubah data sesuai jawaban yg dipilih
+                    mData.set(position, NosAudit(items.title,items.subTitle,items.data, 1))
+
+                    binding.check2.isChecked = false;
+                    binding.check3.isChecked = false;
+                    binding.check4.isChecked = false;
+                }
+                binding.check2.setOnClickListener {
+
+                    //mengubah data sesuai jawaban yg dipilih
+                    mData.set(position, NosAudit(items.title,items.subTitle,items.data, 2))
+                    binding.check1.isChecked = false;
+                    binding.check3.isChecked = false;
+                    binding.check4.isChecked = false;
+                }
+
+                binding.check3.setOnClickListener {
+                    //mengubah data sesuai jawaban yg dipilih
+                    mData.set(position, NosAudit(items.title,items.subTitle,items.data, 3))
+                    binding.check1.isChecked = false;
+                    binding.check2.isChecked = false;
+                    binding.check4.isChecked = false;
+                }
+
+                binding.check4.setOnClickListener {
+                    //mengubah data sesuai jawaban yg dipilih
+                    mData.set(position, NosAudit(items.title,items.subTitle,items.data, 4))
+                    binding.check1.isChecked = false;
+                    binding.check2.isChecked = false;
+                    binding.check3.isChecked = false;
+                }
+
+
             }
         }
 
@@ -62,7 +105,7 @@ class AdapterListNosAudit : RecyclerView.Adapter<AdapterListNosAudit.ViewHolder>
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(mData[position])
+        holder.bind(mData[position],position)
     }
 
     override fun getItemCount(): Int {
