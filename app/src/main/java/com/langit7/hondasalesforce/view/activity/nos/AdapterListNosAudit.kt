@@ -31,19 +31,15 @@ class AdapterListNosAudit : RecyclerView.Adapter<AdapterListNosAudit.ViewHolder>
                 binding.title    .text = items.title
                 binding.subtitle    .text = items.subTitle
                 binding.indicatorText    .text = items.data
-
                 binding.question.setOnClickListener {
-
-
 
 
                     if ( binding.indicator.visibility == View.VISIBLE   ){
 
 
-                        binding.indicator.visibility = View.GONE
+                         binding.indicator.visibility = View.GONE
                          binding.sub1.visibility  = View.VISIBLE
                          binding.sub2.visibility  = View.VISIBLE
-
                          binding.sub3.visibility  = View.VISIBLE
                          binding.sub4.visibility  = View.VISIBLE
 
@@ -64,33 +60,50 @@ class AdapterListNosAudit : RecyclerView.Adapter<AdapterListNosAudit.ViewHolder>
                     //mengubah data sesuai jawaban yg dipilih
                     mData.set(position, NosAudit(items.title,items.subTitle,items.data, 1))
 
-                    binding.check2.isChecked = false;
-                    binding.check3.isChecked = false;
-                    binding.check4.isChecked = false;
+                    if(binding.check1.isChecked== true) {
+                        binding.check2.isChecked = false;
+                        binding.check3.isChecked = false;
+                        binding.check4.isChecked = false;
+                    }
                 }
                 binding.check2.setOnClickListener {
 
                     //mengubah data sesuai jawaban yg dipilih
                     mData.set(position, NosAudit(items.title,items.subTitle,items.data, 2))
-                    binding.check1.isChecked = false;
-                    binding.check3.isChecked = false;
-                    binding.check4.isChecked = false;
+
+                    if(binding.check2.isChecked== true) {
+
+                        binding.check1.isChecked = false;
+                        binding.check3.isChecked = false;
+                        binding.check4.isChecked = false;
+
+                    }
                 }
 
                 binding.check3.setOnClickListener {
                     //mengubah data sesuai jawaban yg dipilih
                     mData.set(position, NosAudit(items.title,items.subTitle,items.data, 3))
-                    binding.check1.isChecked = false;
-                    binding.check2.isChecked = false;
-                    binding.check4.isChecked = false;
+
+                    if(binding.check3.isChecked== true) {
+
+                        binding.check1.isChecked = false;
+                        binding.check2.isChecked = false;
+                        binding.check4.isChecked = false;
+
+                    }
                 }
 
                 binding.check4.setOnClickListener {
                     //mengubah data sesuai jawaban yg dipilih
                     mData.set(position, NosAudit(items.title,items.subTitle,items.data, 4))
-                    binding.check1.isChecked = false;
-                    binding.check2.isChecked = false;
-                    binding.check3.isChecked = false;
+
+                    if(binding.check4.isChecked== true) {
+
+                        binding.check1.isChecked = false;
+                        binding.check2.isChecked = false;
+                        binding.check3.isChecked = false;
+
+                    }
                 }
 
 
