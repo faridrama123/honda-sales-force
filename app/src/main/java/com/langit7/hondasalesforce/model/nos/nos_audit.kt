@@ -1,4 +1,5 @@
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
 data class NosAudit (
@@ -10,3 +11,5 @@ data class NosAudit (
 
 
 )
+
+

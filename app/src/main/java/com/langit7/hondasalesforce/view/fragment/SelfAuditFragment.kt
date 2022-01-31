@@ -25,7 +25,6 @@ import com.langit7.hondasalesforce.view.activity.MainActivity
 import com.langit7.hondasalesforce.view.activity.QuizActivity
 import com.langit7.hondasalesforce.view.activity.nos.ListNosAuditActivity
 import com.langit7.hondasalesforce.view.activity.teamreport.PartisipantQuizActivity
-import kotlinx.android.synthetic.main.activity_partisipant_detail.*
 
 
 class SelfAuditFragment : Fragment(), BaseFragmentInterface {
@@ -34,6 +33,7 @@ class SelfAuditFragment : Fragment(), BaseFragmentInterface {
     lateinit var act:MainActivity;
     var lsData=ArrayList<quiz>()
     private lateinit var binding: FragmentSetAuditBinding
+    var option = 0;
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -70,14 +70,24 @@ class SelfAuditFragment : Fragment(), BaseFragmentInterface {
             Log.d("checkbox", "checked: $isChecked")
             goToPeserta("1", "H1 Premises")
         }
+
+        binding.ck2.setOnCheckedChangeListener { _, isChecked ->
+            Log.d("checkbox", "checked: $isChecked")
+            goToPeserta("2", "H1 People")
+        }
+
+        binding.ck3.setOnCheckedChangeListener { _, isChecked ->
+            Log.d("checkbox", "checked: $isChecked")
+            goToPeserta("3", "H1 Process")
+        }
+
+
     }
     fun goToPeserta(index: String, title : String
                     ) {
-
         var ii= Intent (getActivity(), ListNosAuditActivity::class.java)
         ii.putExtra("index", index)
         ii.putExtra("title", title)
-
 
         this.startActivity(ii)
     }
