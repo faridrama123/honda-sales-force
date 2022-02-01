@@ -94,14 +94,13 @@
     </RelativeLayout>
 
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/topbar"
         android:layout_above="@+id/submit"
-        tools:listitem="@layout/item_nos" />
+        android:layout_below="@+id/topbar"
+        tools:listitem="@layout/item_nos2" />
 
     <RelativeLayout
         android:layout_alignParentBottom="true"

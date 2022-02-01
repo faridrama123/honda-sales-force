@@ -1815,83 +1815,218 @@ class ListNosAuditActivity : BaseActivity() {
                     "\n" +
                     "* Not Exist  : Tidak Dapat menjelaskan min. 5 – 7  fitur produk dan kegunaannya berdasarkan Sales Talk Product Knowledge dengan menggunakan metode SPWA & C-F-A\n", 0))
 
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
+        nosAudit.add(NosAudit("Supervisor",
+            " Jumlah ",
+            "1 Spv membawahi = 5 Coord SM\n" +
+                    "Target  Jmlah Coord SM (A)\n" +
+                    "Target  Jml Spv = A / 5\n" +
+                    "\n" +
+                    "* Exist, Done :  Jml Spv ≥ Target  Jml Spv \n" +
+                    "* Exist, Not Done : Target  Jml Spv > 0 dan  Jml Spv < Target  Jml Spv\n" +
+                    "* Not Done : Target  Jml Spv > 0 dan  Jml Spv = 0\n" +
+                    "* N/A : Target  Jml Spv = 0 dan  Jml Spv = 0", 0))
+        nosAudit.add(NosAudit("Supervisor",
+            "Training",
+            "Sudah melakukan training (dengan masa kerja) :\n" +
+                    "a. Wing Sales People Training (Wajib dilakukan pada usia kerja 0 - 1 bulan)\n" +
+                    "\n" +
+                    "* Exist, Done : Sudah lulus training (Nilai >= 80)\n" +
+                    "* Not Exist : Belum lulus Training", 0))
 
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
+        nosAudit.add(NosAudit("Supervisor",
+            "Training",
+            "b. SFT - Product Knowledge (All Product Launched)\n" +
+                    "\n" +
+                    "* Exist, Done :   Sudah lulus training (Nilai >= 70)\n" +
+                    "* Not Exist :   Belum lulus Training\n", 0))
 
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
 
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
+        nosAudit.add(NosAudit("Supervisor",
+            "Training",
+            "c. Customer Service for leader 1 - Complaint Handling (Wajib dilakukan pada usia kerja > 3 bulan)\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
 
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
+        nosAudit.add(NosAudit("Supervisor",
+            "Training",
+            "d. Customer Service for leader 2 (Wajib dilakukan pada usia kerja > 6 bulan)\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
 
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
+        nosAudit.add(NosAudit("Supervisor",
+            "Training",
+            "e. TFT Basic Orientation Traning - BOT (Wajib dilakukan pada usia kerja > 1 bulan) sebelum training NOS\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
 
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
+        nosAudit.add(NosAudit("Supervisor",
+            "Training",
+            "f. Training Network Operational Standard (Wajib dilakukan pada usia kerja > 1 bulan)\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
 
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
+        nosAudit.add(NosAudit("Supervisor",
+            "Training",
+            "Notes :\n" +
+                    "* Apabila Target  Jml Spv = 0 dan  Jmlah Spv = 0, maka untuk penilaian diisii N/A\n" +
+                    "* Apabila Target  Jml Spv > 0 dan  Jmlah Spv = 0, maka penilaian tetap dilakukan", 0))
+        nosAudit.add(NosAudit("Supervisor",
+            "Sales Tools",
+            "Supervisor memiliki sales tools berupa :\n" +
+                    "Aplikasi MyHero (berhasil Login)\n" +
+                    "\n" +
+                    "Ketika menjelaskan konsumen diutamakan menggunakan Aplikasi MyHero (digital)", 0))
 
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
+        nosAudit.add(NosAudit("Supervisor",
+            "Product Knowledge Test",
+            "Dapat menjelaskan konsep produk, design produk, performance dan min. 5 - 7 fitur produk dan kegunaannya berdasarkan Sales Talk Product Knowledge.\n" +
+                    "\n" +
+                    "Alternatif Tipe Produk : Premium Product\n" +
+                    "\n" +
+                    "* Exist, Done : Dapat menjelaskan min. 5 - 7 fitur produk dan kegunaannya berdasarkan Sales Talk Product Knowledge dengan menggunakan metode SPWA & C-F-A\n" +
+                    "\n" +
+                    "* Not Exist  : Tidak Dapat menjelaskan min. 5 - 7 fitur produk dan kegunaannya berdasarkan Sales Talk Product Knowledge dengan menggunakan metode SPWA & C-F-A", 0))
 
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
+        nosAudit.add(NosAudit("Coordinator Sales Counter",
+            "  Jumlah ",
+            "1 Coordinator SC membawahi = 4 SC\n" +
+                    "Target  Jmlah SC (A)\n" +
+                    "Target  Jml Coordinator SC = A / 4\n" +
+                    "* Jabatan ini adalah fungsi yang dapat dirangkap oleh Sales Counter\n" +
+                    "\n" +
+                    "* Exist, Done : Actual Jml Coord SC ≥ Target  Jml Coord SC\n" +
+                    "* Exist, Not Done : Target Jml Coord SC > 0 dan Actual Jml Coord SC < Target Jml Coord SC \n" +
+                    "* Not Done : Target Jml Coord SC > 0 dan Actual Jml Coord SC = 0\n" +
+                    "* N/A : Target Jml Coord SC = 0 dan Actual Jml Coord SC = 0", 0))
+        nosAudit.add(NosAudit("Coordinator Sales Counter",
+            "Training",
+            "a. SFT - Product Knowledge (All Product Launched)\n" +
+                    "\n" +
+                    "* Exist, Done :   Sudah lulus training (Nilai >= 70)\n" +
+                    "* Not Exist :   Belum lulus Training\n", 0))
 
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
+        nosAudit.add(NosAudit("Coordinator Sales Counter",
+            "Training",
+            "b. Customer Service For FLP Training (Wajib dilakukan pada usia kerja > 3 bulan)\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
 
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
+        nosAudit.add(NosAudit("Coordinator Sales Counter",
+            "Training",
+            "c. Basic Orientation Traning - BOT (Wajib dilakukan pada usia kerja > 1 bulan) sebelum training NOS\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
 
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
+        nosAudit.add(NosAudit("Coordinator Sales Counter",
+            "Training",
+            "d. Salesmanship Training  (Wajib dilakukan pada usia kerja > 6 bulan)\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+        nosAudit.add(NosAudit("Coordinator Sales Counter",
+            "Training",
+            "e. Training Network Operational Standard (Wajib dilakukan pada usia kerja > 1 bulan)\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
 
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
+        nosAudit.add(NosAudit("Coordinator Sales Counter",
+            "Standard Penampilan",
+            "1.Wajah : \n" +
+                    "Pria : ,wajah terlihat segar/tidak berminyak/tidak kusam, kumis/jenggot rapi (tdk dipanjangkan)\n" +
+                    "\n" +
+                    "Wanita :  Rias Wajah menggunakan make up (bedak,alis,eye shadow,blush on,lipstik sesuai standar)\n" +
+                    "\n" +
+                    "2.Rambut : \n" +
+                    "Pria : Rambut Pendek Rapi, tidak menutupi mata dan tidak menyentuh kerah baju dan telinga\n" +
+                    "\n" +
+                    "Wanita :  Rambut rapi / tidak menutupi pandangan (panjang rambut lebih dari sebahu wajib dikuncir ponytail )\n" +
+                    "\n" +
+                    "3.Wewangian dan kebersihan:\n" +
+                    "Aroma tubuh tidak mengganggu, tangan bersih, kuku tangan dan kuku kaki bersih. Untuk pria kuku pendek rapi.\n", 0))
 
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
+        nosAudit.add(NosAudit("Coordinator Sales Counter",
+            "Standard Penampilan",
+            "4. Seragam : \n" +
+                    "\n" +
+                    "Ketentuan :\n" +
+                    " Senin & Rabu : Seragam Honda berkerah merah,Celana / rok hitam \n" +
+                    " Selasa & Kamis : Seragam Honda berkerah putih,Celana / rok hitam  \n" +
+                    "Jumat : baju khas daerah / batik (batik Dealer), Celana / Rok Hitam\n" +
+                    "Sabtu & Minggu : casual (berkerah) atau sesuai kebijakan masing2 dealer\n" +
+                    "(kondisi Baju : Rapi, Bersih, Warna tidak kusam, tidak robek, dan logo Honda terlihat)\n" +
+                    "* Sesuai dengan aturan seragam dari HC3 AHM\n" +
+                    "\n" +
+                    "5.Atribut  : \n" +
+                    "- Senin - Jumat : Wanita menggunakan sepatu pantofel warna hitam heel minimum 5 cm kecuali wanita hamil\n" +
+                    "- Senin - Jumat : Pria menggunakan sepatu pantofel warna hitam\n" +
+                    "- Sabtu - Minggu atau saat berada di lapangan : Sepatu Kets  warna Netral (Putih, Hitam, Abu-abu, Merah Maroon, Biru Tua, Putih)\n" +
+                    "- ID Card dengan Kalung Honda Merah dan ID Card Holder WSP dari AHM\n" +
+                    "- Pin One Heart di dada kiri\n" +
+                    "- Jam Tangan Kulit / Karet / Canvas Warna Hitam / Coklat Tua / Gelap\n" +
+                    "\n" +
+                    "6. Aksesories :\n" +
+                    "Pria : aksesoris tidak berlebihan (tidak lebih dari 5 titik)\n" +
+                    "Wanita : aksesoris tidak berlebihan (tidak lebih dari 7 titik)\n" +
+                    "\n" +
+                    "Menggunakan Masker polos atau tidak bermotif.\n" +
+                    "-Masker kesehatan (warna bebas)\n" +
+                    "-Masker kain disesuaikan dengan warna unsur seragam, yaitu abu-abu/putih/merah/hitam* *Kecuali Jum'at-Sabtu-Minggu\n" +
+                    "Menggunakan face shield (jika berinteraksi dengan konsumen)", 0))
+        nosAudit.add(NosAudit("Coordinator Sales Counter",
+            "Standard Penampilan",
+            "Notes : \n" +
+                    "* Apabila Target  Jml Coord SC = 0 dan  Jmlah Coord SC = 0, maka untuk penilaian diisii N/A\n" +
+                    "* Apabila Target  Jml Coord SC > 0 dan  Jmlah Coord SC = 0, maka penilaian tetap dilakukan", 0))
+
+        nosAudit.add(NosAudit("Coordinator Sales Counter",
+            "Sales Tools",
+            "Memiliki sales tools berupa :\n" +
+                    "1. Aplikasi MyHero (berhasil Login)\n" +
+                    "2. Map Kerja Sales People yang berisi Service Talk Flyer, Community Flyer, Flyer Acc & App, Flyer Customizing Part, Flyer Rekomendasi Bengkel Modifikasi, Pricelist, Sales Program List, Alat tulis. \n" +
+                    "3. Kalendar Produk\n" +
+                    "\n" +
+                    "Ketika menjelaskan ke konsumen di utamakan menggunakan aplikasi MyHero (digital) ", 0))
+
+        nosAudit.add(NosAudit("Coordinator Sales Counter",
+            "Product Knowledge Test",
+            "Dapat menjelaskan konsep produk, design produk, performance dan min. 5 - 7 fitur produk dan kegunaannya berdasarkan Sales Talk Product Knowledge.\n" +
+                    "\n" +
+                    "Alternatif Tipe Produk : Product Terbaru (antara 3 yang terakhir launching)\n" +
+                    "\n" +
+                    "* Exist, Done : Dapat menjelaskan min. 5 - 7 fitur produk dan kegunaannya berdasarkan Sales Talk Product Knowledge dengan menggunakan metode SPWA & C-F-A\n" +
+                    "\n" +
+                    "* Not Exist  : Tidak Dapat menjelaskan min. 5 - 7 fitur produk dan kegunaannya berdasarkan Sales Talk Product Knowledge dengan menggunakan metode SPWA & C-F-A", 0))
 
         nosAudit.add(NosAudit("",
             "",
@@ -2284,5 +2419,14 @@ class ListNosAuditActivity : BaseActivity() {
             "", 0))
 
         return nosAudit
+    }
+
+
+    fun generateDataH1Process(): List<NosAudit> {
+
+        val nosAudit = ArrayList<NosAudit>()
+
+        return nosAudit
+
     }
 }

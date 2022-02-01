@@ -1,16 +1,34 @@
 package com.langit7.hondasalesforce.view.activity.nos
 
-import NosAudit
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.langit7.hondasalesforce.R
+import android.R.attr.checked
+
+
+import NosAudit
+import android.R.attr
 import com.langit7.hondasalesforce.databinding.ItemNosBinding
+import kotlinx.android.synthetic.main.item_nos.view.*
+import android.util.SparseBooleanArray
+
+
+
+
+
+
 
 class AdapterListNosAudit : RecyclerView.Adapter<AdapterListNosAudit.ViewHolder>() {
 
     private val mData = ArrayList<NosAudit>()
+    var itemStateArray = SparseBooleanArray()
+
 
     fun setData(items: List<NosAudit>) {
         mData.clear()
@@ -26,34 +44,68 @@ class AdapterListNosAudit : RecyclerView.Adapter<AdapterListNosAudit.ViewHolder>
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private val binding = ItemNosBinding.bind(itemView)
+
+
         fun bind(items: NosAudit, position: Int) {
             with(itemView){
+
+                if(items.answer ==1){
+                                        binding.check1.setChecked(true);
+
+                }else{
+                                        binding.check1.setChecked(false);
+
+                }
+
+                if(items.answer ==2){
+                    binding.check2.setChecked(true);
+
+                }else{
+                    binding.check2.setChecked(false);
+
+                }
+
+                if(items.answer ==3){
+                    binding.check3.setChecked(true);
+
+                }else{
+                    binding.check3.setChecked(false);
+
+                }
+
+                if(items.answer ==4){
+                    binding.check4.setChecked(true);
+
+                }else{
+                    binding.check4.setChecked(false);
+
+                }
+
+
                 binding.title    .text = items.title
                 binding.subtitle    .text = items.subTitle
                 binding.indicatorText    .text = items.data
-                binding.question.setOnClickListener {
 
+                binding.question.setOnClickListener {
 
                     if ( binding.indicator.visibility == View.VISIBLE   ){
 
-
                          binding.indicator.visibility = View.GONE
                          binding.sub1.visibility  = View.VISIBLE
-                         binding.sub2.visibility  = View.VISIBLE
-                         binding.sub3.visibility  = View.VISIBLE
-                         binding.sub4.visibility  = View.VISIBLE
+
 
                      }else{
 
                          binding.indicator.visibility = View.VISIBLE
 
                          binding.sub1.visibility  = View.GONE
-                         binding.sub2.visibility  = View.GONE
 
-                         binding.sub3.visibility  = View.GONE
-                         binding.sub4.visibility  = View.GONE
                      }
                 }
+
+
+
+
 
                 binding.check1.setOnClickListener {
 
