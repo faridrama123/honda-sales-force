@@ -76,34 +76,267 @@ class ListNosAuditActivity : BaseActivity() {
              option4 = 0
 
             var data : ArrayList<NosAudit> =  AdapterListNosAudit.getData()
-                //            data.forEachIndexed {
-                //                    index, e ->
-                //
-                //                if(e.answer == 1){
-                //                    option1++
-                //                }
-                //                if(e.answer == 2){
-                //                    option2++
-                //                }
-                //                if(e.answer == 3){
-                //                    option3++
-                //                }
-                //
-                //                if(e.answer == 4){
-                //                    option4++
-                //                }
-                //            }
-                //
+
+//                            data.forEachIndexed {
+//                                    index, e ->
+//
+//                                if(e.answer == 1){
+//                                    option1++
+//                                }
+//                                if(e.answer == 2){
+//                                    option2++
+//                                }
+//                                if(e.answer == 3){
+//                                    option3++
+//                                }
+//
+//                                if(e.answer == 4){
+//                                    option4++
+//                                }
+//                            }
+
 
          // export data to excel
-         if(index=="1")   initiateExport(data, "H1 Premises", "Exist, Good", "Exist, Not Good", "Not Exist", "N/A")
+            if(index=="1")   initiateExport(data, "H1 Premises", "Exist, Good", "Exist, Not Good", "Not Exist", "N/A")
             if(index=="2")   initiateExport(data, "H1 People", "Exist, Done", "Exist, Not Done", "Not Exist", "N/A")
             if(index=="3")   initiateExport(data, "H1 Process", "Exist, Done", "Exist, Not Done", "Not Exist", "N/A")
-
-         //
-         binding.rv.visibility = View.GONE
+            if(index=="4")   initiateExport(data, "H23 Premises", "Exist, Done", "Exist, Not Done", "Not Exist", "N/A")
+            if(index=="5")   initiateExport(data, "H23 Process", "Exist, Done", "Exist, Not Done", "Not Exist", "N/A")
+            //
+            binding.rv.visibility = View.GONE
             binding.submit.visibility = View.GONE
             binding.score.visibility = View.VISIBLE
+
+
+            // h1 premises
+            if(index=="1") {
+
+              //  binding.img.setBackgroundResource(R.drawable.silver)
+                if(data[6-2].answer ==1 || data[6-2].answer ==4 &&
+                    data[7-2].answer ==1 || data[7-2].answer ==4 &&
+                    data[40-2].answer ==1  &&
+                    data[41-2].answer ==1  &&
+                    data[42-2].answer ==1  &&
+                    data[43-2].answer ==1  &&
+                    data[44-2].answer ==1  &&
+                    data[45-2].answer ==1  &&
+                    data[48-2].answer ==1 || data[48-2].answer ==4  &&
+                    data[49-2].answer ==1 || data[49-2].answer ==4  &&
+                    data[52-2].answer ==1 &&
+                    data[57-2].answer ==1 || data[57-2].answer ==4  &&
+                    data[65-2].answer ==1 || data[65-2].answer ==4  &&
+                    data[103-2].answer ==1
+                        ){
+
+                      binding.img.setBackgroundResource(R.drawable.platinum)
+                    Log.d("", "Platinum")
+                }
+                else if (data[6-2].answer ==1 || data[6-2].answer ==4 &&
+                    data[7-2].answer ==1 || data[7-2].answer ==4 &&
+                    data[40-2].answer ==1  &&
+                    data[41-2].answer ==1  &&
+                    data[42-2].answer ==1  &&
+                    data[43-2].answer ==1  &&
+                    data[44-2].answer ==1  &&
+                    data[45-2].answer ==1  &&
+                    data[48-2].answer ==1 || data[48-2].answer ==4  &&
+                    data[49-2].answer ==1 || data[49-2].answer ==4  &&
+                    data[52-2].answer ==1 &&
+                    data[103-2].answer ==1)
+                {
+
+                    binding.img.setBackgroundResource(R.drawable.gold)
+                    Log.d("", "Gold")
+
+                }
+                else if (
+                    data[40-2].answer ==1  &&
+                    data[41-2].answer ==1  &&
+                    data[42-2].answer ==1  &&
+                    data[43-2].answer ==1  &&
+
+                    data[52-2].answer ==1 &&
+
+                    data[103-2].answer ==1)
+                {
+                    binding.img.setBackgroundResource(R.drawable.silver)
+                    Log.d("", "Silver")
+
+                }
+                else
+                {
+                    binding.img.setBackgroundResource(R.drawable.bronze)
+                    Log.d("", "Bronze")
+
+                }
+            }
+
+            // h1 people
+            if(index=="2") {
+
+                if(
+                    data[2-2].answer ==1 &&
+                    data[11-2].answer ==1 || data[11-2].answer ==4  &&
+                    data[20-2].answer ==1 || data[11-2].answer ==4  &&
+                    data[100-2].answer ==1   &&
+                    data[128-2].answer ==1
+                ){
+                    binding.img.setBackgroundResource(R.drawable.platinum)
+                    Log.d("", "Platinum")
+                }
+                else if (
+                    data[2-2].answer ==1 &&
+                    data[20-2].answer ==1 || data[11-2].answer ==4  &&
+                    data[100-2].answer ==1   &&
+                    data[128-2].answer ==1
+
+                )
+
+                {
+
+                    binding.img.setBackgroundResource(R.drawable.gold)
+                    Log.d("", "Gold")
+
+                }
+                else if (
+                    data[2-2].answer ==1 &&
+
+                    data[128-2].answer ==1)
+                {
+                    binding.img.setBackgroundResource(R.drawable.silver)
+                    Log.d("", "Silver")
+
+                }
+                else
+                {
+                    binding.img.setBackgroundResource(R.drawable.bronze)
+                    Log.d("", "Bronze")
+
+                }
+            }
+
+
+
+            // h1 process
+            if(index=="3") {
+
+                if(
+                    data[44-2].answer ==1 &&
+                    data[54-2].answer ==1 &&
+                    data[55-2].answer ==1 &&
+
+                    data[57-2].answer ==1 &&
+                    data[62-2].answer ==1 &&
+                    data[63-2].answer ==1 &&
+                    data[79-2].answer ==1 &&
+                    data[80-2].answer ==1
+
+                ){
+                    binding.img.setBackgroundResource(R.drawable.platinum)
+                    Log.d("", "Platinum")
+                }
+                else if (
+                    data[54-2].answer ==1 &&
+                    data[55-2].answer ==1 &&
+
+                    data[57-2].answer ==1 &&
+                    data[62-2].answer ==1 &&
+                    data[63-2].answer ==1
+
+
+                )
+
+                {
+
+                    binding.img.setBackgroundResource(R.drawable.gold)
+                    Log.d("", "Gold")
+
+                }
+                else if (
+                    data[54-2].answer ==1 &&
+                    data[55-2].answer ==1 &&
+
+                    data[57-2].answer ==1
+                )
+                {
+                    binding.img.setBackgroundResource(R.drawable.silver)
+                    Log.d("", "Silver")
+
+                }
+                else
+                {
+                    binding.img.setBackgroundResource(R.drawable.bronze)
+                    Log.d("", "Bronze")
+
+                }
+            }
+
+
+            // h23 premesis
+            if(index=="4") {
+
+                if(
+                    data[2].answer ==1 || data[2].answer == 4
+
+                ){
+                    binding.img.setBackgroundResource(R.drawable.platinum)
+                    Log.d("", "Platinum")
+                }
+                else if (
+                    data[2].answer ==1 || data[2].answer == 4
+
+                )
+
+                {
+
+                    binding.img.setBackgroundResource(R.drawable.gold)
+                    Log.d("", "Gold")
+
+                }
+
+                else
+                {
+                    binding.img.setBackgroundResource(R.drawable.bronze)
+                    Log.d("", "Bronze")
+
+                }
+            }
+
+
+            //premesis
+            if(index=="5") {
+
+                binding.img.setBackgroundResource(R.drawable.platinum)
+                Log.d("", "Platinum")
+//                if(
+//                    data[2].answer ==1 || data[2].answer == 4
+//
+//                ){
+//                    binding.img.setBackgroundResource(R.drawable.platinum)
+//                    Log.d("", "Platinum")
+//                }
+//                else if (
+//                    data[2].answer ==1 || data[2].answer == 4
+//
+//                )
+//
+//                {
+//
+//                    binding.img.setBackgroundResource(R.drawable.gold)
+//                    Log.d("", "Gold")
+//
+//                }
+//
+//                else
+//                {
+//                    binding.img.setBackgroundResource(R.drawable.bronze)
+//                    Log.d("", "Bronze")
+//
+//                }
+            }
+
+
+
 
         }
 
@@ -196,6 +429,14 @@ class ListNosAuditActivity : BaseActivity() {
 
         if(index=="1")   dataTemp = generateDataH1Premises() as ArrayList<NosAudit>
         if(index=="2")   dataTemp = generateDataH1People() as ArrayList<NosAudit>
+        if(index=="3")   dataTemp = generateDataH1Process() as ArrayList<NosAudit>
+
+        if(index=="4")   dataTemp = generateDataH23Premises() as ArrayList<NosAudit>
+
+
+      //  if(index=="5")   dataTemp = generateDataH23Process() as ArrayList<NosAudit>
+
+
 
 
         AdapterListNosAudit.setData(dataTemp)
@@ -257,11 +498,13 @@ class ListNosAuditActivity : BaseActivity() {
                     "- Display Motor (Dibersihkan minimal sehari 2 kali - bukti ditunjukan dengan Checklist Harian)",0))
 
 
-        nosAudit.add(NosAudit("Kebersihan Dealer", "Checklist Kebersihan Interior", "1. Terdapat checklist kebersihan untuk area showroom \n" +
+        nosAudit.add(NosAudit("Kebersihan Dealer", "Checklist Kebersihan Interior"
+            , "1. Terdapat checklist kebersihan untuk area showroom \n" +
                 "2. Terdapat kolom checklist kebersihan minimal pada jam 07.30, 12.00, 15.00",0 ))
 
-        nosAudit.add(NosAudit("Kebersihan Dealer", "Checklist Kebersihan Atribut", "1. Sesuai dengan gambar tampak depan yang sudah diapprove bersama\n" +
-                "2. Gambar eksterior yang sudah diapproved, dicetak, ditempel di ruang Kacab" ,0))
+        nosAudit.add(NosAudit("Kebersihan Dealer", "Checklist Kebersihan Atribut",
+            "1. Terdapat checklist kebersihan untuk unit display, HRT, accessories, dan apparel\n" +
+                    "2. Terdapat kolom checklist kebersihan minimal pada jam 07.30, 12.00, 15.00" ,0))
 
 
         nosAudit.add(NosAudit("Approval Layout New VinCi",
@@ -344,9 +587,6 @@ class ListNosAuditActivity : BaseActivity() {
             "X-Banner Protab Kebersihan",
             "1. Terdapat X-Banner yang berisi edukasi protab kebersihan  di area security (pintu masuk)", 0))
 
-        nosAudit.add(NosAudit("Eksterior",
-            "",
-            "", 0))
 
         nosAudit.add(NosAudit("Eksterior",
             "Thermal Gun",
@@ -2028,395 +2268,819 @@ class ListNosAuditActivity : BaseActivity() {
                     "\n" +
                     "* Not Exist  : Tidak Dapat menjelaskan min. 5 - 7 fitur produk dan kegunaannya berdasarkan Sales Talk Product Knowledge dengan menggunakan metode SPWA & C-F-A", 0))
 
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-                    "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
-        nosAudit.add(NosAudit("",
-            "",
-            "", 0))
+        nosAudit.add(NosAudit("Coordinator Sales Counter",
+            "  Jumlah ",
+            "Target Sales Dealer (A)\n" +
+                    "Target Kontribusi Sales by SC (B)\n" +
+                    "Target Productivity SC (C)\n" +
+                    "(Range Target Productivity SC = 20-45 unit (disesuaikan dengan target masing-masing MD)\n" +
+                    "\n" +
+                    "Target  Jml SC = (A * B) / C\n" +
+                    "\n" +
+                    "* Exist, Done :  Jml SC ≥ Target  Jml SC\n" +
+                    "* Exist, Not Done : Target  Jml SC > 0 dan  Jml SC < Target  Jml SC \n" +
+                    "* Not Done : Target  Jml SC > 0 dan  Jml SC = 0", 0))
+        nosAudit.add(NosAudit("Coordinator Sales Counter",
+            "Training",
+            "a. SFT - Product Knowledge (All Product Launched)\n" +
+                    "\n" +
+                    "* Exist, Done :   Sudah lulus training (Nilai >= 70)\n" +
+                    "* Not Exist :   Belum lulus Training\n", 0))
+
+        nosAudit.add(NosAudit("Coordinator Sales Counter",
+            "Training",
+            "b. Customer Service For FLP Training (Wajib dilakukan pada usia kerja > 3 bulan)\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+
+        nosAudit.add(NosAudit("Coordinator Sales Counter",
+            "Training",
+            "c. Basic Orientation Traning - BOT (Wajib dilakukan pada usia kerja > 1 bulan) sebelum training NOS\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+        nosAudit.add(NosAudit("Coordinator Sales Counter",
+            "Training",
+            "d. Salesmanship Training  (Wajib dilakukan pada usia kerja > 6 bulan)\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+
+        nosAudit.add(NosAudit("Coordinator Sales Counter",
+            "Training",
+            "e. Training Network Operational Standard (Wajib dilakukan pada usia kerja > 1 bulan)\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+
+        nosAudit.add(NosAudit("Coordinator Sales Counter",
+            "Standard Penampilan",
+            "1.Wajah : \n" +
+                    "Pria : ,wajah terlihat segar/tidak berminyak/tidak kusam, kumis/jenggot rapi (tdk dipanjangkan)\n" +
+                    "\n" +
+                    "Wanita :  Rias Wajah menggunakan make up (bedak,alis,eye shadow,blush on,lipstik sesuai standar)\n" +
+                    "\n" +
+                    "2.Rambut : \n" +
+                    "Pria : Rambut Pendek Rapi, tidak menutupi mata dan tidak menyentuh kerah baju dan telinga\n" +
+                    "\n" +
+                    "Wanita :  Rambut rapi / tidak menutupi pandangan (panjang rambut lebih dari sebahu wajib dikuncir ponytail)\n" +
+                    "\n" +
+                    "3.Wewangian dan kebersihan:\n" +
+                    "Aroma tubuh tidak mengganggu, tangan bersih, kuku tangan dan kuku kaki bersih. Untuk pria kuku pendek rapi.\n", 0))
+
+        nosAudit.add(NosAudit("Coordinator Sales Counter",
+            "Standard Penampilan",
+            "4. Seragam : \n" +
+                    "\n" +
+                    "Ketentuan :\n" +
+                    " Senin & Rabu : Seragam Honda berkerah merah,Celana / rok hitam \n" +
+                    " Selasa & Kamis : Seragam Honda berkerah putih,Celana / rok hitam  \n" +
+                    "Jumat : baju khas daerah / batik (batik Dealer), Celana / Rok Hitam\n" +
+                    "Sabtu & Minggu : casual (berkerah) atau sesuai kebijakan masing2 dealer\n" +
+                    "(kondisi Baju : Rapi, Bersih, Warna tidak kusam, tidak robek, dan logo Honda terlihat)\n" +
+                    "* Sesuai dengan aturan seragam dari HC3 AHM\n" +
+                    "\n" +
+                    "5.Atribut  : \n" +
+                    "- Senin - Jumat : Wanita menggunakan sepatu pantofel warna hitam heel minimum 5 cm kecuali wanita hamil\n" +
+                    "- Senin - Jumat : Pria menggunakan sepatu pantofel warna hitam\n" +
+                    "- Sabtu - Minggu atau saat berada di lapangan : Sepatu Kets  warna Netral (Putih, Hitam, Abu-abu, Merah Maroon, Biru Tua, Putih)\n" +
+                    "- ID Card dengan Kalung Honda Merah dan ID Card Holder WSP dari AHM\n" +
+                    "- Pin One Heart di dada kiri\n" +
+                    "- Jam Tangan Kulit / Karet / Canvas Warna Hitam / Coklat Tua / Gelap\n" +
+                    "\n" +
+                    "6. Aksesories :\n" +
+                    "Pria : aksesoris tidak berlebihan (tidak lebih dari 5 titik)\n" +
+                    "Wanita : aksesoris tidak berlebihan (tidak lebih dari 7 titik)\n" +
+                    "\n" +
+                    "Menggunakan Masker polos atau tidak bermotif.\n" +
+                    "-Masker kesehatan (warna bebas)\n" +
+                    "-Masker kain disesuaikan dengan warna unsur seragam, yaitu abu-abu/putih/merah/hitam* *Kecuali Jum'at-Sabtu-Minggu\n" +
+                    "Menggunakan face shield (jika berinteraksi dengan konsumen)", 0))
+        nosAudit.add(NosAudit("Coordinator Sales Counter",
+            "Sales Tools",
+            "Memiliki sales tools berupa :\n" +
+                    "1. Aplikasi MyHero (berhasil Login)\n" +
+                    "2. Map Kerja Sales People yang berisi Service Talk Flyer, Community Flyer, Flyer Acc & App, Flyer Customizing Part, Flyer Rekomendasi Bengkel Modifikasi, Pricelist, Sales Program List, Alat tulis. \n" +
+                    "3. Kalendar Produk\n" +
+                    "\n" +
+                    "Ketika menjelaskan ke konsumen di utamakan menggunakan aplikasi MyHero (digital) ", 0))
+
+        nosAudit.add(NosAudit("Coordinator Sales Counter",
+            "Product Knowledge Test",
+            "Alternatif Tipe Produk : Regular Product\n" +
+                    "\n" +
+                    "* Exist, Done : Dapat menjelaskan min. 5 – 7  fitur produk dan kegunaannya berdasarkan Sales Talk Product Knowledge dengan menggunakan metode SPWA & C-F-A\n" +
+                    "\n" +
+                    "* Not Exist  : Tidak Dapat menjelaskan min. 5 – 7  fitur produk dan kegunaannya berdasarkan Sales Talk Product Knowledge dengan menggunakan metode SPWA & C-F-A\n", 0))
+
+        nosAudit.add(NosAudit("Coordinator Sales Man",
+            "Jumlah",
+            "1 Coordinator SM membawahi < = 10 SM\n" +
+                    "Target  Jmlah SM (A)\n" +
+                    "Target  Jml Coordinator SM = A / 10\n" +
+                    "\n" +
+                    "* Exist, Done :  Jml Coord SM ≥ Target  Jml Coord SM\n" +
+                    "* Exist, Not Done : Target  Jml Coord SM > 0 dan  Jml Coord SM < Target  Jml Coord SM \n" +
+                    "* Not Done : Target  Jml Coord SM > 0 dan  Jml Coord SM = 0\n" +
+                    "* N/A : Target  Jml Coord SM = 0 dan  Jml Coord SM = 0", 0))
+        nosAudit.add(NosAudit("Coordinator Sales Man",
+            "Training",
+            "a. SFT - Product Knowledge (All Product Launched)\n" +
+                    "\n" +
+                    "* Exist, Done :   Sudah lulus training (Nilai >= 70)\n" +
+                    "* Not Exist :   Belum lulus Training\n", 0))
+
+        nosAudit.add(NosAudit("Coordinator Sales Man",
+            "Training",
+            "b. Customer Service For FLP Training (Wajib dilakukan pada usia kerja > 3 bulan)\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+
+        nosAudit.add(NosAudit("Coordinator Sales Man",
+            "Training",
+            "c. Basic Orientation Traning - BOT (Wajib dilakukan pada usia kerja > 1 bulan) sebelum training NOS\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+
+        nosAudit.add(NosAudit("Coordinator Sales Man",
+            "Training",
+            "d. Salesmanship Training  (Wajib dilakukan pada usia kerja > 6 bulan)\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+        nosAudit.add(NosAudit("Coordinator Sales Man",
+            "Training",
+            "e. Training Network Operational Standard (Wajib dilakukan pada usia kerja > 1 bulan)\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+
+        nosAudit.add(NosAudit("Coordinator Sales Man",
+            "Standard Penampilan",
+            "1.Wajah : \n" +
+                    "Pria : ,wajah terlihat segar/tidak berminyak/tidak kusam, kumis/jenggot rapi (tdk dipanjangkan)\n" +
+                    "\n" +
+                    "Wanita :  Rias Wajah menggunakan make up (bedak,alis,eye shadow,blush on,lipstik sesuai standar)\n" +
+                    "\n" +
+                    "2.Rambut : \n" +
+                    "Pria : Rambut Pendek Rapi, tidak menutupi mata dan tidak menyentuh kerah baju dan telinga\n" +
+                    "\n" +
+                    "Wanita :  Rambut rapi / tidak menutupi pandangan (panjang rambut lebih dari sebahu wajib dikuncir ponytail )\n" +
+                    "\n" +
+                    "3.Wewangian dan kebersihan:\n" +
+                    "Aroma tubuh tidak mengganggu, tangan bersih, kuku tangan dan kuku kaki bersih. Untuk pria kuku pendek rapi.\n", 0))
+
+        nosAudit.add(NosAudit("Coordinator Sales Man",
+            "Standard Penampilan",
+            "4. Seragam : \n" +
+                    "\n" +
+                    "Ketentuan :\n" +
+                    " Senin & Rabu : Seragam Honda berkerah merah,Celana / rok hitam \n" +
+                    " Selasa & Kamis : Seragam Honda berkerah putih,Celana / rok hitam  \n" +
+                    "Jumat : baju khas daerah / batik (batik Dealer), Celana / Rok Hitam\n" +
+                    "Sabtu & Minggu : casual (berkerah) atau sesuai kebijakan masing2 dealer\n" +
+                    "(kondisi Baju : Rapi, Bersih, Warna tidak kusam, tidak robek, dan logo Honda terlihat)\n" +
+                    "* Sesuai dengan aturan seragam dari HC3 AHM\n" +
+                    "\n" +
+                    "5.Atribut  : \n" +
+                    "- Senin - Jumat : Wanita menggunakan sepatu pantofel warna hitam heel minimum 5 cm kecuali wanita hamil\n" +
+                    "- Senin - Jumat : Pria menggunakan sepatu pantofel warna hitam\n" +
+                    "- Sabtu - Minggu atau saat berada di lapangan : Sepatu Kets  warna Netral (Putih, Hitam, Abu-abu, Merah Maroon, Biru Tua, Putih)\n" +
+                    "- ID Card dengan Kalung Honda Merah\n" +
+                    "- Pin One Heart di dada kiri\n" +
+                    "- Jam Tangan Kulit / Karet / Canvas Warna Hitam / Coklat Tua / Gelap\n" +
+                    "\n" +
+                    "6. Aksesories :\n" +
+                    "Pria : aksesoris tidak berlebihan (tidak lebih dari 5 titik)\n" +
+                    " Wanita : aksesoris tidak berlebihan (tidak lebih dari 7 titik)\n" +
+                    "\n" +
+                    "Menggunakan Masker  polos atau tidak bermotif (disesuaikan dengan warna unsur seragam, yaitu abu-abu/putih/merah/hitam)* *Kecuali Jum'at-Sabtu-Minggu\n" +
+                    "Menggunakan face shield (jika berinteraksi dengan konsumen)", 0))
+        nosAudit.add(NosAudit("Coordinator Sales Man",
+            "Standard Penampilan",
+            "Notes : \n" +
+                    "* Apabila Target  Jml Coord SM = 0 dan  Jmlah Coord SM = 0, maka untuk penilaian diisii N/A\n" +
+                    "* Apabila Target  Jml Coord SM > 0 dan  Jmlah Coord SM = 0, maka penilaian tetap dilakukan", 0))
+
+        nosAudit.add(NosAudit("Coordinator Sales Man",
+            "Sales Tools",
+            "Memiliki sales tools berupa :\n" +
+                    "1. Aplikasi MyHero (berhasil Login)\n" +
+                    "2. Map Kerja Sales People yang berisi Service Talk Flyer, Community Flyer, Flyer Acc & App, Flyer Customizing Part, Flyer Rekomendasi Bengkel Modifikasi, Pricelist, Sales Program List, Alat tulis. \n" +
+                    "\n" +
+                    "Ketika menjelaskan ke konsumen di utamakan menggunakan aplikasi MyHero (digital) ", 0))
+
+        nosAudit.add(NosAudit("Coordinator Sales Man",
+            "Product Knowledge Test",
+            "Dapat menjelaskan konsep produk, design produk, performance dan min. 5 - 7 fitur produk dan kegunaannya berdasarkan Sales Talk Product Knowledge \n" +
+                    "\n" +
+                    "Alternatif Tipe Produk : Product Terbaru (antara 3 yang terakhir launching)\n" +
+                    "\n" +
+                    "* Exist, Done : Dapat menjelaskan min. 5 - 7 fitur produk dan kegunaannya berdasarkan Sales Talk Product Knowledge dengan menggunakan metode SPWA & C-F-A\n" +
+                    "\n" +
+                    "* Not Exist  : Tidak Dapat menjelaskan min. 5 - 7 fitur produk dan kegunaannya berdasarkan Sales Talk Product Knowledge dengan menggunakan metode SPWA & C-F-A", 0))
+
+        nosAudit.add(NosAudit("Sales Man",
+            "  Jumlah ",
+            "Target Sales Dealer (A)\n" +
+                    "Target Kontribusi Sales by SM (B)\n" +
+                    "Target Productivity SM (C)\n" +
+                    "(Range Target Productivity SM = 5-12 unit (disesuaikan dengan target masing-masing MD)\n" +
+                    "\n" +
+                    "Target  Jml SM = (A * B) / C\n" +
+                    "\n" +
+                    "* Exist, Done :  Jml SM ≥ Target  Jml SM\n" +
+                    "* Exist, Not Done : Target  Jml SM > 0 dan  Jml SM < Target  Jml SM \n" +
+                    "* Not Done : Target  Jml SM > 0 dan  Jml SM = 0", 0))
+        nosAudit.add(NosAudit("Sales Man",
+            "Training",
+            "a. SFT - Product Knowledge (All Product Launched)\n" +
+                    "\n" +
+                    "* Exist, Done :   Sudah lulus training (Nilai >= 70)\n" +
+                    "* Not Exist :   Belum lulus Training\n", 0))
+
+        nosAudit.add(NosAudit("Sales Man",
+            "Training",
+            "b. Customer Service For FLP Training (Wajib dilakukan pada usia kerja > 3 bulan)\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+
+        nosAudit.add(NosAudit("Sales Man",
+            "Training",
+            "c. Basic Orientation Traning - BOT (Wajib dilakukan pada usia kerja > 1 bulan) sebelum training NOS\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+        nosAudit.add(NosAudit("Sales Man",
+            "Training",
+            "d. Salesmanship Training  (Wajib dilakukan pada usia kerja > 6 bulan)\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+
+        nosAudit.add(NosAudit("Sales Man",
+            "Training",
+            "e. Training Network Operational Standard (Wajib dilakukan pada usia kerja > 1 bulan)\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+
+        nosAudit.add(NosAudit("Sales Man",
+            "Standard Penampilan",
+            "1.Wajah : \n" +
+                    "Pria : wajah terlihat segar/tidak berminyak/tidak kusam, kumis/jenggot rapi (tdk dipanjangkan)\n" +
+                    "\n" +
+                    "Wanita :  Rias Wajah menggunakan make up (bedak,alis,eye shadow,blush on,lipstik sesuai standar)\n" +
+                    "\n" +
+                    "2. Rambut : \n" +
+                    "Pria : Rambut Pendek Rapi, tidak menutupi mata dan tidak menyentuh kerah baju dan telinga\n" +
+                    "\n" +
+                    "Wanita :  Rambut rapi / tidak menutupi pandangan (panjang rambut lebih dari sebahu wajib dikuncir ponytail)\n" +
+                    "\n" +
+                    "3.Wewangian dan kebersihan:\n" +
+                    "Aroma tubuh tidak mengganggu, tangan bersih, kuku tangan dan kuku kaki bersih. Untuk pria kuku pendek rapi.", 0))
+
+        nosAudit.add(NosAudit("Sales Man",
+            "Sales Tools",
+            "Memiliki sales tools berupa :\n" +
+                    "1. Aplikasi MyHero (berhasil Login)\n" +
+                    "2. Map Kerja Sales People yang berisi Service Talk Flyer, Community Flyer, Flyer Acc & App, Flyer Customizing Part, Flyer Rekomendasi Bengkel Modifikasi, Pricelist, Sales Program List, Alat tulis. \n" +
+                    "\n" +
+                    "Ketika menjelaskan ke konsumen di utamakan menggunakan aplikasi MyHero (digital) ", 0))
+        nosAudit.add(NosAudit("Sales Man",
+            "Product Knowledge Test",
+            "Alternatif Tipe Produk : Regular Product\n" +
+                    "\n" +
+                    "* Exist, Done : Dapat menjelaskan min. 5 – 7  fitur produk dan kegunaannya berdasarkan Sales Talk Product Knowledge dengan menggunakan metode SPWA & C-F-A\n" +
+                    "\n" +
+                    "* Not Exist  : Tidak Dapat menjelaskan min. 5 – 7  fitur produk dan kegunaannya berdasarkan Sales Talk Product Knowledge dengan menggunakan metode SPWA & C-F-A\n", 0))
+
+        nosAudit.add(NosAudit("PIC CRM ",
+            "  Jumlah ",
+            "Dealer wajib memiliki 1 PIC CRM dedicated (tidak boleh merangkap dengan fungsi apapun)\n", 0))
+
+        nosAudit.add(NosAudit("PIC CRM ",
+            "Training",
+            "Ketentuan :\n" +
+                    "Bisa mengoperasikan Tools CRM & Software pendukung (seperti Ms. Excel)", 0))
+        nosAudit.add(NosAudit("PIC CRM ",
+            "Training",
+            "Training Network Operational Standard (Wajib dilakukan pada usia kerja > 1 bulan)\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+
+        nosAudit.add(NosAudit("PIC CRM ",
+            "Seragam",
+            "- Menggunakan Masker Polos (disesuaikan dengan warna unsur seragam yaitu abu-abu/putih/merah/hitam)\n", 0))
+
+        nosAudit.add(NosAudit("Admin CRM H1",
+            "  Jumlah ",
+            "Dealer memiliki 1 Admin CRM H1 (secara fungsi boleh dirangkap oleh Admin H1/STNK)", 0))
+
+        nosAudit.add(NosAudit("Admin CRM H1",
+            "Training",
+            "a. Basic Orientation Traning - BOT (Wajib dilakukan pada usia kerja > 1 bulan) sebelum training NOS\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+        nosAudit.add(NosAudit("Admin CRM H1",
+            "Standard Penampilan",
+            "1.Wajah : \n" +
+                    "Pria : ,wajah terlihat segar/tidak berminyak/tidak kusam, kumis/jenggot rapi (tdk dipanjangkan)\n" +
+                    "\n" +
+                    "Wanita :  Rias Wajah menggunakan make up (bedak,alis,eye shadow,blush on,lipstik sesuai standar)\n" +
+                    "\n" +
+                    "2.Rambut : \n" +
+                    "Pria : Rambut Pendek Rapi, tidak menutupi mata dan tidak menyentuh kerah baju dan telinga\n" +
+                    "\n" +
+                    "Wanita :  Rambut rapi / tidak menutupi pandangan (panjang rambut lebih dari sebahu wajib dikuncir ponytail )\n" +
+                    "\n" +
+                    "3.Wewangian dan kebersihan:\n" +
+                    "Aroma tubuh tidak mengganggu, tangan bersih, kuku tangan dan kuku kaki bersih. Untuk pria kuku pendek rapi.\n", 0))
+
+        nosAudit.add(NosAudit("Admin CRM H1",
+            "Standard Penampilan",
+            "4. Seragam : \n" +
+                    "\n" +
+                    "Ketentuan :\n" +
+                    " Senin & Rabu : Seragam Honda berkerah merah,Celana / rok hitam \n" +
+                    " Selasa & Kamis : Seragam Honda berkerah putih,Celana / rok hitam  \n" +
+                    "Jumat : baju khas daerah / batik (batik Dealer), Celana / Rok Hitam\n" +
+                    "Sabtu & Minggu : casual (berkerah) atau sesuai kebijakan masing2 dealer\n" +
+                    "(kondisi Baju : Rapi, Bersih, Warna tidak kusam, tidak robek, dan logo Honda terlihat)\n" +
+                    "* Sesuai dengan aturan seragam dari HC3 AHM\n" +
+                    "\n" +
+                    "5.Atribut  : \n" +
+                    "- Senin - Jumat : Wanita menggunakan sepatu pantofel warna hitam heel minimum 5 cm kecuali wanita hamil\n" +
+                    "- Senin - Jumat : Pria menggunakan sepatu pantofel warna hitam\n" +
+                    "- Sabtu - Minggu atau saat berada di lapangan : Sepatu Kets  warna Netral (Putih, Hitam, Abu-abu, Merah Maroon, Biru Tua, Putih)\n" +
+                    "- ID Card dengan Kalung Honda Merah dan ID Card Holder WSP dari AHM\n" +
+                    "- Pin One Heart di dada kiri\n" +
+                    "- Jam Tangan Kulit / Karet / Canvas Warna Hitam / Coklat Tua / Gelap\n" +
+                    "\n" +
+                    "6. Aksesories :\n" +
+                    "Pria : aksesoris tidak berlebihan (tidak lebih dari 5 titik)\n" +
+                    "Wanita : aksesoris tidak berlebihan (tidak lebih dari 7 titik)\n" +
+                    "\n" +
+                    "Menggunakan Masker polos atau tidak bermotif.\n" +
+                    "-Masker kesehatan (warna bebas)\n" +
+                    "-Masker kain disesuaikan dengan warna unsur seragam, yaitu abu-abu/putih/merah/hitam* *Kecuali Jum'at-Sabtu-Minggu\n" +
+                    "Menggunakan face shield (jika berinteraksi dengan konsumen)", 0))
+
+        nosAudit.add(NosAudit("Admin H1",
+            "  Jumlah ",
+            "Dealer memiliki 1 Admin CRM H1 (secara fungsi boleh dirangkap oleh Admin H1/STNK)\n" +
+                    "maks. 1 orang memegang 2 jabatan ", 0))
+        nosAudit.add(NosAudit("Admin H1",
+            "Training",
+            "a. Basic Orientation Traning - BOT (Wajib dilakukan pada usia kerja > 1 bulan) sebelum training NOS\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+        nosAudit.add(NosAudit("Admin H1",
+            "Training",
+            "b. Customer Service For FLP Training (Wajib dilakukan pada usia kerja > 3 bulan)\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+
+        nosAudit.add(NosAudit("Admin H1",
+            "Training",
+            "c. Training Network Operational Standard (Wajib dilakukan pada usia kerja > 1 bulan)\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+
+        nosAudit.add(NosAudit("Admin H1",
+            "Standard Penampilan",
+            "1.Wajah : \n" +
+                    "Pria : ,wajah terlihat segar/tidak berminyak/tidak kusam, kumis/jenggot rapi (tdk dipanjangkan)\n" +
+                    "\n" +
+                    "Wanita :  Rias Wajah menggunakan make up (bedak,alis,eye shadow,blush on,lipstik sesuai standar)\n" +
+                    "\n" +
+                    "2.Rambut : \n" +
+                    "Pria : Rambut Pendek Rapi, tidak menutupi mata dan tidak menyentuh kerah baju dan telinga\n" +
+                    "\n" +
+                    "Wanita :  Rambut rapi / tidak menutupi pandangan (panjang rambut lebih dari sebahu wajib dikuncir ponytail )\n" +
+                    "\n" +
+                    "3.Wewangian dan kebersihan:\n" +
+                    "Aroma tubuh tidak mengganggu, tangan bersih, kuku tangan dan kuku kaki bersih. Untuk pria kuku pendek rapi.\n", 0))
+        nosAudit.add(NosAudit("Admin H1",
+            "Standard Penampilan",
+            "4. Seragam : \n" +
+                    "\n" +
+                    "Ketentuan :\n" +
+                    " Senin & Rabu : Seragam Honda berkerah merah,Celana / rok hitam \n" +
+                    " Selasa & Kamis : Seragam Honda berkerah putih,Celana / rok hitam  \n" +
+                    "Jumat : baju khas daerah / batik (batik Dealer), Celana / Rok Hitam\n" +
+                    "Sabtu & Minggu : casual (berkerah) atau sesuai kebijakan masing2 dealer\n" +
+                    "(kondisi Baju : Rapi, Bersih, Warna tidak kusam, tidak robek, dan logo Honda terlihat)\n" +
+                    "* Sesuai dengan aturan seragam dari HC3 AHM\n" +
+                    "\n" +
+                    "5.Atribut  : \n" +
+                    "- Senin - Jumat : Wanita menggunakan sepatu pantofel warna hitam heel minimum 5 cm kecuali wanita hamil\n" +
+                    "- Senin - Jumat : Pria menggunakan sepatu pantofel warna hitam\n" +
+                    "- Sabtu - Minggu atau saat berada di lapangan : Sepatu Kets  warna Netral (Putih, Hitam, Abu-abu, Merah Maroon, Biru Tua, Putih)\n" +
+                    "- ID Card dengan Kalung Honda Merah dan ID Card Holder WSP dari AHM\n" +
+                    "- Pin One Heart di dada kiri\n" +
+                    "- Jam Tangan Kulit / Karet / Canvas Warna Hitam / Coklat Tua / Gelap\n" +
+                    "\n" +
+                    "6. Aksesories :\n" +
+                    "Pria : aksesoris tidak berlebihan (tidak lebih dari 5 titik)\n" +
+                    "Wanita : aksesoris tidak berlebihan (tidak lebih dari 7 titik)\n" +
+                    "\n" +
+                    "Menggunakan Masker polos atau tidak bermotif.\n" +
+                    "-Masker kesehatan (warna bebas)\n" +
+                    "-Masker kain disesuaikan dengan warna unsur seragam, yaitu abu-abu/putih/merah/hitam* *Kecuali Jum'at-Sabtu-Minggu\n" +
+                    "Menggunakan face shield (jika berinteraksi dengan konsumen)", 0))
+
+        nosAudit.add(NosAudit("Cashier",
+            "  Jumlah ",
+            "Untuk Dealer yang memiliki average Sales  : \n" +
+                    "a. ≥ 450 unit = minimal 2 Cashier\n" +
+                    "b. < 450 unit = minimal 1 Cashier", 0))
+
+        nosAudit.add(NosAudit("Cashier",
+            "Training",
+            "b. Customer Service For FLP Training (Wajib dilakukan pada usia kerja > 3 bulan)\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+        nosAudit.add(NosAudit("Cashier",
+            "Training",
+            "c. Training Network Operational Standard (Wajib dilakukan pada usia kerja > 1 bulan)\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+
+        nosAudit.add(NosAudit("Cashier",
+            "Standard Penampilan",
+            "1.Wajah : \n" +
+                    "Pria : wajah terlihat segar/tidak berminyak/tidak kusam, kumis/jenggot rapi (tdk dipanjangkan)\n" +
+                    "\n" +
+                    "Wanita :  Rias Wajah menggunakan make up (bedak,alis,eye shadow,blush on,lipstik sesuai standar)\n" +
+                    "\n" +
+                    "2.Rambut : \n" +
+                    "Pria : Rambut Pendek Rapi, tidak menutupi mata dan tidak menyentuh kerah baju dan telinga\n" +
+                    "\n" +
+                    "Wanita :  Rambut rapi / tidak menutupi pandangan (panjang rambut lebih dari sebahu wajib dikuncir ponytail )\n" +
+                    "\n" +
+                    "3.Wewangian dan kebersihan:\n" +
+                    "Aroma tubuh tidak mengganggu, tangan bersih, kuku tangan dan kuku kaki bersih. Untuk pria kuku pendek rapi.\n", 0))
+
+        nosAudit.add(NosAudit("Cashier",
+            "Standard Penampilan",
+            "4. Seragam : \n" +
+                    "\n" +
+                    "Ketentuan :\n" +
+                    " Senin & Rabu : Seragam Honda berkerah merah,Celana / rok hitam \n" +
+                    " Selasa & Kamis : Seragam Honda berkerah putih,Celana / rok hitam  \n" +
+                    "Jumat : baju khas daerah / batik (batik Dealer), Celana / Rok Hitam\n" +
+                    "Sabtu & Minggu : casual (berkerah) atau sesuai kebijakan masing2 dealer\n" +
+                    "(kondisi Baju : Rapi, Bersih, Warna tidak kusam, tidak robek, dan logo Honda terlihat)\n" +
+                    "* Sesuai dengan aturan seragam dari HC3 AHM\n" +
+                    "\n" +
+                    "5.Atribut  : \n" +
+                    "- Senin - Jumat : Wanita menggunakan sepatu pantofel warna hitam heel minimum 5 cm kecuali wanita hamil\n" +
+                    "- Senin - Jumat : Pria menggunakan sepatu pantofel warna hitam\n" +
+                    "- Sabtu - Minggu atau saat berada di lapangan : Sepatu Kets  warna Netral (Putih, Hitam, Abu-abu, Merah Maroon, Biru Tua, Putih)\n" +
+                    "- ID Card dengan Kalung Honda Merah dan ID Card Holder WSP dari AHM\n" +
+                    "- Pin One Heart di dada kiri\n" +
+                    "- Jam Tangan Kulit / Karet / Canvas Warna Hitam / Coklat Tua / Gelap\n" +
+                    "\n" +
+                    "6. Aksesories :\n" +
+                    "Pria : aksesoris tidak berlebihan (tidak lebih dari 5 titik)\n" +
+                    "Wanita : aksesoris tidak berlebihan (tidak lebih dari 7 titik)\n" +
+                    "\n" +
+                    "Menggunakan Masker polos atau tidak bermotif.\n" +
+                    "-Masker kesehatan (warna bebas)\n" +
+                    "-Masker kain disesuaikan dengan warna unsur seragam, yaitu abu-abu/putih/merah/hitam* *Kecuali Jum'at-Sabtu-Minggu\n" +
+                    "Menggunakan face shield (jika berinteraksi dengan konsumen)", 0))
+
+        nosAudit.add(NosAudit("Security",
+            "  Jumlah ",
+            "Untuk Dealer yang memiliki average Sales  : \n" +
+                    "a. ≥ 450 unit = 1 security dedicated ", 0))
+        nosAudit.add(NosAudit("Security",
+            "Training",
+            "a. Basic Orientation Traning - BOT (Wajib dilakukan pada usia kerja > 1 bulan) sebelum training NOS\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)\n" +
+                    "\n" +
+                    "Untuk Security outsorce : \n" +
+                    "*Exist,Done : Security outsorce sudah di sosialisasikan\n" +
+                    "*Not Exist : Security outsorce belum di sosialisasikan\n" +
+                    "* N/A : Apabila masa kerja belum memenuhi\n" +
+                    "\n" +
+                    "Notes :\n" +
+                    "Apabila security outsorce,maka tidak diwajibkan untuk training,tetapi di sosialisasikan saja", 0))
+        nosAudit.add(NosAudit("Security",
+            "Training",
+            "b. Training Network Operational Standard (Wajib dilakukan pada usia kerja > 1 bulan) \n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)\n" +
+                    "\n" +
+                    "Untuk Security outsorce : \n" +
+                    "*Exist,Done : Security outsorce sudah di sosialisasikan\n" +
+                    "*Not Exist : Security outsorce belum di sosialisasikan\n" +
+                    "* N/A : Apabila masa kerja belum memenuhi\n" +
+                    "\n" +
+                    "Notes :\n" +
+                    "Apabila security outsorce,maka tidak diwajibkan untuk training,tetapi di sosialisasikan terkait standard interaksi NOS ", 0))
+
+        nosAudit.add(NosAudit("Security",
+            "Standard Penampilan",
+            "1.Wajah : \n" +
+                    "Pria : ,wajah terlihat segar/tidak berminyak/tidak kusam, kumis/jenggot rapi (tdk dipanjangkan)\n" +
+                    "\n" +
+                    "Wanita :  Rias Wajah menggunakan make up (bedak,alis,eye shadow,blush on,lipstik sesuai standar)\n" +
+                    "\n" +
+                    "2.Rambut : \n" +
+                    "Pria : Rambut Pendek Rapi, tidak menutupi mata dan tidak menyentuh kerah baju dan telinga\n" +
+                    "\n" +
+                    "Wanita :  Rambut rapi / tidak menutupi pandangan (panjang rambut lebih dari sebahu wajib dikuncir ponytail )\n" +
+                    "\n" +
+                    "3.Wewangian dan kebersihan:\n" +
+                    "Aroma tubuh tidak mengganggu, tangan bersih, kuku tangan dan kuku kaki bersih. Untuk pria kuku pendek rapi.\n", 0))
+        nosAudit.add(NosAudit("Security",
+            "Standard Penampilan",
+            "4. Seragam : \n" +
+                    "\n" +
+                    "Ketentuan :\n" +
+                    " Senin & Rabu : Seragam Honda berkerah merah,Celana / rok hitam \n" +
+                    " Selasa & Kamis : Seragam Honda berkerah putih,Celana / rok hitam  \n" +
+                    "Jumat : baju khas daerah / batik (batik Dealer), Celana / Rok Hitam\n" +
+                    "Sabtu & Minggu : casual (berkerah) atau sesuai kebijakan masing2 dealer\n" +
+                    "(kondisi Baju : Rapi, Bersih, Warna tidak kusam, tidak robek, dan logo Honda terlihat)\n" +
+                    "* Sesuai dengan aturan seragam dari HC3 AHM\n" +
+                    "\n" +
+                    "5.Atribut  : \n" +
+                    "- Senin - Jumat : Wanita menggunakan sepatu pantofel warna hitam heel minimum 5 cm kecuali wanita hamil\n" +
+                    "- Senin - Jumat : Pria menggunakan sepatu pantofel warna hitam\n" +
+                    "- Sabtu - Minggu atau saat berada di lapangan : Sepatu Kets  warna Netral (Putih, Hitam, Abu-abu, Merah Maroon, Biru Tua, Putih)\n" +
+                    "- ID Card dengan Kalung Honda Merah dan ID Card Holder WSP dari AHM\n" +
+                    "- Pin One Heart di dada kiri\n" +
+                    "- Jam Tangan Kulit / Karet / Canvas Warna Hitam / Coklat Tua / Gelap\n" +
+                    "\n" +
+                    "6. Aksesories :\n" +
+                    "Pria : aksesoris tidak berlebihan (tidak lebih dari 5 titik)\n" +
+                    "Wanita : aksesoris tidak berlebihan (tidak lebih dari 7 titik)\n" +
+                    "\n" +
+                    "Menggunakan Masker polos atau tidak bermotif.\n" +
+                    "-Masker kesehatan (warna bebas)\n" +
+                    "-Masker kain disesuaikan dengan warna unsur seragam, yaitu abu-abu/putih/merah/hitam* *Kecuali Jum'at-Sabtu-Minggu\n" +
+                    "Menggunakan face shield (jika berinteraksi dengan konsumen)", 0))
+
+        nosAudit.add(NosAudit("Greeter",
+            "  Jumlah ",
+            "Dealer wajib memiliki 1 greeter (fungsi) untuk menyambut konsumen (fase welcoming)", 0))
+
+        nosAudit.add(NosAudit("Greeter",
+            "Training",
+            "a. Basic Orientation Traning - BOT (Wajib dilakukan pada usia kerja > 1 bulan) sebelum training NOS\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+
+        nosAudit.add(NosAudit("Greeter",
+            "Standard Penampilan",
+            "1.Wajah : \n" +
+                    "Pria : ,wajah terlihat segar/tidak berminyak/tidak kusam, kumis/jenggot rapi (tdk dipanjangkan)\n" +
+                    "\n" +
+                    "Wanita :  Rias Wajah menggunakan make up (bedak,alis,eye shadow,blush on,lipstik sesuai standar)\n" +
+                    "\n" +
+                    "2.Rambut : \n" +
+                    "Pria : Rambut Pendek Rapi, tidak menutupi mata dan tidak menyentuh kerah baju dan telinga\n" +
+                    "\n" +
+                    "Wanita :  Rambut rapi / tidak menutupi pandangan (panjang rambut lebih dari sebahu wajib dikuncir ponytail )\n" +
+                    "\n" +
+                    "3.Wewangian dan kebersihan:\n" +
+                    "Aroma tubuh tidak mengganggu, tangan bersih, kuku tangan dan kuku kaki bersih. Untuk pria kuku pendek rapi.\n", 0))
+        nosAudit.add(NosAudit("Greeter",
+            "Standard Penampilan",
+            "4. Seragam : \n" +
+                    "\n" +
+                    "Ketentuan :\n" +
+                    " Senin & Rabu : Seragam Honda berkerah merah,Celana / rok hitam \n" +
+                    " Selasa & Kamis : Seragam Honda berkerah putih,Celana / rok hitam  \n" +
+                    "Jumat : baju khas daerah / batik (batik Dealer), Celana / Rok Hitam\n" +
+                    "Sabtu & Minggu : casual (berkerah) atau sesuai kebijakan masing2 dealer\n" +
+                    "(kondisi Baju : Rapi, Bersih, Warna tidak kusam, tidak robek, dan logo Honda terlihat)\n" +
+                    "* Sesuai dengan aturan seragam dari HC3 AHM\n" +
+                    "\n" +
+                    "5.Atribut  : \n" +
+                    "- Senin - Jumat : Wanita menggunakan sepatu pantofel warna hitam heel minimum 5 cm kecuali wanita hamil\n" +
+                    "- Senin - Jumat : Pria menggunakan sepatu pantofel warna hitam\n" +
+                    "- Sabtu - Minggu atau saat berada di lapangan : Sepatu Kets  warna Netral (Putih, Hitam, Abu-abu, Merah Maroon, Biru Tua, Putih)\n" +
+                    "- ID Card dengan Kalung Honda Merah dan ID Card Holder WSP dari AHM\n" +
+                    "- Pin One Heart di dada kiri\n" +
+                    "- Jam Tangan Kulit / Karet / Canvas Warna Hitam / Coklat Tua / Gelap\n" +
+                    "\n" +
+                    "6. Aksesories :\n" +
+                    "Pria : aksesoris tidak berlebihan (tidak lebih dari 5 titik)\n" +
+                    "Wanita : aksesoris tidak berlebihan (tidak lebih dari 7 titik)\n" +
+                    "\n" +
+                    "Menggunakan Masker polos atau tidak bermotif.\n" +
+                    "-Masker kesehatan (warna bebas)\n" +
+                    "-Masker kain disesuaikan dengan warna unsur seragam, yaitu abu-abu/putih/merah/hitam* *Kecuali Jum'at-Sabtu-Minggu\n" +
+                    "Menggunakan face shield (jika berinteraksi dengan konsumen)", 0))
+
+        nosAudit.add(NosAudit("Delivery Man",
+            " Jumlah ",
+            "Minimal  Jmlah Delivery Man = Round Up (Target Sales Dealer / 200).\n"+
+                    "Penilaian  Jmlah Actual vs Target :.\n",0))
+
+        nosAudit.add(NosAudit("Delivery Man",
+            " Training ",
+            "a. Basic Orientation Traning - BOT (Wajib dilakukan pada usia kerja > 1 bulan) sebelum training NOS\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+        nosAudit.add(NosAudit("Delivery Man",
+            " Training ",
+            "b. Customer Service For FLP Training (Wajib dilakukan pada usia kerja > 3 bulan)\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+
+        nosAudit.add(NosAudit("Delivery Man",
+            " Training ",
+            "c. Training Network Operational Standard (Wajib dilakukan pada usia kerja > 1 bulan)\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+
+        nosAudit.add(NosAudit("Delivery Man",
+            " Training ",
+            "d. Materi Technical (Instruksi kerja proses ekspedisi pick up)\n" +
+                    "\n" +
+                    "* Exist, Done : All Delivery Man sudah training\n" +
+                    "* Not Exist : minimal 1 Delivery Man belum training\n" +
+                    "* N/A : Apabila masa kerja belum memenuhi", 0))
+
+        nosAudit.add(NosAudit("Delivery Man",
+            " Training ",
+            "e. Training Sales Talk Product Knowledge (All Product Launched)\n" +
+                    "\n" +
+                    "* Exist, Done : All Delivery Man sudah training\n" +
+                    "* Not Exist : minimal 1 Delivery Man belum training", 0))
+
+        nosAudit.add(NosAudit("Delivery Man",
+            "Standard Penampilan",
+            "1.Wajah : \n" +
+                    "Pria : ,wajah terlihat segar/tidak berminyak/tidak kusam, kumis/jenggot rapi (tdk dipanjangkan)\n" +
+                    "\n" +
+                    "Wanita :  Rias Wajah menggunakan make up (bedak,alis,eye shadow,blush on,lipstik sesuai standar)\n" +
+                    "\n" +
+                    "2.Rambut : \n" +
+                    "Pria : Rambut Pendek Rapi, tidak menutupi mata dan tidak menyentuh kerah baju dan telinga\n" +
+                    "\n" +
+                    "Wanita :  Rambut rapi / tidak menutupi pandangan (panjang rambut lebih dari sebahu wajib dikuncir ponytail )\n" +
+                    "\n" +
+                    "3.Wewangian dan kebersihan:\n" +
+                    "Aroma tubuh tidak mengganggu, tangan bersih, kuku tangan dan kuku kaki bersih. Untuk pria kuku pendek rapi.\n", 0))
+        nosAudit.add(NosAudit("Delivery Man",
+            "Standard Penampilan",
+            "4. Seragam : \n" +
+                    "Ketentuan :\n" +
+                    "Mengenakan Polo Shirt warna merah sesuai standar AHM, dengan celana hitam.\n" +
+                    "\n" +
+                    "5.Atribut  : \n" +
+                    "- Menggunakan sepatu warna hitam / Gelap (boleh sepatu kets)\n" +
+                    "- ID Card (dengan kalung Honda Merah)\n" +
+                    "- Pin One Heart di dada kiri\n" +
+                    "- Jam Tangan Kulit / Karet / Canvas Warna Hitam / Coklat Tua / Gelap\n" +
+                    "\n" +
+                    "\n" +
+                    "6. Aksesories :\n" +
+                    "Pria : aksesoris tidak berlebihan (tidak lebih dari 5 titik)\n" +
+                    "\n" +
+                    "Menggunakan Masker polos atau tidak bermotif.\n" +
+                    "-Masker kesehatan (warna bebas)\n" +
+                    "-Masker kain disesuaikan dengan warna unsur seragam, yaitu abu-abu/putih/merah/hitam* *Kecuali Jum'at-Sabtu-Minggu\n" +
+                    "Menggunakan face shield (jika berinteraksi dengan konsumen)\n" +
+                    "\n" +
+                    "Menggunakan name tag yang menunjukkan suhu tubuh dan tanggal pengecekan (wajib di update setiap hari) ", 0))
+
+        nosAudit.add(NosAudit("PDI Man",
+            "  Jumlah ",
+            "Untuk Dealer yang memiliki average Sales per bulan : \n" +
+                    "a. ≤275 unit = 1\n" +
+                    "b. >275 unit = Target Sales per bulan / 275 ", 0))
+        nosAudit.add(NosAudit("PDI Man",
+            "Training",
+            "Sudah melakukan training (dengan masa kerja) :\n" +
+                    "a. Jika PDI Man 1 orang, maka minimal TTL2    \n" +
+                    "b. JIka 1 PDI Man > 1 orang, maka 1 orang minimal TTL 2", 0))
+
+        nosAudit.add(NosAudit("PDI Man",
+            "Seragam",
+            "Standar Mekanik\n", 0))
+
+        nosAudit.add(NosAudit("Admin Warehouse",
+            "  Jumlah ",
+            "Dealer wajib memiliki 1 Admin Warehouse (fungsi)", 0))
+
+        nosAudit.add(NosAudit("Admin Warehouse",
+            "Training",
+            "Ketentuan :\n" +
+                    "a. Bisa mengoperasikan Microsoft Office \n" +
+                    "b. Bisa mengoperasikan sistem dealer (check & update stock) apabila dealer memiliki sistem.", 0))
+
+        nosAudit.add(NosAudit("Admin Warehouse",
+            "Training",
+            "f. Training Network Operational Standard (Wajib dilakukan pada usia kerja > 1 bulan)\n" +
+                    "\n" +
+                    "* Exist, Done :   jika status lulus training di Dealer 100%\n" +
+                    "* Exist, not good : jika status lulus training di Dealer 50% - 99%\n" +
+                    "* Not Exist : jika status lulus training di Dealer 0% - 49%\n" +
+                    "\n" +
+                    "Note : Sudah lulus training (Nilai >= 80)", 0))
+        nosAudit.add(NosAudit("Admin Warehouse",
+            "Seragam",
+            "Menggunakan Masker polos atau tidak bermotif.\n", 0))
 
         return nosAudit
     }
@@ -2426,7 +3090,3092 @@ class ListNosAuditActivity : BaseActivity() {
 
         val nosAudit = ArrayList<NosAudit>()
 
+        nosAudit.add(NosAudit("Security (Wing)/Juru Parkir",
+            "Ketika sampai di showroom",
+            "-Menyambut Konsumen ( Salam Satu Hati dan Salam Cuaca )\n" +
+                    "- Menanyakan kebutuhan konsumen datang ke dealer (showroom/AHASS)\n" +
+                    "- Mengarahkan ke area parkir", 0))
+
+        nosAudit.add(NosAudit("Security (Wing)/Juru Parkir",
+            "Memeriksa suhu tubuh konsumen",
+            "-Melakukan pengecekan suhu tubuh konsumen yang memasuki area dealer\n" +
+                    "- Mengkomunikasikan dengan sopan apabila suhu tubuh konsumen diatas 37.5, maka tidak diperbolehkan memasuki area dealer", 0))
+        nosAudit.add(NosAudit("Security (Wing)/Juru Parkir",
+            "Memastikan jarak 1m",
+            "ketika ada konsumen / karyawan dealer mengalami kondisi emergency (tidak sadarkan diri, tergeletak, dan lain-lain), langsung menghubungi RS Rujukan, RS atau fasilitas kesehatan terdekat. Tetap menjaga kondusifitas, serta melakukan protokol kesehatan yang diperlukan seperti sterilisasi ruangan atau area, disinfektan ruangan atau langkah preventif lainnya", 0))
+
+        nosAudit.add(NosAudit("Security (Wing)/Juru Parkir",
+            "Meninggalkan showroom",
+            "-mengingatkan konsumen memakai helm dengan benar / mengingatkan konsumen untuk \"Cari Aman\" dalam berkendara \n" +
+                    "'- melepas konsumen dan mengucapkan terima kasih dan Salam Satu Hati ", 0))
+
+        nosAudit.add(NosAudit("Greeter",
+            "Ketika masuk ke showroom",
+            "-Menyambut Konsumen ( Salam Satu Hati dan Salam Cuaca )\n" +
+                    "-Menyakan kebutuhan konsumen (membeli motor, ambil STNK dll)\n" +
+                    "-Menanyakan nama\n" +
+                    "-Mengarahkan/mengenalkan konsumen dengan wing sales people/SC\n" +
+                    "-Memberitahukan M/C yang dicari konsumen ke wing sales people/SC\n" +
+                    "\n" +
+                    "(Jika konsumen sudah membuat janji)\n" +
+                    "Mengarahkan ke sales people yang bersangkutan\n", 0))
+
+        nosAudit.add(NosAudit("Greeter",
+            "Meninggalkan showroom",
+            "-Melepas konsumen dan mengucapkan terima kasih dan Salam Satu Hati", 0))
+
+
+        nosAudit.add(NosAudit("Sales Counter",
+
+            "Membuat perjanjian",
+            "-Salam Satu Hati\n" +
+                    "-Menanyakan nama \n" +
+                    "-Menanyakan keperluan konsumen dan tanggal kedatangan konsumen\n" +
+                    "-No tlp konsumen\n" +
+                    "-Mencatat di buku perjanjian", 0))
+
+
+        nosAudit.add(NosAudit("Sales Counter",
+            "Membuat perjanjian",
+
+            "Mengkonfirmasi dokumen pendukung\n" +
+                    "-Menginformasikan dokumen pendukung yang harus dibawa ke showroom (Jika konsumen ingin mengambil STNK, BPKB, syarat-syarat pembelian, dll)", 0))
+
+        nosAudit.add(NosAudit("Sales Counter",
+            "Menuju dealing table",
+            "Mengkonfirmasi dokumen pendukung\n" +
+                    "-Menginformasikan dokumen pendukung yang harus dibawa ke showroom (Jika konsumen ingin mengambil STNK, BPKB, syarat-syarat pembelian, dll)", 0))
+
+        nosAudit.add(NosAudit("Sales Counter",
+            "Menuju display area",
+            "-Menanyakan pengalaman membeli motor di dealer tsb\n" +
+                    "-Ucapan terima kasih telah membeli Honda\n" +
+                    "-Informasi program RO (jika ada)\n" +
+                    "\n", 0))
+
+        nosAudit.add(NosAudit("Sales Counter",
+            "Menuju display area",
+            "-Menawarkan dan menemani konsumen untuk melihat produk yang didisplay (bila unit tersedia)", 0))
+
+        nosAudit.add(NosAudit("Sales Counter",
+            "Menuju display area",
+            "-Memberikan brosur produk/ penggunaan tab/ HP/ Sales Talk bila unit tidak tersedia", 0))
+
+        nosAudit.add(NosAudit("Sales Counter",
+            "Menuju display area",
+            "membersihkan unit display (jok, handgrip, speedometer, spion, serta touch point konsumen lainnya), accessories, dan apparel setelah kontak langsung dengan konsumen", 0))
+
+        nosAudit.add(NosAudit("Sales Counter",
+            "Menanyakan tentang unit dan after sales services",
+            "-Sales Counter/Salesman roleplay menjelaskan pengetahuan dan informasi terkait product. Alternatif Tipe Produk : Product Terbaru (antara 3 yang terakhir launching)\n" +
+                    "- Sales Counter/Salesman dapat menjelaskan konsep produk, design produk, performance dan min. 5 - 7 fitur produk dan kegunaannya berdasarkan Sales Talk Product Knowledge dengan menggunakan metode SPWA & C-F-A\n" +
+                    "dibantu dengan My Hero Apps", 0))
+        nosAudit.add(NosAudit("Sales Counter",
+            "Menanyakan tentang unit dan after sales services",
+            "-Menjelaskan fasilitas booking service, service kunjung, dan fasilitas AHASS lainnya", 0))
+        nosAudit.add(NosAudit("Sales Counter",
+            "Menanyakan tentang unit dan after sales services",
+            "-Menginformasikan mengenai kegiatan-kegiatan  komunitas (untuk fokus produk)", 0))
+
+        nosAudit.add(NosAudit("Sales Counter",
+            "Menanyakan tentang aksesoris dan apparel",
+            "-Menawarkan aksesoris tambahan (jika ada)\n" +
+                    "- Menawarkan apparel sesuai kebutuhan konsumen\n" +
+                    "- Mengarahkan konsumen untuk scan barcode di wobbler (hanya untuk tipe-tipe terbaru dan tertentu)", 0))
+        nosAudit.add(NosAudit("Sales Counter",
+            "Menanyakan tentang aksesoris dan apparel",
+            "-Menjelaskan hilangnya garansi jika melakukan modifikasi atau penggantian part custom", 0))
+
+        nosAudit.add(NosAudit("Sales Counter",
+            "Mencoba riding test",
+            "-Menawarkan riding test sesuai unit yang diminati (sesuai dengan juklak dari sales div)\n" +
+                    "-Non sport : Riding position & start engine, stop & go; Sport : Additionaly riding experience in public road\n" +
+                    "\n" +
+                    "Riding test dihaarpkan dilakukan di safety riding centre (jika safety riding centre berada >100m dari dealer maka dapat dilakukan di tempat lain yang memungkinkan)", 0))
+
+        nosAudit.add(NosAudit("Sales Counter",
+            "Mencoba riding test",
+            "- Jika unit sedang dipakai (pameran) maka sales people wajib untuk menawarkan untuk melakukan riding test di lain hari", 0))
+
+        nosAudit.add(NosAudit("Sales Counter",
+            "Mencoba riding test",
+            "- Meminta konsumen memakai riding gear miliknya sendiri\n" +
+                    "- Apabila konsumen tidak membawa riding gear, dapat melakukan penjadwalan ulang untuk riding test\n" +
+                    "- menunjukkan SIM", 0))
+        nosAudit.add(NosAudit("Sales Counter",
+            "Mencoba riding test",
+            "Membersihkan jok, hand grip, speedometer, spion, serta touch point konsumen lainnya pada riding test sebelum dipakai konsumen (dilakukan di depan konsumen)", 0))
+        nosAudit.add(NosAudit("Sales Counter",
+            "Mencoba riding test",
+            "mengarahkan konsumen untuk memakai hand sanitizer yang terletak di area pintu masuk showroom, setelah melakukan riding test", 0))
+
+        nosAudit.add(NosAudit("Sales Counter",
+            "Mencoba riding test",
+            "- Meminta konsumen untuk mengisi buku riding test", 0))
+        nosAudit.add(NosAudit("Sales Counter",
+            "Melakukan negosiasi",
+            "- Menjelaskan ketersediaan unit (Termasuk indent, apabila unit tidak tersededia\n" +
+             "- Menjelaskan harga\n" +
+            "- Menjelaskan sales \n" +
+            "- Menjelaskan proses pembayaran (syarat yang harus dilengkapi)Melakukan negosiasi",
+             0))
+
+        nosAudit.add(NosAudit("Sales Counter",
+            "Melakukan negosiasi",
+            "-Melakukan pengajuan (tambahan) diskon melalui sistem DMS kepada Kacab", 0))
+
+        nosAudit.add(NosAudit("Sales Counter",
+            "Melakukan negosiasi",
+            "(Jika konsumen tidak jadi membeli)\n" +
+                    "-Meminta konsumen untuk mengisi buku tamu/ diisi oleh SC \n" +
+            "-Validasi data konsumen dengan call\n" +
+            "- Memberikan no. kontak Sales Counter"
+            , 0))
+        nosAudit.add(NosAudit("Sales Counter",
+            "Memutuskan pembelian",
+            "- Mengisi SPK dan mengisi data konsumen (form permohonan STNK dan CDB)\n" +
+                    "- Validasi data konsumen dengan call\n" +
+                    "-Pengisian dibantu oleh  SC\n" +
+                    "-Menjelaskan isi SPK dan data konsumen sekaligus \n" +
+                    "-Mengkonfirmasi isi SPK sudah lengkap dan benar\n" +
+                    "-Penandatanganan SPK oleh konsumen\n" +
+                    "- Meminta konsumen untuk mengisi buku tamu / diisi SC\n" +
+                    "- Meminta konsumen untuk menyerahkan foto copy kartu keluarga", 0))
+
+        nosAudit.add(NosAudit("Sales Counter",
+            "Memutuskan pembelian",
+            "-melakukan pengecekan stock unit di DMS\n" +
+                    "\n" +
+                    "Bila customer batal melakukan pembelian:\n" +
+                    "- Entry reason cancellation (SPK) di DMS", 0))
+        nosAudit.add(NosAudit("Sales Counter",
+            "Memutuskan pembelian",
+            "-Menjelaskan proses indent, booking fee, dan prosedur refund\n" +
+                    "-Mengisi form indent", 0))
+
+        nosAudit.add(NosAudit("Sales Counter",
+            "Memutuskan pembelian",
+            "-Entry Indent di DMS.  Incl. mengajukan prioritas Indent ke BM (Bila ada request khusus dari konsumen)", 0))
+
+        nosAudit.add(NosAudit("Sales Counter",
+            "Memutuskan pembelian",
+            "-Memberikan informasi kedatangan unit indent \n" +
+                    "-Follow up call konsumen mengenai update kedatangan unit\n", 0))
+
+        nosAudit.add(NosAudit("Sales Counter",
+            "Memutuskan pembelian",
+            "-Mempersiapkan kelengkapan administrasi dan mengantarkan ke kasir\n", 0))
+        nosAudit.add(NosAudit("Sales Counter",
+            "Memutuskan pembelian",
+            "- Mereferensikan fincoy yang bisa dpilih konsumen\n" +
+                    "- Memberitahukan dokumen yang perlu disiapkan untuk pengajuan kredit sesuai kebutuhan fincoy", 0))
+
+        nosAudit.add(NosAudit("Sales Counter",
+            "Memutuskan pembelian",
+            "- Menginformasikan ke konsumen jika kredit sudah disetujui (tlp/SMS)", 0))
+        nosAudit.add(NosAudit("Sales Counter",
+            "Memutuskan pembelian",
+            "-Info status PO Leasing (approve/reject) berdasarkan status pada DMS", 0))
+
+        nosAudit.add(NosAudit("Sales Counter",
+            "Memutuskan pembelian",
+            "-Memberikan estimasi waktu STNK dan BPKB jadi\n" +
+                    "-Memberikan informasi jika ada keterlambatan waktu jadi STNK dan bpkb", 0))
+        nosAudit.add(NosAudit("Sales Counter",
+            "Memutuskan pembelian",
+            "- Info status document handling (STNK & BPKB) berdasarkan status pada DMS", 0))
+
+        nosAudit.add(NosAudit("Sales Counter",
+            "Memutuskan pembelian",
+            "-Menanyakan dan menjelaskan mengenai waktu pengiriman", 0))
+
+
+        nosAudit.add(NosAudit("Sales Counter",
+            "Penjelasan AHASS terdekat",
+            "-Menginformasikan lokasi AHASS terdekat\n" +
+                    "-Menyerahkan kartu nama", 0))
+        nosAudit.add(NosAudit("Sales Counter",
+            "Meninggalkan showroom",
+            "-Mengucapkan terima kasih\n" +
+                    "-Salam Satu Hati\n" +
+                    "-Mengingatkan cari Aman dalam berkendara", 0))
+        nosAudit.add(NosAudit("Sales Counter",
+            "*Diabaikan jika penjualan di BTL",
+            "-Mengantarkan konsumen ke pintu keluar", 0))
+
+        nosAudit.add(NosAudit("Sales Counter",
+            "Follow up ",
+            "-Melakukan follow up dan prospek dengan cara:\n" +
+                    "   •sms / call dari database dan guestbook\n" +
+                    "   •home visit dari database dan guestbook\n" +
+                    "- Mengundang konsumen untuk datang ke showroom", 0))
+        nosAudit.add(NosAudit("Sales Counter",
+            "Follow up ",
+            "- Melakukan activity follow up untuk outstanding prospect berdasarkan informasi (notifikasi) dari DMS", 0))
+
+        nosAudit.add(NosAudit("Cashier",
+            "Melakukan pembayaran",
+            "- Salam Satu Hati\n" +
+                    "- Salam Cuaca", 0))
+        nosAudit.add(NosAudit("Cashier",
+            "Melakukan pembayaran",
+            "- Mengonfirmasi ke konsumen (detail informasi pembayaran: mis untuk pembayaran DP unit CBR 250 RR) diiringi dengan informasi  total uang yang harus dibayar konsumen\n" +
+                    "- Menawarkan pembayaran ke konsumen dengan cash atau non tunai\n" +
+                    "*Jika pembayaran dengan cash, menghitung uang didepan konsumen (menerima dan menyerahkan uang dengan kedua tangan) dan menyebut jumlah uang yang diterima\n" +
+                    "- Melakukan proses administrasi pembayaran", 0))
+
+
+        nosAudit.add(NosAudit("Cashier",
+            "Melakukan pembayaran",
+
+            "- Mencetak bukti pembayaran\n" +
+                    "'- Konfirmasi bukti pembayaran ke konsumen", 0))
+        nosAudit.add(NosAudit("Cashier",
+            "Melakukan pembayaran",
+            "- Membacakan konten PDSA (isi 5P, isi Catatan) kepada Konsumen", 0))
+
+        nosAudit.add(NosAudit("Cashier",
+            "Melakukan pembayaran",
+            "- Menawarkan apa ada yang bisa dibantu lagi\n" +
+                    "- Mengucapkan terima kasih\n" +
+                    "- Salam Satu Hati\n" +
+                    "- Salam cuaca", 0))
+
+        nosAudit.add(NosAudit("Deliveryman",
+            "Mendapat konfirmasi pengantaran unit",
+            "Deliveryman memastikan 1 Delivery Car maksimal membawa 2 unit premium", 0))
+        nosAudit.add(NosAudit("Cashier",
+            "Mendapat konfirmasi pengantaran unit",
+            "-Memeriksa nama konsumen \n" +
+                    "-Memeriksa no. kontak konsumen", 0))
+
+        nosAudit.add(NosAudit("Deliveryman",
+            "Mendapat konfirmasi pengantaran unit",
+            "-Memeriksa kelengkapan surat dan administrasi\n" +
+                    "-Memastikan motor sudah lolos PDI (cek tag PDI)\n" +
+                    "-Mengecek nomor rangka & nomor mesin\n" +
+                    "- mengecek pengikatan motor dan memasang rubber", 0))
+        nosAudit.add(NosAudit("Deliveryman",
+            "Mendapat konfirmasi pengantaran unit",
+            "-Mengucapkan salam ( Salam Satu Hati dan Salam Cuaca )\n" +
+                    "-Konfirmasi unit yang akan dikirim\n" +
+                    "-Konfirmasi nama konsumen\n" +
+                    "-Konfirmasi siapa yang akan menerima motor\n" +
+                    "-Konfirmasi jadwal pengiriman\n" +
+                    "-Konfirmasi alamat pengiriman\n" +
+                    "-Menelpon konsumen jika terlambat datang", 0))
+
+        nosAudit.add(NosAudit("Deliveryman",
+            "Menerima dan mengecek unit",
+            "-Mengucapkan salam  ( Salam Satu Hati dan Salam Cuaca )\n" +
+                    "-Memeriksa dokumen terkait (kwitansi, dll)\n" +
+                    "-Mengecek fisik unit\n" +
+                    "-Menjelaskan fitur utama (demonstrasi)\n" +
+                    "-Menjelaskan fungsi fitur\n" +
+                    "\n" +
+                    "-Bersama konsumen mengecek kesesuaian no. mesin & rangka\n" +
+                    "\n", 0))
+
+        nosAudit.add(NosAudit("Deliveryman",
+            "Menerima dan mengecek unit",
+            "membersihkan jok dan hand grip motor (dilakukan di depan konsumen)", 0))
+
+
+        nosAudit.add(NosAudit("Deliveryman",
+            "Menerima dan mengecek unit",
+            "- Garansi rangka dan listrik 1 tahun \n" +
+                    "- Garansi mesin 3 tahun\n" +
+                    "- Garansi PGMFI 5 tahun\n" +
+                    "\n" +
+                    "-KPB service\n" +
+                    "\n" +
+                    "-Mengajak konsumen untuk service di AHASS sendiri (H123)/terdekat (H1)\n" +
+                    "\n" +
+                    "-Menginformasikan fasilitas AHASS (Booking Service, Service kunjung, dan fasilitas AHASS lainnya)", 0))
+
+
+
+        nosAudit.add(NosAudit("Deliveryman",
+            "Menerima dan mengecek unit",
+            "-Menyerahkan KSU (Kelengkapan Standard Unit)", 0))
+
+
+
+        nosAudit.add(NosAudit("Deliveryman",
+            "Menerima dan mengecek unit",
+            "- Pengisian hari, tanggal, dan konsumen  tanda tangan  BAST yang ada di dalam buku servis\n" +
+                    "-Memberikan kartu apresiasi yang ditanda tangani oleh PIC Dealer\n" +
+                    "-Mengingatkan safety riding", 0))
+
+
+        nosAudit.add(NosAudit("Deliveryman",
+            "Menerima dan mengecek unit",
+            "Mengkonfirmasi dan mengupdate data konsumen seperti alamat, nomer HP alternatif, email dan media sosial", 0))
+
+
+
+        nosAudit.add(NosAudit("Admin H1",
+            "Memutuskan pembelian",
+            "- Melakukan input form CDB ke dalam sistem komputerisasi dealer\n" +
+                    "- Memastikan seluruh field terisi sesuai dengan informasi DATA konsumen pada form CDB & kartu keluarga", 0))
+
+        nosAudit.add(NosAudit("Mengambil STNK & BPKB",
+            "Mengambil STNK & BPKB",
+            "Memberikan informasi kepada konsumen (SMS/WA/Telpon) terkait waktu, tempat, dan syarat pengambilan STNK & BPKB", 0))
+
+
+
+        nosAudit.add(NosAudit("Admin H1",
+            "Mengambil STNK & BPKB",
+            "melakukan follow up (Paling lambat H-1 dari tanggal yang dijanjikan) jika :\n" +
+                    "-STNK mengalami keterlambatan ( lebih dari 14 Hari Kerja atau yang telah dijanjikan )\n" +
+                    "-BPKB mengalami keterlambatan ( lebih dari 3 bulan atau yang telah dijanjikan )\n", 0))
+
+
+
+
+        nosAudit.add(NosAudit("Admin H1",
+            "Mengambil STNK & BPKB",
+            "- Mengucapkan salam  ( Salam Satu Hati dan Salam Cuaca )\n" +
+                    "- Menanyakan kebutuhan konsumen", 0))
+
+
+
+
+        nosAudit.add(NosAudit("Admin H1",
+            "Mengambil STNK & BPKB",
+            "-Meminta konsumen untuk memeriksa kesesuaian STNK\n" +
+                    "Mengonfirmasi data konsumen:\n" +
+                    "-nama\n" +
+                    "-alamat\n" +
+                    "-nomor mesin\n" +
+                    "-nomor rangka", 0))
+
+
+        nosAudit.add(NosAudit("Admin H1",
+            "Mengambil STNK & BPKB",
+            "-Mengucapkan terima kasih \n" +
+                    "-Salam Satu Hati", 0))
+
+
+        nosAudit.add(NosAudit("PIC CRM ",
+            "Analisa Data konsumen ",
+            "Analisa Data konsumen \n" +
+                    "-Melakukan analisa konsumen untuk repeat order (koordinasi dengan kacab)\n" +
+                    "-Melakukan analisa konsumen yang akan di undang service (koordinasi dengan kabeng)\n" +
+                    "- Melakukan analisa alasan konsumen mengapa tidak jadi beli (koordinasi dengan kacab)\n" +
+                    "-Melakukan analisa alasan konsumen mengapa tidak kembali service  (koordinasi dengan kabeng) ", 0))
+        nosAudit.add(NosAudit("PIC CRM ",
+            "Analisa Data konsumen ",
+            "Menganalisa data konsumen untuk dilakukan follow up RO yang berada di 1 lokasi dengan BTL activity regular seperti canvassing, pameran, gathering ", 0))
+
+        nosAudit.add(NosAudit("PIC CRM ",
+            "Distribusi Data ",
+            "-Melakukan distribusi data konsumen untuk di Follow up salesforce minimal seminggu sekali\n" +
+                    "- Melakukan distribusi data konsumen kepada sales force yang akan melakukan BTL activity regular di lokasi yang sama dengan domisili konsumen agar dapat dilakukan follow up\n" +
+                    "\n ", 0))
+
+        nosAudit.add(NosAudit("PIC CRM ",
+            "Distribusi Data ",
+            "-Melakukan distribusi data konsumen untuk di Follow up salesforce minimal seminggu sekali\n" +
+                    "- Melakukan distribusi data konsumen kepada sales force yang akan melakukan BTL activity regular di lokasi yang sama dengan domisili konsumen agar dapat dilakukan follow up\n" +
+                    "\n ", 0))
+
+        nosAudit.add(NosAudit("PIC CRM ",
+            "Distribusi Data ",
+            "-Menggunakan data konsumen H1 untuk diberikan ke H2 ", 0))
+
+        nosAudit.add(NosAudit("PIC CRM ",
+            "Distribusi Data ",
+            " ", 0))
+        nosAudit.add(NosAudit("PIC CRM ",
+            "Distribusi Data ",
+            "-Melakukan distribusi data konsumen untuk di follow up service oleh Admin CRM ", 0))
+        nosAudit.add(NosAudit("PIC CRM ",
+            "Distribusi Data ",
+            "-Melakukan distribusi data konsumen untuk di follow up service oleh Admin CRM ", 0))
+
+        nosAudit.add(NosAudit("PIC CRM ",
+            "Result & Monitoring ",
+            "-Melakukan monitoring terhadap hasil follow up sales force setiap hari\n ", 0))
+
+        nosAudit.add(NosAudit("PIC CRM ",
+            "Result & Monitoring ",
+            "-Melakukan monitoring terhadap hasil follow up sales force setiap hari\n ", 0))
+
+        nosAudit.add(NosAudit("PIC CRM ",
+            "Result & Monitoring ",
+            "-Mendata hasil follow up sales force ", 0))
+
+        nosAudit.add(NosAudit("PIC CRM ",
+            "Result & Monitoring ",
+            "-Melakukan review minimal seminggu sekali kepada sales force untuk status follow up * ", 0))
+        nosAudit.add(NosAudit("Admin CRM H1 ",
+            "Follow up  ",
+            "Validasi data\n" +
+                    "(maksimal 5 hari kerja setelah pengantaran)\n" +
+                    "-Mengucapkan terima kasih atas pembelian motor by call\n" +
+                    "-Menanyakan kritik dan saran (feedback layanan Dealer) ", 0))
+        nosAudit.add(NosAudit("Admin CRM H1 ",
+            "Follow up  ",
+            "Verifikasi data konsumen dan no tlp\n" +
+                    "-Mengingatkan untuk service KPB 1\n" +
+                    "- Menginformasikan fasilitas AHASS( booking servis/ servis kunjung)\n" +
+                    "-Mengundang ke dealer\n" +
+                    "\n" +
+                    "*khusus untuk unit premium dan pembelian pertama, follow up dilakukan oleh PIC Dealer ", 0))
+
+        nosAudit.add(NosAudit("Kacab Dealer ",
+            "Ketika masuk ke showroom ",
+            "-Memberikan informasi mengenai list konsumen yang akan datang ke showroom\n" +
+                    "-Memberikan informasi terkait indent informasi (type,colour,ETA) ", 0))
+
+        nosAudit.add(NosAudit("Kacab Dealer ",
+            "Memutuskan indent ",
+            "-Memonitor proses indent secara update (open,close,cancel)\n" +
+                    "-Menginformasi feedback dari MD terkait indent kepada salespeople untuk ETA (Estimation time arrived) ", 0))
+
+        nosAudit.add(NosAudit("Kacab Dealer ",
+            "Result & Monitoring CRM  ",
+            "-Melakukan monitoring terhadap hasil follow up sales force setiap hari\n" +
+                    "-Melakukan monitoring terhadap hasil follow up data RO konsumen yang berada di 1 lokasi dengan BTL Activity Regular\n" +
+                    "\n" +
+                    "\n ", 0))
+
+        nosAudit.add(NosAudit("Kacab Dealer ",
+            "Result & Monitoring CRM  ",
+            "-Mendata hasil follow up sales force dan servis ", 0))
+        nosAudit.add(NosAudit("Kacab Dealer ",
+            "Result & Monitoring CRM  ",
+            "-Melakukan review minimal seminggu sekali kepada sales force untuk status follow up * ", 0))
+
+        nosAudit.add(NosAudit("Admin Warehouse ",
+            "Menerima dan memeriksa unit dari Main Dealer ",
+            "-Memeriksa kesesuaian unit dengan surat jalan dari MD\n" +
+                    "-Memeriksa kesesuaian KSU (tool kit, buku service) ", 0))
+
+        nosAudit.add(NosAudit("Admin Warehouse ",
+            "Pengiriman unit ke Konsumen ",
+            "Instruksi berdasarkan SPK yang sah  ", 0))
+
+        nosAudit.add(NosAudit("Admin Warehouse ",
+            "Pengiriman unit ke Konsumen ",
+            "PDI Unit sudah OK dan pastikan KSU sudah sesuai dengan unit motornya ", 0))
+
+        nosAudit.add(NosAudit("Admin Warehouse ",
+            "Pengiriman unit ke Konsumen ",
+            "Menginformasikan nama, alamat dan nomor kontak konsumen ", 0))
+
+        nosAudit.add(NosAudit("Admin Warehouse ",
+            "Update Data Stock Dealer ",
+            "Dilakukan setiap hari berdasarkan data transaksi penerimaan dan pengiriman unit ", 0))
+
+        nosAudit.add(NosAudit("Admin Warehouse ",
+            "Update Data Stock Dealer ",
+            "- Tanda Serah terima unit dari Main Dealer\n" +
+                    "- Tanda Serah terima unit dengan Konsumen ", 0))
+        nosAudit.add(NosAudit("Kepala Cabang ",
+            " ",
+            "bekerja sama dengan security, greeter, dan SA untuk menjaga dan mengontrol implementasi protokol kesehatan dealer ", 0))
+        nosAudit.add(NosAudit("Kepala Cabang ",
+            " ",
+            "mengetahui RS rujukan terdekat dan menginformasikan kepada Security / Sales Counter/Service Advisor ", 0))
+
+        return nosAudit
+    }
+
+
+    fun generateDataH23People(): List<NosAudit> {
+
+        val nosAudit = ArrayList<NosAudit>()
+
+        nosAudit.add(NosAudit(
+            "Kepala Bengkel   ",
+            "Jumlah ",
+            "Untuk AHASS yang memiliki Unit entry : \n" +
+                    "- UE > 1.500 WAJIB memiliki 1 kepala bengkel Independen (tidak boleh merangkap apapun)\n" +
+                    "- UE < 1.500 boleh dirangkap oleh kepala cabang dealer yang telah memenuhi syarat training dan kompetensi\n" +
+                    "*H123 wajib punya Kabeng independen, H23 boleh membawahi 2 outlet selama gabungan UE kedua outlet < 1500.  ",
+            0))
+
+        nosAudit.add(NosAudit(
+            "Kepala Bengkel   ",
+            "Training ",
+            "Sudah melakukan training  :\n" +
+                    "1. Chief Workshop Training\n" +
+                    "\n" +
+                    "Nilai 2 : Kabeng sudah training Kabeng versi AHM\n" +
+                    "Nilai 0 : Kabeng belum training  ",
+            0))
+        nosAudit.add(NosAudit(
+            "Kepala Bengkel   ",
+            "Training ",
+            "Sudah melakukan training :\n" +
+                    "Customer Service for leader 1 - Complaint Handling (Wajib dilakukan pada usia kerja 0 - 3 bulan)\n" +
+                    "\n" +
+                    "Nilai 2 : Kabeng sudah training \n" +
+                    "Nilai 0 : Kabeng belum training   ",
+            0))
+
+        nosAudit.add(NosAudit(
+            "Kepala Bengkel   ",
+            "Training ",
+            "Sudah melakukan training :\n" +
+                    "Customer Service for leader 2 (Wajib dilakukan pada usia kerja 0 - 6 bulan)\n" +
+                    "\n" +
+                    "Nilai 2 : Kabeng sudah training \n" +
+                    "Nilai 0 : Kabeng belum training   ",
+            0))
+        nosAudit.add(NosAudit(
+            "Kepala Bengkel   ",
+            "Training ",
+            "Sudah melakukan training  :\n" +
+                    "Parts Management Knowledge\n" +
+                    "\n" +
+                    "Nilai 2 : Kabeng sudah training\n" +
+                    "Nilai 0 : Kabeng belum training   ",
+            0))
+        nosAudit.add(NosAudit(
+            "Kepala Bengkel   ",
+            "Training ",
+            "Sudah melakukan training :\n" +
+                    "Training Technical Product Knowledge untuk Kabeng yang bukan berasal dari mekanik\n" +
+                    "\n" +
+                    "Nilai 2 : Kabeng sudah training\n" +
+                    "Nilai 0 : Kabeng belum training \n" +
+                    "\n" +
+                    "Apabila Kabeng berasal dari mekanik, nilai NA  ",
+            0))
+        nosAudit.add(NosAudit(
+            "Kepala Bengkel   ",
+            "Training ",
+            "Sudah melakukan training :\n" +
+                    "TFT Basic Orientation Traning - BOT (Wajib dilakukan pada usia kerja 0 - 1 bulan)\n" +
+                    "\n" +
+                    "Nilai 2 : Kabeng sudah training \n" +
+                    "Nilai 0 : Kabeng belum training   ",
+            0))
+        nosAudit.add(NosAudit(
+            "Kepala Bengkel   ",
+            "Training ",
+            "Sudah melakukan training :\n" +
+                    "-Training Network Operational Standard (Wajib dilakukan pada usia kerja 0 - 1 bulan)\n" +
+                    "\n" +
+                    "Nilai 2 : Kabeng sudah training\n" +
+                    "Nilai 0 : Kabeng belum training   ",
+            0))
+
+        nosAudit.add(NosAudit(
+            "Kepala Mekanik  ",
+            "Jumlah ",
+            "1 Kepala mekanik independen membawahi maksimal 10 mekanik pit\n" +
+                    "\n" +
+                    "Note : Independen tidak boleh merangkap jabatan lain kecuali claim processor atau final inspector sesuai ketentuan\n" +
+                    "Nilai 2 : Ada dan sesuai dengan Ratio\n" +
+                    "Nilai 1 : Ada namun tidak sesuai dengan Ratio\n" +
+                    "Nilai 0 : Tidak ada  ",
+            0))
+
+        nosAudit.add(NosAudit(
+            "Kepala Mekanik  ",
+            "Training\n" +
+                    "\n" +
+                    "Pembagi dari jumlah aktual kepala mekanik independent\n" +
+                    "\n" +
+                    "Contoh :\n" +
+                    "Mekanik 15, kepala mekanik harusnya 2 orang, hanya ada 1 orang Kamek. Yang bersangkutan sudah training TTL 3 dan Kamek.\n" +
+                    "\n" +
+                    "Untuk training Kamek berarti nilainya : 1/1 atau 100% ",
+            "Sudah melakukan training :\n" +
+                    "- TTL 3- Diagnosis training  (6 bulan atau lebih)\n" +
+                    "\n" +
+                    "Nilai 2 : 100% Kamek sudah training \n" +
+                    "Nilai 1 :50%-99% Kamek mengikuti Training  \n" +
+                    "Nilai 0 : < 50% Kamek mengikuti training\n" +
+                    "\n" +
+                    "Note: yang diperhitungkan adalah Kamek yang menjabat 6 bulan atau lebih. Apabila masa kerja sbg Kamek < 6 bulan, maka tidak diperhitungkan dalam penilaian.  ",
+            0))
+        nosAudit.add(NosAudit(
+            "Kepala Mekanik  ",
+            "Training\n" +
+                    "\n" +
+                    "Pembagi dari jumlah aktual kepala mekanik independent\n" +
+                    "\n" +
+                    "Contoh :\n" +
+                    "Mekanik 15, kepala mekanik harusnya 2 orang, hanya ada 1 orang Kamek. Yang bersangkutan sudah training TTL 3 dan Kamek.\n" +
+                    "\n" +
+                    "Untuk training Kamek berarti nilainya : 1/1 atau 100% ",
+            "  ",
+            0))
+        nosAudit.add(NosAudit(
+            "Kepala Mekanik  ",
+            "Training\n" +
+                    "\n" +
+                    "Pembagi dari jumlah aktual kepala mekanik independent\n" +
+                    "\n" +
+                    "Contoh :\n" +
+                    "Mekanik 15, kepala mekanik harusnya 2 orang, hanya ada 1 orang Kamek. Yang bersangkutan sudah training TTL 3 dan Kamek.\n" +
+                    "\n" +
+                    "Untuk training Kamek berarti nilainya : 1/1 atau 100% ",
+            "Sudah melakukan training :\n" +
+                    "-Training Network Operational Standard (Wajib dilakukan pada usia kerja 0 - 1 bulan)\n" +
+                    "\n" +
+                    "Nilai 2 : 100% Kamek sudah training \n" +
+                    "Nilai 1 :50%-99% Kamek mengikuti Training  \n" +
+                    "Nilai 0 : < 50% Kamek mengikuti training\n  ",
+            0))
+        nosAudit.add(NosAudit(
+            "Kepala Mekanik  ",
+            "Seragam ",
+            "Sama dengan seragam mekanik tanpa topi, masker, apron\n" +
+                    "\n" +
+                    "Seragam kerja diberikan gratis oleh AHASS\n" +
+                    "2 set/tahun/kepala mekanik\n" +
+                    "Menggunakan Masker Polos (disesuaikan dengan warna unsur seragam, yaitu abu-abu/putih/merah/hitam)\n" +
+                    "Menggunakan face shield (jika berinteraksi dengan konsumen)  ",
+            0))
+        nosAudit.add(NosAudit(
+            "Kepala Mekanik  ",
+            "Alat Perlindungan Diri (APD) ",
+            "1. Menggunakan safety shoes\n" +
+                    "\n" +
+                    "Nilai 2 : 100% kepala mekanik menggunakan APD\n" +
+                    "Nilai 0 : < 100% kepala mekanik menggunakan APD\n" +
+                    "\n" +
+                    "Sepatu safety diberikan gratis oleh pemilik AHASS\n" +
+                    "1 set/ 2 tahun  ",
+            0))
+        nosAudit.add(NosAudit(
+            "Final Inspector  ",
+            "Jumlah ",
+            "1 Final inspector independen = max 1.500 Unit Entry\n" +
+                    "\n" +
+                    "Independen tidak boleh merangkap jabatan lain kecuali claim processor atau Kepala Mekanik sesuai ketentuan\n" +
+                    "\n" +
+                    "Untuk unit entry  1 s.d 1.000, final inspector masih boleh dirangkap dengan kepala mekanik  ",
+            0))
+        nosAudit.add(NosAudit(
+            "  ",
+            "Training\n" +
+                    "\n" +
+                    "Pembagi dari jumlah aktual final inspector independent\n" +
+                    "\n" +
+                    "Contoh :\n" +
+                    "Unit Entry 5.300, harusnya final inspector ada 4. Aktual hanya ada 3 orang. Yang bersangkutan sudah TTL 2\n" +
+                    "\n" +
+                    "Untuk training TTL 2 berarti nilainya :3/3 atau 100% ",
+            "Sudah melakukan training (dengan masa kerja) :\n" +
+                    "-  TTL 2\n" +
+                    "\n" +
+                    "Nilai 2 : 100% FI sudah training \n" +
+                    "Nilai 1 : 50%-99% FI mengikuti Training  \n" +
+                    "Nilai 0 : < 50% FI mengikuti training\n" +
+                    "\n" +
+                    "Note: yang diperhitungkan adalah FI yang menjabat 6 bulan atau lebih. Apabila masa kerja sbg FI < 6 bulan, maka tidak diperhitungkan dalam penilaian.  ",
+            0))
+        nosAudit.add(NosAudit(
+            "Final Inspector  ",
+            "Training\n" +
+                    "\n" +
+                    "Pembagi dari jumlah aktual final inspector independent\n" +
+                    "\n" +
+                    "Contoh :\n" +
+                    "Unit Entry 5.300, harusnya final inspector ada 4. Aktual hanya ada 3 orang. Yang bersangkutan sudah TTL 2\n" +
+                    "\n" +
+                    "Untuk training TTL 2 berarti nilainya :3/3 atau 100% ",
+            " Sudah melakukan training  :\n" +
+                    "-Training Network Operational Standard (Wajib dilakukan pada usia kerja 0 - 1 bulan)\n" +
+                    "\n" +
+                    "Nilai 2 : 100% FI sudah training \n" +
+                    "Nilai 1 : 50%-99% FI mengikuti Training  \n" +
+                    "Nilai 0 : < 50% FI mengikuti training\n  ",
+            0))
+        nosAudit.add(NosAudit(
+            "Final Inspector  ",
+            " Training\n" +
+                    "\n" +
+                    "Pembagi dari jumlah aktual final inspector independent\n" +
+                    "\n" +
+                    "Contoh :\n" +
+                    "Unit Entry 5.300, harusnya final inspector ada 4. Aktual hanya ada 3 orang. Yang bersangkutan sudah TTL 2\n" +
+                    "\n" +
+                    "Untuk training TTL 2 berarti nilainya :3/3 atau 100%",
+            " Sudah melakukan training  :\n" +
+                    "-Training Network Operational Standard (Wajib dilakukan pada usia kerja 0 - 1 bulan)\n" +
+                    "\n" +
+                    "Nilai 2 : 100% FI sudah training \n" +
+                    "Nilai 1 : 50%-99% FI mengikuti Training  \n" +
+                    "Nilai 0 : < 50% FI mengikuti training\n  ",
+            0))
+        nosAudit.add(NosAudit(
+            "Final Inspector  ",
+            "Seragam ",
+            "Sama dengan seragam mekanik tanpa topi, masker, apron\n" +
+                    "\n" +
+                    "Seragam kerja diberikan gratis oleh AHASS\n" +
+                    "2 set/tahun/final inspector\n" +
+                    "Menggunakan Masker Polos (disesuaikan dengan warna unsur seragam, yaitu abu-abu/putih/merah/hitam)\n" +
+                    "Menggunakan face shield (jika berinteraksi dengan konsumen)  ",
+            0))
+        nosAudit.add(NosAudit(
+            "Final Inspector  ",
+            "Alat Perlindungan Diri ",
+            "1. Menggunakan safety shoes\n" +
+                    "\n" +
+                    "Nilai 2 : 100% final inspector menggunakan APD\n" +
+                    "Nilai 0 : < 100% final inspector menggunakan APD\n" +
+                    "\n" +
+                    "Sepatu safety diberikan gratis oleh pemilik AHASS\n" +
+                    "1 set/ 2 tahun  ",
+            0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Jumlah ",
+            "1 Service advisor independen = max 1.000 Unit Entry\n" +
+                    "H123 & H23 diperbolehkan untuk dirangkap selama UE < 1000.\n" +
+                    "\n" +
+                    "Independen tidak boleh merangkap jabatan lain  ",
+            0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Training\n" +
+                    "\n" +
+                    "Pembagi dari jumlah aktual service advisor independent\n" +
+                    "\n" +
+                    "Contoh :\n" +
+                    "Unit Entry 5.300, harusnya service advisor ada 6. Aktual hanya ada 3 orang. Yang sudah training SA kurikulum 2015 = 2\n" +
+                    "\n" +
+                    "Untuk training SA berarti nilainya :2/3 atau 66,67% ",
+            " Sudah melakukan training (dengan masa kerja) :\n" +
+                    "-  TTL 2\n" +
+                    "\n" +
+                    "Nilai 2 : 100% SA sudah training \n" +
+                    "Nilai 1 : 50%-99% SA mengikuti Training  \n" +
+                    "Nilai 0 : < 50% SA mengikuti training\n" +
+                    "\n" +
+                    "Note: yang diperhitungkan adalah SA yang menjabat 6 bulan atau lebih. Apabila masa kerja sbg SA < 6 bulan, maka tidak diperhitungkan dalam penilaian.  ",
+            0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Training\n" +
+                    "\n" +
+                    "Pembagi dari jumlah aktual service advisor independent\n" +
+                    "\n" +
+                    "Contoh :\n" +
+                    "Unit Entry 5.300, harusnya service advisor ada 6. Aktual hanya ada 3 orang. Yang sudah training SA kurikulum 2015 = 2\n" +
+                    "\n" +
+                    "Untuk training SA berarti nilainya :2/3 atau 66,67% ",
+            "Sudah melakukan training  :\n" +
+                    "- Training SA kurikulum AHM 2015\n" +
+                    "\n" +
+                    "Nilai 2 : 100% SA sudah training \n" +
+                    "Nilai 1 : 50%-99% SA mengikuti Training  \n" +
+                    "Nilai 0 : < 50% SA mengikuti training  ",
+            0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Training\n" +
+                    "\n" +
+                    "Pembagi dari jumlah aktual service advisor independent\n" +
+                    "\n" +
+                    "Contoh :\n" +
+                    "Unit Entry 5.300, harusnya service advisor ada 6. Aktual hanya ada 3 orang. Yang sudah training SA kurikulum 2015 = 2\n" +
+                    "\n" +
+                    "Untuk training SA berarti nilainya :2/3 atau 66,67% ",
+            "\n" +
+                    "Sudah melakukan training :\n" +
+                    "- Basic Orientation Traning - BOT (Wajib dilakukan pada usia kerja 0 - 1 bulan oleh Kacab / Kabeng) sebelum training NOS\n" +
+                    "\n" +
+                    "Nilai 2 : 100% SA sudah training \n" +
+                    "Nilai 1 : 50%-99% SA mengikuti Training  \n" +
+                    "Nilai 0 : < 50% SA mengikuti training  ",
+            0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Training\n" +
+                    "\n" +
+                    "Pembagi dari jumlah aktual service advisor independent\n" +
+                    "\n" +
+                    "Contoh :\n" +
+                    "Unit Entry 5.300, harusnya service advisor ada 6. Aktual hanya ada 3 orang. Yang sudah training SA kurikulum 2015 = 2\n" +
+                    "\n" +
+                    "Untuk training SA berarti nilainya :2/3 atau 66,67% ",
+            "Sudah melakukan training  :\n" +
+                    "-Training Network Operational Standard (Wajib dilakukan pada usia kerja 0 - 1 bulan)\n" +
+                    "\n" +
+                    "Nilai 2 : 100% SA sudah training \n" +
+                    "Nilai 1 : 50%-99% SA mengikuti Training  \n" +
+                    "Nilai 0 : < 50% SA mengikuti training  ",
+            0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Training\n" +
+                    "\n" +
+                    "Pembagi dari jumlah aktual service advisor independent\n" +
+                    "\n" +
+                    "Contoh :\n" +
+                    "Unit Entry 5.300, harusnya service advisor ada 6. Aktual hanya ada 3 orang. Yang sudah training SA kurikulum 2015 = 2\n" +
+                    "\n" +
+                    "Untuk training SA berarti nilainya :2/3 atau 66,67% ",
+            "Sudah melakukan training  :\n" +
+                    "- Customer Service for FLP Training (Wajib dilakukan pada usia kerja 0 - 3 bulan)\n" +
+                    "\n" +
+                    "Nilai 2 : 100% SA sudah training \n" +
+                    "Nilai 1 : 50%-99% SA mengikuti Training  \n" +
+                    "Nilai 0 : < 50% SA mengikuti training\n  ",
+            0))
+
+
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Standard Penampilan",
+            "1.Wajah : \n" +
+                    "Pria : ,wajah terlihat segar/tidak berminyak/tidak kusam, kumis/jenggot rapi (tdk dipanjangkan)\n" +
+                    "\n" +
+                    "Wanita :  Rias Wajah menggunakan make up (bedak,alis,eye shadow,blush on,lipstik sesuai standar)\n" +
+                    "\n" +
+                    "2.Rambut : \n" +
+                    "Pria : Rambut Pendek Rapi, tidak menutupi mata dan tidak menyentuh kerah baju dan telinga\n" +
+                    "\n" +
+                    "Wanita :  Rambut rapi / tidak menutupi pandangan (panjang rambut lebih dari sebahu wajib dikuncir ponytail )\n" +
+                    "\n" +
+                    "3.Wewangian dan kebersihan:\n" +
+                    "Aroma tubuh tidak mengganggu, tangan bersih, kuku tangan dan kuku kaki bersih. Untuk pria kuku pendek rapi.\n",
+            0))
+
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Standard Penampilan",
+            "4. Seragam : \n" +
+                    "\n" +
+                    "Ketentuan :\n" +
+                    " Senin & Rabu : Seragam Honda berkerah merah,Celana / rok hitam \n" +
+                    " Selasa & Kamis : Seragam Honda berkerah putih,Celana / rok hitam  \n" +
+                    "Jumat : baju khas daerah / batik (batik Dealer), Celana / Rok Hitam\n" +
+                    "Sabtu & Minggu : casual (berkerah) atau sesuai kebijakan masing2 dealer\n" +
+                    "(kondisi Baju : Rapi, Bersih, Warna tidak kusam, tidak robek, dan logo Honda terlihat)\n" +
+                    "* Sesuai dengan aturan seragam dari HC3 AHM\n" +
+                    "\n" +
+                    "5.Atribut  : \n" +
+                    "- Senin - Jumat : Wanita menggunakan sepatu pantofel warna hitam heel minimum 5 cm kecuali wanita hamil\n" +
+                    "- Senin - Jumat : Pria menggunakan sepatu pantofel warna hitam\n" +
+                    "- Sabtu - Minggu atau saat berada di lapangan : Sepatu Kets  warna Netral (Putih, Hitam, Abu-abu, Merah Maroon, Biru Tua, Putih)\n" +
+                    "- ID Card dengan Kalung Honda Merah\n" +
+                    "- Pin One Heart di dada kiri\n" +
+                    "- Jam Tangan Kulit / Karet / Canvas Warna Hitam / Coklat Tua / Gelap\n" +
+                    "\n" +
+                    "6. Aksesories :\n" +
+                    "Pria : aksesoris tidak berlebihan (tidak lebih dari 5 titik)\n" +
+                    " Wanita : aksesoris tidak berlebihan (tidak lebih dari 7 titik)\n" +
+                    "\n" +
+                    "Menggunakan Masker polos atau tidak bermotif.\n" +
+                    "-Masker kesehatan (warna bebas)\n" +
+                    "-Masker kain disesuaikan dengan warna unsur seragam, yaitu abu-abu/putih/merah/hitam* *Kecuali Jum'at-Sabtu-Minggu\n" +
+                    "Menggunakan face shield (jika berinteraksi dengan konsumen)",
+            0))
+
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Alat Perlindungan Diri (APD)",
+            "1. Menggunakan safety shoes\n" +
+                    "\n" +
+                    "Nilai 2 : 100% service advisor menggunakan APD\n" +
+                    "Nilai 0 : < 100% service advisor menggunakan APD\n" +
+                    "\n" +
+                    "Sepatu safety diberikan gratis oleh pemilik AHASS\n" +
+                    "1 set/ 2 tahun",
+            0))
+
+
+
+        nosAudit.add(NosAudit(
+            "Mechanic  ",
+            "Produktivitas  ",
+            " Nilai 2 jika produktivitas mekanik pit 7 s.d 9 (7 =< x =< 9)\n" +
+                    "Nilai 1 jika produktivitas mekanik pit  <7 atau >9\n" +
+                    "\n" +
+                    "\n" +
+                    "Perhitungan produktivitas : Unit entry/jumlah hari kerja mekanik dalam 1 bulan/jumlah mekanik\n" +
+                    "\n" +
+                    "Mekanik yang dihitung adalah semua mekanik yang bekerja di dalam pit (termasuk yang untrained) kecuali mekanik magang\n" +
+                    "\n" +
+                    "Hari kerja : 25 hari kerja ",
+            0))
+
+        nosAudit.add(NosAudit(
+            "Mechanic  ",
+            "Training  ",
+            "100% sudah training TTL 1\n" +
+                    "(Diperbolehkan maksimum 1 orang Untrain)\n" +
+                    "\n" +
+                    "Nilai 2 : 100% syarat terpenuhi\n" +
+                    "Nilai 0 : syarat tidak terpenuhi\n  ",
+            0))
+
+        nosAudit.add(NosAudit(
+            "Mechanic  ",
+            "Training  ",
+            "Minimal ada 1 orang mekanik TTL 3\n" +
+                    "Diperbolehkan Kabeng/Kamek/FI/SA\n" +
+                    "\n" +
+                    "Nilai 2 : terpenuhi\n" +
+                    "Nilai 0 : tidak terpenuhi  ",
+            0))
+
+        nosAudit.add(NosAudit(
+            "Mechanic  ",
+            "Training  ",
+            "Untuk mekanik pit s.d 5, minimal 2 orang mekanik pit sudah training TTL 2/3\n" +
+                    "Untuk mekanik pit > 5, minimal 50% mekanik pit sudah training TTL 2/3\n" +
+                    "\n" +
+                    "Nilai 2 : 100% syarat terpenuhi\n" +
+                    "Nilai 0 : syarat tidak terpenuhi  ",
+            0))
+        nosAudit.add(NosAudit(
+            "Mechanic  ",
+            "Training  ",
+            "Sudah melakukan training  :\n" +
+                    "-Training Network Operational Standard (Wajib dilakukan pada usia kerja 0 - 1 bulan)\n" +
+                    "\n" +
+                    "Nilai 2 : 100% Mechanic sudah training \n" +
+                    "Nilai 1 : 50%-99% Mechanic mengikuti Training  \n" +
+                    "Nilai 0 : < 50% Mechanic mengikuti training\n" +
+                    "\n" +
+                    "*Khusus mekanik Big  wing  ",
+            0))
+
+        nosAudit.add(NosAudit(
+            "Mechanic  ",
+            "Seragam kerja\n" +
+                    "Mekanik TTL 1 dan TTL 2  ",
+            "1. Menggunakan seragam kerja\n" +
+                    "\n" +
+                    "Nilai 2 : 100% Mekanik TTL 1/2 menggunakan seragam kerja\n" +
+                    "Nilai 0 : < 100% Mekanik TTL 1/2 menggunakan seragam kerja\n" +
+                    "\n" +
+                    "Seragam kerja diberikan gratis oleh AHASS\n" +
+                    "2 set/tahun/mekanik\n" +
+                    "\n" +
+                    "Menggunakan Masker Polos (disesuaikan dengan warna unsur seragam, yaitu abu-abu/putih/merah/hitam)\n" +
+                    "Menggunakan face shield (jika berinteraksi dengan konsumen)  ",
+            0))
+
+        nosAudit.add(NosAudit(
+            "Mechanic  ",
+            "Seragam kerja\n" +
+                    "Mekanik TTL3  ",
+            "1. Menggunakan seragam kerja \n" +
+                    "Untuk wing dealer, mekanik menggunakan badge \"wing dealer\" di seragamnya\n" +
+                    "\n" +
+                    "Nilai 2 : 100% Mekanik TTL 3 menggunakan seragam kerja\n" +
+                    "Nilai 0 : < 100% Mekanik  TTL 3 menggunakan seragam kerja\n" +
+                    "\n" +
+                    "Seragam kerja diberikan gratis oleh AHASS\n" +
+                    "2 set/tahun/mekanik\n" +
+                    "\n" +
+                    "Menggunakan Masker Polos (disesuaikan dengan warna unsur seragam, yaitu abu-abu/putih/merah/hitam)\n" +
+                    "Menggunakan face shield (jika berinteraksi dengan konsumen)  ",
+            0))
+        nosAudit.add(NosAudit(
+            "Mechanic  ",
+            "Alat Perlindungan Diri (APD)  ",
+            "1. Menggunakan safety shoes, apron, masker, topi\n" +
+                    "\n" +
+                    "Nilai 2 : 100% Mekanik pit non Heavy Repair menggunakan 100% APD\n" +
+                    "Nilai 0 : < 100% Mekanik pit non Heavy Repair menggunakan 100% APD\n" +
+                    "\n" +
+                    "Semua APD disediakan gratis oleh AHASS\n" +
+                    "Sepatu safety 1 set/2 tahun/ mekanik  ",
+            0))
+
+        nosAudit.add(NosAudit(
+            "Mechanic  ",
+            "Alat Perlindungan Diri (APD) Heavy Repair  ",
+            "1. Menggunakan safety shoes\n" +
+                    "2. Tersedia sarung tangan, ear plug, masker\n" +
+                    "\n" +
+                    "Nilai 2 : 100% Mekanik heavy repair menggunakan safety shoes dan 100% tersedia sarung tangan, ear plug, masker\n" +
+                    "Nilai 0 : < 100% Mekanik heavy repair menggunakan safety shoes dan 100% tersedia sarung tangan, ear plug, masker\n" +
+                    "\n" +
+                    "Semua APD disediakan gratis oleh AHASS  ",
+            0))
+
+        nosAudit.add(NosAudit(
+            "Frontdesk Officer\n" +
+                    "(FDO)  ",
+            "Jumlah  ",
+            "1 Front Desk Officer independen = max 1.500 Unit Entry\n" +
+                    "\n" +
+                    "Independen = tidak boleh merangkap jabatan apapun  ",
+            0))
+
+        nosAudit.add(NosAudit(
+            "Frontdesk Officer\n" +
+                    "(FDO)  ",
+            "Jumlah  ",
+            "Sudah melakukan training :\n" +
+                    "- Basic Orientation Traning - BOT (Wajib dilakukan pada usia kerja 0 - 1 bulan oleh Kacab / Kabeng) sebelum training NOS\n" +
+                    "\n" +
+                    "Nilai 2 : 100% FDO sudah training \n" +
+                    "Nilai 1 : 50%-99% FDO mengikuti Training  \n" +
+                    "Nilai 0 : < 50% FDO mengikuti training\n" +
+                    "\n" +
+                    "*Untuk FDO apabila  merangkap pekerjaan yang berkomunikasi dengan konsumen\n  ",
+            0))
+
+
+        nosAudit.add(NosAudit(
+            "Frontdesk Officer\n" +
+                    "(FDO)  ",
+            "Jumlah  ",
+            "Sudah melakukan training  :\n" +
+                    "-Training Network Operational Standard (Wajib dilakukan pada usia kerja 0 - 1 bulan)\n" +
+                    "\n" +
+                    "Nilai 2 : 100% FDO sudah training \n" +
+                    "Nilai 1 : 50%-99% FDO mengikuti Training  \n" +
+                    "Nilai 0 : < 50% FDO mengikuti training  ",
+            0))
+
+
+        nosAudit.add(NosAudit(
+            "Frontdesk Officer\n" +
+                    "(FDO)  ",
+            "Standard Penampilan  ",
+            "1.Wajah : \n" +
+                    "Pria : ,wajah terlihat segar/tidak berminyak/tidak kusam, kumis/jenggot rapi (tdk dipanjangkan)\n" +
+                    "\n" +
+                    "Wanita :  Rias Wajah menggunakan make up (bedak,alis,eye shadow,blush on,lipstik sesuai standar)\n" +
+                    "\n" +
+                    "2.Rambut : \n" +
+                    "Pria : Rambut Pendek Rapi, tidak menutupi mata dan tidak menyentuh kerah baju dan telinga\n" +
+                    "\n" +
+                    "Wanita :  Rambut rapi / tidak menutupi pandangan (panjang rambut lebih dari sebahu wajib dikuncir ponytail )\n" +
+                    "\n" +
+                    "3.Wewangian dan kebersihan:\n" +
+                    "Aroma tubuh tidak mengganggu, tangan bersih, kuku tangan dan kuku kaki bersih. Untuk pria kuku pendek rapi.\n  ",
+            0))
+
+
+        nosAudit.add(NosAudit(
+            "Frontdesk Officer\n" +
+                    "(FDO)  ",
+            "Standard Penampilan  ",
+            "4. Seragam : \n" +
+                    "Ketentuan :\n" +
+                    "Mengenakan Polo Shirt warna merah sesuai standar AHM, dengan celana hitam.\n" +
+                    "\n" +
+                    "5.Atribut  : \n" +
+                    "- Menggunakan sepatu warna hitam / Gelap (boleh sepatu kets)\n" +
+                    "- ID Card (dengan kalung Honda Merah)\n" +
+                    "- Pin One Heart di dada kiri\n" +
+                    "- Jam Tangan Kulit / Karet / Canvas Warna Hitam / Coklat Tua / Gelap\n" +
+                    "\n" +
+                    "\n" +
+                    "6. Aksesories :\n" +
+                    "Pria : aksesoris tidak berlebihan (tidak lebih dari 5 titik)\n" +
+                    "\n" +
+                    "Menggunakan Masker polos atau tidak bermotif.\n" +
+                    "-Masker kesehatan (warna bebas)\n" +
+                    "-Masker kain disesuaikan dengan warna unsur seragam, yaitu abu-abu/putih/merah/hitam* *Kecuali Jum'at-Sabtu-Minggu\n" +
+                    "Menggunakan face shield (jika berinteraksi dengan konsumen)  ",
+            0))
+
+
+        nosAudit.add(NosAudit(
+            "Admin CRM H23\n  ",
+            "Jumlah  ",
+            "1 Admin CRM H23 independen = max 1.500 Unit Entry (Untuk Wing Dealer).\n" +
+                    "\n" +
+                    "Untuk Regular Dealer Admin CRM H23 adalah fungsi (boleh merangkap jabatan apapun) jika UE < 1500. Apabila UE ≥ 1500 wajib mempunyai 1 Admin CRM H23 Dedicated\n" +
+                    "\n" +
+                    "Independen = tidak boleh merangkap jabatan apapun  ",
+            0))
+
+        nosAudit.add(NosAudit(
+            "Admin CRM H23\n  ",
+            "Training  ",
+            "\n" +
+                    "Sudah melakukan training :\n" +
+                    "- Basic Orientation Traning - BOT (Wajib dilakukan pada usia kerja 0 - 1 bulan oleh Kacab / Kabeng) sebelum training NOS\n" +
+                    "\n" +
+                    "Nilai 2 : 100% Admin CRM sudah training \n" +
+                    "Nilai 1 : 50%-99% Admin CRM mengikuti Training  \n" +
+                    "Nilai 0 : < 50% Admin CRM mengikuti training  ",
+            0))
+
+        nosAudit.add(NosAudit(
+            "Admin CRM H23\n  ",
+            "Training  ",
+            "Sudah melakukan training (dengan masa kerja) :\n" +
+                    "-Training Network Operational Standard (Wajib dilakukan pada usia kerja 0 - 1 bulan)\n" +
+                    "\n" +
+                    "Nilai 2 : 100% Admin CRM sudah training \n" +
+                    "Nilai 1 : 50%-99% Admin CRM mengikuti training  \n" +
+                    "Nilai 0 : < 50% Admin CRM mengikuti training  ",
+            0))
+
+        nosAudit.add(NosAudit(
+            "Admin CRM H23\n  ",
+            "Standard Penampilan  ",
+            "1.Wajah : \n" +
+                    "Pria : ,wajah terlihat segar/tidak berminyak/tidak kusam, kumis/jenggot rapi (tdk dipanjangkan)\n" +
+                    "\n" +
+                    "Wanita :  Rias Wajah menggunakan make up (bedak,alis,eye shadow,blush on,lipstik sesuai standar)\n" +
+                    "\n" +
+                    "2.Rambut : \n" +
+                    "Pria : Rambut Pendek Rapi, tidak menutupi mata dan tidak menyentuh kerah baju dan telinga\n" +
+                    "\n" +
+                    "Wanita :  Rambut rapi / tidak menutupi pandangan (panjang rambut lebih dari sebahu wajib dikuncir ponytail )\n" +
+                    "\n" +
+                    "3.Wewangian dan kebersihan:\n" +
+                    "Aroma tubuh tidak mengganggu, tangan bersih, kuku tangan dan kuku kaki bersih. Untuk pria kuku pendek rapi.\n  ",
+            0))
+
+        nosAudit.add(NosAudit(
+            "Admin CRM H23\n  ",
+            "Standard Penampilan  ",
+            "4. Seragam : \n" +
+                    "\n" +
+                    "Ketentuan :\n" +
+                    " Senin & Rabu : Seragam Honda berkerah merah,Celana / rok hitam \n" +
+                    " Selasa & Kamis : Seragam Honda berkerah putih,Celana / rok hitam  \n" +
+                    "Jumat : baju khas daerah / batik (batik Dealer), Celana / Rok Hitam\n" +
+                    "Sabtu & Minggu : casual (berkerah) atau sesuai kebijakan masing2 dealer\n" +
+                    "(kondisi Baju : Rapi, Bersih, Warna tidak kusam, tidak robek, dan logo Honda terlihat)\n" +
+                    "* Sesuai dengan aturan seragam dari HC3 AHM\n" +
+                    "\n" +
+                    "5.Atribut  : \n" +
+                    "- Senin - Jumat : Wanita menggunakan sepatu pantofel warna hitam heel minimum 5 cm kecuali wanita hamil\n" +
+                    "- Senin - Jumat : Pria menggunakan sepatu pantofel warna hitam\n" +
+                    "- Sabtu - Minggu atau saat berada di lapangan : Sepatu Kets  warna Netral (Putih, Hitam, Abu-abu, Merah Maroon, Biru Tua, Putih)\n" +
+                    "- ID Card dengan Kalung Honda Merah\n" +
+                    "- Pin One Heart di dada kiri\n" +
+                    "- Jam Tangan Kulit / Karet / Canvas Warna Hitam / Coklat Tua / Gelap\n" +
+                    "\n" +
+                    "6. Aksesories :\n" +
+                    "Pria : aksesoris tidak berlebihan (tidak lebih dari 5 titik)\n" +
+                    " Wanita : aksesoris tidak berlebihan (tidak lebih dari 7 titik)\n" +
+                    "\n" +
+                    "Menggunakan Masker polos atau tidak bermotif.\n" +
+                    "-Masker kesehatan (warna bebas)\n" +
+                    "-Masker kain disesuaikan dengan warna unsur seragam, yaitu abu-abu/putih/merah/hitam* *Kecuali Jum'at-Sabtu-Minggu\n" +
+                    "Menggunakan face shield (jika berinteraksi dengan konsumen)  ",
+            0))
+
+
+
+        nosAudit.add(NosAudit(
+            "Claim Processor  ",
+            "Jumlah  ",
+            "AHASS memiliki minimal 1 orang Claim Processor yang sudah tersertifikasi --> minimum TTL 2\n  ",
+            0))
+
+        nosAudit.add(NosAudit(
+            "Claim Processor  ",
+            "Training  ",
+            "Sudah melakukan training:\n" +
+                    "TTL 2  ",
+            0))
+
+
+
+        nosAudit.add(NosAudit(
+            "PIC Parts  ",
+            " Jumlah ",
+            "Untuk Wing Dealer , wajib memiliki PIC PARTS  dan  petugas  gudang parts yang  khusus. Tidak  boleh dirangkap oleh frontdesk , dengan jumlah sbb:\n" +
+                    "1. PIC parts khusus ( minimum 1  : PIC parts  merangkap  gudang ) untuk unit entry s/d 1500  per bulan \n" +
+                    "2. PIC parts khusus ( minimum 1 PIC parts + 1 petugas  gudang ) untuk unit entry   1500 - 5000 per bulan\n" +
+                    "3. PIC parts khusus ( minimum 1 PIC parts + 2 petugas  gudang ) untuk unit entry di atas  5000 per bulan\n  ",
+            0))
+
+
+        nosAudit.add(NosAudit(
+            "PIC Parts  ",
+            " Training (PIC Parts) ",
+            "Untuk PIC Parts  , sudah melakukan training  :\n" +
+                    "-Customer Service For FLP Training (Wajib dilakukan pada usia kerja 0 - 3 bulan)\n" +
+                    "Nilai 2 : 100%  (PIC Parts)  sudah training \n" +
+                    "Nilai 1 : Belum 100%  ( PIC Parts) mengikuti Training  \n" +
+                    "Nilai 0 : Belum ada  ( PIC Parts) mengikuti training  ",
+            0))
+
+
+        nosAudit.add(NosAudit(
+            "PIC Parts  ",
+            " Training (PIC Parts) ",
+            "Untuk PIC Parts  , sudah melakukan training  :\n" +
+                    "- Parts Management Knowledge \n" +
+                    "Nilai 2 : 100%  (PIC Parts)  sudah training \n" +
+                    "Nilai 1 : Belum 100%  ( PIC Parts) mengikuti Training  \n" +
+                    "Nilai 0 : Belum ada  ( PIC Parts) mengikuti training  ",
+            0))
+
+        nosAudit.add(NosAudit(
+            "PIC Parts  ",
+            " Training (PIC Parts) ",
+            "\n" +
+                    "Sudah melakukan training :\n" +
+                    "- Basic Orientation Traning - BOT (Wajib dilakukan pada usia kerja 0 - 1 bulan oleh Kacab / Kabeng) sebelum training NOS\n" +
+                    "\n" +
+                    "Nilai 2 : 100% PIC Part sudah training \n" +
+                    "Nilai 1 : 50%-99% PIC Part mengikuti Training  \n" +
+                    "Nilai 0 : < 50% PIC Part mengikuti training  ",
+            0))
+
+
+        nosAudit.add(NosAudit(
+            "PIC Parts  ",
+            " Training (PIC Parts) ",
+            "Sudah melakukan training (dengan masa kerja) :\n" +
+                    "-Training Network Operational Standard (Wajib dilakukan pada usia kerja 0 - 1 bulan)\n" +
+                    "\n" +
+                    "Nilai 2 : 100%  (PIC Parts)  sudah training \n" +
+                    "Nilai 1 : Belum 100%  ( PIC Parts) mengikuti Training  \n" +
+                    "Nilai 0 : Belum ada  ( PIC Parts) mengikuti training  ",
+            0))
+
+
+        nosAudit.add(NosAudit(
+            "PIC Parts  ",
+            "Standard Penampilan  ",
+            "1.Wajah : \n" +
+                    "Pria : ,wajah terlihat segar/tidak berminyak/tidak kusam, kumis/jenggot rapi (tdk dipanjangkan)\n" +
+                    "\n" +
+                    "Wanita :  Rias Wajah menggunakan make up (bedak,alis,eye shadow,blush on,lipstik sesuai standar)\n" +
+                    "\n" +
+                    "2.Rambut : \n" +
+                    "Pria : Rambut Pendek Rapi, tidak menutupi mata dan tidak menyentuh kerah baju dan telinga\n" +
+                    "\n" +
+                    "Wanita :  Rambut rapi / tidak menutupi pandangan (panjang rambut lebih dari sebahu wajib dikuncir ponytail )\n" +
+                    "\n" +
+                    "3.Wewangian dan kebersihan:\n" +
+                    "Aroma tubuh tidak mengganggu, tangan bersih, kuku tangan dan kuku kaki bersih. Untuk pria kuku pendek rapi.\n  ",
+            0))
+
+
+        nosAudit.add(NosAudit(
+            "PIC Parts  ",
+            "Standard Penampilan  ",
+            "4. Seragam : \n" +
+                    "\n" +
+                    "Ketentuan :\n" +
+                    " Senin & Rabu : Seragam Honda berkerah merah,Celana / rok hitam \n" +
+                    " Selasa & Kamis : Seragam Honda berkerah putih,Celana / rok hitam  \n" +
+                    "Jumat : baju khas daerah / batik (batik Dealer), Celana / Rok Hitam\n" +
+                    "Sabtu & Minggu : casual (berkerah) atau sesuai kebijakan masing2 dealer\n" +
+                    "(kondisi Baju : Rapi, Bersih, Warna tidak kusam, tidak robek, dan logo Honda terlihat)\n" +
+                    "* Sesuai dengan aturan seragam dari HC3 AHM\n" +
+                    "\n" +
+                    "5.Atribut  : \n" +
+                    "- Senin - Jumat : Wanita menggunakan sepatu pantofel warna hitam heel minimum 5 cm kecuali wanita hamil\n" +
+                    "- Senin - Jumat : Pria menggunakan sepatu pantofel warna hitam\n" +
+                    "- Sabtu - Minggu atau saat berada di lapangan : Sepatu Kets  warna Netral (Putih, Hitam, Abu-abu, Merah Maroon, Biru Tua, Putih)\n" +
+                    "- ID Card dengan Kalung Honda Merah\n" +
+                    "- Pin One Heart di dada kiri\n" +
+                    "- Jam Tangan Kulit / Karet / Canvas Warna Hitam / Coklat Tua / Gelap\n" +
+                    "\n" +
+                    "6. Aksesories :\n" +
+                    "Pria : aksesoris tidak berlebihan (tidak lebih dari 5 titik)\n" +
+                    " Wanita : aksesoris tidak berlebihan (tidak lebih dari 7 titik)\n" +
+                    "\n" +
+                    "Menggunakan Masker polos atau tidak bermotif.\n" +
+                    "-Masker kesehatan (warna bebas)\n" +
+                    "-Masker kain disesuaikan dengan warna unsur seragam, yaitu abu-abu/putih/merah/hitam* *Kecuali Jum'at-Sabtu-Minggu\n" +
+                    "Menggunakan face shield (jika berinteraksi dengan konsumen)  ",
+            0))
+
+
+        return nosAudit
+    }
+
+    fun generateDataH23Process(): List<NosAudit> {
+
+        val nosAudit = ArrayList<NosAudit>()
+
+        nosAudit.add(NosAudit(
+            "Front Desk Officer  ",
+            "Layanan booking servis (Wing Dealer) |  Data booking servis ",
+            "Kebersihan Interior :\n" +
+                    "-Lantai dan Dinding Bengkel\n" +
+                    "      - Bebas dari debu dan minyak pada saat tidak digunakan\n" +
+                    "      - Bersih dari sarang binatang \n" +
+                    "*Dibersihkan dengan sapu pada saat Jam istirahat mekanik dari debu/ kotoran sisan motor dari motor yang di servis\n" +
+                    "*Dibersihkan setiap hari pada saat bengkel selesai beroperasi dengan menggunakan deterjen dan kain pel \n" +
+                    "*Menchecklist Form kebersihan dan di dokumentasi (sebagai tools monitoring dan controllong)\n" +
+                    "- Piping System \n" +
+                    "      - Instalasi pipa harus selalu dalam kondisi bersih  dan  tidak ada sarang binatang\n" +
+                    "- Meja Sa dan Front Desk \n" +
+                    "    - bersih dan tidak terkelupas \n" +
+                    "-Ruang Tunggu \n" +
+                    "    -Bebas dari sampah AMDK dan piring bekas Snack konsumen \n" +
+                    "*Dibersihkan apabila ada bekas AMDK yang tidak di buang oleh konsumen \n" +
+                    "-Toilet\n" +
+                    "    -Dalam keadaan bersih dan nyaman digunakan oleh Konsumen \n" +
+                    "*Dibersihkan setiap hari dan diulang minimum pada pagi, siang, dan sore hari "
+            , 0))
+
+
+        nosAudit.add(NosAudit(
+            "Front Desk Officer  ",
+            "Layanan booking servis (Wing Dealer) |  Data booking servis ",
+            "- Mengkonfirmasi kembali data konsumen "
+            , 0))
+
+
+        nosAudit.add(NosAudit(
+            "Front Desk Officer  ",
+            "Layanan booking servis (Wing Dealer) |  Data booking servis ",
+            "- Mencatat data konsumen ke form booking service "
+            , 0))
+
+
+        nosAudit.add(NosAudit(
+            "Front Desk Officer  ",
+            "Layanan booking servis (Wing Dealer) |  Data booking servis ",
+            "Mencatat data booking service ke sistem DMS "
+            , 0))
+
+
+        nosAudit.add(NosAudit(
+            "Front Desk Officer  ",
+            "Input Data Konsumen dan motor di sistem   ",
+            "- Memastikan seluruh field terisi sesuai dengan informasi data konsumen, data motor, dan data pekerjaan pada form SA\n" +
+                    "- Melakukan input semua informasi dari form SA ke dalam sistem komputerisasi AHASS "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Front Desk Officer  ",
+            "Input Data Konsumen dan motor di sistem   ",
+            "Melakukan update PKB di sistem  bila ada pekerjaan tambahan "
+            , 0))
+
+
+        nosAudit.add(NosAudit(
+            "Front Desk Officer  ",
+            "Untuk konsumen premium | Perubahan data  ",
+            "Menyusun data rekap perubahan data customer tracking motor premium "
+            , 0))
+
+
+        nosAudit.add(NosAudit(
+            "Admin CRM H23  ",
+            "Layanan booking servis | Reminder booking servis ",
+            "- Melakukan telepon Reminder H-1\n" +
+                    "-Mengingatkan konsumen untuk memakai masker saat mengunjungi AHASS\n" +
+                    "*Jika telepon tidak diangkat oleh konsumen, Admin CRM H23 wajib melakukan SMS/WA "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Admin CRM H23  ",
+            "Layanan booking servis | Reminder booking servis ",
+            "- Melakukan SMS / WA reminder di pagi Hari H\n" +
+                    "- -Mengingatkan konsumen untuk memakai masker saat mengunjungi AHASS "
+            , 0))
+
+
+        nosAudit.add(NosAudit(
+            "Admin CRM H23  ",
+            "Konsumen menerima service reminder | Reminder servis ",
+            "SMS / WA reminder (KPB 2,3,4 + Reguar Service )\n" +
+                    "- SMS dikirimkan H-30 sebelum servis dan menginfokan booking service (waktu sms dapat disesuaikan)\n" +
+                    "- List sms yang dikirimkan "
+            , 0))
+
+
+        nosAudit.add(NosAudit(
+            "Admin CRM H23  ",
+            "Konsumen menerima service reminder | Reminder servis ",
+            "Call / WA reminder H-14 ((KPB 2,3,4 + Reguar Service  ) sebelum jatuh tempo untuk konsumen yang belum datang servis setelah dilakukan sms reminder\n" +
+                    "- Menyesuaikan waktu follow up dengan pekerjaan konsumen (golden time),\n" +
+                    "- Menawarkan fasilitas AHASS (seperti booking servis, servis kunjung, dll),\n" +
+                    "- Adanya list daftar konsumen yang difollow up sebagai evidence\n "
+            , 0))
+
+
+
+        nosAudit.add(NosAudit(
+            "Admin CRM H23  ",
+            "Konsumen menerima follow up setelah servis | List konsumen yang di-follow up  ",
+            "Menyiapkan data konsumen yg ingin di follow up,  paling lambat H+7 usai servis \n" +
+                    "Menginformasikan fasilitas booking servis dan servis kunjung (jika tersedia armada service kunjung)\n" +
+                    "\n" +
+                    "Konsumen premium : semua tipe pekerjaan\n" +
+                    "Konsumen reguler : HR, Claim, JR, LR "
+            , 0))
+
+
+        nosAudit.add(NosAudit(
+            "Security / SA  ",
+            "Ketika sampai di AHASS",
+            "Menyambut konsumen, Salam Satu Hati "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Security / SA  ",
+            "Ketika sampai di AHASS  ",
+            "Menanyakan kebutuhan konsumen datang ke dealer (ke showroom/AHASS) "
+            , 0))
+
+
+        nosAudit.add(NosAudit(
+            "Security / SA  ",
+            "Ketika sampai di AHASS | Mengarahkan ke area parkir showroom atau AHASS",
+            "Jika konsumen hanya akan membeli spare part, Security mengarahkan ke part counter "
+            , 0))
+
+
+        nosAudit.add(NosAudit(
+            "Security / SA  ",
+            "Ketika sampai di AHASS | Mengarahkan ke area parkir showroom atau AHASS",
+            "Bila konsumen akan service maka\n" +
+                    "- Memberikan nomor antrian AHASS \n" +
+                    "- Mengarahkan ke parkir in "
+            , 0))
+
+
+        nosAudit.add(NosAudit(
+            "Security / SA  ",
+            "Ketika sampai di AHASS | Mengarahkan ke area parkir showroom atau AHASS   ",
+            "-Menunjukkan pintu masuk AHASS/ SA desk "
+            , 0))
+
+
+        nosAudit.add(NosAudit(
+            "Security / SA  ",
+            "Ketika sampai di AHASS | Memeriksa suhu tubuh konsumen ",
+            "-Melakukan pengecekan suhu tubuh konsumen yang memasuki area dealer\n" +
+                    "- Mengkomunikasikan dengan sopan apabila suhu tubuh konsumen diatas 37.5, maka tidak diperbolehkan memasuki area dealer "
+            , 0))
+
+
+        nosAudit.add(NosAudit(
+            "Security / SA  ",
+            "Ketika sampai di AHASS | Memeriksa suhu tubuh konsumen ",
+            "Apabila suhu tubuh konsumen diatas 37.5\n" +
+                    "-Meminta konsumen untuk menunggu 5 menit, kemudian melakukan pemeriksaan suhu kembali\n" +
+                    "- Apabila setelah diukur masih diatas 37.5, mengucapkan kalimat \"Mohon maaf Bapak/Ibu, dikarenakan suhu tubuh Bapak/Ibu diatas 37,5 maka tidak diperkenankan untuk memasuki area dealer. SIlahkan Bapak/Ibu dapat mengunjungi fasilitas kesehatan terdekat. Jangan khawatir, kebutuhan Bapak/Ibu Whataspp (untuk pembelian) atau Service Kunjung (untuk service)\"\n" +
+                    "- Menanyakan nama dan nomor telepon konsumen "
+            , 0))
+
+
+        nosAudit.add(NosAudit(
+            "Security / SA  ",
+            "Ketika sampai di AHASS  | Memastikan jarak 1m",
+            "Memastikan konsumen berdiri pada garis-garis yang sudah ditentukan, untuk membatasi jarak 1m antar konsumen "
+            , 0))
+
+
+        nosAudit.add(NosAudit(
+            "Security / SA  ",
+            "Ketika sampai di AHASS | Preventif ",
+            "ketika ada konsumen / karyawan dealer mengalami kondisi emergency (tidak sadarkan diri, tergeletak, dan lain-lain), langsung menghubungi RS Rujukan, RS atau fasilitas kesehatan terdekat. Tetap menjaga kondusifitas, serta melakukan protokol kesehatan yang diperlukan seperti sterilisasi ruangan atau area, disinfektan ruangan atau langkah preventif lainnya "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Security / SA  ",
+            "Meninggalkan AHASS | Mengingatkan konsumen memakai helm dengan benar ",
+            "Mengingatkan untuk memakai helm/memastikan helm sudah \"klik !\" /safety riding "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Security / SA  ",
+            "Meninggalkan AHASS | Memberi salam dan berterimakasih kepada konsumen   ",
+            "-Mengucapkan terima kasih\n" +
+                    "-Salam Satu Hati\n" +
+                    "-Mengingatkan cari Aman dalam berkendara "
+            , 0))
+
+
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konsumen bertemu dengan Service Advisor | Penerimaan konsumen  ",
+            " 1. Mengucapkan salam 1 hati\n" +
+                    "2. Meminta no antrian servis yang diperoleh konsumen dari security\n" +
+                    "3. Menawarkan bantuan kepada konsumen\n" +
+                    "4. Bila SA sibuk maka dapat digantikan oleh FI atau Kamek"
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konsumen bertemu dengan Service Advisor | Penerimaan booking servis  ",
+            "Mengkonfirmasi konsumen booking servis atau tidak, jika konsumen booking servis mendapat antrian khusus "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konsumen bertemu dengan Service Advisor | Penerimaan booking servis  ",
+            "memastikan ketersediaan ruang tunggu di AHASS. Apabila kondisi ruang tunggu sudah padat , maka SA dapat menyarankan menggunakan booking service / motor ditinggal\n "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konsumen bertemu dengan Service Advisor | Pencatatan data konsumen dan motor ",
+            "Mengkonfirmasi apakah konsumen berasal dari Dealer yang sama dengan AHASS (Own Dealer) "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konsumen bertemu dengan Service Advisor | Pencatatan data konsumen dan motor ",
+            "Jika konsumen selected model, menanyakan informasi apakah ada perubahan data pemilik "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konsumen bertemu dengan Service Advisor | Pencatatan data konsumen dan motor   ",
+            "Melakukan update ke sistem DMS jika ada perubahan data pemilik  "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konsumen bertemu dengan Service Advisor | Pencatatan data konsumen dan motor  ",
+            "Meminjam buku servis konsumen dan mengkonfirmasi servis sebelumnya "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konsumen bertemu dengan Service Advisor | Pencatatan data konsumen dan motor  ",
+            "Mencatat data konsumen dan motor\n" +
+                    "Melakukan validasi nomor telepon dengan cara miscall (Jika antrian penuh proses validasi dapat dibantu oleh admin CRM H2/Front Desk/kasir) "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konsumen bertemu dengan Service Advisor | Pencatatan data konsumen dan motor  ",
+            "Mencatat keluhan konsumen dan mengkonfirmasi keluhan konsumen "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konsumen bertemu dengan Service Advisor | Pencatatan data konsumen dan motor  ",
+            "Memeriksa fisik motor (body, cover, safety item : lampu, ban, rem, rantai) "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konsumen bertemu dengan Service Advisor | Pencatatan data konsumen dan motor  ",
+            "Menjelaskan kondisi sepeda motor dengan menginformasikan service yg dibutuhkan dan merekomendasikan part yang harus diganti, serta menginformasikan garansi unit (jika memenuhi syarat dan ketentuan claim yang berlaku). "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konsumen bertemu dengan Service Advisor | Pencatatan data konsumen dan motor  ",
+            "Memeriksa apakah sepeda motor konsumen termasuk market treatment "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konsumen bertemu dengan Service Advisor | Pencatatan data konsumen dan motor  ",
+            "Menawarkan aksesoris motor "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konsumen bertemu dengan Service Advisor | Pencatatan data konsumen dan motor  ",
+            "Mengkonfirmasi kepada konsumen (kecuali battery lithium) :\n" +
+                    "1. Part bekas adalah hak konsumen\n" +
+                    "2. Apakah part bekas mau dibawa konsumen atau ditinggal di AHASS "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konsumen bertemu dengan Service Advisor | Pencatatan data konsumen dan motor  ",
+            "Menuliskan estimasi waktu  sepeda motor mulai dikerjakan perawatan/perbaikan di form SA dan memberitahukan secara lisan "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konsumen bertemu dengan Service Advisor | Pencatatan data konsumen dan motor  ",
+            "Menuliskan estimasi waktu  sepeda motor selesai dikerjakan perawatan/perbaikan di form SA dan memberitahukan secara lisan "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konsumen bertemu dengan Service Advisor | Pencatatan data konsumen dan motor  ",
+            "Menulis kontak konsumen yang bisa dihubungi untuk mengkonfirmasi tambahan pekerjaan/pergantian spare part "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konsumen bertemu dengan Service Advisor | (Jika membutuhkan part tambahan) ",
+            "-Mengecek ketersediaan part di part counter\n" +
+                    "-Membuat part order terkait part tambahan "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konsumen bertemu dengan Service Advisor | (Jika membutuhkan part tambahan) ",
+            "mengecek ketersediaan part di sistem DMS "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konsumen bertemu dengan Service Advisor | Menawarkan kepada konsumen premium  ",
+            "Mengarahkan konsumen jika akan melakukan pergantian battery lib,smart key assy, atau key set  "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konfirmasi terakhir oleh SA |  Penjelasan setelah pekerjaan\n" +
+                    "1. Dilakukan di area parkir out,\n" +
+                    "apabila tidak dilakukan di parkir out nilai = 0\n" +
+                    "2. Dilakukan sebelum konsumen membayar, apabila dilakukan setelah konsumen membayar ke kasir nilai = 0\n" +
+                    "3. Dilakukan oleh SA atau SA Back Up, apabila dilakukan oleh yang lain maka nilai = 0  ",
+            "Mengambil form PKB, buku servis, kunci motor yang telah selesai dilakukan final inspection di meja front desk "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konfirmasi terakhir oleh SA |  Penjelasan setelah pekerjaan\n" +
+                    "1. Dilakukan di area parkir out,\n" +
+                    "apabila tidak dilakukan di parkir out nilai = 0\n" +
+                    "2. Dilakukan sebelum konsumen membayar, apabila dilakukan setelah konsumen membayar ke kasir nilai = 0\n" +
+                    "3. Dilakukan oleh SA atau SA Back Up, apabila dilakukan oleh yang lain maka nilai = 0  ",
+            "Memeriksa buku servis apakah semua pekerjaan servis sudahdiberi tanda cek (v) oleh mekanik "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konfirmasi terakhir oleh SA |  Penjelasan setelah pekerjaan\n" +
+                    "1. Dilakukan di area parkir out,\n" +
+                    "apabila tidak dilakukan di parkir out nilai = 0\n" +
+                    "2. Dilakukan sebelum konsumen membayar, apabila dilakukan setelah konsumen membayar ke kasir nilai = 0\n" +
+                    "3. Dilakukan oleh SA atau SA Back Up, apabila dilakukan oleh yang lain maka nilai = 0  ",
+            "Memangggil konsumen yang sedang menunggu di ruang tunggu, mengajak konsumen ke sepeda motor konsumen di parking out "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konfirmasi terakhir oleh SA |  Penjelasan setelah pekerjaan\n" +
+                    "1. Dilakukan di area parkir out,\n" +
+                    "apabila tidak dilakukan di parkir out nilai = 0\n" +
+                    "2. Dilakukan sebelum konsumen membayar, apabila dilakukan setelah konsumen membayar ke kasir nilai = 0\n" +
+                    "3. Dilakukan oleh SA atau SA Back Up, apabila dilakukan oleh yang lain maka nilai = 0  ",
+            "Menjelaskan pekerjaan service yang sudah dilakukan dan part yang diganti, bila perlu diperagakan  "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konfirmasi terakhir oleh SA |  Penjelasan setelah pekerjaan\n" +
+                    "1. Dilakukan di area parkir out,\n" +
+                    "apabila tidak dilakukan di parkir out nilai = 0\n" +
+                    "2. Dilakukan sebelum konsumen membayar, apabila dilakukan setelah konsumen membayar ke kasir nilai = 0\n" +
+                    "3. Dilakukan oleh SA atau SA Back Up, apabila dilakukan oleh yang lain maka nilai = 0  ",
+            "Memberitahukan garansi service "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konfirmasi terakhir oleh SA |  Penjelasan setelah pekerjaan\n" +
+                    "1. Dilakukan di area parkir out,\n" +
+                    "apabila tidak dilakukan di parkir out nilai = 0\n" +
+                    "2. Dilakukan sebelum konsumen membayar, apabila dilakukan setelah konsumen membayar ke kasir nilai = 0\n" +
+                    "3. Dilakukan oleh SA atau SA Back Up, apabila dilakukan oleh yang lain maka nilai = 0  ",
+            "Memberitahukan jadwal service berikutnya  "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konfirmasi terakhir oleh SA |  Penjelasan setelah pekerjaan\n" +
+                    "1. Dilakukan di area parkir out,\n" +
+                    "apabila tidak dilakukan di parkir out nilai = 0\n" +
+                    "2. Dilakukan sebelum konsumen membayar, apabila dilakukan setelah konsumen membayar ke kasir nilai = 0\n" +
+                    "3. Dilakukan oleh SA atau SA Back Up, apabila dilakukan oleh yang lain maka nilai = 0  ",
+            "Menginformasikan service atau pergantian part yang pending untuk segera dilakukan "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konfirmasi terakhir oleh SA |  Penjelasan setelah pekerjaan\n" +
+                    "1. Dilakukan di area parkir out,\n" +
+                    "apabila tidak dilakukan di parkir out nilai = 0\n" +
+                    "2. Dilakukan sebelum konsumen membayar, apabila dilakukan setelah konsumen membayar ke kasir nilai = 0\n" +
+                    "3. Dilakukan oleh SA atau SA Back Up, apabila dilakukan oleh yang lain maka nilai = 0  ",
+            "Menjelaskan garansi tambahan untuk kasus tertentu (jika ada) "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konfirmasi terakhir oleh SA |  Penjelasan setelah pekerjaan\n" +
+                    "1. Dilakukan di area parkir out,\n" +
+                    "apabila tidak dilakukan di parkir out nilai = 0\n" +
+                    "2. Dilakukan sebelum konsumen membayar, apabila dilakukan setelah konsumen membayar ke kasir nilai = 0\n" +
+                    "3. Dilakukan oleh SA atau SA Back Up, apabila dilakukan oleh yang lain maka nilai = 0  ",
+            "Menunjukkan dan menyerahkan part yang telah diganti kepada konsumen atau dengan persetujuan konsumen untuk membuang parts tersebut (kecuali battery EV) "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konfirmasi terakhir oleh SA |  Penjelasan setelah pekerjaan\n" +
+                    "1. Dilakukan di area parkir out,\n" +
+                    "apabila tidak dilakukan di parkir out nilai = 0\n" +
+                    "2. Dilakukan sebelum konsumen membayar, apabila dilakukan setelah konsumen membayar ke kasir nilai = 0\n" +
+                    "3. Dilakukan oleh SA atau SA Back Up, apabila dilakukan oleh yang lain maka nilai = 0  ",
+            "Menginformasikan kepada konsumen pentingnya perawatan berkala di AHASS dan garansi unit SMH (selama unit masih berada di rentang waktu garansi) "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konfirmasi terakhir oleh SA |  Penjelasan setelah pekerjaan\n" +
+                    "1. Dilakukan di area parkir out,\n" +
+                    "apabila tidak dilakukan di parkir out nilai = 0\n" +
+                    "2. Dilakukan sebelum konsumen membayar, apabila dilakukan setelah konsumen membayar ke kasir nilai = 0\n" +
+                    "3. Dilakukan oleh SA atau SA Back Up, apabila dilakukan oleh yang lain maka nilai = 0  ",
+            "Menginformasikan kepada konsumen Contact Person yang dapat dihubungi jika ada hal yang ingin ditanyakan "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konfirmasi terakhir oleh SA |  Penjelasan setelah pekerjaan\n" +
+                    "1. Dilakukan di area parkir out,\n" +
+                    "apabila tidak dilakukan di parkir out nilai = 0\n" +
+                    "2. Dilakukan sebelum konsumen membayar, apabila dilakukan setelah konsumen membayar ke kasir nilai = 0\n" +
+                    "3. Dilakukan oleh SA atau SA Back Up, apabila dilakukan oleh yang lain maka nilai = 0  ",
+            "Meminta persetujuan konsumen dengan bukti tanda tangan di form SA atau PKB (jika ada tambahan) "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konfirmasi terakhir oleh SA |  Penjelasan setelah pekerjaan\n" +
+                    "1. Dilakukan di area parkir out,\n" +
+                    "apabila tidak dilakukan di parkir out nilai = 0\n" +
+                    "2. Dilakukan sebelum konsumen membayar, apabila dilakukan setelah konsumen membayar ke kasir nilai = 0\n" +
+                    "3. Dilakukan oleh SA atau SA Back Up, apabila dilakukan oleh yang lain maka nilai = 0  ",
+            "Mengucapkan terima kasih dan mengarahkan konsumen ke kasir.  Memastikan buku servis sudah disimpan di kompartemen dokumen motor. "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konfirmasi terakhir oleh SA |  Penjelasan setelah pekerjaan\n" +
+                    "1. Dilakukan di area parkir out,\n" +
+                    "apabila tidak dilakukan di parkir out nilai = 0\n" +
+                    "2. Dilakukan sebelum konsumen membayar, apabila dilakukan setelah konsumen membayar ke kasir nilai = 0\n" +
+                    "3. Dilakukan oleh SA atau SA Back Up, apabila dilakukan oleh yang lain maka nilai = 0  ",
+            "membersihkan hand grip, jok, spion motor di depan konsumen pada saat proses penyerahan\n "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Service Advisor  ",
+            "Konsumen melakukan pembayaran | Mengkonfirmasi gratis semprot helm kepada konsumen premium ",
+            "Mengkonfirmasi lagi penyemprotan helmet deodorizer/anti bacterial/ pembersih kaca helm secara gratis untuk customer premium "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Mechanic  ",
+            "Konsumen menunggu pekerjaan | Melakukan pekerjaan sesuai perintah kerja  ",
+            "Melakukan pekerjaan sesuai perintah kerja "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Mechanic  ",
+            "Konsumen menunggu pekerjaan | Melakukan pekerjaan sesuai perintah kerja  ",
+            "Memasang cover jok dan grip "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Mechanic  ",
+            "Konsumen menunggu pekerjaan | Melakukan pekerjaan sesuai perintah kerja  ",
+            "Memasang papan PKB di plat nomer belakang sepeda motor yang diservis/diperbaiki "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Mechanic  ",
+            "Konsumen menunggu pekerjaan | Melakukan pekerjaan sesuai perintah kerja  ",
+            "Membuat tanda cek (v) di pekerjaan yang telah dilakukan di buku servis konsumen terutama untuk pekerjaan KPB 1 - 4  "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Mechanic  ",
+            "Konsumen menunggu pekerjaan | Melakukan pekerjaan sesuai perintah kerja  ",
+            "Melakukan prosedur kebersihan diri, area kerja, sepeda motor sebelum dan sesudah melakukan pekerjaan perawatan sepeda motor "
+            , 0))
+        nosAudit.add(NosAudit(
+            "Mechanic  ",
+            "Konsumen menunggu pekerjaan | Melakukan pekerjaan sesuai perintah kerja  ",
+            "Apabila tidak ada fasilitas cuci motor,mechanic wajib melakukan wiping terhadap sepeda motor (kecuali kondisi sepeda motor tidak memungkinkan) "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Mechanic  ",
+            "Konsumen menunggu pekerjaan | Melakukan pekerjaan sesuai perintah kerja  ",
+            "Untuk pekerjaan perawatan sepeda motor premium mengikuti juklak yang telah ditentukan oleh PT Astra Honda Motor "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Mechanic  ",
+            "Konsumen menunggu pekerjaan | Konfirmasi tambahan pekerjaan atau pergantian spare part  ",
+            "Menginformasikan SA jika ada tambahan pekerjaan atau pergantian spare part "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Mechanic  ",
+            "Konsumen menunggu pekerjaan | Setelah motor selesai dirawat di pit kerja  ",
+            "Mekanik membawa sepeda motor, form pkb, buku servis, dan spare part bekas  (yang telah diberi wadah pembungkus, jika memang konsumen minta part bekas) ke area pit final inspection "
+            , 0))
+
+
+        nosAudit.add(NosAudit(
+            "Chief of Mechanic  ",
+            "Konsumen menunggu pekerjaan | Monitor pekerjaan mekanik ",
+            "- Membantu mekanik menyelesaikan masalah teknis\n" +
+                    "- Menjaga produktivitas dengan melakukan update papan kontrol mekanik\n" +
+                    "\n" +
+                    "Cek apakah kepala mekanik keliling pit/bantu mekanik di pit/papan kontrol mekanik terupdate, jika ya nilai = 2, jika tidak nilai = 0 "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Chief of Mechanic  ",
+            "Konsumen menunggu pekerjaan | Monitor pekerjaan mekanik ",
+            "- Mengontrol kebersihan area kerja mekanik\n" +
+                    "- Menjaga produktivitas bisa dicek dengan kelengkapan tools\n" +
+                    "- Checklist kebersihan dan kelengkapan tools update\n" +
+                    "\n" +
+                    "Cek apakah area kerja mekanik bersih, tool lengkap, checklist terupdate. Jika ya nilai = 2, jika tidak, nilai = 0 "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Chief of Mechanic  ",
+            "Konsumen menunggu pekerjaan | Monitor area ruang tunggu konsumen ",
+            "- Mengontrol kebersihan area ruang tunggu konsumen\n" +
+                    "- Mengontrol berfungsinya semua fasilitas yang ada di ruang tunggu konsumen (TV, WIFI, Charger HP, HRT, sirkulasi udara)\n" +
+                    "- Mengontrol ketersediaan AMDK, Kopi tea, kursi ruang tunggu, koran, dan tabloid bertema otomotif "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Claim processor  ",
+            "Konsumen menunggu pekerjaan | Melakukan prosedur klaim jika ada dalam 2x24 jam  ",
+            "- Melakukan prosedur klaim jika ada klaim terkait produk dalam 2x24 jam (Selama parts claim tersedia di AHASS)\n" +
+                    "\n" +
+                    "Dicrosscheck dengan form Claim yang sudah dilaksanakan "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Final Inspector  ",
+            "Konsumen menunggu pekerjaan | Pemeriksaan akhir  ",
+            "Melakukan final inspection sesuai form work order dan keluhan konsumen sesuai IK Final inspection\n" +
+                    "\n" +
+                    "Apabila tidak sesuai, final inspector akan mengembalikan sepeda motor ke mekanik yang melakukan perawatan\n" +
+                    "Apabila sesuai, final inspector akan meletakkan sepeda motor yang sudah di final inspection ke area parking out "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Final Inspector  ",
+            "Konsumen menunggu pekerjaan | Pemeriksaan akhir  ",
+            "Meletakkan tag servis, form PKB, dan kunci motor di meja front desk "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Final Inspector  ",
+            "Konsumen menunggu pekerjaan | Pemeriksaan akhir  ",
+            "Menginformasikan motor yang telah selesai ke service advisor "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Cashier  ",
+            "Konsumen melakukan pembayaran | Menyambut konsumen  ",
+            "- Salam satu Hati\n" +
+                    "- Salam Cuaca "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Cashier  ",
+            "Konsumen melakukan pembayaran | Validasi sepeda motor  ",
+            "Menanyakan form SA atau STNK untuk validasi sepeda motor "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Cashier  ",
+            "Konsumen melakukan pembayaran | Validasi sepeda motor  ",
+            "Menjelaskan benefit (Voucher senilai Rp 250ribu subsidi dari AHM) perubahan data customer untuk konsumen selected model "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Cashier  ",
+            "Konsumen melakukan pembayaran | Konfirmasi pembayaran  ",
+            "-Mengonfirmasi ke konsumen jenis biaya servis dan penggantian part (jika ada) disertai informasi rincian dan  total uang yang akan dibayar\n" +
+                    "- Menawarkan pembayaran ke konsumen dengan cash atau kartu\n" +
+                    "- Melakukan proses administrasi pembayaran\n" +
+                    "\n" +
+                    "*Menjelaskan kepada konsumen dalam kondisi berdiri, bukan dari tempat duduk kasir "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Cashier  ",
+            "Konsumen melakukan pembayaran | Melakukan Pembayaan  ",
+
+            "- Mencetak bukti pembayaran\n" +
+                    "- Konfirmasi bukti pembayaran ke konsumen\n" +
+                    "- Memberikan stempel di buku servis "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Cashier  ",
+            "Konsumen melakukan pembayaran | Melakukan Pembayaan  ",
+
+            "Menyerahkan:\n" +
+                    "a. Nota Jasa Bengkel\n" +
+                    "b. Nota Suku Cadang\n" +
+                    "c. Buku service KPB\n" +
+                    "d. Kunci sepeda motor konsumen\n" +
+                    "\n" +
+                    "Menyerahkan kepada konsumen dalam kondisi berdiri, bukan dari tempat duduk kasir "
+            , 0))
+
+
+        nosAudit.add(NosAudit(
+            "Cashier  ",
+            "Konsumen melakukan pembayaran | Penjelasan PDSA  ",
+            "- Membacakan konten PDSA (isi 5P, isi Catatan) kepada Konsumen "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Cashier  ",
+            " Extra | Selesai pembayaran  ",
+            "- Menawarkan apa ada yang bisa dibantu lagi\n" +
+                    "- Mengucapkan terima kasih\n" +
+                    "- Salam Satu Hati\n" +
+                    "- Salam cuaca "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Cashier  ",
+            " Extra | Selesai pembayaran  ",
+            "Konfirmasi no. polisi sepeda motor konsumen, menerima dan menyerahkan uang dengan kedua tangan, menyebut nama konsumen, memanggil SA jika ada pertanyaan lebih lanjut dari konsumen "
+            , 0))
+
+
+
+        nosAudit.add(NosAudit(
+            "Chief of Mechanic  ",
+            "Pengiriman laporan kualitas Honda  ",
+            "a. Nilai 1 jika setiap bulan jumlah LKH >= jumlah pit aktif\n" +
+                    "b. Nilai 0 jika tidak sesuai\n "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Chief of Mechanic  ",
+            "Pengiriman laporan kualitas Honda | AHASS mengirimkan LKH dengan kecepatan sesuai ketentuan AHM (Rank A <= 5 jam)  ",
+            "a. Nilai 0 jika  tidak sesuai\n" +
+                    "b. Nilai 1 jika sesuai\n" +
+                    "\n" +
+                    "Jika tidak ada LKH rank A, nilai = 1\n" +
+                    "Data LKH selama 1 periode penilaian\n "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Chief of Mechanic  ",
+            "Pengiriman laporan kualitas Honda  ",
+            "AHASS mengirimkan LKH dengan kecepatan sesuai ketentuan AHM (Rank B & C <= 3 hari) "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Chief of Mechanic  ",
+            "Pengiriman laporan kualitas Honda  ",
+            "a. Nilai 0 jika  tidak sesuai\n" +
+                    "b. Nilai 1 jika sesuai\n" +
+                    "\n" +
+                    "Data LKH selama 1 periode penilaian\n "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Parts Counter  ",
+            "Menuju part counter | Menyambut konsumen ",
+            "salam satu hati\n "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Parts Counter  ",
+            " (pembelian langsung tanpa servis) | Menanyakan/menggali kebutuhan konsumen  ",
+            "Menanyakan kebutuhan konsumen, \"ada yang bisa dibantu?“ dan menggali Parts (HGP),  AHM OIL dan HGA Accesories (HGA) atau apparel yang dicari  "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Parts Counter  ",
+            "(pembelian langsung tanpa servis maupun permintaan saat servis oleh SA / mekanik) | Memeriksa ketersediaan stok  dan informasi HET kepada konsumen\n",
+            "Memeriksa ketersediaan stok dan menginformasikan harga  (maksimum HET) beserta promo yang berlaku (jika tersedia)\n" +
+                    "Untuk pembelian Accessories konsumen ditawarkan melakukan pemasangan di AHASS\n "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Parts Counter  ",
+            "(pembelian langsung tanpa servis maupun permintaan saat servis oleh SA / mekanik)  | Menginstruksikan pengambilan parts dan mengupdate stock \n ",
+            "Menginstruksikan pengambilan barang ke petugas gudang parts (jika terdapat parts picker) dan mengupdate stock di sistem sesuai transaksi\n "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Parts Counter  ",
+            "(pembelian langsung tanpa servis maupun permintaan saat servis oleh SA / mekanik)  | Menginstruksikan pengambilan parts dan mengupdate stock \n ",
+            "Menerbitkan nota suku cadang dan menginformasikan serta mengarahkan konsumen untuk membayar di kasir\n "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Parts Counter  ",
+            "Pembelian HGA dan konsumen ingin dipasang langsung dimotor konsumen \n  ",
+            "Memeriksa kuitansi pembayaran dan menyerahkan  Accesories ke SA agar dipasangkan pada motor konsumen dan meminta kesediaan konsumen untuk menunggu sesuai antrian yang ada\n "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Parts Counter  ",
+            "Pembelian HGA dan konsumen ingin dipasang langsung dimotor konsumen \n  ",
+            "Memeriksa ketersediaan stock di dealer sekitar dan MD\n" +
+                    " Jika tersedia: menginformasikan konsumen bahwa parts tersedia di dealer lain/ MD dan menanyakan kesediaan konsumen/ SA  untuk menunggu sesuai dengan waktu proses pengiriman parts.\n" +
+                    "\n" +
+                    "Jika tidak tersedia:\n" +
+                    "Melakukan penawaran untuk  pemesanan parts melalui Hotline Order "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Parts Counter  ",
+            "Pembelian HGA dan konsumen ingin dipasang langsung dimotor konsumen \n  ",
+            "JIka konsumen batal membeli:\n" +
+                    "mencatat record part demand di sistem DMS "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Parts Counter  ",
+            "Mempersiapkan keperluan pemesanan parts melalui Hotline Order \n | Menawarkan pemesanan parts melalui Hotline Order bila parts tidak tersedia saat itu ",
+            "menginformasikan mengenai prosedur untuk pemesanan parts melalui Hotline Order "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Parts Counter  ",
+            "Mempersiapkan keperluan pemesanan parts melalui Hotline Order \n | Menawarkan pemesanan parts melalui Hotline Order bila parts tidak tersedia saat itu ",
+            "mengisikan form HLO (jika konsumen menyetujui untuk memesan part melalui HLO)  "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Parts Counter  ",
+            "Mempersiapkan keperluan pemesanan parts melalui Hotline Order \n | Menawarkan pemesanan parts melalui Hotline Order bila parts tidak tersedia saat itu ",
+            "Mengisikan HLO ke sistem DMS  "
+            , 0))
+
+
+        nosAudit.add(NosAudit(
+            "Parts Counter  ",
+            "Mempersiapkan keperluan pemesanan parts melalui Hotline Order \n | Menawarkan pemesanan parts melalui Hotline Order bila parts tidak tersedia saat itu ",
+            "menginformasikan  harga  ( harga yang berlaku adalah Harga Eceran Tertinggi) dan estimasi kedatangan  "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Parts Counter  ",
+            "Mempersiapkan keperluan pemesanan parts melalui Hotline Order \n | Menawarkan pemesanan parts melalui Hotline Order bila parts tidak tersedia saat itu ",
+            "Mencetak nota penjualan melalui DMS  "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Parts Counter  ",
+            "Mempersiapkan keperluan pemesanan parts melalui Hotline Order \n | Menawarkan pemesanan parts melalui Hotline Order bila parts tidak tersedia saat itu ",
+            "- Mengisikan form HLO untuk smart key,battery LIB, key set  "
+            , 0))
+
+
+        nosAudit.add(NosAudit(
+            "Parts Counter  ",
+            "Mempersiapkan keperluan pemesanan parts melalui Hotline Order \n | Follow up pemenuhan parts via Hotline Order \n",
+            "Melakukan follow up by call kepada konsumen mengenai informasi kedatangan parts nya di dealer tersebut sesuai dengan estimasi waktu yang dijanjikan, serta update estimasi waktu terbaru jika parts belum tersedia (Tanggal Followup dicatat di form dan jika parts sudah datang, PIC Parts wajib menanyakan estimasi kedatangan konsumen) "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Parts Counter  ",
+            "Mempersiapkan keperluan pemesanan parts melalui Hotline Order  ",
+            "Meremind kembali konsumen untuk mengambil part hotline di pagi hari pada hari-H kedatangan konsumen "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "PIC HGA & Apparel  ",
+            "Penjualan HGA & Apparel\n" +
+                    "(melalui Sales People) | Mengambil Stock  HGA / Apparel dan melakukan pencatatan di Sistem Stock  ",
+"Menerbitkan nota penjualan, melakukan update stock sesuai dengan transaksi konsumen dan menyerahkan HGA/Apparel dan nota kepada Sales People\n"
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "PIC HGA & Apparel  ",
+            "Penjualan HGA & Apparel \n" +
+                    "(Order Indent) | Kondisi : Jika Stock HGA & Apparel tidak ada di dealer tersebut  ",
+            "Meminta Sales People untuk menginformasikan agar memesan HGA & Apparel melalui Order Indent dan kesediaan konsumen untuk Indent "
+            , 0))
+        nosAudit.add(NosAudit(
+            "PIC HGA & Apparel  ",
+            "Penjualan HGA & Apparel \n" +
+                    "(Order Indent) |  Kondisi : Jika Stock HGA & Apparel tidak ada di dealer tersebut  ",
+            "Menncetak nota penjualan melalui DMS "
+            , 0))
+        nosAudit.add(NosAudit(
+            "PIC HGA & Apparel  ",
+            "Penjualan HGA & Apparel \n" +
+                    "(Order Indent) | Kondisi : Jika Stock HGA & Apparel tidak ada di dealer tersebut   ",
+            "Mencatat order konsumen  di Form HGA dan Apparel dan menginformasikan konsumen ketika barang tersedia di jaringan.\n "
+            , 0))
+        nosAudit.add(NosAudit(
+            "PIC HGA & Apparel  ",
+            "Konsumen bertemu dengan Service Advisor  ",
+            "memastikan ketersediaan ruang tunggu di AHASS. Apabila kondisi ruang tunggu sudah padat , maka SA dapat menyarankan menggunakan booking service / motor ditinggal\n "
+            , 0))
+        nosAudit.add(NosAudit(
+            "PIC HGA & Apparel  ",
+            "Konfirmasi terakhir oleh SA  ",
+            "- mengarahkan konsumen untuk menggunakan hand sanitizer setelah proses penerimaan\n" +
+                    "- mengingatkan konsumen untuk tetap menjaga jarak selama berada di ruang tunggu\n "
+            , 0))
+        nosAudit.add(NosAudit(
+            "PIC HGA & Apparel  ",
+            "Konfirmasi terakhir oleh SA  ",
+            "- mengarahkan konsumen untuk menggunakan hand sanitizer setelah proses penerimaan\n" +
+                    "- mengingatkan konsumen untuk tetap menjaga jarak selama berada di ruang tunggu\n "
+            , 0))
+        nosAudit.add(NosAudit(
+            "PIC HGA & Apparel  ",
+            "  ",
+            "membersihkan hand grip, jok, spion motor di depan konsumen pada saat proses penyerahan\n "
+            , 0))
+        nosAudit.add(NosAudit(
+            "PIC HGA & Apparel  ",
+            "(pembelian langsung tanpa servis maupun permintaan saat servis oleh SA / mekanik)  ",
+            "membersihkan kemasan parts dengan menggunakan lap (sudah dibasahi dengan air sabun) dan dikeringkan sebelum menyerahkan kepada konsumen\n "
+            , 0))
+        nosAudit.add(NosAudit(
+            "PIC HGA & Apparel  ",
+            "(pembelian langsung tanpa servis maupun permintaan saat servis oleh SA / mekanik)  ",
+            "membersihkan kemasan parts dengan menggunakan lap (sudah dibasahi dengan air sabun) dan dikeringkan sebelum menyerahkan kepada konsumen\n "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Kepala Bengkel\n" +
+                    "*khusus H23   ",
+            "  ",
+            "bekerja sama dengan SA untuk menjaga dan mengontrol implementasi protokol kesehatan dealer "
+            , 0))
+
+        nosAudit.add(NosAudit(
+            "Kepala Bengkel\n" +
+                    "*khusus H23   ",
+            "  ",
+            "mengetahui RS rujukan terdekat dan menginformasikan kepada Service Advisor "
+            , 0))
+
+
+
+
+
+
+
+
+
+
+
+
         return nosAudit
 
+
     }
+
+        fun generateDataH23Premises(): List<NosAudit> {
+
+            val nosAudit = ArrayList<NosAudit>()
+
+            nosAudit.add(NosAudit("Kebersihan AHASS ",
+                "Interior ",
+                "Kebersihan Interior :\n" +
+                        "-Lantai dan Dinding Bengkel\n" +
+                        "      - Bebas dari debu dan minyak pada saat tidak digunakan\n" +
+                        "      - Bersih dari sarang binatang \n" +
+                        "*Dibersihkan dengan sapu pada saat Jam istirahat mekanik dari debu/ kotoran sisan motor dari motor yang di servis\n" +
+                        "*Dibersihkan setiap hari pada saat bengkel selesai beroperasi dengan menggunakan deterjen dan kain pel \n" +
+                        "*Menchecklist Form kebersihan dan di dokumentasi (sebagai tools monitoring dan controllong)\n" +
+                        "- Piping System \n" +
+                        "      - Instalasi pipa harus selalu dalam kondisi bersih  dan  tidak ada sarang binatang\n" +
+                        "- Meja Sa dan Front Desk \n" +
+                        "    - bersih dan tidak terkelupas \n" +
+                        "-Ruang Tunggu \n" +
+                        "    -Bebas dari sampah AMDK dan piring bekas Snack konsumen \n" +
+                        "*Dibersihkan apabila ada bekas AMDK yang tidak di buang oleh konsumen \n" +
+                        "-Toilet\n" +
+                        "    -Dalam keadaan bersih dan nyaman digunakan oleh Konsumen \n" +
+                        "*Dibersihkan setiap hari dan diulang minimum pada pagi, siang, dan sore hari "
+                , 0))
+
+
+
+            nosAudit.add(NosAudit("Kebersihan AHASS ", "Checklist Kebersihan Interior ", "1. Terdapat checklist kebersihan untuk area AHASS, tools, ruang tunggu, toilet, dan rak helm\n" +
+                    "2. Terdapat kolom checklist kebersihan minimal 3x sehari pada pagi, siang, dan sore hari ", 0))
+            nosAudit.add(NosAudit("Booking Service  ", "Promotion Booking Service ", "1. Berupa : Poster/looping image/stiker\n" +
+                    "2. Ukuran minimal A4\n" +
+                    "3. Template design dan warna minimal mengikuti template design AHM\n" +
+                    "4. Rapi, bersih, terbaca oleh konsumen\n" +
+                    "5. Terletak di area penerimaan konsumen dan ruang tunggu konsumen\n" +
+                    "6. Konten minimal :\n" +
+                    "    a. No telpon booking service\n" +
+                    "    b. Keterangan minimal booking H-1\n" +
+                    "    c. Kondisi hangus (30 menit terlambat)\n" +
+                    "7. No telpon booking service = no telpon AHASS dedicated (boleh no HP), bukan extention dari dealer\n" +
+                    "8. No telpon booking service bisa dihubungi oleh konsumen ", 0))
+
+            nosAudit.add(NosAudit("Booking service ",
+                "Booking service board ", "1. Berupa : softcopy/hardcopy.\n" +
+                    "2. Hardcopy ukuran minimal A3\n" +
+                    "3. Template design minimal mengikuti template design AHM\n" +
+                    "4. Terletak di area penerimaan konsumen\n" +
+                    "5.  Konten minimal :\n" +
+                    "    a. Hari dan tanggal hari H\n" +
+                    "    b. No telpon booking servis\n" +
+                    "    c. Nomer pit (jika jumlah pit booking servis > 1)\n" +
+                    "    d. Jam booking\n" +
+                    "    e. Nama konsumen\n" +
+                    "    f. Nomer polisi ", 0))
+
+            nosAudit.add(NosAudit("Booking service ",
+                "Data Follow-Up Reminder Servis by SMS / WA (rutinCRM/exclude booking service)\n ",
+                "1. Data reminder SMS / WA untuk servis KPB 2 - 4 & servis reguler yang dibagi oleh PIC CRM termasuk konsumen premium dan booking servis\n" +
+                        "2. Available berupa apps / file ms. Excel / hard copy\n" +
+                        "3. Terdapat di admin CRM H2\n" +
+                        "4. Konten minimal berisi : \n" +
+                        "     a. nama konsumen \n" +
+                        "     b. no hp\n" +
+                        "     c. pekerjaan\n" +
+                        "     d. tipe & tahun motor sebelumnya\n" +
+                        "     f. tanggal follow up SMS / WA \n" +
+                        "     g. hasil follow up SMS / WA (misal terkirim/ tidak terkirim / booking servis/ servis kunjung / dll)\n" +
+                        "     h. keterangan\n" +
+                        "\n" +
+                        "Note : proses reminder selalu update, minimal reminder WA / SMS dilakukan 1 hari yang lalu (di hari kerja)  ",
+                0))
+
+            nosAudit.add(NosAudit("Booking service ",
+                "Data Customer call reminder ",
+                "1. Data reminder Call untuk servis KPB 1 - 4 & reguler yang dibagi oleh PIC CRM termasuk konsumen premium dan booking servis\n" +
+                        "2. Available berupa apps / file ms. Excel / hard copy\n" +
+                        "3. Terdapat di admin CRM H2\n" +
+                        "4. Konten minimal berisi : \n" +
+                        "     a. nama konsumen \n" +
+                        "     b. no hp\n" +
+                        "     c. pekerjaan\n" +
+                        "     d. tipe & tahun motor sebelumnya\n" +
+                        "     f. tanggal follow up call \n" +
+                        "     g. hasil follow up call (misal terkirim/ tidak terkirim / booking servis/ servis kunjung / dll)\n" +
+                        "     h. keterangan\n" +
+                        "\n" +
+                        "Note : proses reminder selalu update, minimal reminder call dilakukan 1 hari yang lalu (di hari kerja)  ",
+                0))
+
+            nosAudit.add(NosAudit("Parking Area ",
+                "Parking in & out signage  ",
+                "1. Terbaca oleh konsumen yang akan masuk ke AHASS\n" +
+                        "2. Terpisah antara in dan out\n" +
+                        "3. Warna jelas dan tidak kusam/luntur\n" +
+                        "\n" +
+                        "(Ganti gambar) ",
+                0))
+
+            nosAudit.add(NosAudit("Parking Area ",
+                "Parking lot ",
+                "1. Jumlah minimal = 2x jumlah pit fisik\n" +
+                        "2. Terletak di luar area pit kerja bengkel atau berada di area halaman bengkel yang tidak mengganggu manuver motor yang akan diservis\n" +
+                        "3. Terdapat marka/garis parkir per motor dengan ketentuan sbb :\n" +
+                        "   a. Warna marka/garis = putih/kuning\n" +
+                        "   b. Ukuran per motor min : 0.75 x 2.0 meter ",
+                0))
+
+            nosAudit.add(NosAudit("Parking Area ",
+                "Queueing Number (Nomor Antrian) ",
+                "1. Jumlah minimal = jumlah pit aktif x 12\n" +
+                        "2. Terletak di area satpam/security AHASS\n" +
+                        "3. Rapi, dilaminating, tidak sobek\n" +
+                        "4. Standar minimal :\n" +
+                        "    a. Ukuran min 4 cm x 4 cm\n" +
+                        "    b. Warna dasar putih, tinta gelap\n" +
+                        "5. Konten minimal :\n" +
+                        "    a. Nomor urut yang di print \n" +
+                        "6. Jika sudah menggunakan sistem antrian print, maka yang penting tertera nomor urutannya\n" +
+                        "7. Dibersihkan setiap sore dan tidak dipakai berulang dalam 1 hari ",
+                0))
+
+            nosAudit.add(NosAudit("Parking Area ",
+                "Thermal Gun ",
+                "1. Spesifikasi: infrared dan digital\n" +
+                        "2. Terdapat pada pintu masuk atau di area security / pintu masuk (dedicated untuk showroom)\n" +
+                        "3. Untuk dealer H123, thermal gun di AHASS berbeda dengan showroom (mempunyai 2 thermal gun) ",
+                0))
+
+            nosAudit.add(NosAudit("Parking Area ",
+                "Tempat Cuci Tangan ",
+                "1. Tersedia tempat cuci tangan dan sabun pada area pintu masuk \n" +
+                        "2. Terdapat sabun cair \n" +
+                        "*untuk dealer H123 minimal terdapat 1 tempat cuci tangan pada area pintu masuk dealer\n" +
+                        "\n" +
+                        "\n" +
+                        "Dapat menyesuaikan rekomendasi juklak 164/AHM/MPA/VII/2020 ",
+                0))
+
+            nosAudit.add(NosAudit("Parking Area ",
+                "Garis Pembatas ",
+                "1. Terdapat garis pembatas 1m pada area parkir yang dapat digunakan sebagai titik berdiri konsumen untuk memasuki showroom, jika kondisi sedang ramai ",
+                0))
+
+            nosAudit.add(NosAudit("Parking Area ",
+                "Poster Reminder  ",
+                "Terdapat informasi untuk menggunakan masker dan  hand sanitizer pada pintu masuk showroom\n" +
+                        "\n" +
+                        "Dapat diletakan bersebelahan dengan hand santizer atau ditempel pada botol hand sanitizer\n ",
+                0))
+
+            nosAudit.add(NosAudit("Parking Area ",
+                "Hand Sanitizer ",
+                "1. Terletak di pintu masuk AHASS, meja ruang tunggu, meja SA, dan front desk\n" +
+                        "2 Minimal terisi 1/4 penuh dengan kandungan alkohol minimal 60% ",
+                0))
+
+            nosAudit.add(NosAudit("Service Advisor Area ",
+                "SA Desk ",
+                "1. Sesuai dengan standar AHM, bersih, tidak terkelupas/pudar\n" +
+                        "2. berlokasi diarea penerimaan konsumen \n" +
+                        "\n" +
+                        "Kalau old vinci : nilai 1\n ",
+                0))
+            nosAudit.add(NosAudit("Service Advisor Area ",
+                "Rak Helm ",
+                "1. Rapi, bersih, dan digunakan oleh konsumen AHASS\n" +
+                        "2. Untuk new vinci : design sesuai standar AHM\n" +
+                        "3. Lokasi di area penerimaan konsumen, di dekat SA desk (lokasi sesuai yang di approve bersama) ",
+                0))
+
+            nosAudit.add(NosAudit("Service Advisor Area ",
+                "Struktur Organisasi ",
+                "1. Berupa : softcopy/hardcopy.\n" +
+                        "2. Hardcopy yang dibingkai rapi, berukuran minimal A3\n" +
+                        "3. Template design minimal mengikuti template design AHM\n" +
+                        "4. Terletak di area penerimaan konsumen\n" +
+                        "5.  Terbaca oleh konsumen\n" +
+                        "6. Terupdate\n" +
+                        "7. Konten minimal :\n" +
+                        "    a. Foto+ no HP kepala bengkel dan service advisor\n" +
+                        "    b. Jabatan lain berupa list nama ",
+                0))
+            nosAudit.add(NosAudit("Service Advisor Area ",
+                "Nomor rangka Market treatment di papan SA ",
+                "1. Ditempel data no rangka- no mesin dari unit motor yang masuk kategory market treatment\n" +
+                        "2.Terbaca dan dalam kondisi baik \n" +
+                        "3. No rangka - No mesin wajib ditempel di setiap papan SA\n ",
+                0))
+            nosAudit.add(NosAudit("Service Advisor Area ",
+                "Workshop Form (Form SA) ",
+                "1. Berupa : softcopy/hardcopy\n" +
+                        "2. Hardcopy mempunyai min 1 copy, berukuran minimal A4\n" +
+                        "3. Konten minimal sesuai dari AHM\n" +
+                        "4. Tambahan konten dari form SA lama   \n" +
+                        "     a. Data motor    \n" +
+                        "     b. Data Pemilik \n" +
+                        "    c. Data pembawa\n" +
+                        "    d. Data CRM\n" +
+                        "    e. Tanda tangan tambahan pekerjaan\n" +
+                        "    f. Tanda tangan penyerahan motor\n" +
+                        "    g. Km ganti part\n" +
+                        "    h. Garansi motor premium\n" +
+                        "    i. Informasi waktu sepeda motor dikerjakan\n" +
+                        "5. Terletak di area penerimaan konsumen ",
+                0))
+            nosAudit.add(NosAudit("Service Advisor Area ",
+                "Service tag ",
+                "1. Rapi dan tidak rusak\n" +
+                        "2. Terletak di SA desk atau area penerimaan konsumen\n" +
+                        "3. Mengikuti standar minimal yang diberikan oleh AHM sbb :\n" +
+                        "    a. Material minimal dari PVC/kertas manila dilaminating\n" +
+                        "    b. Ukuran minimal 18 cm x 9 cm\n" +
+                        "    c. Ukuran diameter gantungan 5.5 cm\n" +
+                        "    d. Tulisan merupakan hasil cetakan\n" +
+                        "    e. Tampak 2 sisi\n" +
+                        "4. Konten minimal sbb :\n" +
+                        "    a. Logo AHASS\n" +
+                        "    b. Nomer antrian\n" +
+                        "    c. Nama pekerjaan\n" +
+                        "5. Ketentuan warna dasar tag sbb :\n" +
+                        "   a. Regular = Hijau\n" +
+                        "   b. Booking = merah\n" +
+                        "   c. Fast track = putih ",
+                0))
+            nosAudit.add(NosAudit("Service Advisor Area ",
+                "Cleaning Kit ",
+                "1. berisi campuran air bersih dengan sabun (dilarang menggunakan cairan yang mengandung alkohol)\n" +
+                        "2. wiping tools microfiber / plas chamois \n" +
+                        "3. Terletak di area meja SA atau parkir motor selesai service ",
+                0))
+
+            nosAudit.add(NosAudit("Service Advisor Area ",
+                "Informasi Jam Operasional Bengkel  ",
+                "1. Terdapat tulisan/informasi jam operasional bengkel\n" +
+                        "2. Tulisan terlihat jelas oleh konsumen \n" +
+                        "3. Penempatan di area penerimaan konsumen / pintu masuk bengkel ",
+                0))
+
+            nosAudit.add(NosAudit("Material Promosi ",
+                "Standar Produk Servis\n ",
+                "1. Rapi, bersih, dan tidak rusak\n" +
+                        "2. Mudah terlihat konsumen di area penerimaan konsumen\n" +
+                        "3. Hardcopy/softcopy\n" +
+                        "4. Standar Produk Servis sesuai standar AHM yaitu :\n" +
+                        "    a. Paket servis lengkap\n" +
+                        "    b. Paket servis ringan\n" +
+                        "    c. Paket ganti oli plus ",
+                0))
+            nosAudit.add(NosAudit("Material Promosi ",
+                "Paket servis tambahan (Pembersihan CVT, kuras tangki, dll) ",
+                "1. Rapi, bersih, dan tidak rusak\n" +
+                        "2. Mudah terlihat konsumen di area penerimaan konsumen\n" +
+                        "3. Hardcopy/softcopy ",
+                0))
+            nosAudit.add(NosAudit("Material Promosi ",
+                "Produk tambahan AHASS (press body,las, cat,dll)\n" +
+                        "nice to have ",
+                "1. Rapi, bersih, dan tidak rusak\n" +
+                        "2. Mudah terlihat konsumen di area penerimaan konsumen dan atau di ruang tunggu konsumen\n" +
+                        "3. Hardcopy/softcopy ",
+                0))
+
+
+
+            nosAudit.add(NosAudit("Material Promosi ",
+                "Edukasi / Promosi Service, Parts & Oil ",
+                "1. Rapi, bersih, dan tidak rusak\n" +
+                        "2. Mudah terlihat konsumen di area penerimaan konsumen dan atau di area ruang tunggu konsumen\n" +
+                        "3. Hardcopy/softcopy\n" +
+                        "\n" +
+                        "notes: \n" +
+                        "- edukasi : ada konten fitur dan manfaat \n" +
+                        "- promosi : ada konten benefit nya \n ",
+                0))
+
+            nosAudit.add(NosAudit("Front desk area ",
+                "Komputer & software operasional setara DMS ",
+                "1. Berfungsi dengan baik untuk :\n" +
+                        "     a. input form SA menjadi PKB sistem\n" +
+                        "     b. rekap laporan bengkel\n ",
+                0))
+            nosAudit.add(NosAudit("Material Promosi ",
+                "Front Desk ",
+                "1. Sesuai design AHM\n" +
+                        "2. Bersih, rapi, tidak terkelupas\n" +
+                        "3. Lokasi sesuai dengan denah yang di approve bersama ",
+                0))
+            nosAudit.add(NosAudit("Material Promosi ",
+                "Front desk dengan bagian belakang langsung ke Gudang Kaca Parts (Old & New VinCi - 4 ruko) ",
+                "1. Pada bagian rak parts di Gudang kaca ,  area pinggiran rak paling ujung yang terpasang ram kawat digunakan untuk mendisplay parts dengan mengikuti estetika kerapihan dan kebersihan\n" +
+                        "2. Penataan parts pada bagian rak di gudang kaca terlihat rapi dan bersih\n ",
+                0))
+            nosAudit.add(NosAudit("Material Promosi ",
+                "Safety shield\n" +
+                        "*Nice to have ",
+                "1. Terletak di meja counter \n" +
+                        "2. sesuai dengan rekomendasi juklak 154/AHM/MPA/VI/2020 ",
+                0))
+
+            nosAudit.add(NosAudit("Material Promosi ",
+                "Sparepart display & stock rack (Old VinCi) ",
+                "1. Penataan rapi dan sesuai dengan juklak Minimum Item Display :\n" +
+                        "Old VinCi : Busi,Gear Set/ Drive belt,battery,tube,brake shoe dan pad,bearing,bulb\n" +
+                        "2. Dalam keadaan bersih dan rapi\n ",
+                0))
+
+
+            nosAudit.add(NosAudit("Material Promosi ",
+                "Sparepart display & stock rack (New VinCi 2- 3 ruko, tanpa gudang kaca di lantai dasar) ",
+                "1. Penataan rapi dan sesuai dengan juklak Minimum Item Display :\n" +
+                        "New VinCi : Pad Set, Brakeshoe, Belt, Piston, Busi, Bearing, Tire Tubeless, DCK, Battery, Shock, Element Cleaner, AHM OIL, GMO, HIC, Brakefluid, Coolant\n" +
+                        "2. Dalam keadaan bersih dan rapi\n" +
+                        "3. Lokasi sesuai dengan denah yang di approve bersama\n" +
+                        "4. Tidak digunakan untuk mendisplay Accessories dan Apparel ",
+                0))
+
+            nosAudit.add(NosAudit("Ruang tunggu  ",
+                "Kursi ruang tunggu  ",
+                "1. Jumlah minimum = 2 x jumlah pit fisik (di luar kursi dealing table)\n" +
+                        "2. Kursi bersandar\n" +
+                        "3. Lokasi kursi sesuai dengan denah yang di approve bersama\n" +
+                        "4. Diberi jarak sesuai dengan juklak MPA No 136/AHM/MPA/IV/2020\n" +
+                        "5. Apabila space tidak cukup, bisa diberi tanda silang untuk kursi yang tidak boleh diduduki ",
+                0))
+            nosAudit.add(NosAudit("Ruang tunggu  ",
+                "Poster A3 Edukasi Covid ",
+                "Terletak di area ruang tunggu ",
+                0))
+            nosAudit.add(NosAudit("Ruang tunggu  ",
+                "TV ",
+                "1. Jumlah minimal = 2 TV\n" +
+                        "2. Ukuran min 32\" flat\n" +
+                        "3. Menampilkan televisi hiburan, promosi+ progres antrian\n" +
+                        "4. Diletakkan di hadapan konsumen dengan rapi, dan mudah dilihat oleh customer ketika menunggu  ",
+                0))
+
+            nosAudit.add(NosAudit("Ruang tunggu  ",
+                "Air minum dalam kemasan gratis ",
+                "1. Tersedia cukup di ruang tunggu \n" +
+                        "2. Ada tulisan \"GRATIS\" ",
+                0))
+            nosAudit.add(NosAudit("Ruang tunggu  ",
+                "Tempat sampah  ",
+                "1. Ada ",
+                0))
+
+            nosAudit.add(NosAudit("Ruang tunggu  ",
+                "Toilet  ",
+                "1. Dalam keadaan bersih, tidak bau\n" +
+                        "2. termasuk : ketersediaan air,sabun cuci tangan,tissue / handdryer,keset(doormat)\n" +
+                        "3. Terdapat signage yang jelas dari ruang tunggu \n" +
+                        "4. Pintu dan kelengkapannya dalam kondisi baik\n" +
+                        "5. Penerangan cukup\n" +
+                        "6. Terdapat checklist kebersihan minimum 3x sehari pada pagi, siang, dan sore hari ",
+                0))
+
+            nosAudit.add(NosAudit("Ruang tunggu  ",
+                "Sertifikat Mekanik  ",
+                "1. Mudah terbaca oleh konsumen \n" +
+                        "2. Tertata rapi dan dalam kondisi yang baik\n" +
+                        "3. visual berupa : pajangan sertifikat yang dibingkai (intext lama)  atau dalam bentuk digital , ditampilkan di TV ruang tunggu ( intext baru)\n" +
+                        "4. Dapat berupa sampling sesuai keterwakilan tiap level mekanik ",
+                0))
+
+            nosAudit.add(NosAudit("Ruang tunggu  ",
+                "Wifi gratis\n" +
+                        "(Old VinCi) ",
+                "1. Terdapat informasi free wifi (termasuk user name dan pasword) , terbaca jelas oleh konsumen (tanpa penghalang)\n" +
+                        "2. Berfungsi dengan baik\n" +
+                        "\n" +
+                        "Apabila new Vinci, mengikuti nilai H1 premise untuk item yang sama\n" +
+                        "\n" +
+                        "(Gambar akan diganti) ",
+                0))
+
+            nosAudit.add(NosAudit("Ruang tunggu  ",
+                "Free charging area\n" +
+                        "(Old VinCi) ",
+                "1. Terdapat informasi free charging area\n" +
+                        "2. Kelistrikan berfungsi\n" +
+                        "2. Tertata dengan rapi \n" +
+                        "3. Bila tidak sesuai juklak maka akan dinilai N/A\n" +
+                        "\n" +
+                        "Apabila new Vinci, mengikuti nilai H1 premise untuk item yang sama ",
+                0))
+            nosAudit.add(NosAudit("Ruang tunggu  ",
+                "Sirkulasi udara Ruang Tunggu ",
+                "1. Memiliki AC atau 1 buah kipas angin langit-langit  (ceiling fan) ukuran minimal 142 cm atau 2 buah kipas angin tembok/berdiri (standing fan) ukuran minimal 35cm \n" +
+                        "2. Peletakan diatur sehingga seluruh ruang tunggu terkena sirkulasi udara\n ",
+                0))
+
+            nosAudit.add(NosAudit("Ruang tunggu  ",
+                "Form monitoring kebersihan ruang tunggu AHASS ",
+                "1.memiliki Form yang digunakan untuk memonitoring kebersian ruang tunggu terutama di daerah / fasiliatas yang langsung berhubungan dengan kenyamanan  konsumen saat berada di ruang tunggu  :\n" +
+                        "a. Meja Ruang tunggu\n" +
+                        "b. Kursi Ruang tunggu\n" +
+                        "c. toilet \n" +
+                        "2. tercamtum jadwal pengecekan kebersihan dan di checklist sesuai waktu melakuakn pembersihan \n" +
+                        "3. dalam keadaan bersih dan digunakan \n ",
+                0))
+
+
+            nosAudit.add(NosAudit("Mechanic Area : mengikuti standard fascia  ",
+                "Papan nama mekanik  ",
+                "1. Tipe, ukuran, desain sesuai dengan standard PT AHM \n" +
+                        "2. Dalam keadaan bersih dan rapi \n" +
+                        "3. Tinggi sejajar piping system atau 225 cm dari lantai \n" +
+                        "4. Nama mekanik pit sesuai\n" +
+                        "5. Penulisan nama mekanik boleh menggunakan media plat/kertas dengan warna senada (new vinci : merah,tulisan abu-abu/silver, old vinci : biru tulisan putih) \n" +
+                        "6. Nama mekanik menghadap ke arah ruang tunggu konsumen  ",
+                0))
+
+            nosAudit.add(NosAudit(" ",
+                "Pit khusus konsumen premium ",
+                "1. Jumlah = 2 pit\n" +
+                        "2. Berfungsi dengan baik\n" +
+                        "3. Ada penanda \"Fast Track Pit\" sesuai ketentuan AHM ",
+                0))
+
+            nosAudit.add(NosAudit(" ",
+                "Exhaust system \n" +
+                        "inc blower untuk seluruh pit aktif ",
+                "1. Dalam keadaan bersih dan rapi\n" +
+                        "2. Tidak rusak/sobek\n" +
+                        "3. Berfungsi  dan digunakan dengan baik \n ",
+                0))
+            nosAudit.add(NosAudit(" ",
+                "5 green poster ",
+                "1. Terlihat oleh mekanik \n" +
+                        "2. Dibingkai dan diberi cover kaca/plastik dalam keadaan rapi ",
+                0))
+
+            nosAudit.add(NosAudit("Mechanic Area : mengikuti standard fascia | Promotional Items  ",
+                "5 green poster ",
+                "1. Terlihat oleh mekanik \n" +
+                        "2. Dibingkai dan diberi cover kaca/plastik dalam keadaan rapi ",
+                0))
+
+            nosAudit.add(NosAudit(" ",
+                "5 clean poster ",
+                "1. Terlihat oleh mekanik \n" +
+                        "2. Dibingkai dan diberi cover kaca/plastik dalam keadaan rapi ",
+                0))
+
+            nosAudit.add(NosAudit(" ",
+                "No smoking signage ",
+                "1. Terlihat oleh customer dan mekanik\n" +
+                        "2. Dalam keadaan rapi ",
+                0))
+
+            nosAudit.add(NosAudit("Mechanic Area : mengikuti standard fascia | Mechanic Tools\n  ",
+                "Mechanic Truster ",
+                "1. Lengkap dan berfungsi dengan baik\n" +
+                        "2. Tertata rapi pada Mechanic Truster Box\n" +
+                        "3. 1 pit aktif = 1 mechanic truster\n" +
+                        "4. 100% tools asli dari AHM\n" +
+                        "5. Tidak ada part bekas\n" +
+                        "6. Melakukan checklist tools yang sudah distandarkan oleh AHM (harian)\n" +
+                        "7. Tidak ada barang-barang lain yang tidak berkaitan dengan keperluan service ",
+                0))
+
+            nosAudit.add(NosAudit("Mechanic Area : mengikuti standard fascia | Mechanic Tools\n  ",
+                "Wiping tool ",
+                "1. Ada perangkat wiping  \n" +
+                        "2. Berbahan microfiber / plas chamois \n" +
+                        "3. Ada di tiap pit aktif \n" +
+                        "4. Jika sudah ada fasilitas cuci motor, nilai = +1 ",
+                0))
+
+
+            nosAudit.add(NosAudit("Mechanic Area : mengikuti standard fascia | Mechanic Tools\n  ",
+                "Air Gun ",
+                "1. Berfungsi dengan baik dan digunakan oleh mekanik\n" +
+                        "2. Tertata rapi\n" +
+                        "3. 1 pit aktif = 1 air gun\n" +
+                        "4. Berasal dari pipa yang tersambung ke jalur non Lubricant ",
+                0))
+
+            nosAudit.add(NosAudit("Mechanic Area : mengikuti standard fascia | Mechanic Tools\n  ",
+                "Impact Wrench ",
+                "1. Berfungsi dengan baik dan digunakan oleh mekanik\n" +
+                        "2. Tertata rapi\n" +
+                        "3. 1 pit aktif = 1 impact wrench\n" +
+                        "4. Berasal dari pipa yang tersambung ke jalur Lubricant ",
+                0))
+
+            nosAudit.add(NosAudit("Mechanic Area : mengikuti standard fascia | Mechanic Tools\n  ",
+                "Bike Lift ",
+                "1. Ada dan berfungsi dengan baik (naik maksimum)\n" +
+                        "2. Tertata rapi\n" +
+                        "3. 1 pit aktif = 1 bike lift\n" +
+                        "4. Pelumasan ok\n" +
+                        "5. Warna merah untuk new vinci, warna biru (warna kuning di tengah) untuk old vinci\n" +
+                        "* Untuk heavy repair tidak wajib memiliki bike lift ",
+                0))
+
+            nosAudit.add(NosAudit("Mechanic Area : mengikuti standard fascia | Mechanic Tools\n  ",
+                "Special Tools ",
+                "1. Ada dan berfungsi dengan baik\n" +
+                        "2. Tertata rapi di tempat penyimpanan khusus Special Tools\n" +
+                        "3. 1 AHASS memiliki Special Tools dengan jumlah dan jenis yang mengacu pada checklist checklist TSD_Special Tools\n" +
+                        "Reguler Dlr = minimum 13 item \n" +
+                        "Wing Dlr = minimum 21 item\n" +
+                        "Big Wing = minimum 26 item\n" +
+                        "4. Ada checklist rutin yang dilakukan pada bulan Januari dan Juli oleh PIC Tools yang ditunjuk di AHASS ",
+                0))
+
+            nosAudit.add(NosAudit("Mechanic Area : mengikuti standard fascia | Mechanic Tools\n  ",
+                "Torquemeter sudah ditera ",
+                "1. Sudah ditera (proses tera diperbolehkan oleh MD) ",
+                0))
+            nosAudit.add(NosAudit("Mechanic Area : mengikuti standard fascia | Mechanic Tools\n  ",
+                "Measurement Tools ",
+                "1. Ada dan berfungsi dengan baik\n" +
+                        "2. Tertata rapi di tempat penyimpanan khusus Measurement Tools\n" +
+                        "3. 1 AHASS memiliki Measurementl Tools dengan jumlah dan jenis yang mengacu pada checklist TSD_Measurement Tools\n" +
+                        "4. Ada checklist rutin yang dilakukan pada bulan Januari dan Juli oleh PIC Tools yang ditunjuk di AHASS ",
+                0))
+
+            nosAudit.add(NosAudit("Mechanic Area : mengikuti standard fascia | Mechanic Tools\n  ",
+                "Fire extinguisher/protection  ",
+                "1. Berfungsi dengan baik\n" +
+                        "2. Tertata rapi\n" +
+                        "3. Rasio : 1 APAR mengcover max 5 pit aktif\n" +
+                        "4. 1 APAR = 2.5 kg - 4 kg\n" +
+                        "5. Bahan APAR : CO2/Powder/Foam\n" +
+                        "6. Jarak antar APAR max 15 meter\n" +
+                        "7. Ketinggian APAR dari lantai antara 15 cm sampai dengan 120 cm\n" +
+                        "8. APAR bebas halangan\n" +
+                        "9. Ada petunjuk lokasi APAR\n" +
+                        "10. Jarum penunjuk tekanan berada di area hijau\n" +
+                        "11. Sudah diperiksa dinas terkait  dan belum expired ",
+                0))
+
+            nosAudit.add(NosAudit("Mechanic Area : mengikuti standard fascia | Mechanic Tools\n  ",
+                "MC protector(untuk MC yang menginap) ",
+                "1. Berfungsi dengan baik\n" +
+                        "2. Tertata rapi\n" +
+                        "3. Sejumlah motor yang menginap\n" +
+                        "4. 1 motor menginap = 1 cover ",
+                0))
+
+            nosAudit.add(NosAudit("Mechanic Area : mengikuti standard fascia | Mechanic Tools\n  ",
+                "MC seat cover & hand grip cover ( untuk repair MC) ",
+                "1. Sejumlah pit aktif\n" +
+                        "2. Rapi, bersih, tidak terkelupas\n" +
+                        "3. Berfungsi dan digunakan untuk setiap motor yang diservis\n" +
+                        "4. Berwarna merah, ada logo AHASS dan tulisan \"Honda Wing\"\n" +
+                        "5. Berwarna merah, ada logo AHASS dan tulisan \"Honda\" -> Untuk H123 dan H23 reguler ",
+                0))
+
+            nosAudit.add(NosAudit("Mechanic Area : mengikuti standard fascia | Mechanic Tools\n  ",
+                "Tire changer ",
+                "1. Berfungsi dan digunakan untuk setiap penggantian ban\n" +
+                        "2. Diperbolehkan dengan tire changer non elektrik ",
+                0))
+            nosAudit.add(NosAudit("Mechanic Area : mengikuti standard fascia | Mechanic Tools\n  ",
+                "Tidak menggunakan Bensin untuk Servis ",
+                "1. Disediakan sarana pengganti Bensin di tiap pit aktif \n" +
+                        "2. tersedia HPC sejumlah seusi Juklak ( 6 buah per AHASS)  ",
+                0))
+
+
+            nosAudit.add(NosAudit("Mechanic Area : mengikuti standard fascia | Mechanic Tools\n  ",
+                "Perintah Kerja Bengkel ",
+                "1. Ada PKB (Perintah Kerja Bengkel) yang diprint dari komputer front desk officer atau copy form SA dan buku servis\n" +
+                        "2. Diletakkan di atas board jepit\n" +
+                        "3. Board jepit dijepitkan di plat nomer bagian belakang sepeda motor yang sedang dikerjakan di pit ",
+                0))
+            nosAudit.add(NosAudit("Mechanic Area : mengikuti standard fascia | Mechanic Tools\n  ",
+                "Tempat Penampungan Sentral ",
+                "1. Ada 5 wadah (drum/pail plastik) dengan klasifikasi sesuai juklak LB3:\n" +
+                        "  -(B104d u/kemasan bekas B3)\n" +
+                        "  -(B355-2 u/battery bekas)\n" +
+                        "  -(A108d u/Limbah terkontaminasi B3)\n" +
+                        "  -(B109d u/filter bekas)\n" +
+                        "  -(B110d u/kain majun bekas)\n" +
+                        "2. Diberikan pembeda warna sesuai juklak\n" +
+                        "\n" +
+                        "Jika sudah memiliki TPS di belakang/dalam AHASS, maka central hub langsung Exist, Good ",
+                0))
+
+            nosAudit.add(NosAudit("Mechanic Area : mengikuti standard fascia | Mechanic Tools\n  ",
+                "Tempat Penampungan PIT ",
+                "Penampungan per pit:\n" +
+                        "1. Setiap pit aktif mempunyai 1 keranjang merah tidak bercela (41.5 cm x 28.5 cm x 16 cm)\n" +
+                        "2. Setiap pit aktif mempunyai 1  jirigen oli min 10 L\n" +
+                        "3. Keranjang & jirigen dalam keadaan baik (tidak bocor, tidak patah, tidak getas) ",
+                0))
+
+
+            nosAudit.add(NosAudit("Mechanic Area : mengikuti standard fascia | Final Inspection  ",
+                "Mechanic Truster  ",
+                "1. Berfungsi dengan baik\n" +
+                        "2. Tertata rapi\n" +
+                        "3. 1 pit final inspection aktif = 1 mechanic truster (jumlah aktif mengikuti rasio final inspector AHM)\n" +
+                        "4. 100% tools asli dari AHM\n" +
+                        "5. Tidak ada part bekas\n" +
+                        "6. Ada checklist rutin min 1 bulan sekali dari kepala mekanik, sudah berjalan min 3 bulan\n" +
+                        "7. Tidak ada barang-barang lain yang tidak berkaitan dengan pekerjaan bengkel dan service) ",
+                0))
+
+            nosAudit.add(NosAudit("Mechanic Area : mengikuti standard fascia | Final Inspection  ",
+                "RPM Meter ",
+                "1. Berfungsi dengan baik\n" +
+                        "2. terlihat dari Area Konsumen\n ",
+                0))
+            nosAudit.add(NosAudit("Mechanic Area : mengikuti standard fascia | Final Inspection  ",
+                "Exhaust system  ",
+                "1. Dalam keadaan bersih dan rapi\n" +
+                        "2. Berfungsi dan digunakan dengan baik  ",
+                0))
+
+            nosAudit.add(NosAudit("Mechanic Area : mengikuti standard fascia | Final Inspection  ",
+                "Helm\n ",
+                "1. Minimal helm half face SNI, dalam keadaan bersih dan rapi\n" +
+                        "2. Ada tulisan \"Helm Final Inspection\"\n" +
+                        "3. Digunakan pada saat final inspection mencoba tes jalan motor\n" +
+                        "4. Jumlah minimal 1 ",
+                0))
+            nosAudit.add(NosAudit("Final Confirmation  ",
+                "Sticker reminder ",
+                "1. Sesuai dengan ketentuan dari PT AHM\n" +
+                        "    Minimum konten :\n" +
+                        "    a. logo Wing Honda Merah\n" +
+                        "    b. logo AHASS \n" +
+                        "    c. Nama AHASS\n" +
+                        "    d. No telpon AHASS\n" +
+                        "    e. Km dan atau waktu servis kembali sesuai maintenance schedule\n" +
+                        "    f.  Km dan atau waktu ganti oli kembali sesuai maintenance schedule\n" +
+                        "\n ",
+                0))
+            nosAudit.add(NosAudit(
+                "Payment  ",
+                "Harga Jasa ",
+                "1. Menggunakan design standar dari AHM\n" +
+                        "2. Dalam kondisi bersih \n" +
+                        "3. Terlihat jelas oleh konsumen di sekitar area pembayaran\n" +
+                        "4. Memuat informasi garansi\n" +
+                        "5. Uk min A3 jika ditempel di dinding, uk min A4 jika diletakkan di meja\n" +
+                        "6. New vinci kasir H2 wajib gabung dengan kasir H1, jika masih terpisah nilai = -1\n" +
+                        "7. Wajib terisi dan harga terupdate ",
+                0))
+
+            nosAudit.add(NosAudit(
+                "Payment  ",
+                "Bukti Pembayaran ",
+                "1. Tercetak jelas dari komputer (non excel)\n" +
+                        "2. Ada nama, alamat, dan nomer telpon AHASS\n" +
+                        "3. Berisi :\n" +
+                        "- Harga jasa service (sesuai price list)\n" +
+                        "- Harga parts yang dibeli maksimal sesuai Harga Eceran Tertinggi\n" +
+                        "- Garansi \n" +
+                        "- \"Part bekas adalah hak konsumen AHASS\" ",
+                0))
+            nosAudit.add(NosAudit(
+                "Payment  ",
+                "Buku Service ",
+                "1. terdapat stempel Dealer (Halaman 17-21)\n" +
+                        "2. Terisi checklist pekerjaan yang sudah dilakukan mekanik sesuai maintenance schedule + catatan dari mekanik (Hal12-15)\n" +
+                        "3. Pengisian stempel dan checklist sesuai \"Km servis\"\n ",
+                0))
+            nosAudit.add(NosAudit(
+                "Follow up call ",
+                "List follow up call ",
+                "1. Berbentuk hardcopy / sofcopy\n" +
+                        "2. Dilakukan setiap hari (H+7 usai perawatan/perbaikan)\n" +
+                        "3. Berisi informasi yang jelas : \n" +
+                        "- Nama customer\n" +
+                        "- Nomor telepon customer\n" +
+                        "- Kategori pengerjaan M/C customer (HR/LR/JR/Claim,etc)\n" +
+                        "- Premium customer (semua pekerjaan)\n" +
+                        "- Respons customer \n" +
+                        "- Jadwal JR jika respons customer tidak OK ",
+                0))
+            nosAudit.add(NosAudit(
+                "Hotline Order Facilities ",
+                "Signage / poster / board tata cara melakukan Hotline Order ",
+                "1. Memiliki signage / poster / HLO board berisi  tata cara melakukan pesanan parts via Hotline Order di counter parts\n" +
+                        "2. Signage berisi flow pemesanan Hotline (dealer - MD - AHM), design dapat dilakukan oleh MD ",
+                0))
+
+            nosAudit.add(NosAudit(
+                "Hotline Order Facilities ",
+                "Memiliki Form rekap pemenuhan dan Follow Up Hotline Order\n ",
+                "1. Terdapat Form order dan Follow Up Hotline konsumen di Dealer (Parts Counter), Form boleh berupa Hard copy, soft copy atau Portal (sistem)\n" +
+                        "2. Form terisi dengan benar sesuai dengan order, data konsumen beserta tanggal follow upnya\n" +
+                        "3. Terdapat rekap Form Follow Up Hotline di bulan-bulan sebelumnya (Min 3 bulan ke belakang)\n" +
+                        "4. Form Follow Up diupdate sesuai perubahan kedatangan sparepart dan kedatangan konsumen\n" +
+                        "5. Form Follow Up ditandatangan oleh PIC Parts dan Kabeng setiap bulannya (hard copy) atau diemailkan (softcopy) kepada PIC Hotline MD setiap akhir bulan. Jika berupa portal harus dapat diakses oleh MD\n ",
+                0))
+            nosAudit.add(NosAudit(
+                "Parts Business Infrastructure ",
+                "Buku Harga Eceran Tertinggi (Pricelist) dan update HET terakhir \n ",
+                "1. Buku Tersedia, versi cetakan paling akhir\n" +
+                        "2. Memiliki harga Parts , Oil , Accessories dan Apparel sesuai dengan update terakhir (mutasi terupdate via softfile, portal atau hard copy)\n ",
+                0))
+
+            nosAudit.add(NosAudit(
+                "Parts Business Infrastructure ",
+                "Computer & software parts \"in- out- stock location- price\"",
+                   "1. Aplikasi mampu menampilkan pergerakan dan stok parts (stok parts di komputer harus sama dengan stok parts aktual di gudang parts)\n" +
+                           "2. Mampu menampilkan harga terupdate sesuai Harga Eceran Tertinggi dari AHM\n" +
+                           "3. Mampu menunjukan lokasi parts di gudang",
+                0))
+
+            nosAudit.add(NosAudit(
+                "Parts Business Infrastructure ",
+                "Computer & software parts \"in- out- stock location- price\"",
+                "1. Jumlah komputer minimum, disesuaikan dengan jumlah PIC Part yang ada (misal PIC Part ada 2 maka jumlah komputer yang disediakan = 2)",
+                0))
+
+            nosAudit.add(NosAudit(
+                "Parts Business Infrastructure ",
+                "SIM  (standard item minimum) Parts",
+                "Lengkap 95% secara items dan quantity berdasarkan pengecekan stok dealer aktual dengan data SIM Parts terkini",
+                0))
+
+            nosAudit.add(NosAudit(
+                "Parts Business Infrastructure ",
+                "Form HGA dan Apparel (Khusus Regular Dealer)",
+                "1. Terdapat Form HGA dan Apparel di Dealer (Bengkel atau tempat Parts Counter / PIC HGA dan Apparel)\n" +
+                        "2. Form terisi dengan benar sesuai Order dan Data konsumen\n" +
+                        "3. Terdapat rekap Form HGA dan Apparel di bulan-bulan sebelumnya (min. 3 bulan ke belakang)",
+                0))
+
+            nosAudit.add(NosAudit(
+                "Parts Business Infrastructure ",
+                "Parts Catalog",
+                "1. Terdapat buku parts catalog lengkap dan  terupdate.  \n" +
+                        "2. Buku parts catalog ini berupa hard copy ",
+                0))
+
+            nosAudit.add(NosAudit(
+                "Parts Warehouse Standard",
+                "Memiliki Gudang Khusus Penyimpanan HGP, AHM Oil, HGA dan apparels \n",
+                "1. Gudang hanya untuk menyimpan produk HGP, AHM Oil, HGA dan apparels \n" +
+                        "2. Khusus ≥ 4 ruko wajib terdapat Glass warehouse lt 1.\n" +
+                        "3. Rak Sesuai dengan standard PT AHM\n" +
+                        "4. Penerangan yang baik dengan Lokasi lampu penerangan gudang di setiap gang sesuai sumbu gang\n" +
+                        "5. Tertata rapi, tidak terdapat produk yang menghalangi gang atau keluar masuk part\n",
+                0))
+
+            nosAudit.add(NosAudit(
+                "Parts Warehouse Standard",
+                "binbox dan bin tag",
+                "1. Sesuai dengan standard PT AHM\n" +
+                        "2. Isi bin box dengan nama di tag bin box nya harus sesuai \n" +
+                        "3. Tertata rapi  (semua bin box harus ada label bin tag, sejajar dan memiliki warna yang seragam)\n" +
+                        "4. Binbox gudang kaca/ terlihat konsumen wajib menggunakan impra merah (Binbox gudang lt.2 atau tidak terlihat konsumen boleh menggunakan bahan karton)\n",
+                0))
+
+            nosAudit.add(NosAudit(
+                "Parts Warehouse Standard",
+                "Kode Lokasi dan Sub Lokasi",
+                "Terdapat kode lokasi dan sublokasi yang jelas , terstruktur dan sinkron (sama) dengan yang tercatat di sistem stok (wajib dilakukan sampling check)\n",
+                0))
+
+            nosAudit.add(NosAudit(
+                "Parts Warehouse Standard",
+                "Baris Rak Khusus Hotline Order",
+                "1. Terdapat 1 baris pada rak sparepart yang dikhususkan untuk meletakan sparepart Hotline Order.\n" +
+                        "2. Terdapat sublokasi bertulisakan \"HOTLINE\" pada baris rak terkait\n" +
+                        "3. Isi dari rak Hotline adalah sparepart Hotline Konsumen dan dapat dibuktikan melalui data pemesanan/order Hotline Konsumen",
+                0))
+
+
+            nosAudit.add(NosAudit(
+                "NOS New Normal",
+                "Rekap Harian Suhu Tubuh Karyawan",
+                "1. Terletak di Ruang Kepala Cabang\n" +
+                        "2. Diupdate setiap hari untuk seluruh karyawan dealer (Showroom + AHASS)\n" +
+                        "\n" +
+                        "*Untuk dealer H123, penilaian disamakan dengan H1 Premises",
+                0))
+
+
+            nosAudit.add(NosAudit(
+                "NOS New Normal",
+                "Daftar Suhu Tubuh Harian AHASS People\n" +
+                        "Nice to have",
+                "Terletak pada sekitar area pintu masuk AHASS dan terlihat oleh konsumen",
+                0))
+
+            return nosAudit
+        }
+
+//    fun generateDataH23Premises(): List<NosAudit> {
+//
+//        val nosAudit = ArrayList<NosAudit>()
+//
+//        nosAudit.add(NosAudit("Booking Service  ",
+//            "Booking service board  ",
+//            "Menambahkan logo aplikasi di booking service board tersebut\n" +
+//                    "\n" +
+//                    " Dalam konten minimal terdapat informasi Sumber booking\n" +
+//                    "\n" +
+//                    "Kabeng juga menuliskan data booking servis via aplikasi disini\n" +
+//                    "\n" +
+//                    "*Nilai EXIST NOT GOOD apabila sudah mempunyai booking service board, namun tidak ada logo aplikasi atau informasi sumber booking\n" +
+//                    "\n" +
+//                    "*selected MD only", 0))
+//
+//        nosAudit.add(NosAudit("Front desk area ",
+//            "Poster Apps  ",
+//            "Hanya perlu ada di dealer 3 in one (H123)\n" +
+//                    "\n" +
+//                    "1. Poster dicetak sesuai dengan ukuran (A2) menggunakan bahan \"Artcarton270\"\n" +
+//                    "2. Poster diletakkan di papan pengumuman bengkel atau area Front Desk", 0))
+//
+//        nosAudit.add(NosAudit("Ruang tunggu  ",
+//            "Roll / X  Banner 60cm x 160cm ",
+//            "Roll atau X-Banner Apps terpasang dengan baik di ruang tunggu bengkel\n" +
+//                    "\n" +
+//                    "*kondisi di dalam ruangan, tidak rusak, bersih, dan terlihat oleh konsumen\n" +
+//                    "*penilaian ditekankan lebih ke tujuan item ini untuk meningkatkan awareness customer\n" +
+//                    "\n" +
+//                    "*selected MD only", 0))
+//
+//        return nosAudit
+//
+//    }
+//
+//
+//    fun generateDataH23Process(): List<NosAudit> {
+//
+//        val nosAudit = ArrayList<NosAudit>()
+//
+//             nosAudit.add(NosAudit("Front Desk Officer | Layanan Booking Servis (by call)",
+//            "Data Booking Servis",
+//            "- Menawarkan booking service selanjutnya melalui Aplikasi MotorkuX (HSO)/ Daya Auto (DAM)/ Brompit (MPM)/ Wanda (WMS)\n" +
+//                    "\n" +
+//                    "*selected MD only", 0))
+//
+//        nosAudit.add(NosAudit("Front Desk Officer | Layanan Booking Servis (by call)",
+//            "Data Booking Servis",
+//            "- Mencatat data konsumen booking via Aplikasi MotorkuX (HSO)/ Daya Auto (DAM)/ Brompit (MPM)/ Wanda (WMS) ke form booking service\n", 0))
+//
+//        nosAudit.add(NosAudit("Front Desk Officer | Penerimaan Motor",
+//            "Check-In ",
+//            "- melakukan check-in di web console / DMS\n" +
+//                    "- menukarkan KPB Digital atau voucher\n" +
+//                    "- memberikan catatan biaya potongan discount voucher Aplikasi di form PKB\n" +
+//                    "\n" +
+//                    "*selected MD only", 0))
+//
+//        nosAudit.add(NosAudit("Front Desk Officer | Pekerjaan selesai ",
+//            "Check-Out ",
+//            "- melakukan check-out di web console / DMS\n" +
+//                    "- mengingatkan konsumen untuk booking untuk servis selanjutnya dengan aplikasi\n" +
+//                    "- Mendorong konsumen untuk mengumpulkan poin Hepigo yang dapat ditukar dengan bermacam-macam voucher\n" +
+//                    "\n" +
+//                    "*selected MD only", 0))
+//
+//        nosAudit.add(NosAudit("Admin CRM H23 | Konsumen menerima service reminder ",
+//            "Reminder Servis ",
+//            "- SMS / WA Blast H-30 sebelum servis dan menginfokan ke konsumen untuk booking dan klaim KPB via Aplikasi MotorkuX (HSO)/ Daya Auto (DAM)/ Brompit (MPM)/ Wanda (WMS)\n" +
+//                    "\n" +
+//                    "*selected MD only", 0))
+//
+//        nosAudit.add(NosAudit("Admin CRM H23 | Konsumen menerima service reminder ",
+//            "Reminder Servis ",
+//            "- SMS / WA Blast H-14 sebelum servis dan menginfokan ke konsumen untuk booking dan klaim KPB via Aplikasi MotorkuX (HSO)/ Daya Auto (DAM)/ Brompit (MPM)/ Wanda (WMS)\n" +
+//                    "\n" +
+//                    "*selected MD only", 0))
+//
+//        nosAudit.add(NosAudit("Admin CRM H23 | Konsumen menerima follow up setelah servis ",
+//            "List konsumen yang di-follow up",
+//            "- Mengingatkan konsumen untuk booking dengan Aplikasi MotorkuX (HSO)/ Daya Auto (DAM)/ Brompit (MPM)/ Wanda (WMS) untuk servis selanjutnya\n" +
+//                    "- Mendorong konsumen untuk mengumpulkan poin Hepigo yang dapat ditukar dengan bermacam-macam voucher\n" +
+//                    "\n" +
+//                    "*selected MD only", 0))
+//
+//        nosAudit.add(NosAudit("Servis Advisor | Konsumen bertemu dengan Servis Advisor ",
+//            "Penerimaan booking servis ",
+//            "BOOKING APLIKASI\n" +
+//                    "- Meminta konsumen memperlihatkan bukti booking melalui aplikasi.\n" +
+//                    "- Memastikan nama, tanggal, jam, dan lokasi servis sesuai dengan yang ada di webconsole. Jika sudah sesuai, maka klik check - in di webconsole.\n" +
+//                    "- Meminta konsumen untuk konfirmasi check-in di aplikasi \n" +
+//                    "\n" +
+//                    "- Pastikan di aplikasi konsumen, apakah konsumen memiliki KPB digital/ voucher promo (servis atau parts)\n" +
+//                    "- (Jika punya voucher) Swipe e-voucher pada aplikasi dan masukkan kode ahass. Dan tulis pada form PKB jika ada penggunaan voucher Rp 20.000.\n" +
+//                    "- Bila memiliki KPB Digital, masukan KM motor konsumen dan ambil foto speedometer. \n" +
+//                    "\n" +
+//                    "*Selected MD only\n" +
+//                    "\n", 0))
+//
+//        nosAudit.add(NosAudit("Servis Advisor  ",
+//            "Konfirmasi terakhir oleh SA ",
+//            "- Melakukan check-out di web console / DMS\n" +
+//                    "- Meminta konsumen untuk memberikan rating di aplikasi \n" +
+//                    "- Mengingatkan fitur-fitur Aplikasi MotorkuX (HSO)/ Daya Auto (DAM)/ Brompit (MPM)/ Wanda (WMS) lainnya dan value yang bisa didapatkan konsumen\n" +
+//                    "- Mengingatkan konsumen untuk mengecek voucher di notifikasi\n" +
+//                    "- Memberi tahu konsumen bahwa setelah servis dapat 15 poin Hepigo\n" +
+//                    "- Mendorong konsumen untuk mengumpulkan poin Hepigo yang dapat ditukar dengan bermacam-macam voucher\n" +
+//                    "\n" +
+//                    "*selected MD only\n", 0))
+//
+//        nosAudit.add(NosAudit("Servis Advisor  ",
+//            "Konfirmasi terakhir oleh SA ",
+//            "- Reminder kepada konsumen untuk download, registrasi, dan booking service melalui Aplikasi MotorkuX (HSO)/ Daya Auto (DAM)/ Brompit (MPM)/ Wanda (WMS)\n" +
+//                    "\n" +
+//                    "*selected MD only", 0))
+//
+//        nosAudit.add(NosAudit("Cashier | Apabila exin baru, kasir H2 tidak digabung dengan kasir H1, semua nilai proses kasir = 0 ",
+//            "Detail pembayaran ",
+//            "BOOKING LEWAT APLIKASI\n" +
+//                    "Menjelaskan detail pembayaran (Biaya Jasa Bengkel, Biaya Spare Part, dan potongan biaya atas penggunaan voucher dari aplikasi)\n" +
+//                    "\n" +
+//                    "*selected MD only", 0))
+//
+//        nosAudit.add(NosAudit("Cashier | Apabila exin baru, kasir H2 tidak digabung dengan kasir H1, semua nilai proses kasir = 0 ",
+//            "Selesai pembayaran ",
+//            "- Jika konsumen Servis lewat aplikasi tawarkan untuk melakukan booking selanjutnya dan tawarkan promo aplikasi yang sedang berjalan (jika ada)\n" +
+//                    "\n" +
+//                    "- Mengenalkan Asisten Sales Digital (Dealer Activation) kepada konsumen\n" +
+//                    "\n" +
+//                    "*Selected MD only\n", 0))
+//
+//        nosAudit.add(NosAudit("PIC HGA & Apparel | Pembelian langsung tanpa servis",
+//            "Menanyakan/menggali kebutuhan konsumen  ",
+//            "- Tawarkan konsumen untuk mendownload Aplikasi MotorkuX (HSO)/ Daya Auto (DAM)/ Brompit (MPM)/ Wanda (WMS) untuk melihat update-an produk HGP, AHM OIL, DAN HGA atau apparel yang tersedia\n" +
+//                    "\n" +
+//                    "- Mengecek leads H3 yang terdaftar di Web Console \n" +
+//                    "- Follow up konsumen dari leads H3 di Web Console\n" +
+//                    "\n" +
+//                    "- Jika barang yang diorder lewat Aplikasi tidak tersedia, maka PIC Parts menawarkan kepada konsumen apakah tetap diorder melalui hotline order atau batal\n" +
+//                    "- Bila mau diteruskan, maka PIC Parts melakukan proses hotline order seperti biasa, dan menginformasikan kepada konsumen cara tracking melalui aplikasi\n" +
+//                    "- Nomor yang dapat digunakan untuk tracking adalah nomor mesin/nomor PO\n" +
+//                    "\n" +
+//                    "*Selected MD only\n" +
+//                    "\n", 0))
+//
+//
+//        return nosAudit
+//
+//    }
+
 }

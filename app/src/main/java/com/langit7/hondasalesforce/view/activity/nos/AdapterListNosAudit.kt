@@ -92,15 +92,25 @@ class AdapterListNosAudit : RecyclerView.Adapter<AdapterListNosAudit.ViewHolder>
 
                          binding.indicator.visibility = View.GONE
                          binding.sub1.visibility  = View.VISIBLE
+                        binding.sub2.visibility  = View.VISIBLE
+                        binding.sub3.visibility  = View.VISIBLE
+                        binding.sub4.visibility  = View.VISIBLE
 
 
-                     }else{
+
+
+                    }else{
 
                          binding.indicator.visibility = View.VISIBLE
 
                          binding.sub1.visibility  = View.GONE
+                        binding.sub2.visibility  = View.GONE
 
-                     }
+                        binding.sub3.visibility  = View.GONE
+                        binding.sub4.visibility  = View.GONE
+
+
+                    }
                 }
 
 

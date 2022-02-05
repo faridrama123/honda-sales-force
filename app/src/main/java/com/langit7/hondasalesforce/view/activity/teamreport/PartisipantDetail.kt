@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.langit7.hondasalesforce.R
 import com.langit7.hondasalesforce.Util.function
@@ -19,6 +20,7 @@ import com.langit7.hondasalesforce.view.activity.BaseActivity
 import io.realm.log.RealmLog.info
 import kotlinx.android.synthetic.main.action_bar.*
 import kotlinx.android.synthetic.main.activity_partisipant_detail.*
+import kotlinx.android.synthetic.main.activity_partisipant_detail.view.*
 import kotlinx.android.synthetic.main.teamreport_frequent_activity.*
 import kotlinx.android.synthetic.main.teamreport_kuis_peserta_activity.*
 
@@ -49,6 +51,15 @@ class PartisipantDetailActivity : BaseActivity() {
         year = intent.getStringExtra("year").toString()
 
 
+
+
+        if ( category=="3") {
+            binding.categorySobat.visibility = View.GONE
+            binding.linearSobatIkt    .visibility = View.GONE
+            binding.linearSobatNoikt.visibility = View.GONE
+
+        }
+
         Log.d(" month adalah : ", month.toString())
         Log.d(" year adalah : ", year.toString())
 
@@ -60,6 +71,7 @@ class PartisipantDetailActivity : BaseActivity() {
 
 
     fun intentdetailList () {
+
 
         val usr= function.getUser(this)
         val mainDealer = usr!!.profileUser.dealer.mainDealer
@@ -82,7 +94,6 @@ class PartisipantDetailActivity : BaseActivity() {
             goToPeserta(category,"2", month, year, "2")
 
         }
-
 
         bwsp_ikt_click.setOnClickListener {
             goToPeserta(category,"3", month, year, "1")

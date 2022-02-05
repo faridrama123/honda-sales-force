@@ -40,6 +40,8 @@ class PartisipantActivity : BaseActivity() {
         val txtBulan2 = calendarData(-1)
         val txtBulan3 = calendarData(-2)
 
+
+
         llPKBulan1.setOnClickListener {
             val monthyear = txtBulan1.split(" ").toTypedArray()
             val month = monthyear[0].substring(0,3)

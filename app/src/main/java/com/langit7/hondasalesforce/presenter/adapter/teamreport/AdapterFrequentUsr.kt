@@ -38,7 +38,7 @@ class AdapterFrequentUsr : RecyclerView.Adapter<AdapterFrequentUsr.ViewHolder>()
                 var lastlogin = items.userId?.profileUser?.lastLoginMobile?.subSequence(0, 10)
                 binding.tvNo.text = ( 1 + position).toString()
                 binding.tvNama.text = items.userId?.firstName + " " +items.userId?.lastName;
-                binding.tvScore.text = lastlogin
+                binding.tvScore.text = items.createdDate
                 binding.tvJabatan.text = items.userId?.profileUser?.position
 
 //                Glide.with(itemView.context)

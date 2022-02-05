@@ -131,7 +131,7 @@ class QualifiedActivity : BaseActivity() {
                     binding.bwspIktCount.text = dataTemp?.totalQualifiedBwsp.toString()
                     binding.bwspNoiktCount.text = dataTemp?.totalNonQualifiedBwsp.toString()
                     binding.wspIktCount.text = dataTemp?.totalQualifiedWsp.toString()
-                    binding.wspNoiktCount.text = dataTemp?.totalQualifiedWsp.toString()
+                    binding.wspNoiktCount.text = dataTemp?.totalNonQualifiedWsp.toString()
                     binding.sobatIktCount.text = dataTemp?.totalQualifiedSobat.toString()
                     binding.sobatNoiktCount.text = dataTemp?.totalNonQualifiedSobat.toString()
 

@@ -1,5 +1,6 @@
 package com.langit7.hondasalesforce.view.fragment
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -25,6 +26,9 @@ import com.langit7.hondasalesforce.view.activity.MainActivity
 import com.langit7.hondasalesforce.view.activity.QuizActivity
 import com.langit7.hondasalesforce.view.activity.nos.ListNosAuditActivity
 import com.langit7.hondasalesforce.view.activity.teamreport.PartisipantQuizActivity
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class SelfAuditFragment : Fragment(), BaseFragmentInterface {
@@ -45,11 +49,35 @@ class SelfAuditFragment : Fragment(), BaseFragmentInterface {
         binding.bar.imgback.visibility=View.INVISIBLE
         binding.bar.tactionbartitle       .setText(title)
 
+        val bulan = calendarData(0).toString()
+
+        if(bulan=="02" || bulan=="04"   || bulan=="06"  || bulan=="08"  || bulan=="10"  || bulan=="12"){
+
+        }else{
+
+            binding.panduanText.text = "Audit Nos hanya tersedia pada bulan genap"
+            binding.h1people.visibility = View.GONE
+            binding.h1premises.visibility = View.GONE
+            binding.h1process.visibility = View.GONE
+            binding.h23premises.visibility = View.GONE
+            binding.h23process.visibility = View.GONE
+        }
+
         intentdetailList()
 
         return binding.root
     }
 
+
+    @SuppressLint("SimpleDateFormat")
+    fun calendarData(format: Int) : String {
+        val cal = Calendar.getInstance()
+        cal.set(cal.get(Calendar.YEAR),
+            cal.get(Calendar.MONTH),
+            cal.get(Calendar.DAY_OF_MONTH))
+        cal.add(Calendar.MONTH, format)
+        return SimpleDateFormat("MM", Locale.ENGLISH).format(cal.time)
+    }
 
     companion object {
 //        fun Instantiate(lsdata:List<quiz>): SelfAuditFragment {
@@ -81,7 +109,15 @@ class SelfAuditFragment : Fragment(), BaseFragmentInterface {
             goToPeserta("3", "H1 Process")
         }
 
+        binding.ck4.setOnCheckedChangeListener { _, isChecked ->
+            Log.d("checkbox", "checked: $isChecked")
+            goToPeserta("4", "H23 Premises")
+        }
 
+        binding.ck5.setOnCheckedChangeListener { _, isChecked ->
+            Log.d("checkbox", "checked: $isChecked")
+            goToPeserta("5", "H23 People")
+        }
     }
     fun goToPeserta(index: String, title : String
                     ) {

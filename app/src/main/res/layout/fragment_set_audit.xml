@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/graylight"
@@ -25,6 +23,7 @@
         android:background="@color/green">
 
         <TextView
+            android:id="@+id/panduanText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -121,14 +120,13 @@
 
              <RelativeLayout
 
-                 android:layout_below="@+id/h1people"
-
                  android:id="@+id/h1process"
-                 android:layout_marginBottom="@dimen/dp10"
-                 android:background="@color/orange"
+
                  android:layout_width="match_parent"
                  android:layout_height="@dimen/dp40"
-                 >
+                 android:layout_below="@+id/h1people"
+                 android:layout_marginBottom="@dimen/dp10"
+                 android:background="@color/orange">
 
                  <TextView
                      android:layout_width="wrap_content"
@@ -156,6 +154,117 @@
                  </CheckBox>
 
              </RelativeLayout>
+
+             <RelativeLayout
+
+                 android:id="@+id/h23premises"
+
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/dp40"
+                 android:layout_below="@+id/h1process"
+                 android:layout_marginBottom="@dimen/dp10"
+                 android:background="@color/orange">
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentLeft="true"
+                     android:layout_centerVertical="true"
+                     android:layout_marginLeft="@dimen/dp14"
+                     android:text="H23 Premises"
+                     android:textColor="@color/white"
+                     android:textSize="@dimen/dp16"
+                     android:textStyle="bold"
+
+                     />
+
+                 <CheckBox
+                     android:id="@+id/ck4"
+
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentRight="true"
+                     android:layout_centerVertical="true"
+                     android:layout_marginRight="@dimen/dp14"
+                     android:textColorHighlight="@color/white">
+
+                 </CheckBox>
+
+             </RelativeLayout>
+
+
+             <RelativeLayout
+
+                 android:id="@+id/h23people"
+
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/dp40"
+                 android:layout_below="@+id/h23premises"
+                 android:layout_marginBottom="@dimen/dp10"
+                 android:background="@color/orange">
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentLeft="true"
+                     android:layout_centerVertical="true"
+                     android:layout_marginLeft="@dimen/dp14"
+                     android:text="H23 People"
+                     android:textColor="@color/white"
+                     android:textSize="@dimen/dp16"
+                     android:textStyle="bold" />
+
+                 <CheckBox
+                     android:id="@+id/ck5"
+
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentRight="true"
+                     android:layout_centerVertical="true"
+                     android:layout_marginRight="@dimen/dp14"
+                     android:textColorHighlight="@color/white">
+
+                 </CheckBox>
+
+             </RelativeLayout>
+
+             <RelativeLayout
+
+                 android:id="@+id/h23process"
+
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/dp40"
+                 android:layout_below="@+id/h23people"
+                 android:layout_marginBottom="@dimen/dp10"
+                 android:background="@color/orange">
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentLeft="true"
+                     android:layout_centerVertical="true"
+                     android:layout_marginLeft="@dimen/dp14"
+                     android:text="H23 Process"
+                     android:textColor="@color/white"
+                     android:textSize="@dimen/dp16"
+                     android:textStyle="bold" />
+
+                 <CheckBox
+                     android:id="@+id/ck6"
+
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentRight="true"
+                     android:layout_centerVertical="true"
+                     android:layout_marginRight="@dimen/dp14"
+                     android:textColorHighlight="@color/white">
+
+                 </CheckBox>
+
+             </RelativeLayout>
+
+
+
 
 
          </RelativeLayout>
