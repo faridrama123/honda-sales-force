@@ -264,6 +264,40 @@
              </RelativeLayout>
 
 
+             <RelativeLayout
+
+                 android:id="@+id/allnos"
+
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/dp40"
+                 android:layout_below="@+id/h23process"
+                 android:layout_marginBottom="@dimen/dp10"
+                 android:background="@color/orange">
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentLeft="true"
+                     android:layout_centerVertical="true"
+                     android:layout_marginLeft="@dimen/dp14"
+                     android:text="Pilih seluruh item"
+                     android:textColor="@color/white"
+                     android:textSize="@dimen/dp16"
+                     android:textStyle="bold" />
+
+                 <CheckBox
+                     android:id="@+id/ck7"
+
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentRight="true"
+                     android:layout_centerVertical="true"
+                     android:layout_marginRight="@dimen/dp14"
+                     android:textColorHighlight="@color/white">
+
+                 </CheckBox>
+
+             </RelativeLayout>
 
 
 

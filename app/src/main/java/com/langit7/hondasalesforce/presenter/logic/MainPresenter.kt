@@ -364,9 +364,10 @@ class MainPresenter {
                        category:String,
                        month:String,
                        year:String,
+                             semester : String,
 
                        cb: ObjectResponseInterface<baseresponse<PartisipantDetail>>) {
-        disposable = api.getPartisipantDetail(xs, main_dealer, category, month, year)
+        disposable = api.getPartisipantDetail(xs, main_dealer, category, month, year, semester)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ res ->
@@ -396,6 +397,29 @@ class MainPresenter {
             })
     }
 
+    fun getPartisipantQuizVerifikasi(xs:String,
+                       nitems:Int,
+                       page:Int,
+                       main_dealer:String,
+                       category:String,
+                                     month:String,
+
+                       year:String,
+                       category_position:String,
+                       is_participant:String,
+                                     semester:Int,
+
+                                     cb: ObjectResponseInterface<baseresponse<List<partisipant>>>) {
+        disposable = api.getPartisipantQuizVerifikasi(xs, nitems, page, main_dealer, category, month, year, category_position, is_participant, semester)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ res ->
+                cb.onSuccess(res)
+            }, { error ->
+                cb.onFailed(error.message!!)
+            })
+    }
+
     fun getPartisipantQuizAndMonitor(xs:String,
                        nitems:Int,
                        page:Int,
@@ -405,8 +429,9 @@ class MainPresenter {
                        year:String,
                        category_position:String,
                        is_participant:String,
+                                     semester: String,
                        cb: ObjectResponseInterface<baseresponse<List<PartisipantQuiz>>>) {
-        disposable = api.getPartisipantQuizAndMonitor(xs, nitems, page, main_dealer, category, month, year, category_position, is_participant)
+        disposable = api.getPartisipantQuizAndMonitor(xs, nitems, page, main_dealer, category, month, year, category_position, is_participant, semester)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ res ->

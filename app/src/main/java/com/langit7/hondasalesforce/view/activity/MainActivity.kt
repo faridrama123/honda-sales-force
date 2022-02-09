@@ -262,19 +262,19 @@ class MainActivity : BaseActivity() {
     }
 
     fun init() {
-            if(!loaddatafailed) {
-                if (hassl && hasq && hass && hasu && hasads  )
-                    setupFragment()
-                //else
+        if(!loaddatafailed) {
+            if (hassl && hasq && hass && hasu && hasads  )
+                setupFragment()
+            //else
 //                    Log.e("has","hassl $hassl, hasq $hasq, hass $hass, hasu $hasu, hasads $hasads")
-            }else{
-                Toast("Load Data Failed, Please Reloign")
-                function.doLogout(ctx)
-                var ii=Intent(ctx,LoginActivity::class.java)
-                function.savePreverence(ctx, "hasaddialog", false)
-                startActivity(ii)
-                finish()
-            }
+        }else{
+            Toast("Load Data Failed, Please Reloign")
+            function.doLogout(ctx)
+            var ii=Intent(ctx,LoginActivity::class.java)
+            function.savePreverence(ctx, "hasaddialog", false)
+            startActivity(ii)
+            finish()
+        }
     }
 
     fun setupFragment() {
@@ -294,7 +294,7 @@ class MainActivity : BaseActivity() {
             lsFragment.add(MyAccountKacabFragment.Instantiate(lsD,lsMD))
         else if(
             getUser()!!.profileUser.parent_position.equals(MAINDEALER,true)
-                )
+        )
             lsFragment.add(MyAccountMDFragment.Instantiate(lsMD))
         else
             lsFragment.add(MyAccountFragment.Instantiate(lsHistoryQuis,lsHistoryRedeem,lsD,lsMD,lsH))
@@ -495,24 +495,24 @@ class MainActivity : BaseActivity() {
         super.onResume()
 
         if(getUser()!=null)
-        presenter.getNotif(object : DataListInterface<notif> {
-            override fun onGetDataSuccess(res: List<notif>) {
+            presenter.getNotif(object : DataListInterface<notif> {
+                override fun onGetDataSuccess(res: List<notif>) {
 
-                lsNotif.clear()
-                lsNotif.addAll(res)
-                try {
-                    (lsFragment.get(3) as NotificationFragment).adp.notifyDataSetChanged()
-                    permakTabs()
-                } catch (e: Exception) {
-                    e.printStackTrace()
+                    lsNotif.clear()
+                    lsNotif.addAll(res)
+                    try {
+                        (lsFragment.get(3) as NotificationFragment).adp.notifyDataSetChanged()
+                        permakTabs()
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
                 }
-            }
 
-            override fun onGetDataFailed(msg: String) {
+                override fun onGetDataFailed(msg: String) {
 
-            }
+                }
 
-        })
+            })
 
 
 
@@ -540,7 +540,7 @@ class MainActivity : BaseActivity() {
 
 
     fun getredemed(){
-                showLoadingDialog()
+        showLoadingDialog()
         redeempresenter.getRedeemed(object: DataListInterface<redeem>{
             override fun onGetDataSuccess(res: List<redeem>) {
                 dismisLoadingDialog()

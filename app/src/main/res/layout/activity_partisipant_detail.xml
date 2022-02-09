@@ -64,25 +64,28 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/llLoginTextss"
-        android:layout_below="@+id/llTanggal"
-        android:background="@color/black"
+        android:id="@+id/ctitle_1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:layout_below="@+id/llTanggal"
+        android:background="@color/black">
+
         <TextView
-            android:layout_margin="@dimen/dp8"
-            android:textSize="@dimen/dp20"
+            android:id="@+id/title_1"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp8"
             android:gravity="left"
-            android:text="Regular Sales People"
+            android:text="title 1"
             android:textColor="@color/white"
+            android:textSize="@dimen/dp20"
             tools:ignore="Suspicious0dp" />
 
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/rsp"
-        android:layout_below="@+id/llLoginTextss"
+        android:id="@+id/csubtitle_1"
+        android:layout_below="@+id/ctitle_1"
         android:background="@color/black"
         android:layout_height="wrap_content"
         android:layout_width="match_parent">
@@ -93,18 +96,20 @@
             android:textSize="@dimen/dp20"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/subtitle_1"
+
             android:gravity="left"
-            android:text="SWAT"
+            android:text="subtitle 1"
             android:textColor="@color/white"
             tools:ignore="Suspicious0dp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/llLoginBehasilData"
+        android:id="@+id/linearRegularIkt"
         android:layout_margin="@dimen/dp8"
         android:orientation="horizontal"
-        android:layout_below="@+id/rsp"
+        android:layout_below="@+id/csubtitle_1"
         android:background="@color/white"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
@@ -140,10 +145,10 @@
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/llLoginGagalData"
+        android:id="@+id/linearRegularNoIkt"
         android:layout_margin="@dimen/dp8"
         android:orientation="horizontal"
-        android:layout_below="@+id/llLoginBehasilData"
+        android:layout_below="@+id/linearRegularIkt"
         android:background="@color/white"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
@@ -181,8 +186,8 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/category_wsp"
-        android:layout_below="@+id/llLoginGagalData"
+        android:id="@+id/ctitle_2"
+        android:layout_below="@+id/linearRegularNoIkt"
         android:background="@color/black"
         android:orientation="vertical"
         android:layout_height="wrap_content"
@@ -198,7 +203,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Wing Sales People"
+                android:id="@+id/title_2"
+                android:text="title 2"
                 android:textColor="@color/white"
                 tools:ignore="Suspicious0dp" />
         </LinearLayout>
@@ -210,7 +216,7 @@
         android:id="@+id/linear_wsp_ikt"
         android:layout_margin="@dimen/dp8"
         android:orientation="horizontal"
-        android:layout_below="@+id/category_wsp"
+        android:layout_below="@+id/ctitle_2"
         android:background="@color/white"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
@@ -295,7 +301,7 @@
 
 
     <LinearLayout
-        android:id="@+id/category_bwsp"
+        android:id="@+id/ctitle_3"
         android:layout_below="@+id/linear_wsp_noikt"
         android:background="@color/black"
         android:orientation="vertical"
@@ -312,7 +318,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Big Wing Sales People"
+                android:id="@+id/title_3"
+                android:text="title 3"
                 android:textColor="@color/white"
                 tools:ignore="Suspicious0dp" />
         </LinearLayout>
@@ -324,7 +331,7 @@
         android:id="@+id/linear_bwsp_ikt"
         android:layout_margin="@dimen/dp8"
         android:orientation="horizontal"
-        android:layout_below="@+id/category_bwsp"
+        android:layout_below="@+id/ctitle_3"
         android:background="@color/white"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
@@ -407,7 +414,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/category_sobat"
+        android:id="@+id/ctitle_4"
         android:layout_below="@+id/linear_bwsp_noikt"
         android:background="@color/black"
         android:orientation="vertical"
@@ -424,7 +431,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Sobat"
+                android:id="@+id/title_4"
+                android:text="title 4"
                 android:textColor="@color/white"
                 tools:ignore="Suspicious0dp" />
         </LinearLayout>
@@ -436,7 +444,7 @@
         android:id="@+id/linear_sobat_ikt"
         android:layout_margin="@dimen/dp8"
         android:orientation="horizontal"
-        android:layout_below="@+id/category_sobat"
+        android:layout_below="@+id/ctitle_4"
         android:background="@color/white"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">

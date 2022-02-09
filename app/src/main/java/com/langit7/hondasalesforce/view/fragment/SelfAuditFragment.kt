@@ -60,7 +60,10 @@ class SelfAuditFragment : Fragment(), BaseFragmentInterface {
             binding.h1premises.visibility = View.GONE
             binding.h1process.visibility = View.GONE
             binding.h23premises.visibility = View.GONE
+            binding.h23people.visibility = View.GONE
             binding.h23process.visibility = View.GONE
+            binding.allnos.visibility = View.GONE
+
         }
 
         intentdetailList()
@@ -117,6 +120,16 @@ class SelfAuditFragment : Fragment(), BaseFragmentInterface {
         binding.ck5.setOnCheckedChangeListener { _, isChecked ->
             Log.d("checkbox", "checked: $isChecked")
             goToPeserta("5", "H23 People")
+        }
+
+        binding.ck6.setOnCheckedChangeListener { _, isChecked ->
+            Log.d("checkbox", "checked: $isChecked")
+            goToPeserta("6", "H23 Process")
+        }
+
+        binding.ck7.setOnCheckedChangeListener { _, isChecked ->
+            Log.d("checkbox", "checked: $isChecked")
+            goToPeserta("7", "Audit All Nos ")
         }
     }
     fun goToPeserta(index: String, title : String

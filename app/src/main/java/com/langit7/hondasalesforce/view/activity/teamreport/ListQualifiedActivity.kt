@@ -28,7 +28,6 @@ class ListQualifiedActivity : BaseActivity() {
     private lateinit var binding: ActivityListQualifiedBinding
 
 
-
     var category = ""
     var semester = ""
     var year = ""
@@ -36,9 +35,6 @@ class ListQualifiedActivity : BaseActivity() {
 
     var date = ""
     var dataTemp = ArrayList<ListParticipantQualified>()
-
-
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

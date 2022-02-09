@@ -90,6 +90,7 @@
     </LinearLayout>
     <LinearLayout
         android:id="@+id/llNOSBulan1"
+        android:visibility="gone"
         android:padding="@dimen/dp8"
         android:orientation="horizontal"
         android:gravity="center_vertical"
@@ -218,6 +219,7 @@
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
+        android:visibility="gone"
         android:id="@+id/llNOSBulan2"
         android:padding="@dimen/dp8"
         android:orientation="horizontal"
@@ -345,59 +347,68 @@
                 android:src="@drawable/cv_right"/>
         </LinearLayout>
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/llNOSBulan3"
-        android:padding="@dimen/dp8"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
+        android:visibility="gone"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/llPKBulan3"
         android:background="@color/white"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp8">
+
         <LinearLayout
-            android:layout_weight="5"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_width="0dp">
+            android:layout_weight="5"
+            android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/tv_titleNOS3"
-                    android:textSize="@dimen/dp20"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="left"
                     android:text=""
                     android:textColor="@color/black"
+                    android:textSize="@dimen/dp20"
                     tools:ignore="Suspicious0dp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/tvNOSTanggalBulan3"
-                    android:textSize="@dimen/dp12"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="left"
                     android:text=""
                     android:textColor="@color/black"
+                    android:textSize="@dimen/dp12"
                     tools:ignore="Suspicious0dp" />
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
-            android:gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
             android:layout_gravity="right"
             android:layout_weight="1"
-            android:layout_height="fill_parent"
-            android:layout_width="0dp">
+            android:gravity="center_vertical">
+
             <ImageView
                 android:layout_width="@dimen/dp80"
                 android:layout_height="@dimen/dp30"
-                android:src="@drawable/cv_right"/>
+                android:src="@drawable/cv_right" />
         </LinearLayout>
     </LinearLayout>
 

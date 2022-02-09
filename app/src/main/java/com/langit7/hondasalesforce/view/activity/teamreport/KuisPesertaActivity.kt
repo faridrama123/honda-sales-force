@@ -35,6 +35,7 @@ class KuisPesertaActivity : BaseActivity() {
     var page = 1;
     var isScore = 1;
     var isDesc = 1;
+    var kuisVerifikasiSemester = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +47,7 @@ class KuisPesertaActivity : BaseActivity() {
         year = intent.getStringExtra("year").toString()
         is_participant = intent.getStringExtra("is_participant").toString()
         isScore = intent.getIntExtra("isScore", 0)
+        kuisVerifikasiSemester = intent.getIntExtra("semester", 0)
 
         if(isScore == 1){
             headerScore.visibility = View.VISIBLE
@@ -60,6 +62,11 @@ class KuisPesertaActivity : BaseActivity() {
         }
         headerScore.setOnClickListener {
             sortBy()
+        }
+
+        sortasc.setOnClickListener {
+            sortBy()
+
         }
 
         presenter= MainPresenter(this,APIServices)
@@ -90,19 +97,36 @@ class KuisPesertaActivity : BaseActivity() {
         val usr= function.getUser(this)
         val mainDealer = usr!!.profileUser.dealer.mainDealer
 
-        presenter.getPartisipant("1", totalPerPage, page, mainDealer, category, month, year, category_position, is_participant,
-            object : ObjectResponseInterface<baseresponse<List<partisipant>>> {
-            @SuppressLint("NotifyDataSetChanged")
-            override fun onSuccess(res: baseresponse<List<partisipant>>) {
-                dismisLoadingDialog()
-                dataTemp = res.data as ArrayList<partisipant>
-                sortBy()
-            }
-            override fun onFailed(msg: String) {
-                dismisLoadingDialog()
-                Toast(msg)
-            }
-        })
+        if (category=="3")
+        {
+            presenter.getPartisipantQuizVerifikasi("1", totalPerPage, page, mainDealer, category, month, year, category_position, is_participant,kuisVerifikasiSemester,
+                object : ObjectResponseInterface<baseresponse<List<partisipant>>> {
+                @SuppressLint("NotifyDataSetChanged")
+                override fun onSuccess(res: baseresponse<List<partisipant>>) {
+                    dismisLoadingDialog()
+                    dataTemp = res.data as ArrayList<partisipant>
+                    sortBy()
+                }
+                override fun onFailed(msg: String) {
+                    dismisLoadingDialog()
+                    Toast(msg)
+                }
+            })
+        }else {
+            presenter.getPartisipant("1", totalPerPage, page, mainDealer, category, month, year, category_position, is_participant,
+                object : ObjectResponseInterface<baseresponse<List<partisipant>>> {
+                    @SuppressLint("NotifyDataSetChanged")
+                    override fun onSuccess(res: baseresponse<List<partisipant>>) {
+                        dismisLoadingDialog()
+                        dataTemp = res.data as ArrayList<partisipant>
+                        sortBy()
+                    }
+                    override fun onFailed(msg: String) {
+                        dismisLoadingDialog()
+                        Toast(msg)
+                    }
+                })
+        }
 
         adp= AdapterPartisipanKuis(isScore, lsPartisipant,ctx)
         recycler_view.layoutManager=LinearLayoutManager(ctx)

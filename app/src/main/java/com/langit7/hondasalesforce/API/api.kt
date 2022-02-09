@@ -44,6 +44,21 @@ interface api {
     ): Observable<baseresponse<List<partisipant>>>
 
     @GET("list-participant-quiz/")
+    fun getPartisipantQuizVerifikasi(
+        @Query("xs") xs: String,
+        @Query("nitems") nitems: Int,
+        @Query("page") page: Int,
+        @Query("main_dealer") main_dealer: String,
+        @Query("category") category: String,
+        @Query("month") month: String,
+        @Query("year") year: String,
+        @Query("category_position") category_position: String,
+        @Query("is_participant") is_participant: String,
+        @Query("semester") semester: Int,
+
+        ): Observable<baseresponse<List<partisipant>>>
+
+    @GET("list-participant-quiz/")
     fun getPartisipantQuizAndMonitor(
         @Query("xs") xs: String,
         @Query("nitems") nitems: Int,
@@ -54,7 +69,9 @@ interface api {
         @Query("year") year: String,
         @Query("category_position") category_position: String,
         @Query("is_participant") is_participant: String,
-    ): Observable<baseresponse<List<PartisipantQuiz>>>
+        @Query("semester") semester: String ,
+
+        ): Observable<baseresponse<List<PartisipantQuiz>>>
 
 
     @GET("list-participant-qualified/")
@@ -76,8 +93,11 @@ interface api {
         @Query("category") category: String,
         @Query("month") month: String,
         @Query("year") year: String,
+        @Query("semester") semester: String,
 
     ): Observable<baseresponse<PartisipantDetail>>
+
+
 
     @GET("list-frequent-user/")
     fun getFrequentUser(

@@ -32,6 +32,7 @@ class PartisipantDetailActivity : BaseActivity() {
     var title = ""
     private lateinit var binding: ActivityPartisipantDetailBinding
     lateinit var presenter: MainPresenter
+    var kuisVerifikasiSemester = ""
 
 
 
@@ -50,15 +51,20 @@ class PartisipantDetailActivity : BaseActivity() {
         month = intent.getStringExtra("month").toString()
         year = intent.getStringExtra("year").toString()
 
-
-
-
-        if ( category=="3") {
-            binding.categorySobat.visibility = View.GONE
-            binding.linearSobatIkt    .visibility = View.GONE
-            binding.linearSobatNoikt.visibility = View.GONE
-
+        if (category == "3") {
+            kuisVerifikasiSemester = intent.getStringExtra("semester").toString()
+            month = ""
         }
+
+
+
+
+//        if ( category=="3") {
+//            binding.categorySobat.visibility = View.GONE
+//            binding.linearSobatIkt    .visibility = View.GONE
+//            binding.linearSobatNoikt.visibility = View.GONE
+//
+//        }
 
         Log.d(" month adalah : ", month.toString())
         Log.d(" year adalah : ", year.toString())
@@ -130,6 +136,8 @@ class PartisipantDetailActivity : BaseActivity() {
         ii.putExtra("title", "Partisipant Kuis")
         ii.putExtra("is_participant", is_participant)
         ii.putExtra("isScore", 0)
+        ii.putExtra("semester", kuisVerifikasiSemester)
+
         this.startActivity(ii)
     }
 
@@ -149,13 +157,52 @@ class PartisipantDetailActivity : BaseActivity() {
 
 
 
-        presenter.getPartisipantDetail("1", mainDealer, category, month, year,
+        presenter.getPartisipantDetail("1", mainDealer, category, month, year, kuisVerifikasiSemester,
             object : ObjectResponseInterface<baseresponse<PartisipantDetail>> {
                 @SuppressLint("NotifyDataSetChanged")
                 override fun onSuccess(res: baseresponse<PartisipantDetail>) {
                     dismisLoadingDialog()
 
                     var dataTemp = res.data as PartisipantDetail
+
+
+
+                    if ( dataTemp?.descIsShowRegular == "No") {
+                            binding.ctitle1.visibility = View.GONE
+                            binding.csubtitle1.visibility = View.GONE
+                            binding.linearRegularIkt    .visibility = View.GONE
+                            binding.linearRegularNoIkt.visibility = View.GONE
+                    }
+
+                    if ( dataTemp?.descIsShowWsp.toString() == "No") {
+                        binding.ctitle2.visibility = View.GONE
+                        binding.linearWspIkt.visibility = View.GONE
+                        binding.linearWspNoikt.visibility = View.GONE
+                    }
+
+                    if ( dataTemp?.descIsShowBwsp.toString() == "No") {
+                        binding.ctitle3.visibility = View.GONE
+                        binding.linearBwspIkt    .visibility = View.GONE
+                        binding.linearBwspNoikt.visibility = View.GONE
+                    }
+                    if ( dataTemp?.descIsShowSobat.toString() == "No") {
+                        binding.ctitle4.visibility = View.GONE
+                        binding.linearSobatIkt    .visibility = View.GONE
+                        binding.linearSobatNoikt.visibility = View.GONE
+                    }
+
+
+
+
+                    binding.title1.text = dataTemp?.labelRegular.toString()
+                    binding.subtitle1.text = dataTemp?.labelRegularSecond  .toString()
+
+
+                    binding.title2.text = dataTemp?.labelWsp.toString()
+                    binding.title3.text = dataTemp?.labelBwsp.toString()
+                    binding.title4.text = dataTemp?.labelSobat.toString()
+
+
 
 
 

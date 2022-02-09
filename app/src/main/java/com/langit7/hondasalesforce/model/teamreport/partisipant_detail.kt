@@ -16,6 +16,22 @@ data class PartisipantDetail (
     @SerializedName("total_participant_bwsp"        ) var totalParticipantBwsp       : Int?    = null,
     @SerializedName("total_non_participant_bwsp"    ) var totalNonParticipantBwsp    : Int?    = null,
     @SerializedName("total_participant_sobat"       ) var totalParticipantSobat      : Int?    = null,
-    @SerializedName("total_non_participant_sobat"   ) var totalNonParticipantSobat   : Int?    = null
+    @SerializedName("total_non_participant_sobat"   ) var totalNonParticipantSobat   : Int?    = null,
+    @SerializedName("label_regular"                 ) var labelRegular               : String? = null,
+    @SerializedName("label_regular_second"          ) var labelRegularSecond         : String? = null,
+    @SerializedName("label_wsp"                     ) var labelWsp                   : String? = null,
+    @SerializedName("label_wsp_second"              ) var labelWspSecond             : String? = null,
+    @SerializedName("label_bwsp"                    ) var labelBwsp                  : String? = null,
+    @SerializedName("label_bwsp_second"             ) var labelBwspSecond            : String? = null,
+    @SerializedName("label_sobat"                   ) var labelSobat                 : String? = null,
+    @SerializedName("label_sobat_second"            ) var labelSobatSecond           : String? = null,
+    @SerializedName("is_show_regular"               ) var isShowRegular              : String? = null,
+    @SerializedName("desc_is_show_regular"          ) var descIsShowRegular          : String? = null,
+    @SerializedName("is_show_wsp"                   ) var isShowWsp                  : String? = null,
+    @SerializedName("desc_is_show_wsp"              ) var descIsShowWsp              : String? = null,
+    @SerializedName("is_show_bwsp"                  ) var isShowBwsp                 : String? = null,
+    @SerializedName("desc_is_show_bwsp"             ) var descIsShowBwsp             : String? = null,
+    @SerializedName("is_show_sobat"                 ) var isShowSobat                : String? = null,
+    @SerializedName("desc_is_show_sobat"            ) var descIsShowSobat            : String? = null
 
 )

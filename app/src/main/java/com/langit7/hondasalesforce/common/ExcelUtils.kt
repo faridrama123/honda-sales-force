@@ -67,6 +67,8 @@ object ExcelUtils {
         option2 : String,
         option3 : String,
         option4 : String,
+        resultPercent : String,
+        mandatoryItem : String
 
 
         ): Boolean {
@@ -97,7 +99,7 @@ object ExcelUtils {
 
 
         setHeaderRow(title, option1,  option2 , option3,option4 )
-        fillDataIntoExcel(dataList)
+        fillDataIntoExcel(dataList, resultPercent, mandatoryItem)
         isWorkbookWrittenIntoStorage = storeExcelInStorage(context, fileName)
         return isWorkbookWrittenIntoStorage
     }
@@ -189,7 +191,8 @@ object ExcelUtils {
      *
      * @param dataList - List containing data to be filled into excel
      */
-    private fun fillDataIntoExcel(dataList: List<NosAudit>) {
+
+    private fun fillDataIntoExcel(dataList: List<NosAudit> , resultPercent : String, mandatoryItem : String ) {
         for (i in dataList.indices) {
             // Create a New Row for every new entry in list
             val rowData = sheet!!.createRow(i + 1)
@@ -244,10 +247,25 @@ object ExcelUtils {
                 cell?.setCellStyle(dataCellStyle)
 
             }
-
-
-
         }
+
+        val resultsRow = sheet!!.createRow(dataList.size + 1)
+        cell = resultsRow.createCell(0)
+        cell?.setCellValue("%Results")
+        cell?.setCellStyle(headerCellStyle)
+
+        cell = resultsRow.createCell(3)
+        cell?.setCellValue(resultPercent)
+        cell?.setCellStyle(headerCellStyle)
+
+        val mandatoryRow = sheet!!.createRow(dataList.size + 2)
+        cell = mandatoryRow.createCell(0)
+        cell?.setCellValue("Result Audit ")
+        cell?.setCellStyle(headerCellStyle)
+
+        cell = mandatoryRow.createCell(3)
+        cell?.setCellValue(mandatoryItem)
+        cell?.setCellStyle(headerCellStyle)
     }
 
     /**

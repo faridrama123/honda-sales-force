@@ -5,6 +5,8 @@ import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import com.glide.slider.library.SliderTypes.DefaultSliderView
 import com.langit7.hondasalesforce.R
 import com.langit7.hondasalesforce.Util.function
@@ -49,6 +51,17 @@ import java.util.*
 class KuisActivity : BaseActivity() {
     lateinit var presenter: MainPresenter
     var listData = ArrayList<quizawal>()
+    var kuisVerifikasiSemester = 0
+    var kuisVerifikasiTahun = ""
+
+
+    var category1Month = ""
+    var category1Year = ""
+    var category2Month = ""
+    var category2Year = ""
+    var category3Month = ""
+    var category3Year = ""
+
 
     @SuppressLint("SimpleDateFormat", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,53 +72,62 @@ class KuisActivity : BaseActivity() {
             onBackPressed()
         }
 
-        val txtBulan1 = calendarData(-2)
-        val txtBulan2 = calendarData(-1)
-        val txtBulan3 = calendarData(0)
+        //-1
+        //-2
+        //-3
+        val txtBulan1 = calendarData(-1)
+        val txtBulan2 = calendarData(-2)
+        val txtBulan3 = calendarData(-3)
+
+        Log.d("", txtBulan1);
+        Log.d("", txtBulan2);
+        Log.d("", txtBulan3);
+
+
 
         llPKBulan1.setOnClickListener {
             val monthyear = txtBulan1.split(" ").toTypedArray()
             val month = monthyear[0].substring(0,3)
             val year = monthyear[1]
-            goToPeserta("1","", month, year, "1")
+            goToPeserta("1","", category1Month, category1Year, "1")
         }
         llPKBulan2.setOnClickListener {
             val monthyear = txtBulan2.split(" ").toTypedArray()
             val month = monthyear[0].substring(0,3)
             val year = monthyear[1]
-            goToPeserta("1","", month, year, "1")
+            goToPeserta("1","", category2Month, category2Year, "1")
         }
         llPKBulan3.setOnClickListener {
             val monthyear = txtBulan3.split(" ").toTypedArray()
             val month = monthyear[0].substring(0,3)
             val year = monthyear[1]
-            goToPeserta("1","", month, year, "1")
+            goToPeserta("1","", category3Month, category3Year, "1")
         }
 
         llNOSBulan1.setOnClickListener {
             val monthyear = txtBulan1.split(" ").toTypedArray()
             val month = monthyear[0].substring(0,3)
             val year = monthyear[1]
-            goToPeserta("2","", month, year, "1")
+            goToPeserta("2","", category1Month, category1Year, "1")
         }
         llNOSBulan2.setOnClickListener {
             val monthyear = txtBulan2.split(" ").toTypedArray()
             val month = monthyear[0].substring(0,3)
             val year = monthyear[1]
-            goToPeserta("2","", month, year, "1")
+            goToPeserta("2","", category2Month, category2Year, "1")
         }
         llNOSBulan3.setOnClickListener {
             val monthyear = txtBulan3.split(" ").toTypedArray()
             val month = monthyear[0].substring(0,3)
             val year = monthyear[1]
-            goToPeserta("2","", month, year, "1")
+            goToPeserta("2","", category3Month, category3Year, "1")
         }
 
         llPKVerifikasi.setOnClickListener {
             val monthyear = txtBulan1.split(" ").toTypedArray()
             val month = monthyear[0].substring(0,3)
             val year = monthyear[1]
-            goToPeserta("3","", month, year, "1")
+            goToPeserta("3","", "" , kuisVerifikasiTahun, "1")
         }
         presenter = MainPresenter(this, APIServices)
 
@@ -125,6 +147,8 @@ class KuisActivity : BaseActivity() {
                 for (i in 0 until listData.size) {
                     val title = listData[i].title;
                     val semester = listData[i].semester;
+                    val tahun = listData[i].year
+
                     when (i) {
                         0 -> {
                             tvBulan1.text = title
@@ -142,7 +166,9 @@ class KuisActivity : BaseActivity() {
                             listPKNOS(quizs, 3)
                         }
                         3 -> {
-                            tvSemesterVerifikasi.text = "Semester " + semester
+                            tvSemesterVerifikasi.text = "Semester " + semester  + " " + tahun
+                            kuisVerifikasiSemester = semester.toInt()
+                            kuisVerifikasiTahun = tahun
                         }
 
                     }
@@ -164,14 +190,23 @@ class KuisActivity : BaseActivity() {
                     1 -> {
                         tv_titlePK1.text = quizName
                         tvPKTanggalBulan1.text = desc;
+                        var x = data.get(i).startDate
+                        category1Month =  x.substring(3,6)
+                        category1Year = x.substring(x.length-4,x.length)
                     }
                     2 -> {
                         tv_titlePK2.text = quizName
                         tvPKTanggalBulan2.text = desc;
+                        var x = data.get(i).startDate
+                        category2Month =  x.substring(3,6)
+                        category2Year = x.substring(x.length-4,x.length)
                     }
                     3 -> {
                         tv_titlePK3.text = quizName
                         tvPKTanggalBulan3.text = desc;
+                        var x = data.get(i).startDate
+                        category3Month =  x.substring(3,6)
+                        category3Year = x.substring(x.length-4,x.length)
                     }
                 }
             }else{
@@ -179,14 +214,26 @@ class KuisActivity : BaseActivity() {
                     1 -> {
                         tv_titleNOS1.text = quizName
                         tvNOSTanggalBulan1.text = desc;
+                            llNOSBulan1.visibility = View.VISIBLE
+
+
+
                     }
                     2 -> {
                         tv_titleNOS2.text = quizName
                         tvNOSTanggalBulan2.text = desc;
+
+                            llNOSBulan2.visibility = View.VISIBLE
+
+
                     }
                     3 -> {
                         tv_titleNOS3.text = quizName
                         tvNOSTanggalBulan3.text = desc;
+
+                        llNOSBulan3.visibility = View.VISIBLE
+
+
                     }
                 }
             }
@@ -221,6 +268,8 @@ class KuisActivity : BaseActivity() {
         ii.putExtra("is_participant", is_participant)
         ii.putExtra("title", "Mengikuti Kuis")
         ii.putExtra("isScore", 1)
+        ii.putExtra("semester", kuisVerifikasiSemester)
+
         this.startActivity(ii)
     }
 

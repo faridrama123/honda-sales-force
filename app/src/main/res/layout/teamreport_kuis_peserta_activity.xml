@@ -6,7 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.activity.teamreport.KuisPesertaActivity">
-    <include layout="@layout/action_bar" android:id="@+id/bar"/>
+
+    <include
+        android:id="@+id/bar"
+        layout="@layout/action_bar" />
     <LinearLayout
         android:layout_below="@+id/bar"
         android:orientation="vertical"
@@ -27,7 +30,7 @@
                 android:textSize="@dimen/dp18"
                 android:textColor="@color/black"/>
             <TextView
-                android:layout_weight="8"
+                android:layout_weight="7"
                 android:layout_width="0dp"
                 android:gravity="center"
                 android:layout_height="wrap_content"
@@ -36,7 +39,7 @@
                 android:textColor="@color/black"/>
             <TextView
                 android:id="@+id/headerScore"
-                android:layout_weight="2"
+                android:layout_weight="3"
                 android:layout_width="0dp"
                 android:gravity="center"
                 android:layout_height="wrap_content"
@@ -44,6 +47,22 @@
                 android:text="SCORE"
                 android:textSize="@dimen/dp18"
                 android:textColor="@color/black"/>
+
+            <ImageView
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginRight="@dimen/dp12"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_marginBottom="@dimen/dp5"
+
+
+                android:id="@+id/sortasc"
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp25"
+                android:background="@drawable/descending"
+
+                >
+
+            </ImageView>
         </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
@@ -57,7 +76,7 @@
         android:layout_below="@+id/bar"
         android:id="@+id/tnodate"
         android:textSize="@dimen/dp20"
-        android:layout_marginTop="@dimen/dp20"
+        android:layout_marginTop="@dimen/dp50"
         android:layout_centerHorizontal="true"
         android:text="Belum ada untuk saat ini"
         android:layout_width="wrap_content" android:layout_height="wrap_content"/>

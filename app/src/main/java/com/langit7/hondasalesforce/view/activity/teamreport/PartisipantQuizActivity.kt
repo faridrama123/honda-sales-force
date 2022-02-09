@@ -32,6 +32,7 @@ class PartisipantQuizActivity : BaseActivity() {
     var year = ""
     var title = ""
     var is_participant = ""
+    var kuisVerifikasiSemester = ""
 
 
 
@@ -59,6 +60,8 @@ class PartisipantQuizActivity : BaseActivity() {
         mainDealer = intent.getStringExtra("mainDealer").toString()
         presenter= MainPresenter(this,APIServices)
 
+        kuisVerifikasiSemester = intent.getStringExtra("semester").toString()
+
 
 
 
@@ -84,7 +87,7 @@ class PartisipantQuizActivity : BaseActivity() {
 
 
         presenter.getPartisipantQuizAndMonitor("1", 1000, 1, mainDealer,category, month, year, category_position,
-            is_participant,
+            is_participant, kuisVerifikasiSemester,
             object : ObjectResponseInterface<baseresponse<List<PartisipantQuiz>>> {
                 @SuppressLint("NotifyDataSetChanged")
                 override fun onSuccess(res: baseresponse<List<PartisipantQuiz>>) {

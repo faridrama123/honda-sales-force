@@ -44,6 +44,9 @@ class AdapterQualifiedUsr : RecyclerView.Adapter<AdapterQualifiedUsr.ViewHolder>
                 binding.nosstatusNilai.text = items.avgScoreNos.toString()
 
 
+                binding.verifikasiNilai.text = items.totalScoreSurvey.toString()
+
+
 
                 var pkStatus = ""
                 if (items.avgScoreProductKnowledge!! >= 70){

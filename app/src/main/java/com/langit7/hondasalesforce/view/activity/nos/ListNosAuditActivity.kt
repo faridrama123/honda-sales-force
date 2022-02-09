@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ShareCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.langit7.hondasalesforce.R
@@ -36,17 +37,16 @@ class ListNosAuditActivity : BaseActivity() {
     var option2 = 0
     var option3 = 0
     var option4 = 0
+    var total = 0
 
     var index = ""
     var judul = ""
-
-
-
-
+    var mandatoryItemValue = ""
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_nos_audit)
 
@@ -69,39 +69,52 @@ class ListNosAuditActivity : BaseActivity() {
         // submit data, and get results
         binding.submit   .setOnClickListener {
 
+            // showAlertDialog()
+
+            Log.d("index", index.toString())
+
             // reset answer
              option1 = 0
              option2 = 0
              option3 = 0
              option4 = 0
+             total = 0
 
             var data : ArrayList<NosAudit> =  AdapterListNosAudit.getData()
 
-//                            data.forEachIndexed {
-//                                    index, e ->
-//
-//                                if(e.answer == 1){
-//                                    option1++
-//                                }
-//                                if(e.answer == 2){
-//                                    option2++
-//                                }
-//                                if(e.answer == 3){
-//                                    option3++
-//                                }
-//
-//                                if(e.answer == 4){
-//                                    option4++
-//                                }
-//                            }
+                            data.forEachIndexed {
+                                    index, e ->
+
+                                    total++
+
+                                Log.d(total.toString(), e.answer.toString())
 
 
-         // export data to excel
-            if(index=="1")   initiateExport(data, "H1 Premises", "Exist, Good", "Exist, Not Good", "Not Exist", "N/A")
-            if(index=="2")   initiateExport(data, "H1 People", "Exist, Done", "Exist, Not Done", "Not Exist", "N/A")
-            if(index=="3")   initiateExport(data, "H1 Process", "Exist, Done", "Exist, Not Done", "Not Exist", "N/A")
-            if(index=="4")   initiateExport(data, "H23 Premises", "Exist, Done", "Exist, Not Done", "Not Exist", "N/A")
-            if(index=="5")   initiateExport(data, "H23 Process", "Exist, Done", "Exist, Not Done", "Not Exist", "N/A")
+                                if(e.answer == 1){
+                                    option1++
+                                }
+                                if(e.answer == 2){
+                                    option2++
+                                }
+                                if(e.answer == 3){
+                                    option3++
+                                }
+
+                                if(e.answer == 4){
+                                    option4++
+                                }
+                            }
+
+
+            var totalAnswer = option1
+            val totalResult = ( totalAnswer.toDouble() / total ) * 100
+
+            Log.d("totalAnswer", totalAnswer.toString())
+            Log.d("total", total.toString())
+            Log.d("totalResult", totalResult.toString())
+
+
+
             //
             binding.rv.visibility = View.GONE
             binding.submit.visibility = View.GONE
@@ -109,214 +122,164 @@ class ListNosAuditActivity : BaseActivity() {
 
 
             // h1 premises
-            if(index=="1") {
-
-              //  binding.img.setBackgroundResource(R.drawable.silver)
-                if(data[6-2].answer ==1 || data[6-2].answer ==4 &&
-                    data[7-2].answer ==1 || data[7-2].answer ==4 &&
-                    data[40-2].answer ==1  &&
-                    data[41-2].answer ==1  &&
-                    data[42-2].answer ==1  &&
-                    data[43-2].answer ==1  &&
-                    data[44-2].answer ==1  &&
-                    data[45-2].answer ==1  &&
-                    data[48-2].answer ==1 || data[48-2].answer ==4  &&
-                    data[49-2].answer ==1 || data[49-2].answer ==4  &&
-                    data[52-2].answer ==1 &&
-                    data[57-2].answer ==1 || data[57-2].answer ==4  &&
-                    data[65-2].answer ==1 || data[65-2].answer ==4  &&
-                    data[103-2].answer ==1
-                        ){
-
-                      binding.img.setBackgroundResource(R.drawable.platinum)
-                    Log.d("", "Platinum")
-                }
-                else if (data[6-2].answer ==1 || data[6-2].answer ==4 &&
-                    data[7-2].answer ==1 || data[7-2].answer ==4 &&
-                    data[40-2].answer ==1  &&
-                    data[41-2].answer ==1  &&
-                    data[42-2].answer ==1  &&
-                    data[43-2].answer ==1  &&
-                    data[44-2].answer ==1  &&
-                    data[45-2].answer ==1  &&
-                    data[48-2].answer ==1 || data[48-2].answer ==4  &&
-                    data[49-2].answer ==1 || data[49-2].answer ==4  &&
-                    data[52-2].answer ==1 &&
-                    data[103-2].answer ==1)
-                {
-
-                    binding.img.setBackgroundResource(R.drawable.gold)
-                    Log.d("", "Gold")
-
-                }
-                else if (
-                    data[40-2].answer ==1  &&
-                    data[41-2].answer ==1  &&
-                    data[42-2].answer ==1  &&
-                    data[43-2].answer ==1  &&
-
-                    data[52-2].answer ==1 &&
-
-                    data[103-2].answer ==1)
-                {
-                    binding.img.setBackgroundResource(R.drawable.silver)
-                    Log.d("", "Silver")
-
-                }
-                else
-                {
-                    binding.img.setBackgroundResource(R.drawable.bronze)
-                    Log.d("", "Bronze")
-
-                }
-            }
+//            if(index=="1") {
+//
+//                Log.d("h1 premises", index.toString())
+//
+//                //  binding.img.setBackgroundResource(R.drawable.silver)
+//                if( ( data[6-2].answer ==1 || data[6-2].answer ==4 ) &&
+//                    ( data[7-2].answer ==1 || data[7-2].answer ==4 ) &&
+//                    data[40-2].answer ==1  &&
+//                    data[41-2].answer ==1  &&
+//                    data[42-2].answer ==1  &&
+//                    data[43-2].answer ==1  &&
+//                    data[44-2].answer ==1  &&
+//                    data[45-2].answer ==1  &&
+//                    ( data[48-2].answer ==1 || data[48-2].answer ==4  ) &&
+//                    (  data[49-2].answer ==1 || data[49-2].answer ==4 ) &&
+//                    data[52-2].answer ==1 &&
+//                    ( data[57-2].answer ==1 || data[57-2].answer ==4 ) &&
+//                    ( data[65-2].answer ==1 || data[65-2].answer ==4 )  &&
+//                    data[103-2].answer ==1
+//                        ){
+//
+//                      binding.img.setBackgroundResource(R.drawable.platinum)
+//                    mandatoryItemValue = "Platinum"
+//                    Log.d("", "Platinum")
+//                }
+//                else if (
+//
+//                    ( data[6-2].answer ==1 || data[6-2].answer ==4 ) &&
+//                    ( data[7-2].answer ==1 || data[7-2].answer ==4 ) &&
+//                    data[40-2].answer ==1  &&
+//                    data[41-2].answer ==1  &&
+//                    data[42-2].answer ==1  &&
+//                    data[43-2].answer ==1  &&
+//                    data[44-2].answer ==1  &&
+//                    data[45-2].answer ==1  &&
+//                    ( data[48-2].answer ==1 || data[48-2].answer ==4 ) &&
+//                    ( data[49-2].answer ==1 || data[49-2].answer ==4 ) &&
+//                    data[52-2].answer ==1 &&
+//                    data[103-2].answer ==1)
+//                {
+//
+//                    binding.img.setBackgroundResource(R.drawable.gold)
+//                    mandatoryItemValue = "Gold"
+//
+//                    Log.d("", "Gold")
+//
+//                }
+//                else if (
+//                    data[40-2].answer ==1  &&
+//                    data[41-2].answer ==1  &&
+//                    data[42-2].answer ==1  &&
+//                    data[43-2].answer ==1  &&
+//                    data[52-2].answer ==1 &&
+//
+//                    data[103-2].answer ==1)
+//                {
+//                    binding.img.setBackgroundResource(R.drawable.silver)
+//                    mandatoryItemValue = "Silver"
+//
+//                    Log.d("", "Silver")
+//
+//                }
+//                else
+//                {
+//                    binding.img.setBackgroundResource(R.drawable.bronze)
+//                    mandatoryItemValue = "Bronze"
+//
+//                    Log.d("", "Bronze")
+//
+//                }
+//            }
 
             // h1 people
-            if(index=="2") {
-
-                if(
-                    data[2-2].answer ==1 &&
-                    data[11-2].answer ==1 || data[11-2].answer ==4  &&
-                    data[20-2].answer ==1 || data[11-2].answer ==4  &&
-                    data[100-2].answer ==1   &&
-                    data[128-2].answer ==1
-                ){
-                    binding.img.setBackgroundResource(R.drawable.platinum)
-                    Log.d("", "Platinum")
-                }
-                else if (
-                    data[2-2].answer ==1 &&
-                    data[20-2].answer ==1 || data[11-2].answer ==4  &&
-                    data[100-2].answer ==1   &&
-                    data[128-2].answer ==1
-
-                )
-
-                {
-
-                    binding.img.setBackgroundResource(R.drawable.gold)
-                    Log.d("", "Gold")
-
-                }
-                else if (
-                    data[2-2].answer ==1 &&
-
-                    data[128-2].answer ==1)
-                {
-                    binding.img.setBackgroundResource(R.drawable.silver)
-                    Log.d("", "Silver")
-
-                }
-                else
-                {
-                    binding.img.setBackgroundResource(R.drawable.bronze)
-                    Log.d("", "Bronze")
-
-                }
-            }
+//            if(index=="2") {
+//                Log.d("h1 people", index.toString())
+//
+//                if(
+//                    data[2-2].answer ==1 &&
+//                    ( data[11-2].answer ==1 || data[11-2].answer ==4 )  &&
+//                    (  data[20-2].answer ==1 || data[11-2].answer ==4 ) &&
+//                    data[100-2].answer ==1   &&
+//                    data[128-2].answer ==1
+//                ){
+//                    binding.img.setBackgroundResource(R.drawable.platinum)
+//                    mandatoryItemValue = "Platinum"
+//
+//                    Log.d("", "Platinum")
+//                }
+//                else if (
+//                    data[2-2].answer ==1 &&
+//                    (  data[20-2].answer ==1 || data[11-2].answer ==4 )  &&
+//                    data[100-2].answer ==1   &&
+//                    data[128-2].answer ==1
+//
+//                )
+//
+//                {
+//
+//                    binding.img.setBackgroundResource(R.drawable.gold)
+//                    mandatoryItemValue = "Gold"
+//
+//                    Log.d("", "Gold")
+//
+//                }
+//                else if (
+//                    data[2-2].answer ==1 &&
+//
+//                    data[128-2].answer ==1)
+//                {
+//                    binding.img.setBackgroundResource(R.drawable.silver)
+//                    Log.d("", "Silver")
+//                    mandatoryItemValue = "Silver"
+//
+//
+//                }
+//                else
+//                {
+//                    binding.img.setBackgroundResource(R.drawable.bronze)
+//                    Log.d("", "Bronze")
+//                    mandatoryItemValue = "Bronze"
+//
+//
+//                }
+//            }
 
 
 
             // h1 process
-            if(index=="3") {
-
-                if(
-                    data[44-2].answer ==1 &&
-                    data[54-2].answer ==1 &&
-                    data[55-2].answer ==1 &&
-
-                    data[57-2].answer ==1 &&
-                    data[62-2].answer ==1 &&
-                    data[63-2].answer ==1 &&
-                    data[79-2].answer ==1 &&
-                    data[80-2].answer ==1
-
-                ){
-                    binding.img.setBackgroundResource(R.drawable.platinum)
-                    Log.d("", "Platinum")
-                }
-                else if (
-                    data[54-2].answer ==1 &&
-                    data[55-2].answer ==1 &&
-
-                    data[57-2].answer ==1 &&
-                    data[62-2].answer ==1 &&
-                    data[63-2].answer ==1
-
-
-                )
-
-                {
-
-                    binding.img.setBackgroundResource(R.drawable.gold)
-                    Log.d("", "Gold")
-
-                }
-                else if (
-                    data[54-2].answer ==1 &&
-                    data[55-2].answer ==1 &&
-
-                    data[57-2].answer ==1
-                )
-                {
-                    binding.img.setBackgroundResource(R.drawable.silver)
-                    Log.d("", "Silver")
-
-                }
-                else
-                {
-                    binding.img.setBackgroundResource(R.drawable.bronze)
-                    Log.d("", "Bronze")
-
-                }
-            }
-
-
-            // h23 premesis
-            if(index=="4") {
-
-                if(
-                    data[2].answer ==1 || data[2].answer == 4
-
-                ){
-                    binding.img.setBackgroundResource(R.drawable.platinum)
-                    Log.d("", "Platinum")
-                }
-                else if (
-                    data[2].answer ==1 || data[2].answer == 4
-
-                )
-
-                {
-
-                    binding.img.setBackgroundResource(R.drawable.gold)
-                    Log.d("", "Gold")
-
-                }
-
-                else
-                {
-                    binding.img.setBackgroundResource(R.drawable.bronze)
-                    Log.d("", "Bronze")
-
-                }
-            }
-
-
-            //premesis
-            if(index=="5") {
-
-                binding.img.setBackgroundResource(R.drawable.platinum)
-                Log.d("", "Platinum")
+//            if(index=="3") {
+//
+//                Log.d("h1 process", index.toString())
+//
+//
 //                if(
-//                    data[2].answer ==1 || data[2].answer == 4
+//                    data[44-2].answer ==1 &&
+//                    data[54-2].answer ==1 &&
+//                    data[55-2].answer ==1 &&
+//
+//                    data[57-2].answer ==1 &&
+//                    data[62-2].answer ==1 &&
+//                    data[63-2].answer ==1 &&
+//                    data[79-2].answer ==1 &&
+//                    data[80-2].answer ==1
 //
 //                ){
 //                    binding.img.setBackgroundResource(R.drawable.platinum)
 //                    Log.d("", "Platinum")
+//                    mandatoryItemValue = "Platinum"
+//
 //                }
 //                else if (
-//                    data[2].answer ==1 || data[2].answer == 4
+//                    data[54-2].answer ==1 &&
+//                    data[55-2].answer ==1 &&
+//
+//                    data[57-2].answer ==1 &&
+//                    data[62-2].answer ==1 &&
+//                    data[63-2].answer ==1
+//
 //
 //                )
 //
@@ -324,22 +287,309 @@ class ListNosAuditActivity : BaseActivity() {
 //
 //                    binding.img.setBackgroundResource(R.drawable.gold)
 //                    Log.d("", "Gold")
+//                    mandatoryItemValue = "Gold"
+//
 //
 //                }
+//                else if (
+//                    data[54-2].answer ==1 &&
+//                    data[55-2].answer ==1 &&
 //
+//                    data[57-2].answer ==1
+//                )
+//                {
+//                    binding.img.setBackgroundResource(R.drawable.silver)
+//                    Log.d("", "Silver")
+//                    mandatoryItemValue = "Silver"
+//
+//
+//                }
 //                else
 //                {
 //                    binding.img.setBackgroundResource(R.drawable.bronze)
 //                    Log.d("", "Bronze")
+//                    mandatoryItemValue = "Bronze"
+//
 //
 //                }
+//            }
+
+
+            // h23 premesis
+//            if(index=="4") {
+//
+//                Log.d("h23 premesis", index.toString())
+//
+//
+//                if(
+//                    data[8-2].answer ==1 &&
+//                    data[10-2].answer ==1 &&
+//                    data[20-2].answer ==1 &&
+//                    data[21-2].answer ==1 &&
+//                    data[34-2].answer ==1 &&
+//                    data[36-2].answer ==1 &&
+//                    data[37-2].answer ==1 &&
+//                    data[41-2].answer ==1 &&
+//                    data[43-2].answer ==1 &&
+//                    data[52-2].answer ==1 &&
+//                    data[56-2].answer ==1 &&
+//                    data[62-2].answer ==1 &&
+//                    data[73-2].answer ==1 &&
+//                    data[74-2].answer ==1 &&
+//                    data[77-2].answer ==1 &&
+//                    data[80-2].answer ==1 &&
+//                    data[81-2].answer ==1 &&
+//                    data[82-2].answer ==1 &&
+//                    data[84-2].answer ==1 &&
+//                    data[85-2].answer ==1 &&
+//                    data[86-2].answer ==1 &&
+//                    data[87-2].answer ==1
+//                        ){
+//                    binding.img.setBackgroundResource(R.drawable.platinum)
+//                    Log.d("", "Platinum")
+//                    mandatoryItemValue = "Platinum"
+//
+//                }
+//                else if (
+//                    data[8-2].answer ==1 &&
+//                    data[10-2].answer ==1 &&
+//                    data[20-2].answer ==1 &&
+//                    data[21-2].answer ==1 &&
+//                    data[34-2].answer ==1 &&
+//                    data[36-2].answer ==1 &&
+//                    data[37-2].answer ==1 &&
+//                    data[41-2].answer ==1 &&
+//                    data[43-2].answer ==1 &&
+//                    data[52-2].answer ==1 &&
+//                    data[56-2].answer ==1 &&
+//                    data[62-2].answer ==1 &&
+//                    data[73-2].answer ==1 &&
+//                    data[74-2].answer ==1 &&
+//                    data[77-2].answer ==1 &&
+//                    data[80-2].answer ==1 &&
+//                    data[81-2].answer ==1 &&
+//                    data[85-2].answer ==1 &&
+//                    data[86-2].answer ==1 &&
+//                    data[87-2].answer ==1
+//                        )
+//                {
+//                    binding.img.setBackgroundResource(R.drawable.gold)
+//                    Log.d("", "Gold")
+//                    mandatoryItemValue = "Gold"
+//
+//                }
+//                else if (
+//                    data[8-2].answer ==1 &&
+//                    data[10-2].answer ==1 &&
+//                    data[20-2].answer ==1 &&
+//                    data[21-2].answer ==1 &&
+//                    data[34-2].answer ==1 &&
+//                    data[37-2].answer ==1 &&
+//                    data[43-2].answer ==1 &&
+//                    data[52-2].answer ==1 &&
+//                    data[56-2].answer ==1 &&
+//                    data[73-2].answer ==1 &&
+//                    data[74-2].answer ==1
+//                        ){
+//                    binding.img.setBackgroundResource(R.drawable.silver)
+//                    Log.d("", "silver")
+//                    mandatoryItemValue = "Silver"
+//
+//
+//                }
+//                else
+//                {
+//                    binding.img.setBackgroundResource(R.drawable.bronze)
+//                    Log.d("", "Bronze")
+//                    mandatoryItemValue = "Bronze"
+//                    mandatoryItemValue = "Bronze"
+//
+//
+//
+//                }
+//            }
+
+
+            // h23 people
+//            if(index=="5") {
+//
+//                Log.d("h23 people", index.toString())
+//
+//
+//                if(
+//                    data[2-2].answer ==1 &&
+//                    data[22-2].answer ==1 &&
+//                    data[33-2].answer ==1 &&
+//                    data[34-2].answer ==1 &&
+//                    data[45-2].answer ==1 &&
+//                    data[52-2].answer ==1 &&
+//                    data[54-2].answer ==1 &&
+//                    data[59-2].answer ==1
+//
+//
+//                        ){
+//                    binding.img.setBackgroundResource(R.drawable.platinum)
+//                    Log.d("", "Platinum")
+//                    mandatoryItemValue = "Platinum"
+//
+//                }
+//                else if (
+//                    data[2-2].answer ==1 &&
+//                    data[33-2].answer ==1 &&
+//                    data[34-2].answer ==1 &&
+//                    data[54-2].answer ==1 &&
+//                    data[59-2].answer ==1
+//                )
+//                {
+//                    binding.img.setBackgroundResource(R.drawable.gold)
+//                    Log.d("", "Gold")
+//                    mandatoryItemValue = "Gold"
+//
+//                }
+//                else if (
+//                    data[2-2].answer ==1 &&
+//
+//                    data[54-2].answer ==1
+//                )
+//                {
+//                    binding.img.setBackgroundResource(R.drawable.gold)
+//                    Log.d("", "Gold")
+//                    mandatoryItemValue = "Gold"
+//
+//                }
+//                else
+//                {
+//                    binding.img.setBackgroundResource(R.drawable.bronze)
+//                    Log.d("", "Bronze")
+//                    mandatoryItemValue = "Bronze"
+//
+//                }
+//            }
+
+            // h23 process
+//            if(index=="6") {
+//
+//                Log.d("h23 process", index.toString())
+//
+//
+//                if(
+//                    data[9-2].answer ==1 &&
+//                    data[10-2].answer ==1 &&
+//                    data[11-2].answer ==1 &&
+//                    data[12-2].answer ==1 &&
+//                    data[13-2].answer ==1 &&
+//                    data[25-2].answer ==1 &&
+//                    data[33-2].answer ==1 &&
+//                    data[34-2].answer ==1 &&
+//                    data[39-2].answer ==1 &&
+//                    data[40-2].answer ==1 &&
+//                    data[48-2].answer ==1 &&
+//                    data[49-2].answer ==1 &&
+//                    data[50-2].answer ==1 &&
+//                    data[61-2].answer ==1 &&
+//                    data[65-2].answer ==1 &&
+//                    data[73-2].answer ==1
+//                        ){
+//                    binding.img.setBackgroundResource(R.drawable.platinum)
+//                    Log.d("", "Platinum")
+//                }
+//                else if (
+//                    data[9-2].answer ==1 &&
+//                    data[10-2].answer ==1 &&
+//                    data[11-2].answer ==1 &&
+//                    data[12-2].answer ==1 &&
+//                    data[13-2].answer ==1 &&
+//                    data[25-2].answer ==1 &&
+//                    data[33-2].answer ==1 &&
+//                    data[34-2].answer ==1 &&
+//                    data[39-2].answer ==1 &&
+//                    data[40-2].answer ==1 &&
+//                    data[48-2].answer ==1 &&
+//                    data[49-2].answer ==1 &&
+//                    data[50-2].answer ==1 &&
+//                    data[61-2].answer ==1 &&
+//                    data[65-2].answer ==1 &&
+//                    data[73-2].answer ==1
+//
+//                )
+//                {
+//                    binding.img.setBackgroundResource(R.drawable.gold)
+//                    mandatoryItemValue = "Gold"
+//
+//                    Log.d("", "Gold")
+//                }
+//                else if (
+//                    data[25-2].answer ==1 &&
+//                    data[33-2].answer ==1 &&
+//                    data[34-2].answer ==1 &&
+//                    data[39-2].answer ==1 &&
+//                    data[40-2].answer ==1 &&
+//                    data[48-2].answer ==1 &&
+//                    data[49-2].answer ==1 &&
+//                    data[50-2].answer ==1 &&
+//                    data[73-2].answer ==1
+//
+//                        )
+//                {
+//                    binding.img.setBackgroundResource(R.drawable.silver)
+//                    Log.d("", "silver")
+//                    mandatoryItemValue = "Silver"
+//
+//                }
+//                else
+//                {
+//                    binding.img.setBackgroundResource(R.drawable.bronze)
+//                    Log.d("", "Bronze")
+//                    mandatoryItemValue = "Bronze"
+//
+//
+//                }
+//            }
+
+
+            if(totalResult.toInt() >= 90){
+                binding.img.setBackgroundResource(R.drawable.platinum)
+                mandatoryItemValue = "Platinum"
+                Log.d("", "Platinum")
+            }
+            else if (totalResult.toInt() >= 70) {
+                binding.img.setBackgroundResource(R.drawable.gold)
+                mandatoryItemValue = "Gold"
+                Log.d("", "Gold")
             }
 
+            else if (totalResult.toInt() >= 50) {
+                binding.img.setBackgroundResource(R.drawable.silver)
+                mandatoryItemValue = "Silver"
+                Log.d("", "Silver")
+
+            }
+            else{
+                binding.img.setBackgroundResource(R.drawable.bronze)
+                mandatoryItemValue = "Bronze"
+                Log.d("", "Bronze")
+
+            }
+//                if(totalResult.toInt() >= 80){
+//                    binding.img.setBackgroundResource(R.drawable.platinum)
+//                    mandatoryItemValue = "Gold"
+//                    Log.d("", "Platinum")
+//                }
+//
+//            }else{
+//        }
 
 
+            // export data to excel
+            if(index=="1")   initiateExport(data, "H1 Premises", "Exist, Good", "Exist, Not Good", "Not Exist", "N/A" , totalResult.toString(), mandatoryItemValue)
+            if(index=="2")   initiateExport(data, "H1 People", "Exist, Done", "Exist, Not Done", "Not Exist", "N/A" , totalResult.toString(), mandatoryItemValue)
+            if(index=="3")   initiateExport(data, "H1 Process", "Exist, Done", "Exist, Not Done", "Not Exist", "N/A", totalResult.toString() , mandatoryItemValue )
+            if(index=="4")   initiateExport(data, "H23 Premises",  "Exist, Good", "Exist, Not Good", "Not Exist", "N/A" , totalResult.toString(), mandatoryItemValue)
+            if(index=="5")   initiateExport(data, "H23 People", "Exist, Done", "Exist, Not Done", "Not Exist", "N/A", totalResult.toString(), mandatoryItemValue )
+            if(index=="6")   initiateExport(data, "H23 Process", "Exist, Done", "Exist, Not Done", "Not Exist", "N/A", totalResult.toString() , mandatoryItemValue )
+            if(index=="7")   initiateExport(data, "Audit All Nos", "Exist, Good", "Exist, Not Good", "Not Exist", "N/A" , totalResult.toString(), mandatoryItemValue)
 
         }
-
 
         binding.exit   .setOnClickListener {
 
@@ -370,7 +620,11 @@ class ListNosAuditActivity : BaseActivity() {
                        option1 : String,
                        option2 : String,
                        option3 : String,
-                       option4 : String,) {
+                       option4 : String,
+                       resultPercent : String,
+                       mandatoryItem : String
+
+                       ) {
         Log.d(
             "",
             "initiateExport: "
@@ -380,7 +634,7 @@ class ListNosAuditActivity : BaseActivity() {
         // Initially setting Status as 'LOADING' and set/post value to generateExcelMLD
         val isExcelGenerated: Boolean = ExcelUtils.exportDataIntoWorkbook(
             application,
-            Constants.EXCEL_FILE_NAME, dataList, title, option1, option2,option3,option4
+            Constants.EXCEL_FILE_NAME, dataList, title, option1, option2,option3,option4,resultPercent, mandatoryItem
         )
         if (isExcelGenerated) {
             Log.d("Succes", "Succes")
@@ -389,6 +643,23 @@ class ListNosAuditActivity : BaseActivity() {
             Log.d("Failed", "Failed")
 
         }
+    }
+
+    private fun showAlertDialog() {
+        val alertDialog: AlertDialog.Builder = AlertDialog.Builder(this)
+        alertDialog.setTitle("AlertDialog")
+        alertDialog.setMessage("Do you wanna close this Dialog?")
+        alertDialog.setPositiveButton(
+            "yes"
+        ) { _, _ ->
+
+        }
+        alertDialog.setNegativeButton(
+            "No"
+        ) { _, _ -> }
+        val alert: AlertDialog = alertDialog.create()
+        alert.setCanceledOnTouchOutside(false)
+        alert.show()
     }
 
     private fun launchShareFileIntent(uri: Uri) {
@@ -430,13 +701,24 @@ class ListNosAuditActivity : BaseActivity() {
         if(index=="1")   dataTemp = generateDataH1Premises() as ArrayList<NosAudit>
         if(index=="2")   dataTemp = generateDataH1People() as ArrayList<NosAudit>
         if(index=="3")   dataTemp = generateDataH1Process() as ArrayList<NosAudit>
-
         if(index=="4")   dataTemp = generateDataH23Premises() as ArrayList<NosAudit>
+        if(index=="5")   dataTemp = generateDataH23People() as ArrayList<NosAudit>
+        if(index=="6")   dataTemp = generateDataH23Process() as ArrayList<NosAudit>
 
 
-      //  if(index=="5")   dataTemp = generateDataH23Process() as ArrayList<NosAudit>
 
 
+        if(index=="7") {
+            val list: MutableList<NosAudit> = ArrayList()
+            list.addAll(generateDataH1Premises())
+            list.addAll(generateDataH1People())
+            list.addAll(generateDataH1Process())
+            list.addAll(generateDataH23Premises())
+            list.addAll(generateDataH23People())
+            list.addAll(generateDataH23Process())
+
+            dataTemp = list as ArrayList<NosAudit>
+        }
 
 
         AdapterListNosAudit.setData(dataTemp)
@@ -4383,6 +4665,100 @@ class ListNosAuditActivity : BaseActivity() {
                     "-Masker kain disesuaikan dengan warna unsur seragam, yaitu abu-abu/putih/merah/hitam* *Kecuali Jum'at-Sabtu-Minggu\n" +
                     "Menggunakan face shield (jika berinteraksi dengan konsumen)  ",
             0))
+
+
+        nosAudit.add(NosAudit(
+            "PIC HGA & Apparel  ",
+            "Jumlah   ",
+            "Minimal ada 1 orang PIC HGA & Apparel atau bisa dirangkap oleh PIC Parts ",
+            0))
+        nosAudit.add(NosAudit(
+            "PIC HGA & Apparel  ",
+            " Training (PIC Parts)  ",
+            "Sudah melakukan training (dengan masa kerja) :\n" +
+                    "- Customer Service For FLP Training (Wajib dilakukan pada usia kerja 0 - 3 bulan jika dirangkap oleh PIC Parts)\n" +
+                    "\n" +
+                    "Nilai 2 : 100%  (PIC HGA & Apparel)  sudah training \n" +
+                    "Nilai 1 : Belum 100%  ( PIC HGA & Apparel) mengikuti Training  \n" +
+                    "Nilai 0 : Belum ada  ( PIC HGA & Apparel) mengikuti training ",
+            0))
+        nosAudit.add(NosAudit(
+            "PIC HGA & Apparel  ",
+            "Training (PIC Parts)   ",
+            "Sudah melakukan training (dengan masa kerja) :\n" +
+                    "- Parts Management Knowledge \n" +
+                    "Nilai 2 : 100%  (PIC HGA & Apparel)  sudah training \n" +
+                    "Nilai 1 : Belum 100%  ( PIC HGA & Apparel) mengikuti Training  \n" +
+                    "Nilai 0 : Belum ada  ( PIC HGA & Apparel) mengikuti training ",
+            0))
+        nosAudit.add(NosAudit(
+            "PIC HGA & Apparel  ",
+            "Training (PIC Parts)   ",
+            "\n" +
+                    "Sudah melakukan training :\n" +
+                    "- Basic Orientation Traning - BOT (Wajib dilakukan pada usia kerja 0 - 1 bulan oleh Kacab / Kabeng) sebelum training NOS\n" +
+                    "\n" +
+                    "Nilai 2 : 100% (PIC HGA & Apparel) sudah training \n" +
+                    "Nilai 1 : 50%-99% (PIC HGA & Apparel) mengikuti Training  \n" +
+                    "Nilai 0 : < 50% (PIC HGA & Apparel) mengikuti training ",
+            0))
+        nosAudit.add(NosAudit(
+            "PIC HGA & Apparel  ",
+            "Training (PIC Parts)   ",
+            "Sudah melakukan training (dengan masa kerja) :\n" +
+                    "-Training Network Operational Standard (Wajib dilakukan pada usia kerja 0 - 1 bulan)\n" +
+                    "\n" +
+                    "Nilai 2 : 100%  (PIC HGA & Apparel)  sudah training \n" +
+                    "Nilai 1 : Belum 100%  ( PIC HGA & Apparel) mengikuti Training  \n" +
+                    "Nilai 0 : Belum ada  ( PIC HGA & Apparel) mengikuti training ",
+            0))
+        nosAudit.add(NosAudit(
+            "PIC HGA & Apparel  ",
+            "Standard Penampilan   ",
+            "1.Wajah : \n" +
+                    "Pria : ,wajah terlihat segar/tidak berminyak/tidak kusam, kumis/jenggot rapi (tdk dipanjangkan)\n" +
+                    "\n" +
+                    "Wanita :  Rias Wajah menggunakan make up (bedak,alis,eye shadow,blush on,lipstik sesuai standar)\n" +
+                    "\n" +
+                    "2.Rambut : \n" +
+                    "Pria : Rambut Pendek Rapi, tidak menutupi mata dan tidak menyentuh kerah baju dan telinga\n" +
+                    "\n" +
+                    "Wanita :  Rambut rapi / tidak menutupi pandangan (panjang rambut lebih dari sebahu wajib dikuncir ponytail )\n" +
+                    "\n" +
+                    "3.Wewangian dan kebersihan:\n" +
+                    "Aroma tubuh tidak mengganggu, tangan bersih, kuku tangan dan kuku kaki bersih. Untuk pria kuku pendek rapi.\n ",
+            0))
+        nosAudit.add(NosAudit(
+            "PIC HGA & Apparel  ",
+            "Standard Penampilan   ",
+            "4. Seragam : \n" +
+                    "\n" +
+                    "Ketentuan :\n" +
+                    " Senin & Rabu : Seragam Honda berkerah merah,Celana / rok hitam \n" +
+                    " Selasa & Kamis : Seragam Honda berkerah putih,Celana / rok hitam  \n" +
+                    "Jumat : baju khas daerah / batik (batik Dealer), Celana / Rok Hitam\n" +
+                    "Sabtu & Minggu : casual (berkerah) atau sesuai kebijakan masing2 dealer\n" +
+                    "(kondisi Baju : Rapi, Bersih, Warna tidak kusam, tidak robek, dan logo Honda terlihat)\n" +
+                    "* Sesuai dengan aturan seragam dari HC3 AHM\n" +
+                    "\n" +
+                    "5.Atribut  : \n" +
+                    "- Senin - Jumat : Wanita menggunakan sepatu pantofel warna hitam heel minimum 5 cm kecuali wanita hamil\n" +
+                    "- Senin - Jumat : Pria menggunakan sepatu pantofel warna hitam\n" +
+                    "- Sabtu - Minggu atau saat berada di lapangan : Sepatu Kets  warna Netral (Putih, Hitam, Abu-abu, Merah Maroon, Biru Tua, Putih)\n" +
+                    "- ID Card dengan Kalung Honda Merah\n" +
+                    "- Pin One Heart di dada kiri\n" +
+                    "- Jam Tangan Kulit / Karet / Canvas Warna Hitam / Coklat Tua / Gelap\n" +
+                    "\n" +
+                    "6. Aksesories :\n" +
+                    "Pria : aksesoris tidak berlebihan (tidak lebih dari 5 titik)\n" +
+                    " Wanita : aksesoris tidak berlebihan (tidak lebih dari 7 titik)\n" +
+                    "\n" +
+                    "Menggunakan Masker polos atau tidak bermotif.\n" +
+                    "-Masker kesehatan (warna bebas)\n" +
+                    "-Masker kain disesuaikan dengan warna unsur seragam, yaitu abu-abu/putih/merah/hitam* *Kecuali Jum'at-Sabtu-Minggu\n" +
+                    "Menggunakan face shield (jika berinteraksi dengan konsumen) ",
+            0))
+
 
 
         return nosAudit

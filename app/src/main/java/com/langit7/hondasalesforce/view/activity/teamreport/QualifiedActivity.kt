@@ -54,7 +54,7 @@ class QualifiedActivity : BaseActivity() {
         }
 
         val txtBulan1 = calendarData(0)
-        val txtBulan2 = calendarData(-1)
+        val txtBulan2 = calendarData(-12)
 
         val monthyear1 = txtBulan1.split(" ").toTypedArray()
         val month1 = monthyear1[0].substring(0,3)
@@ -67,8 +67,6 @@ class QualifiedActivity : BaseActivity() {
 
         semester = "1";
         tahun = year1;
-
-
 
         val arrayList1 = ArrayList<String>()
 

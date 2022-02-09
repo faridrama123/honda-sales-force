@@ -8,98 +8,131 @@
     android:layout_height="wrap_content"
 
     android:padding="@dimen/dp10">
+
     <LinearLayout
         android:id="@+id/llID"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
         <TextView
             android:id="@+id/tvNo"
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="No"
             android:textColor="@color/black"
             android:textSize="@dimen/dp18" />
+
         <LinearLayout
-            android:layout_marginLeft="@dimen/dp10"
-            android:orientation="vertical"
-            android:textColor="@color/black"
-            android:layout_weight="3"
             android:layout_width="0dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:textColor="@color/black">
+
             <TextView
-                android:textSize="@dimen/dp16"
-                android:textColor="@color/black"
                 android:id="@+id/tvNama"
-                android:text="Nama"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="Nama"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dp16" />
+
             <TextView
-                android:textSize="@dimen/dp12"
-                android:textColor="@color/darkblue"
                 android:id="@+id/tvJabatan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:paddingBottom="@dimen/dp3"
                 android:text="Jabatan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginLeft="@dimen/dp10"
-            android:orientation="vertical"
-            android:textColor="@color/black"
-            android:layout_weight="2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content">
-            <TextView
-                android:textSize="@dimen/dp16"
-                android:textColor="@color/black"
-                android:id="@+id/pkstatus"
-                android:text="Lulus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:textSize="@dimen/dp12"
                 android:textColor="@color/darkblue"
-                android:id="@+id/pkstatusNilai"
-                android:paddingBottom="@dimen/dp3"
-                android:text="(70/100)"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:textSize="@dimen/dp12" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginLeft="@dimen/dp10"
-            android:orientation="vertical"
-            android:textColor="@color/black"
-            android:layout_weight="2"
             android:layout_width="0dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:textColor="@color/black">
+
             <TextView
-                android:textSize="@dimen/dp16"
-                android:textColor="@color/black"
-                android:id="@+id/nosstatus"
-                android:text="Lulus"
+                android:id="@+id/pkstatus"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="Lulus"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dp16" />
+
             <TextView
-                android:textSize="@dimen/dp12"
-                android:textColor="@color/darkblue"
-                android:id="@+id/nosstatusNilai"
+                android:id="@+id/pkstatusNilai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:paddingBottom="@dimen/dp3"
                 android:text="(70/100)"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:textColor="@color/darkblue"
+                android:textSize="@dimen/dp12" />
         </LinearLayout>
-        <TextView
-            android:layout_weight="2"
+
+        <LinearLayout
             android:layout_width="0dp"
-            android:id="@+id/verfikasi"
-            android:gravity="center"
-            android:textStyle="bold"
             android:layout_height="wrap_content"
-            android:text="NA"
-            android:textColor="@color/black"/>
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:textColor="@color/black">
+
+            <TextView
+                android:id="@+id/nosstatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lulus"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dp16" />
+
+            <TextView
+                android:id="@+id/nosstatusNilai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/dp3"
+                android:text="(70/100)"
+                android:textColor="@color/darkblue"
+                android:textSize="@dimen/dp12" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:textColor="@color/black">
+
+
+            <TextView
+                android:textAlignment="center"
+
+                android:id="@+id/verifikasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nilai"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dp16" />
+
+            <TextView
+                android:id="@+id/verifikasiNilai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/dp3"
+                android:textAlignment="center"
+                android:text="N/A"
+                android:textColor="@color/darkblue"
+                android:textSize="@dimen/dp12" />
+        </LinearLayout>
+
+
     </LinearLayout>
     <View
         android:layout_below="@+id/llID"
